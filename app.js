@@ -1,19 +1,30 @@
-//app.js
+var api = require('./config/api.js')
+var util = require('./utils/util.js')
+
 App({
   onLaunch: function () {
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        console.info(res.code)
-        wx.request({
-          url: 'http://127.0.0.1:9091/zhyz/miniapp/api/login',
-          data: {
-            code: res.code
-          }
-        })
-      }
+
+    util.login().then(code => {
+      return util.post(api.AuthLogin, {code: code})
+    }).then(res => {
+      console.info(res)
+    }).catch(err => {
+
     })
+    // 登录
+    // https://github.com/tumobi/nideshop-mini-program/blob/master/app.js
+    // wx.login({
+    //   success: res => {
+    //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
+    //     console.info(res.code)
+    //     wx.request({
+    //       url: 'http://127.0.0.1:9091/zhyz/miniapp/api/login',
+    //       data: {
+    //         code: res.code
+    //       }
+    //     })
+    //   }
+    // })
     // 获取用户信息
     wx.getSetting({
       success: res => {
