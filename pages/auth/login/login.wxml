@@ -1,0 +1,15 @@
+<!--pages/auth/login/login.wxml-->
+<view>
+  <view class='align-center'>
+    <image
+      class='login-logo'
+      mode='aspectFill'
+      src='https://static.yeetong.cn/yeetong/public/logo.png-yeetong'
+    ></image>
+  </view>
+  <i-panel>
+    <i-input name='username' bind:change='setUsername' title='账号' maxlength='32' placeholder='请输入平台账号' />
+    <i-input name='password' type='password' bind:change='setPassword' title='密码' maxlength='32' placeholder='请输入账号密码' />
+  </i-panel>
+  <i-button type='primary' loading='{{logining}}' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>登录</i-button>
+</view>

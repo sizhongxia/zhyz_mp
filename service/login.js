@@ -1,13 +1,27 @@
+var api = require('../config/api.js')
+var util = require('../utils/util.js')
 
 const loginRequest = code => {
-  wx.request({
-    url: 'http://127.0.0.1:9091/zhyz/miniapp/api/login',
-    data: {
-      code: code
-    }
+  return util.post(api.AuthLogin, {
+    code: code
+  })
+}
+
+const bindRequest = data => {
+  return util.post(api.AuthBind, {
+    code: data.code,
+    username: data.username,
+    password: data.password,
+    nickName: data.nickName,
+    avatarUrl: data.avatarUrl,
+    gender: data.gender,
+    country: data.country,
+    province: data.province,
+    city: data.city
   })
 }
 
 module.exports = {
-  loginRequest: loginRequest
+  loginRequest: loginRequest,
+  bindRequest: bindRequest
 }

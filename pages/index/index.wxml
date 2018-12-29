@@ -1,10 +1,18 @@
-<!--index.wxml-->
+
 <view class="container">
-  <view class="userinfo">
-    <i-button type="primary" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </i-button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+    <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
+      <image src="{{item.picUrl}}" background-size="cover"></image>
+    </swiper-item>
+  </swiper>
+
+  <view class="m-menu">
+    <navigator class="item" open-type='{{item.openType}}' url="{{item.url}}" wx:for="{{channel}}" wx:key="{{item.id}}">
+      <image src="{{item.iconUrl}}" background-size="cover"></image>
+      <text>{{item.name}}</text>
+    </navigator>
   </view>
+  
 </view>
+
+<include src="../../template/nav.wxml"/>

@@ -1,0 +1,6 @@
+
+<view class="container">
+
+</view>
+
+<include src="../../template/nav.wxml"/>

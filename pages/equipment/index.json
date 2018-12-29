@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "设备",
   "usingComponents": {
     "i-button": "../../iview/button/index",
     "i-tab-bar": "../../iview/tab-bar/index",

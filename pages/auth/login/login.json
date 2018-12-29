@@ -1,0 +1,12 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "智慧养殖平台 - 登陆",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "i-button": "../../../iview/button/index",
+    "i-input": "../../../iview/input/index",
+    "i-panel": "../../../iview/panel/index"
+  }
+}

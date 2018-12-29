@@ -2,7 +2,8 @@ var api = require('../config/api.js')
 /**
  * 封封微信的的request
  */
-function request(url, data = {}, method = "GET") {
+function request(url, data = {}, method = "POST") {
+  console.debug(url, data, method)
   return new Promise(function (resolve, reject) {
     wx.request({
       url: url,
@@ -13,33 +14,16 @@ function request(url, data = {}, method = "GET") {
         'Yt-Smart-Culture-Token': wx.getStorageSync('token')
       },
       success: function (res) {
-        if (res.statusCode == 200) {
-          //需要登录后才可以操作
-          if (res.data.code == 401) {
-            return login().then((res) => {
-              let code = res.code;
-              //登录远程服务器
-              request(api.AuthLogin, {
-                code: code
-              }, 'POST').then(res => {
-                if (res.code === 200) {
-                  //存储用户信息
-                  wx.setStorageSync('token', res.data.token);
-                  resolve(res);
-                } else {
-                  reject(res);
-                }
-              }).catch((err) => {
-                reject(err);
-              });
-            }).catch((err) => {
-              reject(err);
-            })
+        console.debug(res)
+        if (res.statusCode === 200) {
+          if (res.data.code === 200) {
+            resolve(res.data.data);
           } else {
-            resolve(res.data);
+            reject(res.data);
           }
         } else {
-          reject(res.errMsg);
+          showErrorToast(res.errMsg)
+          reject(null);
         }
       },
       fail: function (err) {
