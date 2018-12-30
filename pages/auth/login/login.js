@@ -27,13 +27,8 @@ Page({
     }).then(res => {
       app.globalData.userInfo = res;
       wx.setStorageSync('token', res.token);
-      wx.redirectTo({
-        url: '/pages/index/index',
-        complete: () => {
-          _this.setData({
-            logining: false
-          });
-        }
+      wx.switchTab({
+        url: '/pages/index/index'
       });
     }).catch(err => {
       _this.setData({
@@ -62,19 +57,18 @@ Page({
   },
   getUserInfo: function(res) {
     const _this = this;
-    if (_this.data.logining) {
-      return false;
-    }
-    console.debug('Binding...')
-    if (!_this.data.username) {
-      util.showErrorToast('请输入平台账号');
-      return false;
-    }
-    if (!_this.data.password) {
-      util.showErrorToast('请输入账号密码');
-      return false;
-    }
     if (res.detail.userInfo) {
+      if (_this.data.logining) {
+        return false;
+      }
+      if (!_this.data.username) {
+        util.showErrorToast('请输入平台账号');
+        return false;
+      }
+      if (!_this.data.password) {
+        util.showErrorToast('请输入账号密码');
+        return false;
+      }
       _this.setData({
         logining: true
       });

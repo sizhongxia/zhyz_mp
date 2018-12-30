@@ -11,5 +11,40 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "一通无限智慧养殖",
     "navigationBarTextStyle":"black"
-  }
+  },
+  "tabBar": {
+    "color": "#515151",
+    "selectedColor": "#1195db",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/static/images/menus/home.png",
+        "selectedIconPath": "/static/images/menus/home-s.png"
+      },
+      {
+        "pagePath": "pages/equipment/index",
+        "text": "设备",
+        "iconPath": "/static/images/menus/equipment.png",
+        "selectedIconPath": "/static/images/menus/equipment-s.png"
+      },
+      {
+        "pagePath": "pages/console/index",
+        "text": "管理",
+        "iconPath": "/static/images/menus/console.png",
+        "selectedIconPath": "/static/images/menus/console-s.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "/static/images/menus/mine.png",
+        "selectedIconPath": "/static/images/menus/mine-s.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
 }

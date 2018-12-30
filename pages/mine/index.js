@@ -1,3 +1,5 @@
+var util = require('../../utils/util.js');
+var api = require('../../config/api.js')
 Page({
   data: {
     current: 'mine',
@@ -10,18 +12,17 @@ Page({
   },
   onShow: function () {
   },
-  handleChange({ detail }) {
-    if (detail.key === this.data.current) {
-      return false;
-    }
-    wx.showLoading({
-      title: '加载中...'
-    });
+  logout() {
+    wx.removeStorageSync('token');
     wx.redirectTo({
-      url: '/pages/' + detail.key + '/index',
-      complete: () => {
-        wx.hideLoading();
-      }
+      url: '/pages/auth/login/login'
+    });
+  },
+  testLogout() {
+    util.post(api.TestLogout, {}).then(res => {
+      console.info(res)
+    }).catch(err => {
+      console.info(err)
     });
   }
 })

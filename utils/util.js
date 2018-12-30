@@ -11,10 +11,16 @@ function request(url, data = {}, method = "POST") {
       method: method,
       header: {
         'Content-Type': 'application/json',
-        'Yt-Smart-Culture-Token': wx.getStorageSync('token')
+        'token': wx.getStorageSync('token')
       },
       success: function (res) {
-        console.debug(res)
+        if (res.statusCode === 401) {
+          wx.removeStorageSync('token');
+          wx.redirectTo({
+            url: '/pages/auth/login/login'
+          });
+          return false;
+        }
         if (res.statusCode === 200) {
           if (res.data.code === 200) {
             resolve(res.data.data);

@@ -1,4 +1,3 @@
-
 <view class="container">
   <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
     <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
@@ -6,13 +5,17 @@
     </swiper-item>
   </swiper>
 
-  <view class="m-menu">
-    <navigator class="item" open-type='{{item.openType}}' url="{{item.url}}" wx:for="{{channel}}" wx:key="{{item.id}}">
-      <image src="{{item.iconUrl}}" background-size="cover"></image>
+  <view class="m-monitor">
+    <block class="item" wx:for="{{channel}}" wx:key="{{item.id}}">
+      <div>{{item.value}}</div>
       <text>{{item.name}}</text>
-    </navigator>
+    </block>
   </view>
+
+  <canvas canvas-id="ringCanvas" class="canvas" bindtouchstart="touchHandler"></canvas>
+
+  <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+
+  <canvas canvas-id="columnCanvas" class="canvas" bindtouchstart="touchHandler"></canvas>
   
 </view>
-
-<include src="../../template/nav.wxml"/>
