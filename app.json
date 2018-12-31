@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/auth/login/login",
+    "pages/farm/select/index",
     "pages/index/index",
     "pages/equipment/index",
     "pages/console/index",

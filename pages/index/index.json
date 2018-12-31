@@ -1,4 +1,5 @@
 {
   "usingComponents": {
+    "i-panel": "../../../iview/panel/index"
   }
 }

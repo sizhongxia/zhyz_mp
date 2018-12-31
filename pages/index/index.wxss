@@ -25,26 +25,8 @@
   display: block;
   padding: 20rpx 0;
 }
-
-.m-monitor div {
-  display: block;
-  width: 58rpx;
-  height: 58rpx;
-  margin-bottom: 12rpx;
-  font-size: 34rpx;
-  text-align: center;
-  margin: 0 auto;
-  line-height: 58rpx;
-  color: #333;
-}
-
-.m-monitor text {
-  display: block;
-  font-size: 24rpx;
-  text-align: center;
-  margin: 0 auto;
-  line-height: 1;
-  color: #333;
+.panel {
+  width: 100%;
 }
 
 .canvas {

@@ -1,0 +1,14 @@
+<!--pages/farm/select/index.wxml-->
+<text>选择农场</text>
+<p data-farm-id="1" data-farm-identity="2" bindtap="toDetail">
+  农场1
+</p>
+<p>
+  农场2
+</p>
+<p>
+  农场3
+</p>
+<p>
+  农场4
+</p>

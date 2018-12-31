@@ -2,8 +2,8 @@ var wxCharts = require('../../static/libs/wxcharts/wxcharts.js');
 const app = getApp();
 
 var ringChart = null;
-var lineChart = null;
-var columnChart = null;
+var layEggsChart = null;
+var kindChart = null;
 
 var chartData = {
   main: {
@@ -16,38 +16,11 @@ var chartData = {
 Page({
   data: {
     userInfo: {},
-    current: 'index',
     // 轮播图
     banner: [{
       id: 1,
       picUrl: 'https://static.yeetong.cn/yeetong/zhyz/mp-banner-default.png-yeetong'
-    }],
-    channel: [{
-      id: 1,
-      name: '测试',
-      value: '12'
-    }, {
-      id: 2,
-      name: '测试',
-      value: '12'
-    }, {
-      id: 3,
-      name: '测试',
-      iconUrl: '/static/images/icon_func.png',
-      value: '12'
     }]
-  },
-  createSimulationData: function () {
-    var categories = [];
-    var data = [];
-    for (var i = 0; i < 7; i++) {
-      categories.push('2016-' + (i + 1));
-      data.push(Math.random() * (20 - 10) + 10);
-    }
-    return {
-      categories: categories,
-      data: data
-    }
   },
   onLoad: function () {
     const _this = this;
@@ -68,13 +41,8 @@ Page({
       extra: {
         ringWidth: 18,
         pie: {
-          offsetAngle: -45
+          offsetAngle: 0
         }
-      },
-      subtitle: {
-        name: '性别比例',
-        color: '#666666',
-        fontSize: 12
       },
       series: [{
         name: '公鸡',
@@ -94,9 +62,19 @@ Page({
       console.log('renderComplete');
     });
 
-    var simulationData = _this.createSimulationData();
-    lineChart = new wxCharts({
-      canvasId: 'lineCanvas',
+    var categories = [];
+    var data = [];
+    for (var i = 0; i < 7; i++) {
+      categories.push('2016-' + (i + 1));
+      data.push(Math.random() * (20 - 10) + 10);
+    }
+    var simulationData =  {
+      categories: categories,
+      data: data
+    }
+    
+    layEggsChart = new wxCharts({
+      canvasId: 'layEggsChart',
       type: 'line',
       animation: true,
       categories: simulationData.categories,
@@ -126,20 +104,20 @@ Page({
       }
     });
 
-    columnChart = new wxCharts({
-      canvasId: 'columnCanvas',
+    kindChart = new wxCharts({
+      canvasId: 'kindChart',
       type: 'column',
       animation: true,
       categories: chartData.main.categories,
       series: [{
-        name: '产蛋',
+        name: '种类',
         data: chartData.main.data
       }],
       yAxis: {
         format: function (val) {
           return val;
         },
-        title: '产蛋',
+        title: '种类',
         min: 0
       },
       xAxis: {
@@ -155,23 +133,6 @@ Page({
       height: 260,
     });
   },
-  touchHandler: function (e) {
-    console.log(ringChart.getCurrentDataIndex(e));
-  },
   onShow: function () {
-  },
-  handleChange({ detail }) {
-    if (detail.key === this.data.current) {
-      return false;
-    }
-    wx.showLoading({
-      title: '加载中...'
-    });
-    wx.redirectTo({
-      url: '/pages/' + detail.key + '/index',
-      complete: () => {
-        wx.hideLoading();
-      }
-    });
   }
 })

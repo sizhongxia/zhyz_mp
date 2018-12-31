@@ -27,8 +27,8 @@ Page({
     }).then(res => {
       app.globalData.userInfo = res;
       wx.setStorageSync('token', res.token);
-      wx.switchTab({
-        url: '/pages/index/index'
+      wx.redirectTo({
+        url: '/pages/farm/select/index'
       });
     }).catch(err => {
       _this.setData({
@@ -42,7 +42,7 @@ Page({
           console.error(err);
         }
       }
-      util.showErrorToast('登陆失败，请稍后重试');
+      util.showErrorToast('登陆失败');
     });
   },
   setUsername: function(e) {
