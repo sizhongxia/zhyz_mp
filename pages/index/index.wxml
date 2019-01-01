@@ -5,6 +5,12 @@
     </swiper-item>
   </swiper>
 
+  <view class='m-farm-info'>
+    <view class='m-farm-qrcord'>
+    </view>
+    <view class='m-farm-baseinfo'></view>
+  </view>
+
   <i-panel class="panel" title="当前农场">
   </i-panel>
   <view class="m-monitor">

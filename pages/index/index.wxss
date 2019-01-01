@@ -2,12 +2,34 @@
 
 .banner {
   width: 750rpx;
-  height: 417rpx;
+  height: 320rpx;
 }
 
 .banner image {
   width: 100%;
-  height: 417rpx;
+  height: 320rpx;
+}
+
+.m-farm-info {
+  display: flex;
+  height: 180rpx;
+  width: 750rpx;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.m-farm-info .m-farm-qrcord {
+  width: 140rpx;
+  margin: 20rpx;
+  background: #f2f2f2;
+}
+
+.m-farm-info .m-farm-baseinfo {
+  width: 550rpx;
+  height: 140rpx;
+  margin: 20rpx 20rpx 20rpx 0rpx;
+  background: #f2f2f2;
 }
 
 .m-monitor {
