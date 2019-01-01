@@ -83,7 +83,8 @@ function login() {
 function showErrorToast(msg) {
   wx.showToast({
     title: msg,
-    image: '/static/images/icon_error.png'
+    icon: 'none',
+    mask: true
   })
 }
 

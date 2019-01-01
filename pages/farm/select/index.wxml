@@ -1,14 +1,10 @@
 <!--pages/farm/select/index.wxml-->
 <text>选择农场</text>
-<p data-farm-id="1" data-farm-identity="2" bindtap="toDetail">
-  农场1
-</p>
-<p>
-  农场2
-</p>
-<p>
-  农场3
-</p>
-<p>
-  农场4
-</p>
+<block wx:if="{{authFarms.length > 0}}">
+  <view wx:for="{{authFarms}}" data-farm-id="{{item.farmId}}" data-farm-identity="{{item.farmIdentity}}" bindtap="toDetail">
+    {{item.farmName}}
+  </view>
+</block>
+<block wx:else>
+  <view>请先申请授权访问</view>
+</block>

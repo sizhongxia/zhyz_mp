@@ -27,6 +27,12 @@ Page({
     _this.setData({
       userInfo: app.globalData.userInfo
     });
+    
+    var farmId = wx.getStorageSync('curr-farm-id');
+    var farmIdentity = wx.getStorageSync('curr-farm-identity');
+    console.info(farmId)
+    console.info(farmIdentity)
+
     var windowWidth = 320;
     try {
       var res = wx.getSystemInfoSync();

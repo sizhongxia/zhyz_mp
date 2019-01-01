@@ -7,6 +7,7 @@
 
   <view class='m-farm-info'>
     <view class='m-farm-qrcord'>
+      <image mode='aspectFit' src='http://test.static.yeetong.cn/FARM_QR5c2b75ad7ba9b59499acbf58-yeetong'></image>
     </view>
     <view class='m-farm-baseinfo'></view>
   </view>

@@ -101,7 +101,7 @@ Page({
             console.error(err);
           }
         }
-        util.showErrorToast('请求失败，请稍后重试');
+        util.showErrorToast('请求失败');
       });
       this.setData({
         userInfo: res.detail.userInfo,

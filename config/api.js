@@ -1,5 +1,5 @@
 // const ApiUrl = 'http://192.168.31.144:9091/zhyz/miniapp/api/';
-const ApiUrl = 'http://192.168.210.113:9091/zhyz/miniapp/api/';
+const ApiUrl = 'http://192.168.31.96:9091/zhyz/miniapp/api/';
 // const ApiUrl = 'http://192.168.1.107:9091/zhyz/miniapp/api/';
 // const ApiUrl = 'https://wxapi.yeetong.cn/zhyz/miniapp/api/';
 module.exports = {
@@ -7,6 +7,7 @@ module.exports = {
   // 微信登陆
   AuthLogin: ApiUrl + 'auth/wxlogin',
   AuthBind: ApiUrl + 'auth/bind',
-  TestLogout: ApiUrl + 'business/index',
+  // 授权访问的农场列表
+  AuthFarms: ApiUrl + 'farm/auths',
 
 }

@@ -12,7 +12,7 @@
 
 .m-farm-info {
   display: flex;
-  height: 180rpx;
+  height: 220rpx;
   width: 750rpx;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -20,14 +20,18 @@
 }
 
 .m-farm-info .m-farm-qrcord {
-  width: 140rpx;
-  margin: 20rpx;
-  background: #f2f2f2;
+  width: 190rpx;
+  margin: 15rpx;
+}
+
+.m-farm-info .m-farm-qrcord image {
+  width: 190rpx;
+  height: 190rpx;
 }
 
 .m-farm-info .m-farm-baseinfo {
-  width: 550rpx;
-  height: 140rpx;
+  width: 505rpx;
+  height: 180rpx;
   margin: 20rpx 20rpx 20rpx 0rpx;
   background: #f2f2f2;
 }

@@ -1,4 +1,3 @@
 <view class="container">
   <i-button type="primary" bind:click="logout">退出</i-button>
-  <i-button type="primary" bind:click="testLogout">退出2</i-button>
 </view>
