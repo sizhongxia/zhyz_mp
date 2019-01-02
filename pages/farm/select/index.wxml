@@ -1,10 +1,30 @@
 <!--pages/farm/select/index.wxml-->
-<text>选择农场</text>
+<text></text>
 <block wx:if="{{authFarms.length > 0}}">
-  <view wx:for="{{authFarms}}" data-farm-id="{{item.farmId}}" data-farm-identity="{{item.farmIdentity}}" bindtap="toDetail">
-    {{item.farmName}}
-  </view>
+
+  <i-panel title="选择农场">
+    <view>
+      <i-cell-group>
+        <i-cell title="{{item.farmName}}" is-link wx:for="{{authFarms}}" data-farm-id="{{item.farmId}}" data-farm-identity="{{item.farmIdentity}}" bindtap="toDetail"></i-cell>
+      </i-cell-group>
+    </view>
+  </i-panel>
+
 </block>
 <block wx:else>
-  <view>请先申请授权访问</view>
+  <view style='text-align:center;'>
+    <image style='width: 240rpx;height:240rpx;margin:80rpx auto 20rpx;' src='/static/images/scan.png' bindtap='scanFarmCode'></image>
+    <view style='width: 620rpx;font-size:1em;margin:auto;'>未找到授权农场，您可通过扫码农场二维码进行访问申请。</view>
+  </view>
 </block>
+
+<i-modal title="申请访问" visible="{{ applyModalVisible }}" bind:ok="toApply" bind:cancel="toClose">
+  <view style='text-align:center;'>
+    <image src='{{farm.farmLogo}}' style='width:100rpx;height:100rpx;margin:auto;'></image>
+  </view>
+  <i-cell-group style='text-align:left;'>
+    <i-cell title="名称：{{farm.farmName}}"></i-cell>
+    <i-cell title="所有人：{{farm.ownerName}}"></i-cell>
+    <i-cell title="地址：{{farm.address}}"></i-cell>
+  </i-cell-group>
+</i-modal>
