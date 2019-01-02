@@ -10,9 +10,17 @@ const farmDetail = (farmId) => {
 const applyFarmVisit = (farmId) => {
   return util.post(api.ToApplyFarmVisit, { farmId: farmId })
 }
+const selectFarmBanners = (farmId) => {
+  return util.post(api.FarmBanners, { farmId: farmId })
+}
+const selectFarmWeather = (weatherCityCode) => {
+  return util.post(api.FarmWeather, { weatherCityCode: weatherCityCode })
+}
 
 module.exports = {
   authFarms: authFarms,
   farmDetail: farmDetail,
-  applyFarmVisit: applyFarmVisit
+  applyFarmVisit: applyFarmVisit,
+  selectFarmBanners: selectFarmBanners,
+  selectFarmWeather: selectFarmWeather
 }

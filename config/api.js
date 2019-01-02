@@ -11,5 +11,8 @@ module.exports = {
   AuthFarms: ApiUrl + 'farm/auths',
   FarmDetail: ApiUrl + 'farm/detail',
   ToApplyFarmVisit: ApiUrl + 'farm/toApply',
+  FarmBanners: ApiUrl + 'farm/banners',
+  FarmWeather: ApiUrl + 'farm/weather/baseTxt',
+  
 
 }
