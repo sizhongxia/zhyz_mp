@@ -1,15 +1,35 @@
-const app = getApp();
 var farmService = require('../../service/farm.js');
 var util = require('../../utils/util.js');
+const app = getApp();
 
 Page({
   data: {
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
     userInfo: {},
     // 轮播图
     banners: [],
     // 农场详情
     farm: {},
-    weather: ''
+    weather: '',
+    monitor: {
+      tmp: {
+        online: 0,
+        warn: 0
+      },
+      hum: {
+        online: 0,
+        warn: 0
+      },
+      ammonia: {
+        online: 0,
+        warn: 0
+      },
+      camera: {
+        online: 0,
+        outline: 0
+      }
+    }
   },
   onLoad: function() {
     const _this = this;
@@ -47,10 +67,7 @@ Page({
     // console.info(farmId)
     // console.info(farmIdentity)
   },
-  onShow: function() {},
-  onPullDownRefresh() {
-    this.loadData(function() {
-     wx.stopPullDownRefresh();
-    });
+  onShow: function() {
+    this.loadData();
   }
 })

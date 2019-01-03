@@ -1,17 +1,23 @@
-<!--pages/auth/login/login.wxml-->
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='content'>智慧养殖平台登陆</view>
+  </bar>
+</custom>
 <view>
   <view class='align-center'>
-    <image
-      class='login-logo'
-      mode='aspectFill'
-      src='https://static.yeetong.cn/yeetong/public/logo.png-yeetong'
-    ></image>
+    <image class='login-logo' mode='aspectFill' src='https://static.yeetong.cn/yeetong/public/logo.png-yeetong'></image>
   </view>
-  <i-panel>
-    <i-input name='username' bind:change='setUsername' title='账号' maxlength='32' placeholder='请输入平台账号' />
-  </i-panel>
-  <i-panel>
-    <i-input name='password' type='password' bind:change='setPassword' title='密码' maxlength='32' placeholder='请输入账号密码' />
-  </i-panel>
-  <i-button type='primary' loading='{{logining}}' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>登录</i-button>
+  <form>
+    <form-group class="margin-top">
+      <view class='title'>账号</view>
+      <input placeholder="请输入平台账号" bindinput='setUsername' class='radius' name='username'></input>
+    </form-group>
+    <form-group>
+      <view class='title'>密码</view>
+      <input placeholder="请输入账号密码" bindinput='setPassword' type='password' class='radius' name='password'></input>
+    </form-group>
+  </form>
+  <view class="padding-xl">
+    <button class='block bg-blue margin-tb-sm lg' open-type='getUserInfo' bindgetuserinfo='getUserInfo' loading='{{logining}}'>登录</button>
+  </view>
 </view>

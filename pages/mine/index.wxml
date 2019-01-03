@@ -1,3 +1,77 @@
-<view class="container">
-  <i-button type="primary" bind:click="logout">退出</i-button>
+<card class="DhCard">
+  <item class="gradual-blue padding-xl" style="margin: 0rpx;">
+    <view style='margin-top: 120rpx;'>
+      <avatar class="xxl round" style="background-image:url(https://image.weilanwl.com/img/square-4.jpg);"></avatar>
+    </view>
+    <view style='margin-top: 32rpx;'>
+      <view style='font-size: 32rpx;'>司仲夏</view>
+    </view>
+    <view class='animation-wave'>
+      <view class='wave'></view>
+    </view>
+  </item>
+</card>
+<view class="padding-xl shadow-warp bg-white" style='margin-top:-1px;'>
+  <view class="flex">
+    <view class='flex-sub bg-grey padding-sm margin-xs radius'>1</view>
+    <view class='flex-sub bg-grey padding-sm margin-xs radius'>1</view>
+    <view class='flex-sub bg-grey padding-sm margin-xs radius'>1</view>
+  </view>
 </view>
+
+
+
+<list class="menu">
+  <item bindtap='logout'>
+    <view class='content'>
+      <icon class='icon-circlefill text-grey' />
+      <text class='text-grey'>默认</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <icon class='icon-emojifill text-red' />
+      <text class='text-grey'>头像</text>
+    </view>
+    <view class='action'>
+      <avatar class="sm round">
+        <icon class='icon-people' />
+      </avatar>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <icon class='icon-emojiflashfill text-pink' />
+      <text class='text-grey'>头像组</text>
+    </view>
+    <view class='action'>
+      <avatar-group>
+        <avatar class="round sm" style="background-image:url(https://image.weilanwl.com/img/square-4.jpg);"></avatar>
+        <avatar class="round sm" style="background-image:url(https://image.weilanwl.com/img/square-3.jpg);"></avatar>
+        <avatar class="round sm" style="background-image:url(https://image.weilanwl.com/img/square-2.jpg);"></avatar>
+        <avatar class="round sm" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);"></avatar>
+      </avatar-group>
+      <text class='text-grey text-sm'>4 人</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <icon class='icon-crown text-green' />
+      <text class='text-grey'>按钮</text>
+    </view>
+    <view class='action'>
+      <button class='round bg-green sm'>
+        <icon class='icon-upload' /> 上传</button>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <icon class='icon-crownfill text-green' />
+      <text class='text-grey'>按钮</text>
+    </view>
+    <view class='action'>
+      <button class='round bg-blue'>
+        <icon class='icon-down' /> 下载</button>
+    </view>
+  </item>
+</list>

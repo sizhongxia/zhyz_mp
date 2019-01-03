@@ -1,26 +1,9 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='content'>设备管理</view>
+  </bar>
+</custom>
+
 <view class="container">
-  <i-sticky class="sticky" scrollTop="{{scrollTop}}">
-    <i-sticky-item>
-      <view slot="title">温度</view>
-      <view slot="content">
-      <view style='height: 1000rpx'></view>
-      </view>
-    </i-sticky-item>
-    <i-sticky-item>
-      <view slot="title">
-        逻辑层2
-      </view>
-      <view slot="content">
-      <view style='height: 1000rpx'></view>
-      </view>
-    </i-sticky-item>
-    <i-sticky-item>
-      <view slot="title">
-        逻辑层3
-      </view>
-      <view slot="content">
-      <view style='height: 1000rpx'></view>
-      </view>
-    </i-sticky-item>
-  </i-sticky>
+  
 </view>

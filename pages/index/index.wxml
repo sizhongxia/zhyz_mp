@@ -1,5 +1,11 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='content'>智慧·物联养殖</view>
+  </bar>
+</custom>
+
 <view class="container">
-  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+  <swiper class="screen-swiper square-dot width-full" indicator-dots="true" autoplay="true" interval="6000" duration="600">
     <swiper-item wx:for="{{banners}}" wx:key="{{item.id}}">
       <image src="{{item.picUrl}}" mode='aspectFill' style='width:750rpx;'></image>
     </swiper-item>
@@ -9,50 +15,90 @@
     {{weather}}
   </view>
 
-  <view class='m-farm-info'>
-    <view class='m-farm-qrcord'>
-      <image mode='aspectFit' src='{{farm.qrCodeUrl}}'></image>
+  <card class="article  width-full">
+    <item class="shadow">
+      <view class="title" style='line-height:60rpx; padding:15rpx 30rpx 0;'>{{farm.farmName}}</view>
+      <view class="content">
+        <image style='width: 190rpx;height:190rpx;' src="{{farm.qrCodeUrl}}" mode="aspectFit"></image>
+        <view class="desc" style='margin-top:40rpx;height:144rpx;'>
+          <view class='m-farm-baseinfo-item'>农场位置：{{farm.address}}</view>
+          <view class='m-farm-baseinfo-item'>占地面积：{{farm.acreage}}</view>
+          <view class='m-farm-baseinfo-item'>宣传网址：{{farm.website}}</view>
+        </view>
+      </view>
+    </item>
+  </card>
+
+  <list class="grid no-border col-4 width-full">
+    <item>
+      <text class='typeName'>温度</text>
+      <view class='typeInfo'>在线：{{monitor.tmp.online}}</view>
+      <view class='typeInfo'>告警：{{monitor.tmp.warn}}</view>
+    </item>
+    <item>
+      <text class='typeName'>湿度</text>
+      <view class='typeInfo'>在线：{{monitor.hum.online}}</view>
+      <view class='typeInfo'>告警：{{monitor.hum.warn}}</view>
+    </item>
+    <item>
+      <text class='typeName'>氨气</text>
+      <view class='typeInfo'>在线：{{monitor.ammonia.online}}</view>
+      <view class='typeInfo'>告警：{{monitor.ammonia.warn}}</view>
+    </item>
+    <item>
+      <text class='typeName'>摄像头</text>
+      <view class='typeInfo'>在线：{{monitor.camera.online}}</view>
+      <view class='typeInfo'>离线：{{monitor.camera.outline}}</view>
+    </item>
+  </list>
+
+
+  <bar class="solid-bottom margin-top width-full">
+    <view class='action'>
+      <icon class='icon-titles text-orange ' /> 禽畜种类概况
     </view>
-    <view class='m-farm-baseinfo'>
-      <view class='m-farm-baseinfo-item' style='margin-top:12rpx;'>{{farm.farmName}}</view>
-      <view class='m-farm-baseinfo-item'>{{farm.address}} 占地面积:{{farm.acreage}}</view>
-      <view class='m-farm-baseinfo-item'>{{farm.website}}</view>
-    </view>
-  </view>
-
-  <i-panel class="panel" title="农场设备信息">
-    <view class="m-monitor">
-      <view class="item">
-        <view class='typeName'>温度</view>
-        <view class='typeInfo'>告警数量：2</view>
-        <view class='typeInfo'>在线数量：2</view>
+  </bar>
+  <card class="article no-card width-full">
+    <item class="shadow">
+      <view class="title">鸡</view>
+      <view class="content">
+        <image src="https://image.weilanwl.com/img/4x3-3.jpg" mode="aspectFill"></image>
+        <view class="desc">
+          <view class='text-content'>
+            <view>总数：800</view>
+            <view>总数：800</view>
+            <view>总数：800</view>
+          </view>
+        </view>
       </view>
-      <view class="item">
-        <view class='typeName'>湿度</view>
-        <view class='typeInfo'>告警数量：2</view>
-        <view class='typeInfo'>在线数量：2</view>
+    </item>
+    <item class="shadow">
+      <view class="title">鸭</view>
+      <view class="content">
+        <image src="https://image.weilanwl.com/img/4x3-3.jpg" mode="aspectFill"></image>
+        <view class="desc">
+          <view class='text-content'></view>
+        </view>
       </view>
-      <view class="item">
-        <view class='typeName'>氨气</view>
-        <view class='typeInfo'>告警数量：2</view>
-        <view class='typeInfo'>在线数量：2</view>
+    </item>
+    <item class="shadow">
+      <view class="title">鹅</view>
+      <view class="content">
+        <image src="https://image.weilanwl.com/img/4x3-3.jpg" mode="aspectFill"></image>
+        <view class="desc">
+          <view class='text-content'></view>
+        </view>
       </view>
-      <view class="item">
-        <view class='typeName'>视频</view>
-        <view class='typeInfo'>在线数量：2</view>
-        <view class='typeInfo'>离线数量：2</view>
+    </item>
+    <item class="shadow">
+      <view class="title">猪</view>
+      <view class="content">
+        <image src="https://image.weilanwl.com/img/4x3-3.jpg" mode="aspectFill"></image>
+        <view class="desc">
+          <view class='text-content'></view>
+        </view>
       </view>
-    </view>
-  </i-panel>
-
-  <i-panel class="panel" title="最近一次投食">
-
-  </i-panel>
-  <i-panel class="panel" title="最近一次投食">
-
-  </i-panel>
-  <i-panel class="panel" title="最近一次巡检">
-
-  </i-panel>
+    </item>
+  </card>
 
 </view>

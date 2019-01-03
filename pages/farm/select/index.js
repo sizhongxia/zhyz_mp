@@ -1,7 +1,12 @@
 var farmService = require('../../../service/farm.js');
 var util = require('../../../utils/util.js');
+const app = getApp()
+
 Page({
   data: {
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    barTitle: '选择农场',
     authFarms: [],
     farm: {},
     applyModalVisible: false
@@ -11,15 +16,14 @@ Page({
     console.debug('获取用户农场授权信息...');
     farmService.authFarms().then(res => {
       if (res.length === 0) {
-        wx.setNavigationBarTitle({
-          title: '扫码申请'
+        _this.setData({
+          barTitle: '扫码申请'
         });
         return false;
       }
       _this.setData({
         authFarms: res
       });
-      console.debug('用户农场授权信息>>>', res);
       if (res.length === 1) {
         wx.setStorageSync('curr-farm-id', res[0].farmId);
         wx.setStorageSync('curr-farm-identity', res[0].farmIdentity);
@@ -57,7 +61,7 @@ Page({
   scanFarmCode: function() {
     const _this = this;
     wx.scanCode({
-      onlyFromCamera: true,
+      onlyFromCamera: false,
       scanType: ['qrCode'],
       success(res) {
         var qrVal = res.result.replace(new RegExp('"', "g"), "");
@@ -84,10 +88,7 @@ Page({
     _this.toClose();
     farmService.applyFarmVisit(_this.data.farm.farmId).then(res => {
       if(res === 'SUC') {
-        wx.showModal({
-          title: '申请成功',
-          content: '请耐心等待农场管理员确认审核。',
-        });
+        wx.showErrorToast('申请成功, 请耐心等待管理员审核');
       } else if (res === 'D') {
         util.showErrorToast('无需重复提交申请')
       } else if(res === 'Y') {

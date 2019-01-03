@@ -1,6 +1,6 @@
-const ApiUrl = 'http://192.168.31.144:9091/zhyz/miniapp/api/';
+// const ApiUrl = 'http://192.168.31.144:9091/zhyz/miniapp/api/';
 // const ApiUrl = 'http://192.168.31.96:9091/zhyz/miniapp/api/';
-// const ApiUrl = 'http://192.168.1.107:9091/zhyz/miniapp/api/';
+const ApiUrl = 'http://192.168.1.107:9091/zhyz/miniapp/api/';
 // const ApiUrl = 'https://wxapi.yeetong.cn/zhyz/miniapp/api/';
 module.exports = {
 

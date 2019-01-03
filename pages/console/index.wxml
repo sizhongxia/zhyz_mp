@@ -1,3 +1,9 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='content'>农场管理</view>
+  </bar>
+</custom>
+
 <view class="container">
   
 </view>

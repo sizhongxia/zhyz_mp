@@ -1,6 +1,9 @@
+const app = getApp();
+
 Page({
   data: {
-    scrollTop: 0
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar
   },
   onLoad: function (options) {
 
@@ -9,11 +12,5 @@ Page({
 
   },
   onShow: function () {
-  },
-  //页面滚动执行方式
-  onPageScroll(event) {
-    this.setData({
-      scrollTop: event.scrollTop
-    })
   }
 })

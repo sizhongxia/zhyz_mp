@@ -1,6 +1,4 @@
 {
   "usingComponents": {
-    "i-panel": "../../../iview/panel/index"
-  },
-  "enablePullDownRefresh": true
+  }
 }

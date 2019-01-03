@@ -8,10 +8,11 @@
     "pages/mine/index"
   ],
   "window":{
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "一通无限智慧养殖",
-    "navigationBarTextStyle":"black"
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#515151",

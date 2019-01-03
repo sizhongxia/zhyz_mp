@@ -4,6 +4,8 @@ const app = getApp()
 
 Page({
   data: {
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
     username: '',
     password: '',
     logining: false
@@ -47,12 +49,12 @@ Page({
   },
   setUsername: function(e) {
     this.setData({
-      username: e.detail.detail.value
+      username: e.detail.value
     });
   },
   setPassword: function(e) {
     this.setData({
-      password: e.detail.detail.value
+      password: e.detail.value
     });
   },
   getUserInfo: function(res) {
