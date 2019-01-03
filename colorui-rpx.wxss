@@ -2141,7 +2141,7 @@ bar .content {
   bottom: 16rpx;
   margin: auto;
   height: 60rpx;
-  font-size: 36rpx;
+  font-size: 34rpx;
   line-height: 60rpx;
   cursor: none;
   pointer-events: none;

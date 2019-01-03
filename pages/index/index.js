@@ -69,5 +69,8 @@ Page({
   },
   onShow: function() {
     this.loadData();
+  },
+  previewQrCodeImage: function() {
+    util.previewImage(this.data.farm.qrCodeUrl);
   }
 })

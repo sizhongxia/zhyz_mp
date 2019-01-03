@@ -1,18 +1,23 @@
-// const ApiUrl = 'http://192.168.31.144:9091/zhyz/miniapp/api/';
-// const ApiUrl = 'http://192.168.31.96:9091/zhyz/miniapp/api/';
-const ApiUrl = 'http://192.168.1.107:9091/zhyz/miniapp/api/';
-// const ApiUrl = 'https://wxapi.yeetong.cn/zhyz/miniapp/api/';
+const ApiUrl = 'http://192.168.31.144:9091';
+// const ApiUrl = 'http://192.168.31.96:9091';
+// const ApiUrl = 'http://192.168.1.107:9091';
+// const ApiUrl = 'https://wxapi.yeetong.cn';
 module.exports = {
 
   // 微信登陆
-  AuthLogin: ApiUrl + 'auth/wxlogin',
-  AuthBind: ApiUrl + 'auth/bind',
+  AuthLogin: ApiUrl + '/zhyz/miniapp/api/auth/wxlogin',
+  AuthBind: ApiUrl + '/zhyz/miniapp/api/auth/bind',
   // 授权访问的农场列表
-  AuthFarms: ApiUrl + 'farm/auths',
-  FarmDetail: ApiUrl + 'farm/detail',
-  ToApplyFarmVisit: ApiUrl + 'farm/toApply',
-  FarmBanners: ApiUrl + 'farm/banners',
-  FarmWeather: ApiUrl + 'farm/weather/baseTxt',
-  
+  AuthFarms: ApiUrl + '/zhyz/miniapp/api/farm/auths',
+  FarmDetail: ApiUrl + '/zhyz/miniapp/api/farm/detail',
+  ToApplyFarmVisit: ApiUrl + '/zhyz/miniapp/api/farm/toApply',
+  FarmBanners: ApiUrl + '/zhyz/miniapp/api/farm/banners',
+  FarmWeather: ApiUrl + '/zhyz/miniapp/api/farm/weather/baseTxt',
+  UpdateFarm: ApiUrl + '/zhyz/miniapp/api/farm/update',
+
+
+
+  UploadApi: ApiUrl + '/basic/api/upload',
+
 
 }

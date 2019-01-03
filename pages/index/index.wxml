@@ -19,7 +19,7 @@
     <item class="shadow">
       <view class="title" style='line-height:60rpx; padding:15rpx 30rpx 0;'>{{farm.farmName}}</view>
       <view class="content">
-        <image style='width: 190rpx;height:190rpx;' src="{{farm.qrCodeUrl}}" mode="aspectFit"></image>
+        <image bindtap='previewQrCodeImage' style='width: 190rpx;height:190rpx;' src="{{farm.qrCodeUrl}}" mode="aspectFit"></image>
         <view class="desc" style='margin-top:40rpx;height:144rpx;'>
           <view class='m-farm-baseinfo-item'>农场位置：{{farm.address}}</view>
           <view class='m-farm-baseinfo-item'>占地面积：{{farm.acreage}}</view>

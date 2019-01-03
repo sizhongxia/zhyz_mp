@@ -44,6 +44,14 @@ function post(url, data = {}) {
   return request(url, data, 'POST')
 }
 
+function previewImage(url) {
+  wx.previewImage({
+    current: url,
+    urls: [url]
+  });
+}
+
+
 /**
  * 检查微信会话是否过期
  */
@@ -93,5 +101,6 @@ module.exports = {
   post,
   showErrorToast,
   checkSession,
-  login
+  login,
+  previewImage
 }

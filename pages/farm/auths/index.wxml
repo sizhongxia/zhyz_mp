@@ -1,0 +1,14 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 我的
+    </navigator>
+    <view class='content'>授权农场</view>
+  </bar>
+</custom>
+
+<scroll-view scroll-x class="bg-white nav text-center">
+  <item class="{{selectState=='Y'?'text-blue cur':''}}" bindtap='tabSelect' data-id="Y">已授权</item>
+  <item class="{{selectState=='D'?'text-blue cur':''}}" bindtap='tabSelect' data-id="D">待审核</item>
+  <item class="{{selectState=='N'?'text-blue cur':''}}" bindtap='tabSelect' data-id="N">已拒绝</item>
+</scroll-view>

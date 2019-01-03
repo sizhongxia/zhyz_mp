@@ -88,9 +88,12 @@ Page({
     _this.toClose();
     farmService.applyFarmVisit(_this.data.farm.farmId).then(res => {
       if(res === 'SUC') {
-        wx.showErrorToast('申请成功, 请耐心等待管理员审核');
+        wx.showModal({
+          title: '申请成功',
+          content: '请耐心等待农场管理员审核',
+        });
       } else if (res === 'D') {
-        util.showErrorToast('无需重复提交申请')
+        util.showErrorToast('请耐心等待农场管理员审核')
       } else if(res === 'Y') {
         wx.setStorageSync('curr-farm-id', _this.data.farm.farmId);
         wx.setStorageSync('curr-farm-identity', 'visitor');
