@@ -12,3 +12,48 @@
   <item class="{{selectState=='D'?'text-blue cur':''}}" bindtap='tabSelect' data-id="D">待审核</item>
   <item class="{{selectState=='N'?'text-blue cur':''}}" bindtap='tabSelect' data-id="N">已拒绝</item>
 </scroll-view>
+
+
+<list class="menu menu-avatar no-padding">
+  <item class="cur">
+    <avatar class="radius lg" style="background-image:url(https://image.weilanwl.com/img/square-3.jpg);"></avatar>
+    <view class='content'>
+      <view>喵星人互动群</view>
+      <view class='text-gray text-sm'>
+        喵星酱：喵喵喵！</view>
+    </view>
+    <view class='action'>
+      <view class='text-grey text-xs'>22:20</view>
+      <tag class="round bg-red sm">5</tag>
+    </view>
+  </item>
+  <item class="cur">
+    <avatar class="radius lg" style="background-image:url(https://image.weilanwl.com/img/square-3.jpg);"></avatar>
+    <view class='content'>
+      <view>喵星人互动群</view>
+      <view class='text-gray text-sm'>
+        喵星酱：喵喵喵！</view>
+    </view>
+    <view class='action'>
+      <view class='text-grey text-xs'>22:20</view>
+      <tag class="round bg-red sm">5</tag>
+    </view>
+  </item>
+  <item class="cur">
+    <avatar class="radius lg" style="background-image:url(https://image.weilanwl.com/img/square-4.jpg);">
+      <tag class="badge"></tag>
+    </avatar>
+    <view class='content'>
+      <view>喵星人互动群
+        <tag class="round bg-orange sm">6人</tag>
+      </view>
+      <view class='text-gray text-sm'>
+        喵星酱：
+        <icon class='icon-picfill text-orange' /> 图片传输中...</view>
+    </view>
+    <view class='action'>
+      <view class='text-grey text-xs'>22:20</view>
+      <icon class='icon-notice_forbid_fill text-gray' />
+    </view>
+  </item>
+</list>

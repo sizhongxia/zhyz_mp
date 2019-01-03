@@ -11,7 +11,7 @@
     </view>
   </item>
 </card>
-<view class="shadow-warp bg-white" style='margin-top:-1px;padding:20rpx;font-size:24rpx;'>
+<view class="shadow-warp bg-white" style='margin-top:-1px;padding:20rpx;font-size:28rpx;'>
   <view class="flex">
     <view class='flex-sub padding-sm margin-xs radius'>当前身份：{{currentFarmIdentity == "admin" ? "管理员" : currentFarmIdentity == "manager" ? "运维人员" : "访客"}}</view>
   </view>
