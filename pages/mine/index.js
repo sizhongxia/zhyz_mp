@@ -52,16 +52,21 @@ Page({
   toEditFarmInfo: function() {
     wx.navigateTo({
       url: "/pages/farm/editInfo/index"
-    })
+    });
   },
   toAuthFarms: function() {
     wx.navigateTo({
       url: "/pages/farm/auths/index"
-    })
+    });
   },
   toAuthUserApply: function () {
     wx.navigateTo({
       url: "/pages/farm/userApply/index"
-    })
+    });
+  },
+  toApplyFarm: function () {
+    wx.navigateTo({
+      url: "/pages/farm/applyNew/index"
+    });
   }
 })

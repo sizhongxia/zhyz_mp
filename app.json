@@ -4,6 +4,7 @@
     "pages/farm/editInfo/index",
     "pages/farm/auths/index",
     "pages/farm/userApply/index",
+    "pages/farm/applyNew/index",
     "pages/index/index",
     "pages/equipment/index",
     "pages/console/index",

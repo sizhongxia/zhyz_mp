@@ -1,0 +1,34 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 我的
+    </navigator>
+    <view class='content'>申请新农场</view>
+  </bar>
+</custom>
+<view style='text-align:center;'>
+  <image style='width: 240rpx;height:240rpx;margin:80rpx auto 20rpx;' src='/static/images/scan.png' bindtap='scanFarmCode'></image>
+  <view style='width: 620rpx;font-size:32rpx;margin:auto;line-height: 42rpx;'>您可通过扫码农场二维码进行访问申请。</view>
+</view>
+<modal-box class="{{applyModalVisible?'show':''}}">
+  <dialog>
+    <view class="bg-img bg-mask" style="background-image: url('{{farm.farmLogo}}');height:200px;">
+      <bar class="justify-end none-bg text-white">
+        <view class='action' bindtap='toClose'>
+          <icon class='icon-close'></icon>
+        </view>
+      </bar>
+      <view class='padding-xl text-white'>
+        <view class='padding-xs text-xl'>
+          {{farm.farmName}}
+        </view>
+        <view class='padding-xs'>
+          {{farm.ownerName}} | {{farm.address}}
+        </view>
+      </view>
+    </view>
+    <bar>
+      <view class='action margin-0 flex-sub solid-left' bindtap='toApply'>申请访问</view>
+    </bar>
+  </dialog>
+</modal-box>

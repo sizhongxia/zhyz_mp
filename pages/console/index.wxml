@@ -3,7 +3,27 @@
     <view class='content'>农场管理</view>
   </bar>
 </custom>
-
-<view class="container">
-  
+<view class='container' style='margin-top:60rpx;'>
+  <view class='nav-list width-full'>
+    <view hover-class='none' url="" class="nav-li bg-blue">
+      <view class="nav-title">投食管理</view>
+      <view class="nav-name">Feed</view>
+      <icon class='icon-home' />
+    </view>
+    <view hover-class='none' url="" class="nav-li bg-blue">
+      <view class="nav-title">投食管理</view>
+      <view class="nav-name">Feed</view>
+      <icon class='icon-home' />
+    </view>
+    <view hover-class='none' url="" class="nav-li bg-blue">
+      <view class="nav-title">投食管理</view>
+      <view class="nav-name">Feed</view>
+      <icon class='icon-home' />
+    </view>
+    <view hover-class='none' url="" class="nav-li bg-blue">
+      <view class="nav-title">投食管理</view>
+      <view class="nav-name">Feed</view>
+      <icon class='icon-home' />
+    </view>
+  </view>
 </view>

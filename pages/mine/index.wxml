@@ -49,6 +49,15 @@
       <text class='text-grey'>授权农场</text>
     </view>
   </item>
+  <item class="arrow" bindtap='toApplyFarm'>
+    <view class='content'>
+      <icon class='icon-qr_code text-green' />
+      <text class='text-grey'>申请农场</text>
+    </view>
+    <view class='action'>
+      <tag class='round'>扫描二维码</tag>
+    </view>
+  </item>
 </list>
 <view class="padding-xl">
   <button class='bg-red round shadow lg block' style='margin: 32rpx auto;' bindtap='logout'>安全退出</button>
