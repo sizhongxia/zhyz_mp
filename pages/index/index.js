@@ -36,10 +36,15 @@ Page({
     _this.setData({
       userInfo: app.globalData.userInfo
     });
-    _this.loadData();
+  },
+  onShow: function() {
+    this.loadData();
   },
   loadData: function(callback) {
     const _this = this;
+    wx.showLoading({
+      title: '加载中...'
+    });
     var farmId = wx.getStorageSync('curr-farm-id');
     farmService.selectFarmBanners(farmId).then(res => {
       _this.setData({
@@ -53,22 +58,24 @@ Page({
       if (res.weatherCityCode) {
         return farmService.selectFarmWeather(res.weatherCityCode)
       } else {
+        wx.hideLoading();
         callback && callback();
       }
     }).then(res => {
-      _this.setData({
-        weather: res
-      });
-      callback && callback();
+      if (res) {
+        _this.setData({
+          weather: res
+        });
+        wx.hideLoading();
+        callback && callback();
+      }
     }).catch(err => {
+      wx.hideLoading();
       console.error(err);
     });
     // var farmIdentity = wx.getStorageSync('curr-farm-identity');
     // console.info(farmId)
     // console.info(farmIdentity)
-  },
-  onShow: function() {
-    this.loadData();
   },
   previewQrCodeImage: function() {
     util.previewImage(this.data.farm.qrCodeUrl);

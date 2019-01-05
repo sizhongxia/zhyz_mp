@@ -3,6 +3,7 @@
     "pages/auth/login/login",
     "pages/farm/editInfo/index",
     "pages/farm/auths/index",
+    "pages/farm/userApply/index",
     "pages/index/index",
     "pages/equipment/index",
     "pages/console/index",

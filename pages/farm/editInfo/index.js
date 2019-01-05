@@ -77,11 +77,9 @@ Page({
     farm.website = nVal.website;
     farm.formId = e.detail.formId;
     farmService.updateFarm(farm).then(res => {
-      if ("SUC" === res) {
-        wx.showModal({
-          content: '修改成功'
-        });
-      }
+      wx.showModal({
+        content: '修改成功'
+      });
       _this.setData({
         updating: false
       });

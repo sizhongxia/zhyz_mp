@@ -1,24 +1,40 @@
-const app = getApp();
-
+var mineService = require('../../service/mine.js');
+const app = getApp()
 Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     currentFarmId: '',
-    currentFarmIdentity: ''
+    currentFarmIdentity: '',
+    farmName: '',
+    auditsNum: 0
   },
   onLoad: function (options) {
+  },
+  onReady: function() {
+  },
+  onShow: function() {
+    const _this = this;
     var farmId = wx.getStorageSync('curr-farm-id');
     var farmIdentity = wx.getStorageSync('curr-farm-identity');
-    this.setData({
+    _this.setData({
       currentFarmId: farmId,
       currentFarmIdentity: farmIdentity
     });
+    wx.showLoading({
+      title: '加载中...'
+    });
+    mineService.getMineBaseInfo(farmId).then(res => {
+      _this.setData({
+        farmName: res.farmName,
+        auditsNum: res.auditsNum
+      });
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
+      console.error(err);
+    });
   },
-  onReady: function() {
-
-  },
-  onShow: function() {},
   logout: function() {
     wx.showModal({
       title: '退出提示',
@@ -41,6 +57,11 @@ Page({
   toAuthFarms: function() {
     wx.navigateTo({
       url: "/pages/farm/auths/index"
+    })
+  },
+  toAuthUserApply: function () {
+    wx.navigateTo({
+      url: "/pages/farm/userApply/index"
     })
   }
 })

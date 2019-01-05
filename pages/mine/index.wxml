@@ -11,9 +11,10 @@
     </view>
   </item>
 </card>
-<view class="shadow-warp bg-white" style='margin-top:-1px;padding:20rpx;font-size:28rpx;'>
+<view class="shadow-warp bg-white" style='margin-top:-1px;padding:20rpx;font-size:28rpx;line-height:36rpx;text-align:center;'>
   <view class="flex">
-    <view class='flex-sub padding-sm margin-xs radius'>当前身份：{{currentFarmIdentity == "admin" ? "管理员" : currentFarmIdentity == "manager" ? "运维人员" : "访客"}}</view>
+    <view class='flex-sub padding-sm margin-xs radius'>{{farmName}}</view>
+    <view class='flex-sub padding-sm margin-xs radius'>身份：{{currentFarmIdentity == "admin" ? "管理员" : currentFarmIdentity == "manager" ? "运维人员" : "访客"}}</view>
   </view>
 </view>
 
@@ -24,10 +25,13 @@
       <text class='text-grey'>修改农场信息</text>
     </view>
   </item>
-  <item class="arrow">
+  <item class="arrow" wx:if='{{currentFarmIdentity == "admin"}}' bindtap='toAuthUserApply'>
     <view class='content'>
       <icon class='icon-crown text-green' />
-      <text class='text-grey'>农场申请用户审批</text>
+      <text class='text-grey'>农场访问申请审批</text>
+    </view>
+    <view class='action' wx:if="{{ auditsNum > 0 }}">
+      <tag class='bg-red round'>{{ auditsNum }}</tag>
     </view>
   </item>
   <item class="arrow">

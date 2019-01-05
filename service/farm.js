@@ -1,8 +1,14 @@
 var api = require('../config/api.js')
 var util = require('../utils/util.js')
 
-const authFarms = () => {
-  return util.post(api.AuthFarms, {});
+const authFarms = (state) => {
+  return util.post(api.AuthFarms, { state: state });
+}
+const userApplys = (farmId, state) => {
+  return util.post(api.FarmUserVisitApply, { farmId: farmId, state: state });
+}
+const userApplyHandle = (resId, state) => {
+  return util.post(api.FarmUserVisitApplyHandle, { resId: resId, state: state });
 }
 const farmDetail = (farmId) => {
   return util.post(api.FarmDetail, { farmId: farmId });
@@ -22,6 +28,8 @@ const updateFarm = (farm) => {
 
 module.exports = {
   authFarms: authFarms,
+  userApplys: userApplys,
+  userApplyHandle: userApplyHandle,
   farmDetail: farmDetail,
   applyFarmVisit: applyFarmVisit,
   selectFarmBanners: selectFarmBanners,

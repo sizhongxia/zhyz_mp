@@ -1,0 +1,51 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 我的
+    </navigator>
+    <view class='content'>农场访问申请</view>
+  </bar>
+</custom>
+
+<scroll-view scroll-x class="bg-white nav text-center">
+  <item class="{{selectState=='D'?'text-blue cur':''}}" bindtap='tabSelect' data-id="D">待审核</item>
+  <item class="{{selectState=='HD'?'text-blue cur':''}}" bindtap='tabSelect' data-id="HD">已审核</item>
+</scroll-view>
+
+<list class="menu menu-avatar no-padding">
+  <item wx:for="{{users}}" wx:key="{{item.resId}}" data-id="{{item.resId}}" data-state="{{item.applyState}}" bindtap='toHandle'>
+    <avatar class="radius lg" style="background-image:url({{item.userAvator}});"></avatar>
+    <view class='content'>
+      <view>{{item.userName}} ({{item.farmIdentityTxt}})</view>
+      <view class='text-gray text-sm'>{{item.phoneNo}}</view>
+    </view>
+    <view class='action'>
+      <view class='text-grey text-xs'>{{item.applyAt}}</view>
+      <tag class="round {{item.applyState == 'N' ? 'bg-red' : item.applyState == 'Y' ? 'bg-green' : 'bg-orange'}} sm">{{item.applyStateTxt}}</tag>
+    </view>
+  </item>
+  <view wx:if="{{users.length === 0}}" class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无数据</view>
+</list>
+
+<modal-box class="{{applyHandleModal ? 'show':''}}">
+  <dialog>
+    <bar class="justify-end">
+      <view class='content'>审核</view>
+      <view class='action' bindtap='hideModal'>
+        <icon class='icon-close text-red'></icon>
+      </view>
+    </bar>
+    <view class='padding-xl'>
+      请确认审核，只有审核通过后，用户才能访问当前农场。
+    </view>
+    <bar>
+      <view class='action margin-0 flex-sub text-red ' bindtap='toRefuse'>
+        <icon class='icon-roundclose'></icon> 拒绝
+      </view>
+      <view class='action margin-0 flex-sub text-green ' bindtap='toAdopt'>
+        <icon class='icon-roundcheck'></icon> 通过
+      </view>
+      <view class='action margin-0 flex-sub text-grey solid-left' bindtap='hideModal'>取消</view>
+    </bar>
+  </dialog>
+</modal-box>

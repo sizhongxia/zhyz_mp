@@ -14,7 +14,7 @@ Page({
   onLoad: function(options) {
     const _this = this;
     console.debug('获取用户农场授权信息...');
-    farmService.authFarms().then(res => {
+    farmService.authFarms('Y').then(res => {
       if (res.length === 0) {
         _this.setData({
           barTitle: '扫码申请'

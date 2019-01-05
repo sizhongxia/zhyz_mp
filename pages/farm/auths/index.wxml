@@ -13,47 +13,68 @@
   <item class="{{selectState=='N'?'text-blue cur':''}}" bindtap='tabSelect' data-id="N">已拒绝</item>
 </scroll-view>
 
-
 <list class="menu menu-avatar no-padding">
-  <item class="cur">
-    <avatar class="radius lg" style="background-image:url(https://image.weilanwl.com/img/square-3.jpg);"></avatar>
+  <item wx:for="{{farms}}" wx:key="{{item.resId}}" data-id="{{item.resId}}" bindtap='itemSelect'>
+    <avatar class="radius lg" style="background-image:url({{item.farmLogo}});"></avatar>
     <view class='content'>
-      <view>喵星人互动群</view>
-      <view class='text-gray text-sm'>
-        喵星酱：喵喵喵！</view>
+      <view>{{item.farmName}} ({{item.farmIdentityTxt}})</view>
+      <view class='text-gray text-sm'>{{item.address}}</view>
     </view>
     <view class='action'>
-      <view class='text-grey text-xs'>22:20</view>
-      <tag class="round bg-red sm">5</tag>
+      <view class='text-grey text-xs'>{{item.applyAt}}</view>
+      <tag class="round {{item.applyState == 'N' ? 'bg-red' : item.applyState == 'Y' ? 'bg-green' : 'bg-orange'}} sm">{{item.applyStateTxt}}</tag>
     </view>
   </item>
-  <item class="cur">
-    <avatar class="radius lg" style="background-image:url(https://image.weilanwl.com/img/square-3.jpg);"></avatar>
-    <view class='content'>
-      <view>喵星人互动群</view>
-      <view class='text-gray text-sm'>
-        喵星酱：喵喵喵！</view>
-    </view>
-    <view class='action'>
-      <view class='text-grey text-xs'>22:20</view>
-      <tag class="round bg-red sm">5</tag>
-    </view>
-  </item>
-  <item class="cur">
-    <avatar class="radius lg" style="background-image:url(https://image.weilanwl.com/img/square-4.jpg);">
-      <tag class="badge"></tag>
-    </avatar>
-    <view class='content'>
-      <view>喵星人互动群
-        <tag class="round bg-orange sm">6人</tag>
-      </view>
-      <view class='text-gray text-sm'>
-        喵星酱：
-        <icon class='icon-picfill text-orange' /> 图片传输中...</view>
-    </view>
-    <view class='action'>
-      <view class='text-grey text-xs'>22:20</view>
-      <icon class='icon-notice_forbid_fill text-gray' />
-    </view>
-  </item>
+  <view wx:if="{{farms.length === 0}}" class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无数据</view>
 </list>
+
+
+<modal-box class="{{showAuthFarmDetail?'show':''}}">
+  <dialog>
+    <bar class="justify-end">
+      <view class='content'>授权信息</view>
+      <view class='action' bindtap='hideModal'>
+        <icon class='icon-close text-red'></icon>
+      </view>
+    </bar>
+    <view>
+      <list class="menu no-padding">
+        <item style="padding:0 30rpx;">
+          <view class='content' style='text-align:left;'>
+            <text class='text-grey'>农场名称：{{farm.farmName}}</text>
+          </view>
+        </item>
+        <item style="padding:0 30rpx;">
+          <view class='content' style='text-align:left;'>
+            <text class='text-grey'>授权身份：{{farm.farmIdentityTxt}}</text>
+          </view>
+        </item>
+        <item style="padding:0 30rpx;">
+          <view class='content' style='text-align:left;'>
+            <text class='text-grey'>申请时间：{{farm.applyAt}}</text>
+          </view>
+        </item>
+        <item style="padding:0 30rpx;">
+          <view class='content' style='text-align:left;'>
+            <text class='text-grey'>申请备注：{{farm.applyRemark}}</text>
+          </view>
+        </item>
+        <item style="padding:0 30rpx;">
+          <view class='content' style='text-align:left;'>
+            <text class='text-grey'>审核状态：{{farm.applyStateTxt}}</text>
+          </view>
+        </item>
+        <item style="padding:0 30rpx;">
+          <view class='content' style='text-align:left;'>
+            <text class='text-grey'>处理时间：{{farm.handleAt}}</text>
+          </view>
+        </item>
+      </list>
+    </view>
+    <bar class="justify-end" wx:if="{{farm.applyState == 'Y'}}">
+      <view class='action'>
+        <button class='bg-green margin-left' bindtap='goIn'>切换/进入</button>
+      </view>
+    </bar>
+  </dialog>
+</modal-box>
