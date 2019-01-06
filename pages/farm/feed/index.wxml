@@ -1,0 +1,35 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 农场管理
+    </navigator>
+    <view class='content'>投食记录</view>
+  </bar>
+</custom>
+
+<view class="container">
+  <card class="article no-card width-full">
+    <item wx:for="{{feeds}}" wx:key="feedId" class="shadow" data-feed-id="{{item.feedId}}" bindtap="toDetail">
+      <view class="title"><icon class='icon-time' /> {{item.feedAt}}</view>
+      <view class="content">
+        <image src="{{item.coverPicUrl}}" mode="aspectFill"></image>
+        <view class="desc">
+          <view class='text-content'>{{item.feedRemark}}</view>
+          <view>
+            <tag class='bg-grey light sm'>{{item.feedRaiser}}</tag>
+            <tag class='bg-grey light sm'>位置:{{item.feedPosition}}</tag>
+          </view>
+        </view>
+      </view>
+    </item>
+  </card>
+  <load class="bg-grey {{loading?'loading':''}} {{isOver?'over':''}} width-full" bindtap="loadMore">
+    {{loading?'':isOver?'':'更多...'}}
+  </load>
+  <view class='h120 width-full'>Yeetong.cn</view>
+</view>
+<bar class="btn-group options width-full">
+  <button class='bg-green shadow-blur round lg' bindtap='toAdd'>
+    <icon class='icon-add'></icon> 新增记录
+  </button>
+</bar>

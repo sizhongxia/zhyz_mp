@@ -14,6 +14,7 @@ function request(url, data = {}, method = "POST") {
         'token': wx.getStorageSync('token')
       },
       success: function (res) {
+        console.debug(res)
         if (res.statusCode === 401) {
           wx.removeStorageSync('token');
           wx.redirectTo({
@@ -45,10 +46,10 @@ function post(url, data = {}) {
   return request(url, data, 'POST')
 }
 
-function previewImage(url) {
+function previewImage(url, urls) {
   wx.previewImage({
     current: url,
-    urls: [url]
+    urls: urls || [url]
   });
 }
 

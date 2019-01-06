@@ -1,0 +1,43 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 返回
+    </navigator>
+    <view class='content'>投食详情</view>
+  </bar>
+</custom>
+
+
+<list class="menu margin-top">
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>投食位置：{{feedObj.feedPosition}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>投喂时间：{{feedObj.feedAt}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>投 食 人：{{feedObj.feedRaiser}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>投食内容：{{feedObj.feedRemark}}</text>
+    </view>
+  </item>
+</list>
+
+<bar class="margin-top solid-bottom">
+  <view class='action'>
+    <icon class='icon-titles text-blue' /> 图片列表
+  </view>
+</bar>
+<view class="bg-white padding">
+  <view class="grid col-4 grid-square">
+    <view class="bg-img" wx:for="{{feedObj.feedPics}}" wx:key="item" data-pic-url="{{item}}" bindtap='previewImage' style="background-image:url({{item}});"></view>
+  </view>
+</view>

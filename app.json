@@ -1,6 +1,9 @@
 {
   "pages":[
     "pages/auth/login/login",
+    "pages/farm/feed/add",
+    "pages/farm/feed/index",
+    "pages/farm/feed/detail",
     "pages/farm/editInfo/index",
     "pages/farm/auths/index",
     "pages/farm/userApply/index",

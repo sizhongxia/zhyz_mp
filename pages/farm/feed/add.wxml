@@ -1,0 +1,79 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 返回列表
+    </navigator>
+    <view class='content'>新增投食记录</view>
+  </bar>
+</custom>
+
+<form>
+  <form-group class="margin-top">
+    <view class='title'>选择厂区</view>
+    <picker bindchange="areaPickerChange" value="{{index}}" range="{{areas}}" range-key="areaName">
+      <view class="picker">
+        {{ form.farmAreaName == '' ? '无厂区' : form.farmAreaName }}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>具体位置</view>
+    <input placeholder="请输入投食具体位置" class='radius' name='input' bindinput="inputFeedPosition" value="{{form.feedPosition}}" style='text-align:right;'></input>
+  </form-group>
+  <form-group>
+    <view class='title'>投食日期</view>
+    <picker mode="date" value="{{form.feedDate}}" start="2019-01-01" end="2099-09-01" bindchange="feedDateChange">
+      <view class="picker">
+        {{form.feedDate}}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>投食时间</view>
+    <picker mode="time" value="{{form.feedTime}}" start="00:00" end="23:59" bindchange="feedTimeChange">
+      <view class="picker">
+        {{form.feedTime}}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>饲养人</view>
+    <input placeholder="请输入饲养人" class='radius' name='input' bindinput="inputFeedRaiser" value="{{form.feedRaiser}}" style='text-align:right;'></input>
+  </form-group>
+  <form-group>
+    <textarea placeholder="请输入投食内容" maxlength="200" placeholder-class='placeholder' bindinput="inputFeedRemark" value='{{form.feedRemark}}'></textarea>
+  </form-group>
+  <view class='padding-sm flex flex-wrap' wx:if="{{feedTags.length > 0}}">
+    <view class="padding-xs" wx:for="{{feedTags}}" wx:key="tagId">
+      <tag bindtap='selectFeedTag' class='line-gray' data-content="{{item.tagContent}}">{{item.tagName}}</tag>
+    </view>
+  </view>
+  <view class='padding-sm flex flex-wrap' wx:else>
+    <text style='font-size: 24rpx;'>小提示：您可以通过增加标签进行快速输入投食内容。</text>
+  </view>
+
+  <bar class="margin-top">
+    <view class='action'>
+      <icon class='icon-titles text-blue' /> 上传图片 (最多可上传8张)
+    </view>
+  </bar>
+  <form-group>
+    <view class="grid col-3 grid-square flex-sub">
+      <view class="padding-xs bg-img" wx:for="{{ form.feedPics }}" wx:key="item" style="background-image:url({{item}});">
+        <tag class="bg-red" bindtap="removePic" data-index="{{index}}">
+          <icon class='icon-close'></icon>
+        </tag>
+      </view>
+      <view class="padding-xs solids" bindtap='selectFeedPic'>
+        <icon class='icon-cameraadd'></icon>
+      </view>
+    </view>
+  </form-group>
+</form>
+<view class='h120 width-full'>Yeetong.cn</view>
+
+<bar class="btn-group options width-full">
+  <button loading='{{submiting}}' class='bg-green shadow-blur round lg' bindtap='toAdd'>
+    <icon class='icon-check'></icon> 保存
+  </button>
+</bar>

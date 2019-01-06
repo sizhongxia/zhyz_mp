@@ -25,6 +25,9 @@ const selectFarmWeather = (weatherCityCode) => {
 const updateFarm = (farm) => {
   return util.post(api.UpdateFarm, farm);
 }
+const selectFarmAreas = (farmId) => {
+  return util.post(api.FarmAreas, { farmId: farmId });
+}
 
 module.exports = {
   authFarms: authFarms,
@@ -34,5 +37,6 @@ module.exports = {
   applyFarmVisit: applyFarmVisit,
   selectFarmBanners: selectFarmBanners,
   selectFarmWeather: selectFarmWeather,
-  updateFarm: updateFarm
+  updateFarm: updateFarm,
+  selectFarmAreas: selectFarmAreas
 }

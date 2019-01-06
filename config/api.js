@@ -18,6 +18,12 @@ module.exports = {
   UpdateFarm: ApiUrl + '/zhyz/miniapp/api/farm/update',
   MineBaseInfo: ApiUrl + '/zhyz/miniapp/api/farm/mineBaseInfo',
 
+  FarmAreas: ApiUrl + '/zhyz/miniapp/api/farm/areas',
+  SaveFeed: ApiUrl + '/zhyz/miniapp/api/feed/save',
+  FeedTags: ApiUrl + '/zhyz/miniapp/api/feed/feedTags',
+  FeedData: ApiUrl + '/zhyz/miniapp/api/feed/data',
+  FeedDetail: ApiUrl + '/zhyz/miniapp/api/feed/detail',
+
   UploadApi: ApiUrl + '/basic/api/upload',
 
 

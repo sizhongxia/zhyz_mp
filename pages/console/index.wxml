@@ -5,25 +5,29 @@
 </custom>
 <view class='container' style='margin-top:60rpx;'>
   <view class='nav-list width-full'>
-    <view hover-class='none' url="" class="nav-li bg-blue">
+    <navigator hover-class='none' url="/pages/farm/feed/index" class="nav-li bg-grey">
       <view class="nav-title">投食管理</view>
       <view class="nav-name">Feed</view>
-      <icon class='icon-home' />
+    </navigator>
+    <view hover-class='none' url="" class="nav-li bg-grey">
+      <view class="nav-title">现场巡检</view>
+      <view class="nav-name">Inspection</view>
     </view>
-    <view hover-class='none' url="" class="nav-li bg-blue">
-      <view class="nav-title">投食管理</view>
-      <view class="nav-name">Feed</view>
-      <icon class='icon-home' />
+    <view hover-class='none' url="" class="nav-li bg-grey">
+      <view class="nav-title">产蛋管理</view>
+      <view class="nav-name">LayingEggs</view>
     </view>
-    <view hover-class='none' url="" class="nav-li bg-blue">
-      <view class="nav-title">投食管理</view>
-      <view class="nav-name">Feed</view>
-      <icon class='icon-home' />
+    <view hover-class='none' url="" class="nav-li bg-grey">
+      <view class="nav-title">禽畜实名制</view>
+      <view class="nav-name">RealName</view>
     </view>
-    <view hover-class='none' url="" class="nav-li bg-blue">
-      <view class="nav-title">投食管理</view>
-      <view class="nav-name">Feed</view>
-      <icon class='icon-home' />
+    <view hover-class='none' url="" class="nav-li bg-grey">
+      <view class="nav-title">厂区管理</view>
+      <view class="nav-name">Areas</view>
+    </view>
+    <view hover-class='none' url="" class="nav-li bg-grey">
+      <view class="nav-title">图片管理</view>
+      <view class="nav-name">Pictures</view>
     </view>
   </view>
 </view>
