@@ -137,6 +137,7 @@ Page({
     _this.setData({
       form: form
     });
+    feedService.changeFeedTagSortNum(e.target.dataset.tagId);
   },
   removePic: function (e) {
     const _this = this;
@@ -203,6 +204,9 @@ Page({
   },
   toAdd: function () {
     const _this = this;
+    if (_this.data.submiting) {
+      return false;
+    }
     _this.setData({
       submiting: true
     });

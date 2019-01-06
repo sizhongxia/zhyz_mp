@@ -68,5 +68,10 @@ Page({
     wx.navigateTo({
       url: "/pages/farm/applyNew/index"
     });
+  },
+  toFeedTags: function () {
+    wx.navigateTo({
+      url: "/pages/farm/feedTag/index"
+    });
   }
 })

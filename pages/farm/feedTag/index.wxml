@@ -1,0 +1,28 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 我的
+    </navigator>
+    <view class='content'>投食快捷标签</view>
+  </bar>
+</custom>
+
+<list class="menu no-padding">
+  <item wx:for="{{feedTags}}" wx:key="tagId" data-tag-id="{{item.tagId}}" bindtap='toEdit'>
+    <view class='content'>
+      <view>
+        <icon class='icon-tag' /> {{item.tagName}}
+        <text style='font-size: 24rpx;color:#999'>(权值：{{item.weightValue}})</text>
+      </view>
+      <view class='text-gray text-sm'>内容：{{item.tagContent}}</view>
+    </view>
+  </item>
+</list>
+
+<view class='h120 width-full'>Yeetong.cn</view>
+
+<bar class="btn-group options width-full">
+  <button class='bg-green shadow-blur round lg' bindtap='toAdd'>
+    <icon class='icon-add'></icon> 新增记录
+  </button>
+</bar>

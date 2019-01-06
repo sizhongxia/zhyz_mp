@@ -40,6 +40,12 @@
       <text class='text-grey'>设备告警推送设置</text>
     </view>
   </item>
+  <item class="arrow" bindtap='toFeedTags'>
+    <view class='content'>
+      <icon class='icon-tag text-green' />
+      <text class='text-grey'>投食快捷标签</text>
+    </view>
+  </item>
 </list>
 
 <list class="menu">

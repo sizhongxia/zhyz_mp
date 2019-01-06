@@ -35,8 +35,8 @@ function request(url, data = {}, method = "POST") {
         }
       },
       fail: function (err) {
-        reject(err)
-        console.log("failed")
+        showErrorToast('请检查网络连接');
+        reject(err);
       }
     })
   });

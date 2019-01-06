@@ -20,9 +20,13 @@ module.exports = {
 
   FarmAreas: ApiUrl + '/zhyz/miniapp/api/farm/areas',
   SaveFeed: ApiUrl + '/zhyz/miniapp/api/feed/save',
+  SaveFeedTag: ApiUrl + '/zhyz/miniapp/api/feed/saveTag',
   FeedTags: ApiUrl + '/zhyz/miniapp/api/feed/feedTags',
   FeedData: ApiUrl + '/zhyz/miniapp/api/feed/data',
   FeedDetail: ApiUrl + '/zhyz/miniapp/api/feed/detail',
+  UpdateFeedTagSortNum: ApiUrl + '/zhyz/miniapp/api/feed/changeFeedTagSortNum',
+  FeedTagDetail: ApiUrl + '/zhyz/miniapp/api/feed/tagDetail',
+  UpdateFeedTag: ApiUrl + '/zhyz/miniapp/api/feed/updateTag',
 
   UploadApi: ApiUrl + '/basic/api/upload',
 

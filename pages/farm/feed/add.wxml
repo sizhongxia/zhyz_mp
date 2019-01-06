@@ -45,7 +45,7 @@
   </form-group>
   <view class='padding-sm flex flex-wrap' wx:if="{{feedTags.length > 0}}">
     <view class="padding-xs" wx:for="{{feedTags}}" wx:key="tagId">
-      <tag bindtap='selectFeedTag' class='line-gray' data-content="{{item.tagContent}}">{{item.tagName}}</tag>
+      <tag bindtap='selectFeedTag' class='line-gray' data-tag-id="{{item.tagId}}" data-content="{{item.tagContent}}">{{item.tagName}}</tag>
     </view>
   </view>
   <view class='padding-sm flex flex-wrap' wx:else>
