@@ -1,2 +1,48 @@
-<!--pages/farm/farmPic/upload.wxml-->
-<text>pages/farm/farmPic/upload.wxml</text>
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 返回
+    </navigator>
+    <view class='content'>上传农场图片</view>
+  </bar>
+</custom>
+
+
+<form>
+  <form-group class="margin-top">
+    <view class='title'>选择厂区</view>
+    <picker bindchange="areaPickerChange" value="{{index}}" range="{{areas}}" range-key="areaName">
+      <view class="picker">
+        {{ form.farmAreaName }}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>图片标题</view>
+    <input placeholder="请输入图片标题" class='radius' name='input' bindinput="inputTitle" value="{{form.title}}" style='text-align:right;'></input>
+  </form-group>
+  <bar class="margin-top">
+    <view class='action'>
+      <icon class='icon-titles text-blue' /> 上传图片
+    </view>
+  </bar>
+  <form-group>
+    <view class="grid col-3 grid-square flex-sub">
+      <view class="padding-xs bg-img" wx:for="{{ form.fileList }}" wx:key="item" style="background-image:url({{item}});">
+        <tag class="bg-red" bindtap="removePic" data-index="{{index}}">
+          <icon class='icon-close'></icon>
+        </tag>
+      </view>
+      <view class="padding-xs solids" bindtap='selectPic'>
+        <icon class='icon-cameraadd'></icon>
+      </view>
+    </view>
+  </form-group>
+</form>
+<view class='h120 width-full'>Yeetong.cn</view>
+
+<bar class="btn-group options width-full">
+  <button loading='{{submiting}}' class='bg-green shadow-blur round lg' bindtap='toSave'>
+    <icon class='icon-check'></icon> 保存
+  </button>
+</bar>

@@ -34,7 +34,7 @@
       </view>
     </item>
   </card>
-  <load class="bg-grey {{loading?'loading':''}} {{isOver?'over':''}} width-full margin-top" bindtap="loadMore">
+  <load class="bg-grey {{loading?'loading':''}} {{isOver?'over':''}} width-full" bindtap="loadMore">
     {{loading?'':isOver?'':'更多...'}}
   </load>
   <view class='h120 width-full'>Yeetong.cn</view>

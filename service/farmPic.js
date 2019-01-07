@@ -6,7 +6,23 @@ const getFarmPicData = (farmId) => {
     farmId: farmId
   });
 }
+const saveFarmPic = (farmPic) => {
+  return util.post(api.SaveFarmPic, farmPic);
+}
+const getFarmPicDetail = (picId) => {
+  return util.post(api.FarmPicDetail, { picId: picId });
+}
+const deleteFarmPic = (picId) => {
+  return util.post(api.DeleteFarmPic, { picId: picId });
+}
+const updateFarmPic = (farmPic) => {
+  return util.post(api.UpdateFarmPic, farmPic);
+}
 
 module.exports = {
-  getFarmPicData: getFarmPicData
+  getFarmPicData: getFarmPicData,
+  saveFarmPic: saveFarmPic,
+  getFarmPicDetail: getFarmPicDetail,
+  deleteFarmPic: deleteFarmPic,
+  updateFarmPic: updateFarmPic
 }

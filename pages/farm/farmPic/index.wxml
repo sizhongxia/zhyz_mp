@@ -7,7 +7,7 @@
   </bar>
 </custom>
 <card class="case">
-  <item wx:for="{{pics}}" wx:key="picId" class="shadow">
+  <item wx:for="{{pics}}" wx:key="picId" class="shadow" data-id='{{item.picId}}' bindtap='toEdit' bindlongpress="removeItem">
     <view class='image'>
       <image lazy-load="{{true}}" class='image-size' src="{{item.picUrl}}"></image>
       <tag class="bg-blue" wx:if="{{item.showBanner}}">Banner</tag>

@@ -1,0 +1,35 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 返回
+    </navigator>
+    <view class='content'>上传农场图片</view>
+  </bar>
+</custom>
+
+
+<card class="case">
+  <item class="shadow">
+    <view class='image'>
+      <image mode='aspectFill' class='image-size' src="{{form.picUrl}}"></image>
+    </view>
+  </item>
+</card>
+
+<form>
+  <form-group>
+    <view class='title'>图片标题</view>
+    <input placeholder="请输入图片标题" class='radius' name='input' bindinput="inputPicTitle" value="{{form.title}}" style='text-align:right;'></input>
+  </form-group>
+  <form-group>
+    <view class='title'>图片序号</view>
+    <input placeholder="请输入图片序号" class='radius' name='input' bindinput="inputSortNum" value="{{form.sortNum}}" style='text-align:right;'></input>
+  </form-group>
+</form>
+<view class='h120 width-full'>Yeetong.cn</view>
+
+<bar class="btn-group options width-full">
+  <button loading='{{submiting}}' class='bg-green shadow-blur round lg' bindtap='toSave'>
+    <icon class='icon-check'></icon> 保存
+  </button>
+</bar>
