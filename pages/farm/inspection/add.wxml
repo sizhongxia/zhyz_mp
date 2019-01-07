@@ -60,7 +60,7 @@
           <icon class='icon-close'></icon>
         </tag>
       </view>
-      <view class="padding-xs solids" bindtap='selectInspectionPic'>
+      <view class="padding-xs solids" bindtap='selectInspectionPic' style='width:208rpx;'>
         <icon class='icon-cameraadd'></icon>
       </view>
     </view>

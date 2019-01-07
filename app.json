@@ -1,6 +1,5 @@
 {
   "pages":[
-    "pages/farm/farmPic/index",
     "pages/auth/login/login",
     "pages/index/index",
     "pages/equipment/index",
@@ -19,6 +18,7 @@
     "pages/farm/userApply/index",
     "pages/farm/applyNew/index",
     "pages/farm/select/index",
+    "pages/farm/farmPic/index",
     "pages/farm/farmPic/upload",
     "pages/farm/farmPic/edit"
   ],

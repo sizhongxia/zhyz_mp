@@ -64,7 +64,7 @@
           <icon class='icon-close'></icon>
         </tag>
       </view>
-      <view class="padding-xs solids" bindtap='selectFeedPic'>
+      <view class="padding-xs solids" bindtap='selectFeedPic' style='width:208rpx;'>
         <icon class='icon-cameraadd'></icon>
       </view>
     </view>
