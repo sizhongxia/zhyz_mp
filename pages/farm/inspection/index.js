@@ -1,5 +1,5 @@
 var farmService = require('../../../service/farm.js');
-var feedService = require('../../../service/feed.js');
+var inspectionService = require('../../../service/inspection.js');
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 const app = getApp()
@@ -10,8 +10,7 @@ Page({
     CustomBar: app.globalData.CustomBar,
     page: 1,
     farmId: '',
-    farmAreaId: '',
-    feeds: [],
+    inspections: [],
     loading: false,
     isOver: false
   },
@@ -22,8 +21,6 @@ Page({
     });
     _this.load();
   },
-  onShow: function () {
-  },
   load: function (callback) {
     const _this = this;
     if (_this.data.isOver) {
@@ -33,22 +30,26 @@ Page({
     _this.setData({
       loading: true
     });
-    feedService.selectFeedData(_this.data.farmId, _this.data.farmAreaId, _this.data.page).then(res => {
+    inspectionService.selectInspectionData(_this.data.farmId, _this.data.page).then(res => {
       if (res && res.length > 0) {
         var size = res.length;
-        var feeds = [];
-        if (_this.data.page > 1 ) {
-          feeds = _this.data.feeds;
+        var inspections = [];
+        if (_this.data.page > 1) {
+          inspections = _this.data.inspections;
         }
         for (var i = 0; i < size; i++) {
-          feeds.push(res[i]);
+          inspections.push(res[i]);
         }
         _this.setData({
           page: _this.data.page + 1,
-          feeds: feeds
+          inspections: inspections
         });
       } else {
-        if (_this.data.page > 1) {
+        if (_this.data.page === 1) {
+          _this.setData({
+            inspections: []
+          });
+        } else {
           wx.showToast({
             title: '无更多数据'
           });
@@ -71,16 +72,11 @@ Page({
   },
   toAdd: function () {
     wx.navigateTo({
-      url: '/pages/farm/feed/add',
+      url: '/pages/farm/inspection/add',
     });
   },
   loadMore: function () {
     this.load();
-  },
-  toDetail: function (e) {
-    wx.navigateTo({
-      url: '/pages/farm/feed/detail?feedId=' + e.currentTarget.dataset.feedId,
-    });
   },
   onPullDownRefresh: function () {
     const _this = this;
@@ -88,8 +84,36 @@ Page({
       isOver: false,
       page: 1
     });
-    _this.load(function() {
+    _this.load(function () {
       wx.stopPullDownRefresh();
+    });
+  },
+  previewImage: function (e) {
+    util.previewImage(e.currentTarget.dataset.picUrl);
+  },
+  removeItem: function (e) {
+    const _this = this;
+    wx.showModal({
+      title: '提示',
+      content: '删除后将无法找回！是否要删除？',
+      success(res) {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '正在删除...'
+          });
+          inspectionService.deleteInspection(e.currentTarget.dataset.inspectionId).then(res => {
+            wx.hideLoading();
+            _this.setData({
+              isOver: false,
+              page: 1
+            });
+            _this.load();
+          }).catch(err => {
+            wx.hideLoading();
+            console.error(err);
+          });
+        }
+      }
     });
   }
 })

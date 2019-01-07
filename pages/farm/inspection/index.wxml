@@ -1,0 +1,47 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 农场管理
+    </navigator>
+    <view class='content'>投食记录</view>
+  </bar>
+</custom>
+
+<view class="container">
+
+  <card class="dynamic no-card width-full">
+    <item wx:for="{{inspections}}" wx:key="inspectionId" class="shadow" data-inspection-id="{{item.inspectionId}}" bindlongpress="removeItem">
+      <list class="menu menu-avatar">
+        <item>
+          <avatar class="round lg" style="background-image:url({{item.userAvator}});"></avatar>
+          <view class='content flex-sub'>
+            <view>{{item.userName}}</view>
+            <view class='text-gray text-sm flex justify-between'>
+              {{item.inspectionAt}}
+            </view>
+          </view>
+        </item>
+      </list>
+      <view class='text-content'>
+        [{{item.statusTxt}}] {{item.inspectionRemark}}
+      </view>
+      <view class="grid col-3 grid-square flex-sub padding-lr">
+        <view class="bg-img" style="background-image:url({{inItem}});" bindtap='previewImage' data-pic-url="{{item.originalPics[idx]}}" wx:for="{{item.pics}}" wx:for-index="idx" wx:for-item="inItem" wx:key="inItem">
+        </view>
+      </view>
+      <view class='text-gray text-sm text-right padding'>
+        <icon class="icon-people" /> {{item.operator}}
+        <icon class="icon-location" /> {{item.inspectionPosition}}
+      </view>
+    </item>
+  </card>
+  <load class="bg-grey {{loading?'loading':''}} {{isOver?'over':''}} width-full margin-top" bindtap="loadMore">
+    {{loading?'':isOver?'':'更多...'}}
+  </load>
+  <view class='h120 width-full'>Yeetong.cn</view>
+</view>
+<bar class="btn-group options width-full">
+  <button class='bg-green shadow-blur round lg' bindtap='toAdd'>
+    <icon class='icon-add'></icon> 新增记录
+  </button>
+</bar>

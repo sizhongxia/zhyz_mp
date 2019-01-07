@@ -17,6 +17,7 @@
       <view class='text-gray text-sm'>内容：{{item.tagContent}}</view>
     </view>
   </item>
+  <view wx:if="{{feedTags.length === 0}}" class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无数据</view>
 </list>
 
 <view class='h120 width-full'>Yeetong.cn</view>

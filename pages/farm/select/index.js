@@ -9,12 +9,19 @@ Page({
     barTitle: '选择农场',
     authFarms: [],
     farm: {},
+    loading: false,
     applyModalVisible: false
   },
   onLoad: function(options) {
     const _this = this;
     console.debug('获取用户农场授权信息...');
+    _this.setData({
+      loading: true
+    });
     farmService.authFarms('Y').then(res => {
+      _this.setData({
+        loading: false
+      });
       if (res.length === 0) {
         _this.setData({
           barTitle: '扫码申请'
@@ -48,6 +55,9 @@ Page({
         wx.removeStorageSync('curr-farm-identity');
       }
     }).catch(err => {
+      _this.setData({
+        loading: false
+      });
       console.error(err);
     });
   },

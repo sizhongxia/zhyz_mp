@@ -1,6 +1,6 @@
-const ApiUrl = 'http://192.168.31.144:9091';
+// const ApiUrl = 'http://192.168.31.144:9091';
 // const ApiUrl = 'http://192.168.31.96:9091';
-// const ApiUrl = 'http://192.168.1.107:9091';
+const ApiUrl = 'http://192.168.1.107:9091';
 // const ApiUrl = 'https://wxapi.yeetong.cn';
 module.exports = {
 
@@ -28,7 +28,11 @@ module.exports = {
   FeedTagDetail: ApiUrl + '/zhyz/miniapp/api/feed/tagDetail',
   UpdateFeedTag: ApiUrl + '/zhyz/miniapp/api/feed/updateTag',
 
-  UploadApi: ApiUrl + '/basic/api/upload',
+  InspectionData: ApiUrl + '/zhyz/miniapp/api/inspection/data',
+  SaveInspection: ApiUrl + '/zhyz/miniapp/api/inspection/save',
+  DeleteInspection: ApiUrl + '/zhyz/miniapp/api/inspection/delete',
+
+  UploadApi: ApiUrl + '/basic/api/upload'
 
 
 }

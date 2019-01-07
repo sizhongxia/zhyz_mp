@@ -6,8 +6,6 @@
     <view class='content'>投食详情</view>
   </bar>
 </custom>
-
-
 <list class="menu margin-top">
   <item>
     <view class='content'>
@@ -30,7 +28,6 @@
     </view>
   </item>
 </list>
-
 <bar class="margin-top solid-bottom">
   <view class='action'>
     <icon class='icon-titles text-blue' /> 图片列表
@@ -38,6 +35,6 @@
 </bar>
 <view class="bg-white padding">
   <view class="grid col-4 grid-square">
-    <view class="bg-img" wx:for="{{feedObj.feedPics}}" wx:key="item" data-pic-url="{{item}}" bindtap='previewImage' style="background-image:url({{item}});"></view>
+    <view class="bg-img" wx:for="{{feedObj.feedPics}}" wx:key="item" data-pic-index="{{index}}" bindtap='previewImage' style="background-image:url({{item}});"></view>
   </view>
 </view>

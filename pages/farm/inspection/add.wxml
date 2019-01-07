@@ -3,7 +3,7 @@
     <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
       <icon class='icon-back' /> 返回列表
     </navigator>
-    <view class='content'>新增投食记录</view>
+    <view class='content'>新增巡检记录</view>
   </bar>
 </custom>
 
@@ -18,39 +18,35 @@
   </form-group>
   <form-group>
     <view class='title'>具体位置</view>
-    <input placeholder="请输入具体投食位置" class='radius' name='input' bindinput="inputFeedPosition" value="{{form.feedPosition}}" style='text-align:right;'></input>
+    <input placeholder="请输入具体巡检位置" class='radius' name='input' bindinput="inputInspectionPosition" value="{{form.inspectionPosition}}" style='text-align:right;'></input>
   </form-group>
   <form-group>
-    <view class='title'>投食日期</view>
-    <picker mode="date" value="{{form.feedDate}}" start="2019-01-01" end="2099-09-01" bindchange="feedDateChange">
+    <view class='title'>巡检日期</view>
+    <picker mode="date" value="{{form.inspectionDate}}" start="2019-01-01" end="2099-09-01" bindchange="inspectionDateChange">
       <view class="picker">
-        {{form.feedDate}}
+        {{form.inspectionDate}}
       </view>
     </picker>
   </form-group>
   <form-group>
-    <view class='title'>投食时间</view>
-    <picker mode="time" value="{{form.feedTime}}" start="00:00" end="23:59" bindchange="feedTimeChange">
+    <view class='title'>巡检时间</view>
+    <picker mode="time" value="{{form.inspectionTime}}" start="00:00" end="23:59" bindchange="inspectionTimeChange">
       <view class="picker">
-        {{form.feedTime}}
+        {{form.inspectionTime}}
       </view>
     </picker>
   </form-group>
   <form-group>
-    <view class='title'>饲养人</view>
-    <input placeholder="请输入饲养人" class='radius' name='input' bindinput="inputFeedRaiser" value="{{form.feedRaiser}}" style='text-align:right;'></input>
+    <view class='title'>巡检人</view>
+    <input placeholder="请输入巡检人" class='radius' name='input' bindinput="inputOperator" value="{{form.operator}}" style='text-align:right;'></input>
   </form-group>
   <form-group>
-    <textarea placeholder="请输入投食内容" maxlength="200" placeholder-class='placeholder' bindinput="inputFeedRemark" value='{{form.feedRemark}}'></textarea>
+    <view class='title'>是否正常</view>
+    <switch class='green sm' bindchange="switchNormalState" checked="{{form.isNormal == 1}}"/>
   </form-group>
-  <view class='padding-sm flex flex-wrap' wx:if="{{feedTags.length > 0}}">
-    <view class="padding-xs" wx:for="{{feedTags}}" wx:key="tagId">
-      <tag bindtap='selectFeedTag' class='line-gray' data-tag-id="{{item.tagId}}" data-content="{{item.tagContent}}">{{item.tagName}}</tag>
-    </view>
-  </view>
-  <view class='padding-sm flex flex-wrap' wx:else>
-    <text style='font-size: 24rpx;'>小提示：您可以通过增加标签进行快速输入投食内容。</text>
-  </view>
+  <form-group>
+    <textarea placeholder="请输入巡检描述" maxlength="200" placeholder-class='placeholder' bindinput="inputInspectionRemark" value='{{form.inspectionRemark}}'></textarea>
+  </form-group>
 
   <bar class="margin-top">
     <view class='action'>
@@ -59,12 +55,12 @@
   </bar>
   <form-group>
     <view class="grid col-3 grid-square flex-sub">
-      <view class="padding-xs bg-img" wx:for="{{ form.feedPics }}" wx:key="item" style="background-image:url({{item}});">
+      <view class="padding-xs bg-img" wx:for="{{ form.inspectionPics }}" wx:key="item" style="background-image:url({{item}});">
         <tag class="bg-red" bindtap="removePic" data-index="{{index}}">
           <icon class='icon-close'></icon>
         </tag>
       </view>
-      <view class="padding-xs solids" bindtap='selectFeedPic'>
+      <view class="padding-xs solids" bindtap='selectInspectionPic'>
         <icon class='icon-cameraadd'></icon>
       </view>
     </view>

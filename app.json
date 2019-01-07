@@ -7,6 +7,8 @@
     "pages/farm/feedTag/index",
     "pages/farm/feedTag/add",
     "pages/farm/feedTag/edit",
+    "pages/farm/inspection/index",
+    "pages/farm/inspection/add",
     "pages/farm/editInfo/index",
     "pages/farm/auths/index",
     "pages/farm/userApply/index",

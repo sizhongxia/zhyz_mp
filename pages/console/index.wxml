@@ -9,10 +9,10 @@
       <view class="nav-title">投食管理</view>
       <view class="nav-name">Feed</view>
     </navigator>
-    <view hover-class='none' url="" class="nav-li bg-grey">
+    <navigator hover-class='none' url="/pages/farm/inspection/index" class="nav-li bg-grey">
       <view class="nav-title">现场巡检</view>
       <view class="nav-name">Inspection</view>
-    </view>
+    </navigator>
     <view hover-class='none' url="" class="nav-li bg-grey">
       <view class="nav-title">产蛋管理</view>
       <view class="nav-name">LayingEggs</view>

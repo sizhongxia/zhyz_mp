@@ -21,6 +21,6 @@ Page({
   },
   previewImage: function (e) {
     const _this = this;
-    util.previewImage(e.currentTarget.dataset.picUrl, _this.data.feedObj.feedPics);
+    util.previewImage(_this.data.feedObj.feedOriginalPics[e.currentTarget.dataset.picIndex], _this.data.feedObj.feedOriginalPics);
   },
 })
