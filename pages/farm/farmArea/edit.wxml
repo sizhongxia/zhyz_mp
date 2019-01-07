@@ -1,0 +1,33 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 返回列表
+    </navigator>
+    <view class='content'>修改厂区</view>
+  </bar>
+</custom>
+
+<form>
+  <form-group>
+    <view class='title'>厂区名称</view>
+    <input placeholder="请输入厂区名称" class='radius' name='input' bindinput="inputAreaName" value="{{form.areaName}}" style='text-align:right;'></input>
+  </form-group>
+  <form-group>
+    <view class='title'>厂区面积</view>
+    <input placeholder="请输入厂区面积" class='radius' name='input' bindinput="inputAcreage" value="{{form.acreage}}" style='text-align:right;'></input>
+  </form-group>
+  <form-group>
+    <view class='title'>厂区位置</view>
+    <input placeholder="请输入厂区位置" class='radius' name='input' bindinput="inputAreaPosition" value="{{form.areaPosition}}" style='text-align:right;'></input>
+  </form-group>
+  <form-group>
+    <textarea placeholder="请输入厂区描述" maxlength="200" placeholder-class='placeholder' bindinput="inputAreaDescribe" value='{{form.areaDescribe}}'></textarea>
+  </form-group>
+</form>
+<view class='h120 width-full'>Yeetong.cn</view>
+
+<bar class="btn-group options width-full">
+  <button loading='{{submiting}}' class='bg-green shadow-blur round lg' bindtap='toUpdate'>
+    <icon class='icon-check'></icon> 保存
+  </button>
+</bar>

@@ -21,10 +21,10 @@
       <view class="nav-title">禽畜实名制</view>
       <view class="nav-name">RealName</view>
     </view>
-    <view hover-class='none' url="" class="nav-li bg-grey">
+    <navigator hover-class='none' url="/pages/farm/farmArea/index" class="nav-li bg-grey">
       <view class="nav-title">厂区管理</view>
       <view class="nav-name">Areas</view>
-    </view>
+    </navigator>
     <navigator hover-class='none' url="/pages/farm/farmPic/index" class="nav-li bg-grey">
       <view class="nav-title">图片管理</view>
       <view class="nav-name">Pictures</view>

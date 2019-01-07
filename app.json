@@ -20,7 +20,10 @@
     "pages/farm/select/index",
     "pages/farm/farmPic/index",
     "pages/farm/farmPic/upload",
-    "pages/farm/farmPic/edit"
+    "pages/farm/farmPic/edit",
+    "pages/farm/farmArea/index",
+    "pages/farm/farmArea/add",
+    "pages/farm/farmArea/edit"
   ],
   "window":{
     "backgroundTextStyle": "light",

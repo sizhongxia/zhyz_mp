@@ -37,6 +37,11 @@ module.exports = {
   UpdateFarmPic: ApiUrl + '/zhyz/miniapp/api/farmPic/update',
   DeleteFarmPic: ApiUrl + '/zhyz/miniapp/api/farmPic/delete',
   FarmPicDetail: ApiUrl + '/zhyz/miniapp/api/farmPic/detail',
-  
+
+  SaveFarmArea: ApiUrl + '/zhyz/miniapp/api/farmArea/save',
+  UpdateFarmArea: ApiUrl + '/zhyz/miniapp/api/farmArea/update',
+  DeleteFarmArea: ApiUrl + '/zhyz/miniapp/api/farmArea/delete',
+  FarmAreaDetail: ApiUrl + '/zhyz/miniapp/api/farmArea/detail',
+
   UploadApi: ApiUrl + '/basic/api/upload'
 }
