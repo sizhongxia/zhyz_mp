@@ -19,5 +19,10 @@ Page({
     }).catch(err => {
       console.error(err);
     });
+  },
+  toUpload: function() {
+    wx.navigateTo({
+      url: '/pages/farm/farmPic/upload',
+    });
   }
 })

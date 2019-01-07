@@ -2,6 +2,10 @@
   "pages":[
     "pages/farm/farmPic/index",
     "pages/auth/login/login",
+    "pages/index/index",
+    "pages/equipment/index",
+    "pages/console/index",
+    "pages/mine/index",
     "pages/farm/feed/add",
     "pages/farm/feed/index",
     "pages/farm/feed/detail",
@@ -14,11 +18,8 @@
     "pages/farm/auths/index",
     "pages/farm/userApply/index",
     "pages/farm/applyNew/index",
-    "pages/index/index",
-    "pages/equipment/index",
-    "pages/console/index",
-    "pages/mine/index",
-    "pages/farm/select/index"
+    "pages/farm/select/index",
+    "pages/farm/farmPic/upload"
   ],
   "window":{
     "backgroundTextStyle": "light",
