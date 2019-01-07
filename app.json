@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/farm/farmPic/index",
     "pages/auth/login/login",
     "pages/farm/feed/add",
     "pages/farm/feed/index",

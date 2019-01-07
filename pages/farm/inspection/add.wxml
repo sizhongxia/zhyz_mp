@@ -41,7 +41,7 @@
     <input placeholder="请输入巡检人" class='radius' name='input' bindinput="inputOperator" value="{{form.operator}}" style='text-align:right;'></input>
   </form-group>
   <form-group>
-    <view class='title'>是否正常</view>
+    <view class='title'>巡检正常</view>
     <switch class='green sm' bindchange="switchNormalState" checked="{{form.isNormal == 1}}"/>
   </form-group>
   <form-group>

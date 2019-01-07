@@ -1,0 +1,23 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 控制台
+    </navigator>
+    <view class='content'>农场图库</view>
+  </bar>
+</custom>
+<card class="case">
+  <item wx:for="{{pics}}" wx:key="picId" class="shadow">
+    <view class='image'>
+      <image lazy-load="{{true}}" class='image-size' src="{{item.picUrl}}"></image>
+      <tag class="bg-blue" wx:if="{{item.showBanner}}">Banner</tag>
+      <bar class='bg-shadeBottom'>{{item.title}}</bar>
+    </view>
+  </item>
+  <view class='h120 width-full'>Yeetong.cn</view>
+</card>
+<bar class="btn-group options width-full">
+  <button class='bg-green shadow-blur round lg' bindtap='toAdd'>
+    <icon class='icon-upload'></icon> 上传图片
+  </button>
+</bar>

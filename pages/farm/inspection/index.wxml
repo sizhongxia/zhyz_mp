@@ -1,9 +1,9 @@
 <custom style='height:{{CustomBar}}px;'>
   <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
     <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
-      <icon class='icon-back' /> 农场管理
+      <icon class='icon-back' /> 控制台
     </navigator>
-    <view class='content'>投食记录</view>
+    <view class='content'>巡检记录</view>
   </bar>
 </custom>
 
@@ -29,9 +29,8 @@
         <view class="bg-img" style="background-image:url({{inItem}});" bindtap='previewImage' data-pic-url="{{item.originalPics[idx]}}" wx:for="{{item.pics}}" wx:for-index="idx" wx:for-item="inItem" wx:key="inItem">
         </view>
       </view>
-      <view class='text-gray text-sm text-right padding'>
-        <icon class="icon-people" /> {{item.operator}}
-        <icon class="icon-location" /> {{item.inspectionPosition}}
+      <view class='text-gray text-left padding'>
+        巡检人：{{item.operator}}，巡检位置：{{item.inspectionPosition}}
       </view>
     </item>
   </card>
