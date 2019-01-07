@@ -4,6 +4,6 @@
   </bar>
 </custom>
 
-<view class="container">
-  
-</view>
+<list class="menu menu-avatar no-padding">
+  <view class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无数据</view>
+</list>

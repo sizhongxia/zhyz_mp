@@ -52,7 +52,7 @@
     </item>
   </list>
 
-
+<!--
   <bar class="solid-bottom margin-top width-full">
     <view class='action'>
       <icon class='icon-titles text-orange ' /> 禽畜种类概况
@@ -100,5 +100,6 @@
       </view>
     </item>
   </card>
+  -->
 
 </view>
