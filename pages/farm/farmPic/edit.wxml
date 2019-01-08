@@ -3,7 +3,7 @@
     <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
       <icon class='icon-back' /> 返回
     </navigator>
-    <view class='content'>上传农场图片</view>
+    <view class='content'>编辑农场图片</view>
   </bar>
 </custom>
 
