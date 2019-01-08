@@ -3,6 +3,8 @@
     "pages/auth/login/login",
     "pages/index/index",
     "pages/equipment/index",
+    "pages/equipment/type/index",
+    "pages/equipment/statistics/base",
     "pages/console/index",
     "pages/mine/index",
     "pages/farm/feed/add",

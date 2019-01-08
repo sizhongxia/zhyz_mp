@@ -1,0 +1,11 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 设备监控
+    </navigator>
+    <view class='content'>历史统计</view>
+  </bar>
+</custom>
+<view class='container'>
+  <ch-canvas canvasId='line' id='line' style='width: 750rpx; margin-top:300rpx;'></ch-canvas>
+</view>

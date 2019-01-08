@@ -1,0 +1,42 @@
+.width-full {
+  width: 750rpx;
+}
+
+.nav-list {
+  padding: 0 20rpx 0;
+}
+.nav-title {
+  font-size: 34rpx;
+  text-align: center;
+  font-weight: 300;
+}
+.nav-title::first-letter {
+  font-size: 34rpx;
+  font-weight: 300;
+}
+.nav-name {
+  text-align: center;
+  font-size: 22rpx;
+  font-weight: normal;
+}
+.nav-name::first-letter {
+  font-weight: normal;
+  margin-right: auto;
+  font-size: 22rpx;
+}
+.nav-name::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0px;
+  height: 0px;
+  background: #fff;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+}
+
+.item-bg {
+  background-color: #fefefe !important;
+  color: #969696 !important;
+}

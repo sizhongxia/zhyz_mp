@@ -1,9 +1,22 @@
 <custom style="height:{{CustomBar}}px;">
   <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
-    <view class='content'>设备管理</view>
+    <view class='content'>设备监控</view>
   </bar>
 </custom>
 
-<list class="menu menu-avatar no-padding">
-  <view class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无数据</view>
+<view style='margin-top:60rpx;'>
+  <view class='nav-list width-full'>
+    <navigator wx:for="{{equipments}}" wx:key="typeId" hover-class='none' url="/pages/equipment/type/index?typeId={{item.typeId}}" class="nav-li item-bg">
+      <view class="nav-title">
+        <avatar class="radius lg bg-cyan">
+          <text>{{item.typeName}}</text>
+        </avatar>
+      </view>
+      <view class="nav-name">在线：{{item.online}} | 离线：{{item.outline}}</view>
+    </navigator>
+  </view>
+</view>
+
+<list class="menu menu-avatar no-padding" wx:if="{{equipments.length == 0}}">
+  <view class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无设备</view>
 </list>

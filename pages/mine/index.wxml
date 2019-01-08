@@ -1,10 +1,10 @@
 <card class="DhCard">
   <item class="gradual-blue padding-xl" style="margin: 0rpx;">
     <view style='margin-top: 120rpx;'>
-      <avatar class="xxl round" style="background-image:url(https://image.weilanwl.com/img/square-4.jpg);"></avatar>
+      <avatar class="xxl round" style="background-image:url({{userInfo.avator}});"></avatar>
     </view>
     <view style='margin-top: 32rpx;'>
-      <view style='font-size: 32rpx;'>司仲夏</view>
+      <view style='font-size: 32rpx;'>{{userInfo.userName}}</view>
     </view>
     <view class='animation-wave'>
       <view class='wave'></view>

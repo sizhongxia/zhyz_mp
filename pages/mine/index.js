@@ -7,9 +7,14 @@ Page({
     currentFarmId: '',
     currentFarmIdentity: '',
     farmName: '',
-    auditsNum: 0
+    auditsNum: 0,
+    userInfo: {}
   },
   onLoad: function (options) {
+    const _this = this;
+    _this.setData({
+      userInfo: app.globalData.userInfo
+    });
   },
   onReady: function() {
   },

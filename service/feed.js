@@ -11,18 +11,28 @@ const selectFeedTags = () => {
   return util.post(api.FeedTags, {});
 }
 const selectFeedData = (farmId, farmAreaId, page) => {
-  return util.post(api.FeedData, { farmId: farmId, farmAreaId: farmAreaId, page: page });
+  return util.post(api.FeedData, {
+    farmId: farmId,
+    farmAreaId: farmAreaId,
+    page: page
+  });
 }
 
 const selectFeedDetail = (feedId) => {
-  return util.post(api.FeedDetail, { feedId: feedId });
+  return util.post(api.FeedDetail, {
+    feedId: feedId
+  });
 }
 const changeFeedTagSortNum = (feedTagId) => {
-  return util.post(api.UpdateFeedTagSortNum, { feedTagId: feedTagId });
+  return util.post(api.UpdateFeedTagSortNum, {
+    feedTagId: feedTagId
+  });
 }
 
 const selectFeedTagDetail = (feedTagId) => {
-  return util.post(api.FeedTagDetail, { feedTagId: feedTagId });
+  return util.post(api.FeedTagDetail, {
+    feedTagId: feedTagId
+  });
 }
 const updateFeedTag = (feedTag) => {
   return util.post(api.UpdateFeedTag, feedTag);

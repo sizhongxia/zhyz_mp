@@ -5,10 +5,15 @@ const saveInspection = (inspection) => {
   return util.post(api.SaveInspection, inspection);
 }
 const selectInspectionData = (farmId, page) => {
-  return util.post(api.InspectionData, { farmId: farmId, page: page });
+  return util.post(api.InspectionData, {
+    farmId: farmId,
+    page: page
+  });
 }
 const deleteInspection = (inspectionId) => {
-  return util.post(api.DeleteInspection, { inspectionId: inspectionId});
+  return util.post(api.DeleteInspection, {
+    inspectionId: inspectionId
+  });
 }
 
 module.exports = {

@@ -10,10 +10,14 @@ const saveFarmPic = (farmPic) => {
   return util.post(api.SaveFarmPic, farmPic);
 }
 const getFarmPicDetail = (picId) => {
-  return util.post(api.FarmPicDetail, { picId: picId });
+  return util.post(api.FarmPicDetail, {
+    picId: picId
+  });
 }
 const deleteFarmPic = (picId) => {
-  return util.post(api.DeleteFarmPic, { picId: picId });
+  return util.post(api.DeleteFarmPic, {
+    picId: picId
+  });
 }
 const updateFarmPic = (farmPic) => {
   return util.post(api.UpdateFarmPic, farmPic);

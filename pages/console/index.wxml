@@ -3,7 +3,7 @@
     <view class='content'>农场管理</view>
   </bar>
 </custom>
-<view class='container' style='margin-top:60rpx;'>
+<view style='margin-top:60rpx;'>
   <view class='nav-list width-full'>
     <navigator hover-class='none' url="/pages/farm/feed/index" class="nav-li bg-grey">
       <view class="nav-title">投食管理</view>

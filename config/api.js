@@ -43,5 +43,8 @@ module.exports = {
   DeleteFarmArea: ApiUrl + '/zhyz/miniapp/api/farmArea/delete',
   FarmAreaDetail: ApiUrl + '/zhyz/miniapp/api/farmArea/detail',
 
+  EquipmentData: ApiUrl + '/zhyz/miniapp/api/equipment/list',
+  EquipmentTypeData: ApiUrl + '/zhyz/miniapp/api/equipment/typeList',
+
   UploadApi: ApiUrl + '/basic/api/upload'
 }
