@@ -36,18 +36,30 @@ Page({
       callback && callback();
     });
   },
-  toStatistic: function (e) {
+  toStatistic: function(e) {
     const _this = this;
-    if (_this.data.typeId == '5c20b71a7e29f28d5eaf774c' || _this.data.typeId == '5c20b71a7e29f28d5eaf774d' || _this.data.typeId == '5c2085cb7e29123757fd3fe8') {
+    var path = "";
+    var itemName = "";
+    if (_this.data.typeId == '5c20b71a7e29f28d5eaf774c') {
+      // 温度
+      path = "base";
+    } else if (_this.data.typeId == '5c20b71a7e29f28d5eaf774d') {
+      // 湿度
+      path = "base";
+    } else if (_this.data.typeId == '5c2085cb7e29123757fd3fe8') {
+      // 氨气
+      path = "base";
+    }
+    if(path) {
       wx.navigateTo({
-        url: '/pages/equipment/statistics/base?equipmentId=' + e.currentTarget.dataset.equipmentId
+        url: '/pages/equipment/statistics/' + path + '?equipmentId=' + e.currentTarget.dataset.equipmentId
       });
     } else {
       wx.showToast({
         title: '功能开发中...',
         icon: 'none'
       });
-    }
+    } 
   },
   onPullDownRefresh: function() {
     const _this = this;

@@ -8,7 +8,7 @@
 </custom>
 
 <view class="container">
-  <card class="article no-card width-full">
+  <card class="article width-full">
     <item wx:for="{{feeds}}" wx:key="feedId" class="shadow" data-feed-id="{{item.feedId}}" bindtap="toDetail">
       <view class="title"><icon class='icon-time' /> {{item.feedAt}}</view>
       <view class="content">

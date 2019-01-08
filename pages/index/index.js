@@ -1,4 +1,6 @@
 var farmService = require('../../service/farm.js');
+var equipmentService = require('../../service/equipment.js');
+
 var util = require('../../utils/util.js');
 const app = getApp();
 
@@ -12,24 +14,7 @@ Page({
     // 农场详情
     farm: {},
     weather: '',
-    monitor: {
-      tmp: {
-        online: 0,
-        warn: 0
-      },
-      hum: {
-        online: 0,
-        warn: 0
-      },
-      ammonia: {
-        online: 0,
-        warn: 0
-      },
-      camera: {
-        online: 0,
-        outline: 0
-      }
-    }
+    monitorInfo: []
   },
   onLoad: function() {
     const _this = this;
@@ -73,11 +58,21 @@ Page({
       wx.hideLoading();
       console.error(err);
     });
-    // var farmIdentity = wx.getStorageSync('curr-farm-identity');
-    // console.info(farmId)
-    // console.info(farmIdentity)
+
+    equipmentService.getEquipmentCollectionHomeTj(farmId).then(res=> {
+      _this.setData({
+        monitorInfo: res
+      });
+    }).catch(err => {
+      console.error(err);
+    });
   },
   previewQrCodeImage: function() {
     util.previewImage(this.data.farm.qrCodeUrl);
+  },
+  toEquipment: function() {
+    wx.switchTab({
+      url: '/pages/equipment/index'
+    });
   }
 })

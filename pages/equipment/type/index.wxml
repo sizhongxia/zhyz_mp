@@ -14,7 +14,7 @@
     </avatar>
     <view class='content'>
       <!--<tag wx:if="{{item.online}}" class='bg-green round'></tag><tag wx:else class='bg-red round'></tag> -->
-      <view>{{item.equipmentName}} <icon wx:if="{{!item.warning}}" class='icon-notice text-orange'/></view>
+      <view>{{item.equipmentName}} <icon wx:if="{{item.warning}}" class='icon-notice text-orange'/></view>
       <view class='text-gray text-sm'>{{item.equipmentSn}} | {{item.equipmentModelName}}</view>
     </view>
     <view class='action'>

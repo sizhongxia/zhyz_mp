@@ -1,9 +1,10 @@
 // ch-canvas.js
 const chcharts = require("./chcharts-min.js")
-function getStyleStr(obj){
+
+function getStyleStr(obj) {
   let result = '';
-  Object.keys(obj).forEach(val=>{
-    result += val + '=' + obj[val]+';'
+  Object.keys(obj).forEach(val => {
+    result += val + '=' + obj[val] + ';'
   });
   return result
 }
@@ -29,10 +30,10 @@ Component({
     tooltipPos: '',
     showTooltip: false,
     tooltipInfo: '',
-    showHLine:false,
-    showVLine:false,
-    crossVLineStyle:'',
-    crossHLineStyle:'',
+    showHLine: false,
+    showVLine: false,
+    crossVLineStyle: '',
+    crossHLineStyle: '',
   },
 
   /**
@@ -57,16 +58,15 @@ Component({
     },
     touchStart(e) {
       var tipInfo = chcharts.requestTooltip(e.touches[0].x, e.touches[0].y, parseFloat(this.data.canvasWidth), parseFloat(this.data.canvasHeight));
-      if (tipInfo)
-      {
+      if (tipInfo) {
         this.setData({
-          showTooltip: tipInfo.showTooltip||false,
-          tooltipPos: tipInfo.tooltipPos||'',
-          tooltipInfo: tipInfo.tooltipInfo||'',
+          showTooltip: tipInfo.showTooltip || false,
+          tooltipPos: tipInfo.tooltipPos || '',
+          tooltipInfo: tipInfo.tooltipInfo || '',
           showHLine: tipInfo.showHLine || false,
           showVLine: tipInfo.showVLine || false,
-          crossVLineStyle:tipInfo.crossVLine||'',
-          crossHLineStyle: tipInfo.crossHLine||'',
+          crossVLineStyle: tipInfo.crossVLine || '',
+          crossHLineStyle: tipInfo.crossHLine || '',
         })
       }
     },

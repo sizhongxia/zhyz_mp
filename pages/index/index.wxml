@@ -29,26 +29,11 @@
     </item>
   </card>
 
-  <list class="grid no-border col-4 width-full">
-    <item>
-      <text class='typeName'>温度</text>
-      <view class='typeInfo'>在线：{{monitor.tmp.online}}</view>
-      <view class='typeInfo'>告警：{{monitor.tmp.warn}}</view>
-    </item>
-    <item>
-      <text class='typeName'>湿度</text>
-      <view class='typeInfo'>在线：{{monitor.hum.online}}</view>
-      <view class='typeInfo'>告警：{{monitor.hum.warn}}</view>
-    </item>
-    <item>
-      <text class='typeName'>氨气</text>
-      <view class='typeInfo'>在线：{{monitor.ammonia.online}}</view>
-      <view class='typeInfo'>告警：{{monitor.ammonia.warn}}</view>
-    </item>
-    <item>
-      <text class='typeName'>摄像头</text>
-      <view class='typeInfo'>在线：{{monitor.camera.online}}</view>
-      <view class='typeInfo'>离线：{{monitor.camera.outline}}</view>
+  <list class="grid no-border col-4 width-full" bindtap='toEquipment'>
+    <item wx:for="{{monitorInfo}}" wx:key="typeId">
+      <text class='typeName'>{{item.typeName}}</text>
+      <view class='typeInfo'>{{item.online}}</view>
+      <view class='typeInfo'>{{item.other}}</view>
     </item>
   </list>
 

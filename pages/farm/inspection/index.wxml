@@ -9,7 +9,7 @@
 
 <view class="container">
 
-  <card class="dynamic no-card width-full">
+  <card class="dynamic width-full">
     <item wx:for="{{inspections}}" wx:key="inspectionId" class="shadow" data-inspection-id="{{item.inspectionId}}" bindlongpress="removeItem">
       <list class="menu menu-avatar">
         <item>
@@ -29,7 +29,7 @@
         <view class="bg-img" style="background-image:url({{inItem}});" bindtap='previewImage' data-pic-url="{{item.originalPics[idx]}}" wx:for="{{item.pics}}" wx:for-index="idx" wx:for-item="inItem" wx:key="inItem">
         </view>
       </view>
-      <view class='text-gray text-left padding'>
+      <view class='text-gray text-sm text-left padding'>
         巡检人：{{item.operator}}，巡检位置：{{item.inspectionPosition}}
       </view>
     </item>

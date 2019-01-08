@@ -1,1 +1,3 @@
-/* pages/equipment/statistics/base.wxss */
+canvas {
+  width: 750rpx;
+}

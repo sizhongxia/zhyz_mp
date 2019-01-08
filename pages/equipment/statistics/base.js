@@ -1,46 +1,91 @@
-// https://github.com/chmini-app/CHCharts-wechat
-const data =//[0.0001, 0.00032, 0.00046,0.0005, 0.00066,0.0007, 0.00012, -0.0046, -0.00065, -0.0032,]
-  [
-  {
-    name: '线图2',
-    data: [-1, -32, -46.5, -66.7, -12, 46, 65, 32, -3, -55, -100, 3, -1, -32, -46.5, -66.7, -12, 46, 65, 32, -3, -55, -100, 3],
-    color: 'rgb(182,213,93)',
-  }];
-const xLabel = ['00:00', '00:30', '01:00', '01:30', '02:00', '02:30', '00:00', '00:30', 
-  '00:00', '00:30', '00:00', '00:30', '00:00', '00:30', 
-  '00:00', '00:30', '00:00', '00:30', '00:00', '00:30', 
-  '00:00', '00:30', '00:00', '00:30', '00:00', '00:30', 
-  '00:00', '00:30', '00:00', '00:30', '00:00', '00:30', 
-  '00:00', '00:30', '00:00', '00:30', '00:00', '00:30', 
-  '00:00', '00:30', '00:00', '00:30', '00:00', '00:30', 
-  '00:00', '00:30', '23:30'];
-const options = {
-  data: data,
-  xLabel: xLabel,
-  style: 'line',
-  lineStyle: 'curve',
-  area: true,
-  showTooltip: true,
-  tooltip: '{a}：{b}',
-  showLabel: false,
-};
+var equipmentService = require('../../../service/equipment.js');
+const app = getApp();
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    dpr: wx.getSystemInfoSync().windowWidth / 750,
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    equipmentId: '',
+    itemName: '',
+    date: '',
+    maxDate: '',
+    tabIndex: '1',
+    alarms: []
   },
-  onLoad: function (options) {
-
+  onLoad: function(options) {
+    const _this = this;
+    _this.setData({
+      equipmentId: options.equipmentId
+    });
   },
   onReady: function () {
-
+    this.load();
   },
-  onShow: function () {
-    this.lineChart = this.selectComponent('#line');
-    this.lineChart.setOptions(options);
-    this.lineChart.initChart(320, 213);
+  load: function() {
+    const _this = this;
+    wx.showLoading({
+      title: '加载中...'
+    });
+    equipmentService.getEquipmentCollectionHisData(_this.data.equipmentId, _this.data.date).then(res => {
+      _this.setData({
+        itemName: res.equipmentTypeName,
+        date: res.date,
+        maxDate: res.maxDate
+      });
+      // https://github.com/chmini-app/CHCharts-wechat
+      _this.lineChart = this.selectComponent('#line');
+      _this.lineChart.setOptions({
+        data: [{
+          name: res.equipmentTypeName + '值',
+          data: res.values,
+          color: '#0081ff'
+        }],
+        xLabel: res.labels,
+        style: 'line',
+        lineStyle: 'curve',
+        area: true,
+        showTooltip: true,
+        tooltip: '时间:{a}, ' + res.equipmentTypeName + '值:{b} ' + res.unit,
+        showLabel: false,
+      });
+      wx.getSystemInfo({
+        success: function(res) {
+          _this.lineChart.initChart(res.screenWidth, 320);
+        },
+        complete: function () {
+          _this.loadAlarm(function() {
+            wx.hideLoading();
+          });
+        }
+      });
+    }).catch(err => {
+      console.error(err);
+      wx.hideLoading();
+    })
+  },
+  loadAlarm: function (callback) {
+    const _this = this;
+    equipmentService.getEquipmentCollectionAlarmData(_this.data.equipmentId, _this.data.date).then(res => {
+      _this.setData({
+        alarms: res
+      });
+      callback && callback()
+    }).catch(err => {
+      console.error(err);
+      callback && callback()
+    })
+  },
+  dateChange: function (e) {
+    const _this = this;
+    _this.setData({
+      date: e.detail.value
+    });
+    _this.load();
+  },
+  tabSelect: function (e) {
+    const _this = this;
+    _this.setData({
+      tabIndex: e.currentTarget.dataset.index
+    });
   }
 })
