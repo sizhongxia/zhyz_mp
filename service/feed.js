@@ -17,7 +17,11 @@ const selectFeedData = (farmId, farmAreaId, page) => {
     page: page
   });
 }
-
+const getLastFeedDetail = (farmId) => {
+  return util.post(api.LastFeedDetail, {
+    farmId: farmId
+  });
+}
 const selectFeedDetail = (feedId) => {
   return util.post(api.FeedDetail, {
     feedId: feedId
@@ -46,5 +50,6 @@ module.exports = {
   selectFeedDetail: selectFeedDetail,
   changeFeedTagSortNum: changeFeedTagSortNum,
   selectFeedTagDetail: selectFeedTagDetail,
-  updateFeedTag: updateFeedTag
+  updateFeedTag: updateFeedTag,
+  getLastFeedDetail: getLastFeedDetail
 }

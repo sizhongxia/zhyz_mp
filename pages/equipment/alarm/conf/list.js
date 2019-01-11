@@ -12,6 +12,8 @@ Page({
     this.setData({
       equipmentId: options.equipmentId
     });
+  },
+  onShow: function () {
     this.load();
   },
   load: function (callback) {
@@ -39,6 +41,7 @@ Page({
     });
   },
   toDetail: function (e) {
+    console.info(e.currentTarget.dataset.confId);
     wx.navigateTo({
       url: '/pages/equipment/alarm/conf/detail?confId=' + e.currentTarget.dataset.confId
     });

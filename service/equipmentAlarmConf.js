@@ -17,8 +17,30 @@ const saveEquipmentAlarmConf = (form) => {
   return util.post(api.SaveEquipmentAlarmConf, form);
 }
 
+const getEquipmentAlarmConfDetail = (confId) => {
+  return util.post(api.EquipmentAlarmConfDetail, {
+    confId: confId
+  });
+}
+
+const changeEquipmentAlarmConfUseState = (confId, monitorState) => {
+  return util.post(api.ChangeEquipmentAlarmConfUseState, {
+    confId: confId,
+    monitorState: monitorState
+  });
+}
+
+const deleteEquipmentAlarmConf = (confId) => {
+  return util.post(api.DeleteEquipmentAlarmConf, {
+    confId: confId
+  });
+}
+
 module.exports = {
   getEquipmentAlarmConfData: getEquipmentAlarmConfData,
   checkAlarmPhone: checkAlarmPhone,
-  saveEquipmentAlarmConf: saveEquipmentAlarmConf
+  saveEquipmentAlarmConf: saveEquipmentAlarmConf,
+  getEquipmentAlarmConfDetail: getEquipmentAlarmConfDetail,
+  changeEquipmentAlarmConfUseState: changeEquipmentAlarmConfUseState,
+  deleteEquipmentAlarmConf: deleteEquipmentAlarmConf
 }

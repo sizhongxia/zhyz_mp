@@ -37,7 +37,7 @@
     </item>
   </list>
 
-<!--
+  <!--
   <bar class="solid-bottom margin-top width-full">
     <view class='action'>
       <icon class='icon-titles text-orange ' /> 禽畜种类概况
@@ -86,5 +86,43 @@
     </item>
   </card>
   -->
+  <bar class="solid-bottom margin-top width-full" wx:if="{{feed.had}}">
+    <view class='action'>
+      <icon class='icon-titles text-orange ' /> 最近一次投食
+    </view>
+  </bar>
+  <card class="article no-card width-full" wx:if="{{feed.had}}">
+    <item class="shadow">
+      <view class="title">地点：{{feed.feedPosition}}</view>
+      <view class="content">
+        <image src="{{feed.coverPicUrl}}" mode="aspectFill"></image>
+        <view class="desc">
+          <view class='text-content'>{{feed.feedRemark}}</view>
+          <view>
+            {{feed.feedRaiser}}, {{feed.feedAt}}
+          </view>
+        </view>
+      </view>
+    </item>
+  </card>
+  <bar class="solid-bottom margin-top width-full" wx:if="{{inspection.had}}">
+    <view class='action'>
+      <icon class='icon-titles text-orange ' /> 最近一次巡检
+    </view>
+  </bar>
+  <card class="article no-card width-full" wx:if="{{inspection.had}}">
+    <item class="shadow">
+      <view class="title">地点：{{inspection.inspectionPosition}}</view>
+      <view class="content">
+        <image src="{{inspection.pic}}" mode="aspectFill"></image>
+        <view class="desc">
+          <view class='text-content'>{{inspection.inspectionRemark}}</view>
+          <view>
+            {{inspection.operator}}, {{inspection.inspectionAt}}
+          </view>
+        </view>
+      </view>
+    </item>
+  </card>
 
 </view>

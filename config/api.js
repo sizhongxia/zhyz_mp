@@ -24,12 +24,14 @@ module.exports = {
   FeedTags: ApiUrl + '/zhyz/miniapp/api/feed/feedTags',
   FeedData: ApiUrl + '/zhyz/miniapp/api/feed/data',
   FeedDetail: ApiUrl + '/zhyz/miniapp/api/feed/detail',
+  LastFeedDetail: ApiUrl + '/zhyz/miniapp/api/feed/getLastFeed',
   UpdateFeedTagSortNum: ApiUrl + '/zhyz/miniapp/api/feed/changeFeedTagSortNum',
   FeedTagDetail: ApiUrl + '/zhyz/miniapp/api/feed/tagDetail',
   UpdateFeedTag: ApiUrl + '/zhyz/miniapp/api/feed/updateTag',
 
   InspectionData: ApiUrl + '/zhyz/miniapp/api/inspection/data',
   SaveInspection: ApiUrl + '/zhyz/miniapp/api/inspection/save',
+  LastInspectionDetail: ApiUrl + '/zhyz/miniapp/api/inspection/getLastInspection',
   DeleteInspection: ApiUrl + '/zhyz/miniapp/api/inspection/delete',
 
   FarmPicData: ApiUrl + '/zhyz/miniapp/api/farmPic/data',
@@ -52,6 +54,9 @@ module.exports = {
 
   EquipmentAlarmConfData: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/data',
   SaveEquipmentAlarmConf: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/save',
+  EquipmentAlarmConfDetail: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/detail',
+  ChangeEquipmentAlarmConfUseState: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/changeUseState',
+  DeleteEquipmentAlarmConf: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/delete',
   CheckAlarmPhone: ApiUrl + '/zhyz/miniapp/api/check/alarmPhone',
 
   

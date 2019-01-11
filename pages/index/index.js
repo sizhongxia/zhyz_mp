@@ -1,5 +1,7 @@
 var farmService = require('../../service/farm.js');
 var equipmentService = require('../../service/equipment.js');
+var inspectionService = require('../../service/inspection.js');
+var feedService = require('../../service/feed.js');
 
 var util = require('../../utils/util.js');
 const app = getApp();
@@ -14,7 +16,9 @@ Page({
     // 农场详情
     farm: {},
     weather: '',
-    monitorInfo: []
+    monitorInfo: [],
+    inspection: {},
+    feed: {}
   },
   onLoad: function() {
     const _this = this;
@@ -59,9 +63,25 @@ Page({
       console.error(err);
     });
 
-    equipmentService.getEquipmentCollectionHomeTj(farmId).then(res=> {
+    equipmentService.getEquipmentCollectionHomeTj(farmId).then(res => {
       _this.setData({
         monitorInfo: res
+      });
+    }).catch(err => {
+      console.error(err);
+    });
+
+    inspectionService.getLastInspectionDetail(farmId).then(res => {
+      _this.setData({
+        inspection: res
+      });
+    }).catch(err => {
+      console.error(err);
+    });
+    
+    feedService.getLastFeedDetail(farmId).then(res => {
+      _this.setData({
+        feed: res
       });
     }).catch(err => {
       console.error(err);

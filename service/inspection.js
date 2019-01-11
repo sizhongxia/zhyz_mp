@@ -15,9 +15,15 @@ const deleteInspection = (inspectionId) => {
     inspectionId: inspectionId
   });
 }
+const getLastInspectionDetail = (farmId) => {
+  return util.post(api.LastInspectionDetail, {
+    farmId: farmId
+  });
+}
 
 module.exports = {
   saveInspection: saveInspection,
   selectInspectionData: selectInspectionData,
-  deleteInspection: deleteInspection
+  deleteInspection: deleteInspection,
+  getLastInspectionDetail: getLastInspectionDetail
 }
