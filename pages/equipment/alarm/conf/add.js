@@ -146,6 +146,13 @@ Page({
     this.checkPushPerson(this.data.form.pushPerson5);
   },
   checkPushPerson: function(phoneNo) {
+    if (!phoneNo) {
+      wx.showToast({
+        title: '请输入手机号',
+        icon: 'none'
+      });
+      return;
+    }
     wx.showLoading({
       title: '检查中...'
     });

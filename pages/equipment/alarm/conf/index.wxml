@@ -3,7 +3,7 @@
     <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
       <icon class='icon-back' /> 返回
     </navigator>
-    <view class='content'>农场设备</view>
+    <view class='content'>农场设备列表</view>
   </bar>
 </custom>
 <list class="menu menu-avatar">
@@ -18,4 +18,5 @@
     <view class='action'>
     </view>
   </item>
+  <view wx:if="{{equipments.length === 0}}" class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无数据</view>
 </list>

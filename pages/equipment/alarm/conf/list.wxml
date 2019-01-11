@@ -23,6 +23,7 @@
       <tag wx:else class="round bg-orange"> 未启用 </tag>
     </view>
   </item>
+  <view wx:if="{{confs.length === 0}}" class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无数据</view>
 </list>
 
 <view class='h120 width-full'>Yeetong.cn</view>

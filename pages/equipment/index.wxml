@@ -3,7 +3,9 @@
     <view class='content'>设备监控</view>
   </bar>
 </custom>
-
+<list class="menu menu-avatar no-padding" wx:if="{{equipments.length == 0}}">
+  <view class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无设备</view>
+</list>
 <view style='margin-top:60rpx;'>
   <view class='nav-list width-full'>
     <navigator wx:for="{{equipments}}" wx:key="typeId" hover-class='none' url="/pages/equipment/type/index?typeId={{item.typeId}}" class="nav-li item-bg">
@@ -16,7 +18,3 @@
     </navigator>
   </view>
 </view>
-
-<list class="menu menu-avatar no-padding" wx:if="{{equipments.length == 0}}">
-  <view class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无设备</view>
-</list>
