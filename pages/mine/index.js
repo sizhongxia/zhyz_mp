@@ -78,5 +78,10 @@ Page({
     wx.navigateTo({
       url: "/pages/farm/feedTag/index"
     });
+  },
+  toEquipmentConfs: function () {
+    wx.navigateTo({
+      url: "/pages/equipment/alarm/conf/index"
+    });
   }
 })

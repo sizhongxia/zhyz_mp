@@ -1,7 +1,7 @@
 // const ApiUrl = 'http://192.168.31.144:9091';
 // const ApiUrl = 'http://192.168.31.96:9091';
-// const ApiUrl = 'http://192.168.1.107:9091';
-const ApiUrl = 'https://wxapi.yeetong.cn';
+const ApiUrl = 'http://192.168.1.107:9091';
+// const ApiUrl = 'https://wxapi.yeetong.cn';
 module.exports = {
 
   // 微信登陆
@@ -44,10 +44,17 @@ module.exports = {
   FarmAreaDetail: ApiUrl + '/zhyz/miniapp/api/farmArea/detail',
 
   EquipmentData: ApiUrl + '/zhyz/miniapp/api/equipment/list',
+  FarmAllEquipmentsData: ApiUrl + '/zhyz/miniapp/api/equipment/allFarmEquipments',
   EquipmentTypeData: ApiUrl + '/zhyz/miniapp/api/equipment/typeList',
   EquipmentCollectionHisData: ApiUrl + '/zhyz/miniapp/api/equipment/collectionHisData',
   EquipmentCollectionAlarmData: ApiUrl + '/zhyz/miniapp/api/equipment/collectionAlarmData',
   EquipmentCollectionHomeTj: ApiUrl + '/zhyz/miniapp/api/equipment/homeTj',
+
+  EquipmentAlarmConfData: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/data',
+  SaveEquipmentAlarmConf: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/save',
+  CheckAlarmPhone: ApiUrl + '/zhyz/miniapp/api/check/alarmPhone',
+
+  
 
   UploadApi: ApiUrl + '/basic/api/upload'
 }

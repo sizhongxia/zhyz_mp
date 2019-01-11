@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/auth/login/login",
     "pages/index/index",
     "pages/equipment/index",
@@ -25,9 +25,13 @@
     "pages/farm/farmPic/edit",
     "pages/farm/farmArea/index",
     "pages/farm/farmArea/add",
-    "pages/farm/farmArea/edit"
+    "pages/farm/farmArea/edit",
+    "pages/equipment/alarm/conf/index",
+    "pages/equipment/alarm/conf/list",
+    "pages/equipment/alarm/conf/add",
+    "pages/equipment/alarm/conf/detail"
   ],
-  "window":{
+  "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "一通无限智慧养殖",

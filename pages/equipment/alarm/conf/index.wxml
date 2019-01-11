@@ -1,0 +1,21 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 返回
+    </navigator>
+    <view class='content'>农场设备</view>
+  </bar>
+</custom>
+<list class="menu menu-avatar">
+  <item class="arrow" wx:for="{{equipments}}" wx:key="equipmentId" data-equipment-id="{{item.equipmentId}}" bindtap="toConfs">
+    <avatar class="radius lg">
+      <text>设备</text>
+    </avatar>
+    <view class='content'>
+      <view>{{item.equipmentName}}</view>
+      <view class='text-gray text-sm'>{{item.equipmentSn}}</view>
+    </view>
+    <view class='action'>
+    </view>
+  </item>
+</list>

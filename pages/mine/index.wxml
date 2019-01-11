@@ -34,7 +34,7 @@
       <tag class='bg-red round'>{{ auditsNum }}</tag>
     </view>
   </item>
-  <item class="arrow">
+  <item class="arrow" bindtap='toEquipmentConfs'>
     <view class='content'>
       <icon class='icon-settings text-green' />
       <text class='text-grey'>设备告警推送设置</text>

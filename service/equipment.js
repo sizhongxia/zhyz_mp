@@ -6,6 +6,13 @@ const getEquipmentData = (farmId) => {
     farmId: farmId
   });
 }
+
+const getFarmBaseEquipmentData = (farmId) => {
+  return util.post(api.FarmAllEquipmentsData, {
+    farmId: farmId
+  });
+}
+
 const getEquipmentTypeData = (farmId, typeId) => {
   return util.post(api.EquipmentTypeData, {
     farmId: farmId,
@@ -35,6 +42,7 @@ const getEquipmentCollectionHomeTj = (farmId) => {
 
 module.exports = {
   getEquipmentData: getEquipmentData,
+  getFarmBaseEquipmentData: getFarmBaseEquipmentData,
   getEquipmentTypeData: getEquipmentTypeData,
   getEquipmentCollectionHisData: getEquipmentCollectionHisData,
   getEquipmentCollectionAlarmData: getEquipmentCollectionAlarmData,

@@ -1,0 +1,34 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 返回
+    </navigator>
+    <view class='content'>告警配置项列表</view>
+  </bar>
+</custom>
+
+<list class="menu no-padding">
+  <item class="arrow" wx:for="{{confs}}" wx:key="confId" data-conf-id="{{item.confId}}" bindtap="toDetail">
+    <view class='content'>
+      <view>
+        <text style='color:#444'>当设备采集到</text> {{item.typeNmae}} 
+        <text style='color:#444'>值</text>
+        <text style='color:#f37b1d;font-weight:600'> {{item.operationalCharacter}}{{item.monitorAlarmValue}} </text>
+        <text style='color:#444'>时发送告警通知。</text>
+      </view>
+      <view class='text-gray text-sm'>创建于：{{item.createAt}}</view>
+    </view>
+    <view class='action'>
+      <tag wx:if="{{item.useState}}" class="round bg-green"> 使用中 </tag>
+      <tag wx:else class="round bg-orange"> 未启用 </tag>
+    </view>
+  </item>
+</list>
+
+<view class='h120 width-full'>Yeetong.cn</view>
+
+<bar class="btn-group options width-full">
+  <button class='bg-green shadow-blur round lg' bindtap='toAdd'>
+    <icon class='icon-add'></icon> 新增告警配置
+  </button>
+</bar>

@@ -6,7 +6,6 @@
     <view class='content'>农场厂区</view>
   </bar>
 </custom>
-
 <list class="menu menu-avatar">
   <item class="arrow" wx:for="{{areas}}" wx:key="areaId" data-area-id="{{item.areaId}}" bindtap="toEdit" bindlongpress="removeItem">
     <avatar class="radius lg">
