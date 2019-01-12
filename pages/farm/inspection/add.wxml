@@ -18,7 +18,7 @@
   </form-group>
   <form-group>
     <view class='title'>具体位置</view>
-    <input placeholder="请输入具体巡检位置" class='radius' name='input' bindinput="inputInspectionPosition" value="{{form.inspectionPosition}}" style='text-align:right;'></input>
+    <input placeholder="请输入具体巡检位置" class='radius' name='inspectionPosition' bindinput="inputInspectionPosition" value="{{form.inspectionPosition}}" style='text-align:right;'></input>
   </form-group>
   <form-group>
     <view class='title'>巡检日期</view>
@@ -38,7 +38,7 @@
   </form-group>
   <form-group>
     <view class='title'>巡检人</view>
-    <input placeholder="请输入巡检人" class='radius' name='input' bindinput="inputOperator" value="{{form.operator}}" style='text-align:right;'></input>
+    <input placeholder="请输入巡检人" class='radius' name='operator' bindinput="inputOperator" value="{{form.operator}}" style='text-align:right;'></input>
   </form-group>
   <form-group>
     <view class='title'>巡检正常</view>

@@ -7,11 +7,77 @@
   </bar>
 </custom>
 
-<view style='padding: 80rpx 150rpx;text-align:center;'>
-  <view>
-    <button class="padding-xl radius bg-blue margin-top" bindtap='toRegisterBatch' style='width: 100%'>批量登记</button>
-  </view>
-  <view>
-    <button class="padding-xl radius bg-green margin-top" bindtap='toRegisterSingle' style='width: 100%'>单体登记</button>
-  </view>
-</view>
+<form>
+  <form-group class="margin-top">
+    <view class='title'>选择厂区</view>
+    <picker bindchange="areaPickerChange" value="{{index}}" range="{{areas}}" range-key="areaName">
+      <view class="picker">
+        {{ form.farmAreaName == '' ? '无厂区' : form.farmAreaName }}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>禽畜种类</view>
+    <picker bindchange="kindPickerChange" value="{{index}}" range="{{kinds}}" range-key="name">
+      <view class="picker">
+        {{form.kindName}}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>禽畜品种</view>
+    <picker bindchange="varietyPickerChange" value="{{index}}" range="{{varieties}}" range-key="varietyName">
+      <view class="picker">
+        {{form.varietyId=='' ? '请选择' : form.varietyName}}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>性别</view>
+    <picker bindchange="poultryGenderPickerChange" value="{{index}}" range="{{poultryGenders}}" range-key="name">
+      <view class="picker">
+        {{form.poultryGenderName}}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>是否接种</view>
+    <picker bindchange="vaccinationPickerChange" value="{{index}}" range="{{vaccinations}}" range-key="name">
+      <view class="picker">
+        {{form.hadVaccinationTxt}}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>状态</view>
+    <picker bindchange="statusPickerChange" value="{{index}}" range="{{statuss}}" range-key="name">
+      <view class="picker">
+        {{form.statusTxt}}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>批次号</view>
+    <input placeholder="请输入批次号" class='radius' name='batchNo' bindinput="inputBatchNo" value="{{form.batchNo}}" style='text-align:right;'></input>
+  </form-group>
+  <form-group>
+    <view class='title'>出生/孵化日期</view>
+    <picker mode="date" value="{{form.bornAt}}" start="2018-01-01" end="2099-09-01" bindchange="bornAtDateChange">
+      <view class="picker">
+        {{form.bornAt}}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>登记数量</view>
+    <input placeholder="请输入登记数量" class='radius' type='number' name='number' bindinput="inputNumber" value="{{form.number}}" style='text-align:right;'></input>
+  </form-group>
+</form>
+
+<view class='h120 width-full'>Yeetong.cn</view>
+
+<bar class="btn-group options width-full">
+  <button loading='{{submiting}}' class='bg-green shadow-blur round lg' bindtap='toAdd'>
+    <icon class='icon-check'></icon> 保存
+  </button>
+</bar>

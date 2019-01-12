@@ -64,6 +64,9 @@ module.exports = {
   UpdatePoultryVariety: ApiUrl + '/zhyz/miniapp/poultry/variety/update',
   DeletePoultryVariety: ApiUrl + '/zhyz/miniapp/poultry/variety/delete',
   PoultryVarietyDetail: ApiUrl + '/zhyz/miniapp/poultry/variety/detail',
+
+  SavePoultry: ApiUrl + '/zhyz/miniapp/poultry/save',
+  
   
   UploadApi: ApiUrl + '/basic/api/upload'
 }

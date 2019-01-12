@@ -1,8 +1,10 @@
 var api = require('../config/api.js')
 var util = require('../utils/util.js')
 
-const getPoultryVarietyData = () => {
-  return util.post(api.PoultryVarietyData);
+const getPoultryVarietyData = (poultryTypeId) => {
+  return util.post(api.PoultryVarietyData, {
+    poultryTypeId: poultryTypeId
+  });
 }
 const savePoultryVariety = (form) => {
   return util.post(api.SavePoultryVariety, form);

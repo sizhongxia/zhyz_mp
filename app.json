@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/poultry/variety/index",
-    "pages/farm/poultry/register/single",
     "pages/farm/poultry/index",
     "pages/auth/login/login",
     "pages/index/index",
@@ -36,8 +35,7 @@
     "pages/poultry/variety/add",
     "pages/poultry/variety/detail",
     "pages/farm/poultry/list",
-    "pages/farm/poultry/register",
-    "pages/farm/poultry/register/batch"
+    "pages/farm/poultry/register"
   ],
   "window": {
     "backgroundTextStyle": "light",

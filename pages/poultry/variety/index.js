@@ -1,6 +1,4 @@
 var poultryVarietyService = require('../../../service/poultryVariety.js');
-var util = require('../../../utils/util.js');
-var api = require('../../../config/api.js');
 const app = getApp()
 
 Page({

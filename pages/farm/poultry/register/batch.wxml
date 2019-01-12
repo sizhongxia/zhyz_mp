@@ -1,8 +1,0 @@
-<custom style='height:{{CustomBar}}px;'>
-  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
-    <navigator class='action' open-type='navigateBack' delta='2' hover-class='none'>
-      <icon class='icon-back' /> 返回
-    </navigator>
-    <view class='content'>禽畜批量登记</view>
-  </bar>
-</custom>
