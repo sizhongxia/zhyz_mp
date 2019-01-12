@@ -50,17 +50,17 @@
 }
 
 .nav-title {
-  font-size: 16px;
+  font-size: 26rpx;
   font-weight: 300;
 }
 
 .nav-title::first-letter {
-  font-size: 20px;
+  font-size: 36rpx;
   margin-right: 2px;
 }
 
 .nav-name {
-  font-size: 14px;
+  font-size: 26rpx;
   text-transform: Capitalize;
   margin-top: 10px;
   position: relative;
@@ -80,7 +80,7 @@
 
 .nav-name::first-letter {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 28rpx;
   margin-right: 1px;
 }
 

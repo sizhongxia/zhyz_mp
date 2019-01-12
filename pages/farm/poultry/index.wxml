@@ -1,0 +1,55 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 控制台
+    </navigator>
+    <view class='content'>禽畜实名制</view>
+  </bar>
+</custom>
+
+<scroll-view scroll-x class="nav">
+  <view class='flex text-center bg-white'>
+    <item class="flex-sub {{tabIndex=='1' ? 'text-blue cur' : ''}}" bindtap='tabSelect' data-index="1">
+      统计
+    </item>
+    <item class="flex-sub {{tabIndex=='2' ? 'text-blue cur' : ''}}" bindtap='tabSelect' data-index="2">
+      查询
+    </item>
+    <item class="flex-sub {{tabIndex=='3' ? 'text-blue cur' : ''}}" bindtap='tabSelect' data-index="3">
+      登记
+    </item>
+  </view>
+</scroll-view>
+
+<view style='width: 750rpx;margin-top: 40rpx;' hidden="{{tabIndex!='1'}}">
+  <ch-canvas canvasId='bar' id='bar' style='width: 750rpx;'></ch-canvas>
+</view>
+
+<view class="table margin-top" hidden="{{tabIndex!='1'}}">
+  <view class="tr">
+    <view class="th">种类</view>
+    <view class="th">数量</view>
+    <view class="th">接种数量</view>
+    <view class="th">接种比例</view>
+  </view>
+  <block wx:for="{{listData}}" wx:key="{{name}}">
+    <view class="tr" style='{{index%2==0?"":"background:#fefefe;"}}'>
+      <view class="td">{{item.name}}</view>
+      <view class="td">{{item.total}}</view>
+      <view class="td">{{item.vacNum}}</view>
+      <view class="td">{{item.vacRatio}}</view>
+    </view>
+  </block>
+</view>
+
+<view hidden="{{tabIndex!='2'}}">
+  <bar class="search">
+    <view class='serach-form round'>
+      <icon class="icon-camera" bindtap='openCamera' style='font-size:40rpx'/>
+      <input type="text" placeholder="请输入编号ID查询" confirm-type="search" />
+    </view>
+    <view class='action'>
+      <button class='bg-blue shadow-blur round' bindtap='toSearch'>搜索</button>
+    </view>
+  </bar>
+</view>

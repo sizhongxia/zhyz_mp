@@ -5,27 +5,27 @@
 </custom>
 <view style='margin-top:60rpx;'>
   <view class='nav-list width-full'>
-    <navigator hover-class='none' url="/pages/farm/feed/index" class="nav-li bg-grey">
+    <navigator hover-class='none' url="/pages/farm/feed/index" class="nav-li">
       <view class="nav-title">投食管理</view>
       <view class="nav-name">Feed</view>
     </navigator>
-    <navigator hover-class='none' url="/pages/farm/inspection/index" class="nav-li bg-grey">
+    <navigator hover-class='none' url="/pages/farm/inspection/index" class="nav-li">
       <view class="nav-title">现场巡检</view>
       <view class="nav-name">Inspection</view>
     </navigator>
-    <view hover-class='none' url="" class="nav-li bg-grey">
+    <view hover-class='none' url="" class="nav-li">
       <view class="nav-title">产蛋管理</view>
       <view class="nav-name">LayingEggs</view>
     </view>
-    <view hover-class='none' url="" class="nav-li bg-grey">
+    <navigator hover-class='none' url="/pages/farm/poultry/index" class="nav-li">
       <view class="nav-title">禽畜实名制</view>
       <view class="nav-name">RealName</view>
-    </view>
-    <navigator hover-class='none' url="/pages/farm/farmArea/index" class="nav-li bg-grey">
+    </navigator>
+    <navigator hover-class='none' url="/pages/farm/farmArea/index" class="nav-li">
       <view class="nav-title">厂区管理</view>
       <view class="nav-name">Areas</view>
     </navigator>
-    <navigator hover-class='none' url="/pages/farm/farmPic/index" class="nav-li bg-grey">
+    <navigator hover-class='none' url="/pages/farm/farmPic/index" class="nav-li">
       <view class="nav-title">图片管理</view>
       <view class="nav-name">Pictures</view>
     </navigator>

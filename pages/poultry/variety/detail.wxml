@@ -1,0 +1,35 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 返回
+    </navigator>
+    <view class='content'>新增品种</view>
+  </bar>
+</custom>
+
+
+<form>
+  <form-group>
+    <view class='title'>禽畜类型</view>
+    <view>
+      {{form.poultryTypeName}}
+    </view>
+  </form-group>
+  <form-group>
+    <view class='title'>品种名称</view>
+    <input placeholder="请输入品种名称" class='radius' name='varietyName' bindinput="inputVarietyName" value="{{form.varietyName}}" style='text-align:right;'></input>
+  </form-group>
+</form>
+
+<view class='h120 width-full'>Yeetong.cn</view>
+
+
+
+<bar class="btn-group options width-full">
+  <button loading='{{submiting}}' class='bg-red shadow-blur round lg' bindtap='toDelete'>
+    <icon class='icon-delete'></icon> 删除
+  </button>
+  <button loading='{{submiting}}' class='bg-green shadow-blur round lg' bindtap='toUpdate'>
+    <icon class='icon-check'></icon> 修改
+  </button>
+</bar>

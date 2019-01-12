@@ -18,7 +18,7 @@
   </form-group>
   <form-group>
     <view class='title'>具体位置</view>
-    <input placeholder="请输入具体投食位置" class='radius' name='input' bindinput="inputFeedPosition" value="{{form.feedPosition}}" style='text-align:right;'></input>
+    <input placeholder="请输入具体投食位置" class='radius' name='feedPosition' bindinput="inputFeedPosition" value="{{form.feedPosition}}" style='text-align:right;'></input>
   </form-group>
   <form-group>
     <view class='title'>投食日期</view>
@@ -38,7 +38,7 @@
   </form-group>
   <form-group>
     <view class='title'>饲养人</view>
-    <input placeholder="请输入饲养人" class='radius' name='input' bindinput="inputFeedRaiser" value="{{form.feedRaiser}}" style='text-align:right;'></input>
+    <input placeholder="请输入饲养人" class='radius' name='feedRaiser' bindinput="inputFeedRaiser" value="{{form.feedRaiser}}" style='text-align:right;'></input>
   </form-group>
   <form-group>
     <textarea placeholder="请输入投食内容" maxlength="200" placeholder-class='placeholder' bindinput="inputFeedRemark" value='{{form.feedRemark}}'></textarea>

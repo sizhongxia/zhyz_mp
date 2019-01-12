@@ -8,9 +8,8 @@
     </cover-view>
   </cover-view>
 </canvas>
-<view class='label' hidden='{{!showLabel}}' style='width: {{canvasWidth}};'>
-  <view class='sublabel' wx:for="{{items}}" wx:key="{{index}}">
-    <view class='colorRect' style='background-color:{{item.color}}'></view>
+<view class='label' hidden='{{!showLabel}}' style='width: {{canvasWidth}};text-align:center;'>
+  <view class='sublabel' wx:for="{{items}}" wx:key="{{index}}" style='margin:auto;'>
     <text class='textInfo'>{{item.name}}</text>
   </view>
 </view>

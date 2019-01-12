@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/poultry/variety/index",
+    "pages/farm/poultry/register/single",
+    "pages/farm/poultry/index",
     "pages/auth/login/login",
     "pages/index/index",
     "pages/equipment/index",
@@ -29,7 +32,12 @@
     "pages/equipment/alarm/conf/index",
     "pages/equipment/alarm/conf/list",
     "pages/equipment/alarm/conf/add",
-    "pages/equipment/alarm/conf/detail"
+    "pages/equipment/alarm/conf/detail",
+    "pages/poultry/variety/add",
+    "pages/poultry/variety/detail",
+    "pages/farm/poultry/list",
+    "pages/farm/poultry/register",
+    "pages/farm/poultry/register/batch"
   ],
   "window": {
     "backgroundTextStyle": "light",

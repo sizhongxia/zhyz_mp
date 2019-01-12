@@ -15,36 +15,43 @@ function initChart(v1, wcPNAjO2, V3) {
   switch (this["\x6f\x70\x74\x69\x6f\x6e\x73"]["\x73\x74\x79\x6c\x65"]) {
     case '\x70\x69\x65':
       {
+        console.debug('A');
         A(this, v1, wcPNAjO2, V3);
         break
       }
     case '\x72\x6f\x73\x65':
       {
+        console.debug('B');
         B(this, v1, wcPNAjO2, V3);
         break
       }
     case '\x6c\x69\x6e\x65':
       {
+        console.debug('C');
         C(this, v1, wcPNAjO2, V3);
         break
       }
     case '\x72\x69\x6e\x67':
       {
+        console.debug('D');
         D(this, v1, wcPNAjO2, V3);
         break
       }
     case '\x72\x61\x64\x61\x72':
       {
+        console.debug('E');
         E(this, v1, wcPNAjO2, V3);
         break
       }
     case '\x62\x75\x62\x62\x6c\x65':
       {
+        console.debug('F');
         F(this, v1, wcPNAjO2, V3);
         break
       }
     case '\x62\x61\x72':
       {
+        console.debug('G');
         G(this, v1, wcPNAjO2, V3);
         break
       }
@@ -70,7 +77,7 @@ function G(that, context, width, height) {
   const pdTop = 15;
   const x0 = pdLeft;
   const y0 = barheight - pdBottom;
-  const baseColor = '#333333';
+  const baseColor = '#fffff';
   const time = param.animTime || 1000;
   const bars = param.data || [];
   const xLabel = param.xLabel || [];
@@ -85,7 +92,8 @@ function G(that, context, width, height) {
   }
   if (rectStyle == 'accum') {
     function Gs(valueArray, color, length, xDesc, yDesc) {
-      context.setFillStyle(color);
+      console.info(valueArray, color, length, xDesc, yDesc)
+      // var colors = ['rgb(252, 141, 82)', 'rgb(72, 207, 174)', 'rgb(236, 135, 191)', 'rgb(255, 236, 85)'];
       let curX = x0;
       let curY = y0;
       let X1, y1, Y1;
@@ -93,6 +101,7 @@ function G(that, context, width, height) {
       curX = x0 + xDesc.startPosOffset - 0.5 * rectwidth;
       context.beginPath();
       context.setGlobalAlpha(1);
+      context.setFillStyle(color);
       for (let i = 0; i < length; i++) {
         curY = ((valueArray[i] - yDesc.bottom) / yDesc.range) * (barheight - pdTop - pdBottom);
         X1 = curX;
@@ -575,7 +584,7 @@ function Axis(param) {
   this.min = param.min;
   this.originX = param.originX;
   this.originY = param.originY;
-  this.baseColor = param.optional.color || '#233333';
+  this.baseColor = param.optional.color || '#0081ff';
   this.lineWidth = param.optional.lineWidth || 1;
   this.shortLineLength = 4;
   this.fontSize = param.optional.fontSize || 10;
@@ -1099,8 +1108,9 @@ function GG(that, posX, posY, width, height) {
         that.options.tooltip = '{b}'
       }
       if (val.data[dataIndex]) {
-        var txt = that.options.tooltip.replace(/{b}/g, val.data[dataIndex]);
-        txt = txt.replace(/{a}/g, val.name);
+        var kindType = that.options.xLabel[dataIndex];
+        var txt = that.options.tooltip.replace(/{b}/g, val.data[dataIndex] + ('猪' === kindType ? '头' : '只'));
+        txt = txt.replace(/{a}/g, kindType);
         toolTipInfo.tooltipInfo += txt + ' '
       }
     })

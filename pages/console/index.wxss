@@ -2,3 +2,17 @@
 .width-full {
   width: 750rpx;
 }
+
+
+.nav-li {
+  color: #fefefe;
+  padding: 15px;
+  border-radius: 6px;
+  width: 45%;
+  margin: 0 2.5% 20px;
+  background-image: url(https://static.yeetong.cn/wxmp/base/item.png-yeetong);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+}

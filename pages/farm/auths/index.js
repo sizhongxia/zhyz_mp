@@ -56,12 +56,15 @@ Page({
   goIn: function () {
     wx.setStorageSync('curr-farm-id', this.data.farm.farmId);
     wx.setStorageSync('curr-farm-identity', this.data.farm.farmIdentity);
-    wx.switchTab({
-      url: '/pages/index/index'
-    });
     this.setData({
       farm: {},
       showAuthFarmDetail: false
     });
+    wx.reLaunch({
+      url: '/pages/index/index'
+    });
+    // wx.switchTab({
+    //   url: '/pages/index/index'
+    // });
   }
 })

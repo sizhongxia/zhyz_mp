@@ -49,6 +49,15 @@
 </list>
 
 <list class="menu">
+  <item class="arrow" bindtap='toPoultryVariety'>
+    <view class='content'>
+      <icon class='icon-activity text-green' />
+      <text class='text-grey'>禽畜品种</text>
+    </view>
+  </item>
+</list>
+
+<list class="menu">
   <item class="arrow" bindtap='toAuthFarms'>
     <view class='content'>
       <icon class='icon-emoji text-green' />

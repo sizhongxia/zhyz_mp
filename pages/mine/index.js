@@ -16,9 +16,7 @@ Page({
       userInfo: app.globalData.userInfo
     });
   },
-  onReady: function() {
-  },
-  onShow: function() {
+  onReady: function () {
     const _this = this;
     var farmId = wx.getStorageSync('curr-farm-id');
     var farmIdentity = wx.getStorageSync('curr-farm-identity');
@@ -72,6 +70,11 @@ Page({
   toApplyFarm: function () {
     wx.navigateTo({
       url: "/pages/farm/applyNew/index"
+    });
+  },
+  toPoultryVariety: function () {
+    wx.navigateTo({
+      url: "/pages/poultry/variety/index"
     });
   },
   toFeedTags: function () {

@@ -1,7 +1,6 @@
 /* ch-canvas.wxss */
 
 .label {
-  margin-top: 50rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

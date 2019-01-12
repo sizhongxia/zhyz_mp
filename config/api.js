@@ -59,7 +59,11 @@ module.exports = {
   DeleteEquipmentAlarmConf: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/delete',
   CheckAlarmPhone: ApiUrl + '/zhyz/miniapp/api/check/alarmPhone',
 
+  PoultryVarietyData: ApiUrl + '/zhyz/miniapp/poultry/variety/data',
+  SavePoultryVariety: ApiUrl + '/zhyz/miniapp/poultry/variety/save',
+  UpdatePoultryVariety: ApiUrl + '/zhyz/miniapp/poultry/variety/update',
+  DeletePoultryVariety: ApiUrl + '/zhyz/miniapp/poultry/variety/delete',
+  PoultryVarietyDetail: ApiUrl + '/zhyz/miniapp/poultry/variety/detail',
   
-
   UploadApi: ApiUrl + '/basic/api/upload'
 }

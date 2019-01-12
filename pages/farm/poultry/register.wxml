@@ -1,0 +1,17 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 返回
+    </navigator>
+    <view class='content'>禽畜登记</view>
+  </bar>
+</custom>
+
+<view style='padding: 80rpx 150rpx;text-align:center;'>
+  <view>
+    <button class="padding-xl radius bg-blue margin-top" bindtap='toRegisterBatch' style='width: 100%'>批量登记</button>
+  </view>
+  <view>
+    <button class="padding-xl radius bg-green margin-top" bindtap='toRegisterSingle' style='width: 100%'>单体登记</button>
+  </view>
+</view>
