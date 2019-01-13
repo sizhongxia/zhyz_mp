@@ -105,7 +105,7 @@ Page({
         form: form
       });
     }).catch(err => {
-      console.error(err);
+      LogManager.log(err);
     });
   },
   loadPoultryVarietyData: function() {
@@ -224,7 +224,12 @@ Page({
     _this.setData({
       submiting: true
     });
+    wx.showLoading({
+      title: '正在保存',
+      mask: true
+    })
     poultryService.savePoultry(_this.data.form).then(res => {
+      wx.hideLoading();
       wx.showToast({
         title: '保存成功'
       });
@@ -246,10 +251,11 @@ Page({
         form: form
       });
     }).catch(err => {
+      wx.hideLoading();
       _this.setData({
         submiting: false
       });
-      console.error(err);
+      LogManager.log(err);
     });
   }
 })

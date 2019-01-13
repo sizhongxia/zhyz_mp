@@ -28,7 +28,7 @@ Page({
       });
       wx.hideLoading();
     }).catch(err => {
-      console.error(err);
+      LogManager.log(err);
       wx.hideLoading();
     });
   },
@@ -67,7 +67,7 @@ Page({
       _this.setData({
         submiting: false
       });
-      console.error(err);
+      LogManager.log(err);
     });
   }
 })

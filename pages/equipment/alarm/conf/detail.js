@@ -19,7 +19,7 @@ Page({
       wx.hideLoading();
     }).catch(err => {
       wx.hideLoading();
-      console.error(err);
+      LogManager.log(err);
     });
   },
   switchUseState: function(e) {
@@ -40,7 +40,7 @@ Page({
         conf: conf
       });
       wx.hideLoading();
-      console.error(err);
+      LogManager.log(err);
     });
     // this.setData({
     //   skin: e.detail.value
@@ -63,7 +63,7 @@ Page({
             });
           }).catch(err => {
             wx.hideLoading();
-            console.error(err);
+            LogManager.log(err);
           });
         }
       }

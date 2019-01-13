@@ -63,7 +63,7 @@ Page({
       });
       callback && callback();
     }).catch(err => {
-      console.error(err);
+      LogManager.log(err);
       _this.setData({
         loading: false
       });
@@ -99,7 +99,8 @@ Page({
       success(res) {
         if (res.confirm) {
           wx.showLoading({
-            title: '正在删除...'
+            title: '正在删除...',
+            mask: true
           });
           inspectionService.deleteInspection(e.currentTarget.dataset.inspectionId).then(res => {
             wx.hideLoading();
@@ -110,7 +111,7 @@ Page({
             _this.load();
           }).catch(err => {
             wx.hideLoading();
-            console.error(err);
+            LogManager.log(err);
           });
         }
       }

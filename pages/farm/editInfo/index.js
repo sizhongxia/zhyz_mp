@@ -12,13 +12,18 @@ Page({
   },
   onLoad: function (options) {
     const _this = this;
+    wx.showLoading({
+      title: '加载中'
+    });
     var farmId = wx.getStorageSync('curr-farm-id');
     farmService.farmDetail(farmId).then(res => {
       _this.setData({
         farm: res
       });
+      wx.hideLoading();
     }).catch(err => {
-      console.error(err);
+      wx.hideLoading();
+      LogManager.log(err);
     });
   },
   selectFarmLogo: function() {
@@ -84,7 +89,7 @@ Page({
         updating: false
       });
     }).catch(err => {
-      console.error(err);
+      LogManager.log(err);
       _this.setData({
         updating: false
       });

@@ -26,10 +26,10 @@
 
 
 <bar class="btn-group options width-full">
-  <button loading='{{submiting}}' class='bg-red shadow-blur round lg' bindtap='toDelete'>
+  <button loading='{{submiting}}' class='bg-red round lg' bindtap='toDelete'>
     <icon class='icon-delete'></icon> 删除
   </button>
-  <button loading='{{submiting}}' class='bg-green shadow-blur round lg' bindtap='toUpdate'>
+  <button loading='{{submiting}}' class='bg-green round lg' bindtap='toUpdate'>
     <icon class='icon-check'></icon> 修改
   </button>
 </bar>

@@ -39,14 +39,14 @@ Page({
         form: form
       });
     }).catch(err => {
-      console.error(err);
+      LogManager.log(err);
     });
     feedService.selectFeedTags().then(res => {
       _this.setData({
         feedTags: res
       });
     }).catch(err => {
-      console.error(err);
+      LogManager.log(err);
     });
   },
   onReady: function () {
@@ -227,7 +227,7 @@ Page({
       _this.setData({
         submiting: false
       });
-      console.error(err);
+      LogManager.log(err);
     });
   }
 })

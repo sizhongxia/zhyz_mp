@@ -17,7 +17,7 @@
   <view class='h120 width-full'>Yeetong.cn</view>
 </card>
 <bar class="btn-group options width-full">
-  <button class='bg-green shadow-blur round lg' bindtap='toUpload'>
+  <button class='bg-green round lg' bindtap='toUpload'>
     <icon class='icon-upload'></icon> 上传图片
   </button>
 </bar>

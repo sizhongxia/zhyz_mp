@@ -55,7 +55,7 @@ Page({
       _this.setData({
         submiting: false
       });
-      console.error(err);
+      LogManager.log(err);
     });
   }
 })

@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/auth/login/login",
+    "pages/livevideo/index",
     "pages/poultry/variety/index",
     "pages/farm/poultry/index",
-    "pages/auth/login/login",
     "pages/index/index",
     "pages/equipment/index",
     "pages/equipment/type/index",

@@ -15,43 +15,43 @@ function initChart(v1, wcPNAjO2, V3) {
   switch (this["\x6f\x70\x74\x69\x6f\x6e\x73"]["\x73\x74\x79\x6c\x65"]) {
     case '\x70\x69\x65':
       {
-        console.debug('A');
+        // console.debug('A');
         A(this, v1, wcPNAjO2, V3);
         break
       }
     case '\x72\x6f\x73\x65':
       {
-        console.debug('B');
+        // console.debug('B');
         B(this, v1, wcPNAjO2, V3);
         break
       }
     case '\x6c\x69\x6e\x65':
       {
-        console.debug('C');
+        // console.debug('C');
         C(this, v1, wcPNAjO2, V3);
         break
       }
     case '\x72\x69\x6e\x67':
       {
-        console.debug('D');
+        // console.debug('D');
         D(this, v1, wcPNAjO2, V3);
         break
       }
     case '\x72\x61\x64\x61\x72':
       {
-        console.debug('E');
+        // console.debug('E');
         E(this, v1, wcPNAjO2, V3);
         break
       }
     case '\x62\x75\x62\x62\x6c\x65':
       {
-        console.debug('F');
+        // console.debug('F');
         F(this, v1, wcPNAjO2, V3);
         break
       }
     case '\x62\x61\x72':
       {
-        console.debug('G');
+        // console.debug('G');
         G(this, v1, wcPNAjO2, V3);
         break
       }
@@ -92,7 +92,7 @@ function G(that, context, width, height) {
   }
   if (rectStyle == 'accum') {
     function Gs(valueArray, color, length, xDesc, yDesc) {
-      console.info(valueArray, color, length, xDesc, yDesc)
+      // console.info(valueArray, color, length, xDesc, yDesc)
       // var colors = ['rgb(252, 141, 82)', 'rgb(72, 207, 174)', 'rgb(236, 135, 191)', 'rgb(255, 236, 85)'];
       let curX = x0;
       let curY = y0;

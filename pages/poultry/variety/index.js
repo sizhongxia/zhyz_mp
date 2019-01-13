@@ -15,7 +15,8 @@ Page({
   load: function(callback) {
     const _this = this;
     wx.showLoading({
-      title: '加载中...'
+      title: '加载中...',
+      mask: true
     });
     poultryVarietyService.getPoultryVarietyData().then(res => {
       _this.setData({
@@ -24,7 +25,7 @@ Page({
       wx.hideLoading();
       callback && callback();
     }).catch(err => {
-      console.error(err);
+      LogManager.log(err);
       wx.hideLoading();
       callback && callback();
     });

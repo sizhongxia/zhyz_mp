@@ -35,7 +35,7 @@ Page({
       wx.hideLoading();
     }).catch(err => {
       wx.hideLoading();
-      console.error(err);
+      LogManager.log(err);
     });
   },
   logout: function() {

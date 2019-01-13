@@ -10,20 +10,18 @@
       <image src="{{item.picUrl}}" mode='aspectFill' style='width:750rpx;'></image>
     </swiper-item>
   </swiper>
-
   <view wx:if="{{ weather != '' }}" class='weather'>
     {{weather}}
   </view>
-
   <card class="article width-full">
     <item class="shadow">
       <view class="title" style='line-height:60rpx; padding:15rpx 30rpx 0;'>{{farm.farmName}}</view>
       <view class="content">
         <image bindtap='previewQrCodeImage' style='width: 190rpx;height:190rpx;' src="{{farm.qrCodeUrl}}" mode="aspectFit"></image>
         <view class="desc" style='margin-top:40rpx;height:144rpx;'>
-          <view class='m-farm-baseinfo-item'>农场位置：{{farm.address}}</view>
-          <view class='m-farm-baseinfo-item'>占地面积：{{farm.acreage}}</view>
-          <view class='m-farm-baseinfo-item'>宣传网址：{{farm.website}}</view>
+          <view class='m-farm-baseinfo-item' bindtap='showMore' data-content='{{farm.address}}'>农场位置：{{farm.address}}</view>
+          <view class='m-farm-baseinfo-item' bindtap='showMore' data-content='{{farm.acreage}}'>占地面积：{{farm.acreage}}</view>
+          <view class='m-farm-baseinfo-item' bindtap='showMore' data-content='{{farm.website}}'>宣传网址：{{farm.website}}</view>
         </view>
       </view>
     </item>

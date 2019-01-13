@@ -4,16 +4,17 @@ var api = require('../config/api.js')
  */
 function request(url, data = {}, method = "POST") {
   console.debug(url, data, method)
-  return new Promise(function (resolve, reject) {
+  return new Promise(function(resolve, reject) {
+    const token = wx.getStorageSync('token');
     wx.request({
       url: url,
       data: data,
       method: method,
       header: {
         'Content-Type': 'application/json',
-        'token': wx.getStorageSync('token')
+        'token': token
       },
-      success: function (res) {
+      success: function(res) {
         console.debug(res)
         if (res.statusCode === 401) {
           wx.removeStorageSync('token');
@@ -32,11 +33,15 @@ function request(url, data = {}, method = "POST") {
             reject(res.data);
           }
         } else {
+          LogManager.log(token);
+          LogManager.log(res);
           showErrorToast(res.errMsg)
           reject(null);
         }
       },
       fail: function (err) {
+        LogManager.log(token);
+        LogManager.log(err);
         showErrorToast('请检查网络连接');
         reject(err);
       }
@@ -60,12 +65,12 @@ function previewImage(url, urls) {
  * 检查微信会话是否过期
  */
 function checkSession() {
-  return new Promise(function (resolve, reject) {
+  return new Promise(function(resolve, reject) {
     wx.checkSession({
-      success: function () {
+      success: function() {
         resolve(true);
       },
-      fail: function () {
+      fail: function() {
         reject(false);
       }
     })
@@ -76,16 +81,16 @@ function checkSession() {
  * 调用微信登录
  */
 function login() {
-  return new Promise(function (resolve, reject) {
+  return new Promise(function(resolve, reject) {
     wx.login({
-      success: function (res) {
+      success: function(res) {
         if (res.code) {
           resolve(res.code);
         } else {
           reject(res);
         }
       },
-      fail: function (err) {
+      fail: function(err) {
         reject(err);
       }
     });

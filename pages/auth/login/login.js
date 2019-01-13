@@ -41,7 +41,7 @@ Page({
           util.showErrorToast(err.message);
           return false;
         } else {
-          console.error(err);
+          LogManager.log(err);
         }
       }
       util.showErrorToast('登陆失败');
@@ -100,7 +100,7 @@ Page({
             util.showErrorToast(err.message);
             return false;
           } else {
-            console.error(err);
+            LogManager.log(err);
           }
         }
         util.showErrorToast('请求失败');

@@ -40,7 +40,7 @@ Page({
         form: form
       });
     }).catch(err => {
-      console.error(err);
+      LogManager.log(err);
     });
   },
   onReady: function () {
@@ -228,7 +228,7 @@ Page({
       _this.setData({
         submiting: false
       });
-      console.error(err);
+      LogManager.log(err);
     });
   }
 })

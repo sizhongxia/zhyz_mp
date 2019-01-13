@@ -23,7 +23,7 @@ Page({
               applyModalVisible: true
             });
           }).catch(err => {
-            console.error(err);
+            LogManager.log(err);
           });
         } else {
           util.showErrorToast('无效的二维码');
@@ -53,7 +53,7 @@ Page({
         });
       }
     }).catch(err => {
-      console.error(err);
+      LogManager.log(err);
     });
   },
   toClose: function () {

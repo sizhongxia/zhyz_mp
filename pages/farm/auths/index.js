@@ -30,7 +30,7 @@ Page({
       wx.hideLoading();
     }).catch(err => {
       wx.hideLoading();
-      console.error(err);
+      LogManager.log(err);
     });
   },
   itemSelect: function (e) {

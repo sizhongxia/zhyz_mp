@@ -68,7 +68,7 @@
 <view class='h120 width-full'>Yeetong.cn</view>
 
 <bar class="btn-group options width-full">
-  <button loading='{{submiting}}' class='bg-red shadow-blur round lg' bindtap='toDelete'>
+  <button loading='{{submiting}}' class='bg-red round lg' bindtap='toDelete'>
     <icon class='icon-delete'></icon> 删除
   </button>
 </bar>

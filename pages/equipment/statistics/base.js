@@ -59,7 +59,7 @@ Page({
         }
       });
     }).catch(err => {
-      console.error(err);
+      LogManager.log(err);
       wx.hideLoading();
     })
   },
@@ -71,7 +71,7 @@ Page({
       });
       callback && callback()
     }).catch(err => {
-      console.error(err);
+      LogManager.log(err);
       callback && callback()
     })
   },

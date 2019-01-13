@@ -10,7 +10,8 @@ Page({
   },
   onLoad: function(options) {
     wx.showLoading({
-      title: '加载中...'
+      title: '加载中...',
+      mask: true
     });
     const _this = this;
     poultryVarietyService.getPoultryVarietyDetail(options.varietyId).then(res => {
@@ -20,7 +21,7 @@ Page({
       wx.hideLoading();
     }).catch(err => {
       wx.hideLoading();
-      console.error(err);
+      LogManager.log(err);
     });
   },
   inputVarietyName: function(e) {
@@ -50,7 +51,7 @@ Page({
       _this.setData({
         submiting: false
       });
-      console.error(err);
+      LogManager.log(err);
     });
   },
   toDelete: function() {
@@ -61,7 +62,8 @@ Page({
       success(res) {
         if (res.confirm) {
           wx.showLoading({
-            title: '正在删除...'
+            title: '正在删除...',
+            mask: true
           });
           poultryVarietyService.deletePoultryVariety(_this.data.form.varietyId).then(res => {
             wx.hideLoading();
@@ -70,7 +72,7 @@ Page({
             });
           }).catch(err => {
             wx.hideLoading();
-            console.error(err);
+            LogManager.log(err);
           });
         }
       }

@@ -31,7 +31,7 @@ Page({
       wx.hideLoading();
     }).catch(err => {
       wx.hideLoading();
-      console.error(err);
+      LogManager.log(err);
     });
   },
   toHandle: function (e) {
@@ -84,7 +84,7 @@ Page({
       });
     }).catch(err => {
       wx.hideLoading();
-      console.error(err);
+      LogManager.log(err);
     });
   }
 })

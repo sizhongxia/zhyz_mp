@@ -42,7 +42,7 @@
 <view class='h120 width-full'>Yeetong.cn</view>
 
 <bar class="btn-group options width-full">
-  <button loading='{{submiting}}' class='bg-green shadow-blur round lg' bindtap='toSave'>
+  <button loading='{{submiting}}' class='bg-green round lg' bindtap='toSave'>
     <icon class='icon-check'></icon> 保存
   </button>
 </bar>

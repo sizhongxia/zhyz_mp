@@ -22,7 +22,7 @@ Page({
       });
       wx.hideLoading();
     }).catch(err => {
-      console.error(err);
+      LogManager.log(err);
       wx.hideLoading();
     })
   },

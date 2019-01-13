@@ -28,7 +28,7 @@
 <view class='h120 width-full'>Yeetong.cn</view>
 
 <bar class="btn-group options width-full">
-  <button class='bg-green shadow-blur round lg' bindtap='toAdd'>
+  <button class='bg-green round lg' bindtap='toAdd'>
     <icon class='icon-add'></icon> 新增告警配置
   </button>
 </bar>

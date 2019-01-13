@@ -62,7 +62,7 @@ Page({
       });
       callback && callback();
     }).catch(err => {
-      console.error(err);
+      LogManager.log(err);
       _this.setData({
         loading: false
       });

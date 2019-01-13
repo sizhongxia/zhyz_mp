@@ -1,4 +1,4 @@
-var farmPicService = require('../../../service/farmPic.js');
+var poultryService = require('../../../service/poultry.js');
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 const app = getApp()
@@ -7,50 +7,68 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
-    listData: [
-      { "name": "鸡", "total": "120", "vacNum": "70", "vacRatio": "34%" },
-      { "name": "鸭", "total": "125", "vacNum": "74", "vacRatio": "67%" },
-      { "name": "鹅", "total": "119", "vacNum": "76", "vacRatio": "89%" },
-      { "name": "猪", "total": "117", "vacNum": "78", "vacRatio": "100%" }
-    ],
-    tabIndex: 1
+    tabIndex: 2,
+    farmId: '',
+    searchType: '',
+    searchPoultryCode: '',
+    batchNo: '',
+    page: 1, //当前页
+    haveNext: false,
+    poultries: []
   },
-  onLoad: function (options) {
-
-  },
-  onShow: function () {
-    const bardata = [{
-      name: "种类数量统计",
-      data: [3200, 260, 45, 6],
-      color: "rgb(72, 207, 174)"
-    }];
-    const xLabel = ['鸡', '鸭', '鹅', '猪'];
-    const lineChart = this.selectComponent('#bar');
-    lineChart.setOptions({
-      data: bardata,
-      xLabel: xLabel,
-      style: 'bar',
-      showTooltip: true,
-      tooltip: '种类：{a}, 数量：{b}',
-      showLabel: false,
-      rectStyle: 'accum',
+  onLoad: function() {
+    var farmId = wx.getStorageSync('curr-farm-id');
+    const _this = this;
+    _this.setData({
+      farmId: farmId
     });
-
-    wx.getSystemInfo({
-      success: function (res) {
-        lineChart.initChart(res.screenWidth, 213);
-      },
-      complete: function () {
-      }
+    _this.loadPoultries();
+  },
+  onShow: function() {
+    const _this = this;
+    wx.showLoading({
+      title: '加载中...'
+    });
+    poultryService.getPoultryTypeNums(_this.data.farmId).then(res => {
+      _this.setData({
+        listData: res.list
+      });
+      const bardata = [{
+        name: "种类数量统计",
+        data: res.values,
+        color: "rgb(72, 207, 174)"
+      }];
+      const xLabel = res.labels;
+      const lineChart = this.selectComponent('#bar');
+      lineChart.setOptions({
+        data: bardata,
+        xLabel: xLabel,
+        style: 'bar',
+        showTooltip: true,
+        tooltip: '种类：{a}, 数量：{b}',
+        showLabel: false,
+        rectStyle: 'accum',
+      });
+      wx.getSystemInfo({
+        success: function(res) {
+          lineChart.initChart(res.screenWidth, 213);
+        },
+        complete: function() {
+          wx.hideLoading();
+        }
+      });
+    }).catch(err => {
+      wx.hideLoading();
+      LogManager.log(err);
     });
   },
-  tabSelect: function (e) {
+  tabSelect: function(e) {
     const _this = this;
     if (e.currentTarget.dataset.index == 3) {
       wx.showLoading();
       wx.navigateTo({
         url: '/pages/farm/poultry/register',
-        complete: function () {
+        complete: function() {
           wx.hideLoading();
         }
       });
@@ -60,14 +78,116 @@ Page({
       tabIndex: e.currentTarget.dataset.index
     });
   },
-  openCamera: function () {
-    wx.showToast({
-      title: '打开摄像机'
-    })
+  openCamera: function() {
+    const _this = this;
+    wx.scanCode({
+      onlyFromCamera: true,
+      scanType: ['qrCode'],
+      success(res) {
+        var qrVal = res.result.replace(new RegExp('"', "g"), "");
+        if (qrVal.indexOf('https://farm.yeetong.cn/poultry/') === 0) {
+          _this.setData({
+            searchPoultryCode: qrVal.substr(32)
+          });
+          _this.loadPoultries();
+        } else {
+          util.showErrorToast('无效的二维码');
+        }
+      },
+      fail(err) {
+        util.showErrorToast('无效的二维码');
+      }
+    });
   },
-  toSearch: function () {
-    wx.showToast({
-      title: '搜索'
-    })
+  inputSearchPoultryCode: function(e) {
+    const _this = this;
+    _this.setData({
+      searchPoultryCode: e.detail.value
+    });
+  },
+  inputBatchNo: function (e) {
+    const _this = this;
+    _this.setData({
+      batchNo: e.detail.value
+    });
+  },
+  toSearch: function() {
+    const _this = this;
+    _this.setData({
+      page: 1
+    });
+    _this.loadPoultries();
+  },
+  selectSearchType: function(e) {
+    const _this = this;
+    var cType = _this.data.searchType;
+    if (cType === e.currentTarget.dataset.type) {
+      _this.setData({
+        page: 1,
+        searchType: ''
+      });
+    } else {
+      _this.setData({
+        page: 1,
+        searchType: e.currentTarget.dataset.type
+      });
+    }
+    _this.loadPoultries();
+  },
+  loadPoultries: function(aftPage) {
+    const _this = this;
+    wx.showLoading({
+      title: '加载中'
+    });
+    poultryService.getPoultryData(_this.data.farmId, _this.data.searchPoultryCode, _this.data.batchNo, _this.data.searchType, _this.data.page).then(res => {
+      wx.hideLoading();
+      if (res.length > 0) {
+        _this.setData({
+          poultries: res,
+          haveNext: true
+        });
+      } else {
+        if (_this.data.page == 1) {
+          _this.setData({
+            poultries: [],
+            haveNext: false
+          });
+          wx.showToast({
+            title: '无数据',
+            icon: 'none'
+          });
+        } else {
+          _this.setData({
+            haveNext: false
+          });
+          wx.showToast({
+            title: '无更多数据',
+            icon: 'none'
+          })
+        }
+        if (aftPage) {
+          _this.setData({
+            page: _this.data.page - 1
+          });
+        }
+      }
+    }).catch(err => {
+      wx.hideLoading();
+      LogManager.log(err);
+    });
+  },
+  prePage: function() {
+    const _this = this;
+    _this.setData({
+      page: _this.data.page - 1
+    });
+    _this.loadPoultries();
+  },
+  aftPage: function() {
+    const _this = this;
+    _this.setData({
+      page: _this.data.page + 1
+    });
+    _this.loadPoultries(true);
   }
 })

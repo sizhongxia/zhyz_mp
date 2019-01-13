@@ -75,5 +75,6 @@
   </item>
 </list>
 <view class="padding-xl">
-  <button class='bg-red round shadow lg block' style='margin: 32rpx auto;' bindtap='logout'>安全退出</button>
+  <button class='bg-red round shadow lg block' style='margin: 32rpx auto 0;' bindtap='logout'>安全退出</button>
 </view>
+<button class='lg bg-gray' style='width:750rpx;margin-bottom: 40rpx;' open-type='feedback'>意见反馈</button>

@@ -24,7 +24,7 @@ Page({
       wx.hideLoading();
       callback && callback();
     }).catch(err => {
-      console.error(err);
+      LogManager.log(err);
       wx.hideLoading();
       callback && callback();
     });
@@ -54,7 +54,7 @@ Page({
             _this.load();
           }).catch(err => {
             wx.hideLoading();
-            console.error(err);
+            LogManager.log(err);
           });
         }
       }

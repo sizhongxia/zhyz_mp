@@ -57,39 +57,39 @@ Component({
       chcharts.initChart(context, width, height);
     },
     touchStart(e) {
-      var tipInfo = chcharts.requestTooltip(e.touches[0].x, e.touches[0].y, parseFloat(this.data.canvasWidth), parseFloat(this.data.canvasHeight));
-      if (tipInfo) {
-        this.setData({
-          showTooltip: tipInfo.showTooltip || false,
-          tooltipPos: tipInfo.tooltipPos || '',
-          tooltipInfo: tipInfo.tooltipInfo || '',
-          showHLine: tipInfo.showHLine || false,
-          showVLine: tipInfo.showVLine || false,
-          crossVLineStyle: tipInfo.crossVLine || '',
-          crossHLineStyle: tipInfo.crossHLine || '',
-        })
-      }
+      // var tipInfo = chcharts.requestTooltip(e.touches[0].x, e.touches[0].y, parseFloat(this.data.canvasWidth), parseFloat(this.data.canvasHeight));
+      // if (tipInfo) {
+      //   this.setData({
+      //     showTooltip: tipInfo.showTooltip || false,
+      //     tooltipPos: tipInfo.tooltipPos || '',
+      //     tooltipInfo: tipInfo.tooltipInfo || '',
+      //     showHLine: tipInfo.showHLine || false,
+      //     showVLine: tipInfo.showVLine || false,
+      //     crossVLineStyle: tipInfo.crossVLine || '',
+      //     crossHLineStyle: tipInfo.crossHLine || '',
+      //   })
+      // }
     },
     touchMove(e) {
-      var tipInfo = chcharts.requestTooltip(e.touches[0].x, e.touches[0].y, parseFloat(this.data.canvasWidth), parseFloat(this.data.canvasHeight));
-      if (tipInfo) {
-        this.setData({
-          showTooltip: tipInfo.showTooltip || false,
-          tooltipPos: tipInfo.tooltipPos || '',
-          tooltipInfo: tipInfo.tooltipInfo || '',
-          showHLine: tipInfo.showHLine || false,
-          showVLine: tipInfo.showVLine || false,
-          crossVLineStyle: tipInfo.crossVLine || '',
-          crossHLineStyle: tipInfo.crossHLine || '',
-        })
-      }
+      // var tipInfo = chcharts.requestTooltip(e.touches[0].x, e.touches[0].y, parseFloat(this.data.canvasWidth), parseFloat(this.data.canvasHeight));
+      // if (tipInfo) {
+      //   this.setData({
+      //     showTooltip: tipInfo.showTooltip || false,
+      //     tooltipPos: tipInfo.tooltipPos || '',
+      //     tooltipInfo: tipInfo.tooltipInfo || '',
+      //     showHLine: tipInfo.showHLine || false,
+      //     showVLine: tipInfo.showVLine || false,
+      //     crossVLineStyle: tipInfo.crossVLine || '',
+      //     crossHLineStyle: tipInfo.crossHLine || '',
+      //   })
+      // }
     },
     touchEnd(e) {
-      this.setData({
-        showTooltip: false,
-        showHLine: false,
-        showVLine: false,
-      })
+      // this.setData({
+      //   showTooltip: false,
+      //   showHLine: false,
+      //   showVLine: false,
+      // })
     },
     longTap(e) {
       var tipInfo = chcharts.requestTooltip(e.touches[0].x, e.touches[0].y, parseFloat(this.data.canvasWidth), parseFloat(this.data.canvasHeight));

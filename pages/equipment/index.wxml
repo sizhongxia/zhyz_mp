@@ -10,10 +10,9 @@
   <view class='nav-list width-full'>
     <navigator wx:for="{{equipments}}" wx:key="typeId" hover-class='none' url="/pages/equipment/type/index?typeId={{item.typeId}}" class="nav-li item-bg">
       <view class="nav-title">
-        <avatar class="radius lg bg-cyan">
-          <text>{{item.typeName}}</text>
-        </avatar>
+        <avatar class="radius lg" style="background-image:url({{item.typeIcon}});background-color:#fff;"></avatar>
       </view>
+      <view class="nav-name" style='color:#484848'>{{item.typeName}}</view>
       <view class="nav-name">在线：{{item.online}} | 离线：{{item.outline}}</view>
     </navigator>
   </view>

@@ -9,16 +9,19 @@
 }
 
 .m-farm-baseinfo-item {
-  width: 100%;
+  width: 420rpx;
   line-height: 47.5rpx;
   font-size: 26rpx;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .typeName {
   margin: 30rpx auto 20rpx;
   font-weight: 900;
 }
+
 .typeInfo {
   line-height: 36rpx;
   font-size: 24rpx;
@@ -27,4 +30,13 @@
 
 .width-full {
   width: 750rpx;
+}
+
+.page-body-button {
+  margin-bottom: 30rpx;
+}
+
+live-player {
+  width: 100%;
+  height: 225px;
 }

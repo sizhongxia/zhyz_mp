@@ -37,7 +37,7 @@ Page({
         form: form
       });
     }).catch(err => {
-      console.error(err);
+      LogManager.log(err);
     });
   },
   areaPickerChange: function (e) {
@@ -142,7 +142,7 @@ Page({
       _this.setData({
         submiting: false
       });
-      console.error(err);
+      LogManager.log(err);
     });
   }
 })

@@ -19,7 +19,7 @@ Page({
         form: res
       });
     }).catch(err => {
-      console.error(err);
+      LogManager.log(err);
     });
   },
   inputFeedTagName: function (e) {
@@ -57,7 +57,7 @@ Page({
       _this.setData({
         submiting: false
       });
-      console.error(err);
+      LogManager.log(err);
     });
   }
 })
