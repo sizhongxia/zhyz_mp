@@ -1,5 +1,6 @@
 var equipmentAlarmConfService = require('../../../../service/equipmentAlarmConf.js');
 const app = getApp()
+const logger = wx.getLogManager({ level: 1 })
 
 Page({
   data: {
@@ -29,7 +30,7 @@ Page({
       wx.hideLoading();
       callback && callback();
     }).catch(err => {
-      LogManager.log(err);
+      logger.log(err);
       wx.hideLoading();
       callback && callback();
     });

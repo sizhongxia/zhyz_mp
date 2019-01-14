@@ -1,6 +1,7 @@
 var farmService = require('../../../service/farm.js');
 var util = require('../../../utils/util.js');
 const app = getApp()
+const logger = wx.getLogManager({ level: 1 })
 
 Page({
   data: {
@@ -58,7 +59,7 @@ Page({
       _this.setData({
         loading: false
       });
-      LogManager.log(err);
+      logger.log(err);
     });
   },
   toDetail: function(e) {
@@ -82,7 +83,7 @@ Page({
               applyModalVisible: true
             });
           }).catch(err => {
-            LogManager.log(err);
+            logger.log(err);
           });
         } else {
           util.showErrorToast('无效的二维码');
@@ -112,7 +113,7 @@ Page({
         });
       }
     }).catch(err => {
-      LogManager.log(err);
+      logger.log(err);
     });
   },
   toClose: function() {

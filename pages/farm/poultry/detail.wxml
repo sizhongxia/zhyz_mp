@@ -1,0 +1,87 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 返回
+    </navigator>
+    <view class='content'>禽畜详情</view>
+  </bar>
+</custom>
+
+
+<list class="menu">
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>禽畜编号：{{poultry.poultryCode}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>禽畜种类：{{poultry.poultryTypeName}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>禽畜品种：{{poultry.varietyName}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>出生日期：{{poultry.bornAt}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>禽畜性别：{{poultry.poultryGender == 'F' ? '雌/母' : '雄/公'}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>所属批次：{{poultry.batchNo}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>所在农场：{{poultry.farmName}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>所在厂区：{{poultry.farmAreaName}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>是否接种：{{poultry.hadVaccination == 1 ? '已接种' : '未接种'}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>接种时间：{{poultry.lastVaccinationAt}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>绑定状态：{{poultry.bindState == 1 ? '已绑定' : '未绑定'}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>绑定标识：{{poultry.bindIdentification}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>创建时间：{{poultry.createAt}}</text>
+    </view>
+  </item>
+</list>
+<bar class="margin-top solid-bottom">
+  <view class='action'>
+    <icon class='icon-titles text-blue' /> 图片
+  </view>
+</bar>
+<view class="bg-white padding">绑定后可操作</view>
+
+<view class='padding-xl' style='text-align:center'>
+  <image style='width: 320rpx;height:320rpx;margin:auto;' src='{{poultryQrcodeBaseUrl + poultry.poultryCode}}'></image>
+</view>

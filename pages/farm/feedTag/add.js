@@ -1,8 +1,7 @@
 var farmService = require('../../../service/farm.js');
-var feedService = require('../../../service/feed.js');
-var util = require('../../../utils/util.js');
-var api = require('../../../config/api.js');
+var feedService = require('../../../service/feed.js')
 const app = getApp()
+const logger = wx.getLogManager({ level: 1 })
 
 Page({
   data: {
@@ -55,7 +54,7 @@ Page({
       _this.setData({
         submiting: false
       });
-      LogManager.log(err);
+      logger.log(err);
     });
   }
 })

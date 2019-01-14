@@ -1,5 +1,7 @@
 var mineService = require('../../service/mine.js');
 const app = getApp()
+const logger = wx.getLogManager({ level: 1 })
+
 Page({
   data: {
     StatusBar: app.globalData.StatusBar,
@@ -35,7 +37,7 @@ Page({
       wx.hideLoading();
     }).catch(err => {
       wx.hideLoading();
-      LogManager.log(err);
+      logger.log(err);
     });
   },
   logout: function() {
@@ -85,6 +87,11 @@ Page({
   toEquipmentConfs: function () {
     wx.navigateTo({
       url: "/pages/equipment/alarm/conf/index"
+    });
+  },
+  toLiveVideo: function () {
+    wx.navigateTo({
+      url: "/pages/livevideo/index"
     });
   }
 })

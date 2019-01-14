@@ -1,5 +1,6 @@
 var equipmentAlarmConfService = require('../../../../service/equipmentAlarmConf.js');
 const app = getApp()
+const logger = wx.getLogManager({ level: 1 })
 
 Page({
   data: {
@@ -164,7 +165,7 @@ Page({
       });
     }).catch(err => {
       wx.hideLoading();
-      LogManager.log(err);
+      logger.log(err);
     });
   },
   toAdd: function () {
@@ -198,7 +199,7 @@ Page({
       _this.setData({
         submiting: false
       });
-      LogManager.log(err);
+      logger.log(err);
     });
   }
 })

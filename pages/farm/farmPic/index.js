@@ -2,6 +2,7 @@ var farmPicService = require('../../../service/farmPic.js');
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 const app = getApp()
+const logger = wx.getLogManager({ level: 1 })
 
 Page({
   data: {
@@ -30,7 +31,7 @@ Page({
       wx.hideLoading();
       callback && callback();
     }).catch(err => {
-      LogManager.log(err);
+      logger.log(err);
       wx.hideLoading();
       callback && callback();
     });
@@ -66,7 +67,7 @@ Page({
             _this.load();
           }).catch(err => {
             wx.hideLoading();
-            LogManager.log(err);
+            logger.log(err);
           });
         }
       }

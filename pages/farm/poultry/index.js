@@ -2,6 +2,7 @@ var poultryService = require('../../../service/poultry.js');
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 const app = getApp()
+const logger = wx.getLogManager({ level: 1 })
 
 Page({
   data: {
@@ -59,7 +60,7 @@ Page({
       });
     }).catch(err => {
       wx.hideLoading();
-      LogManager.log(err);
+      logger.log(err);
     });
   },
   tabSelect: function(e) {
@@ -173,7 +174,7 @@ Page({
       }
     }).catch(err => {
       wx.hideLoading();
-      LogManager.log(err);
+      logger.log(err);
     });
   },
   prePage: function() {
@@ -189,5 +190,10 @@ Page({
       page: _this.data.page + 1
     });
     _this.loadPoultries(true);
+  },
+  toDetail: function (e) {
+    wx.navigateTo({
+      url: '/pages/farm/poultry/detail?poultryId=' + e.currentTarget.dataset.poultryId
+    });
   }
 })

@@ -1,5 +1,6 @@
 var poultryVarietyService = require('../../../service/poultryVariety.js');
 const app = getApp()
+const logger = wx.getLogManager({ level: 1 })
 
 Page({
   data: {
@@ -21,7 +22,7 @@ Page({
       wx.hideLoading();
     }).catch(err => {
       wx.hideLoading();
-      LogManager.log(err);
+      logger.log(err);
     });
   },
   inputVarietyName: function(e) {
@@ -51,7 +52,7 @@ Page({
       _this.setData({
         submiting: false
       });
-      LogManager.log(err);
+      logger.log(err);
     });
   },
   toDelete: function() {
@@ -72,7 +73,7 @@ Page({
             });
           }).catch(err => {
             wx.hideLoading();
-            LogManager.log(err);
+            logger.log(err);
           });
         }
       }

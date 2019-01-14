@@ -59,15 +59,18 @@ module.exports = {
   DeleteEquipmentAlarmConf: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/delete',
   CheckAlarmPhone: ApiUrl + '/zhyz/miniapp/api/check/alarmPhone',
 
-  PoultryVarietyData: ApiUrl + '/zhyz/miniapp/poultry/variety/data',
-  SavePoultryVariety: ApiUrl + '/zhyz/miniapp/poultry/variety/save',
-  UpdatePoultryVariety: ApiUrl + '/zhyz/miniapp/poultry/variety/update',
-  DeletePoultryVariety: ApiUrl + '/zhyz/miniapp/poultry/variety/delete',
-  PoultryVarietyDetail: ApiUrl + '/zhyz/miniapp/poultry/variety/detail',
+  PoultryVarietyData: ApiUrl + '/zhyz/miniapp/api/poultry/variety/data',
+  SavePoultryVariety: ApiUrl + '/zhyz/miniapp/api/poultry/variety/save',
+  UpdatePoultryVariety: ApiUrl + '/zhyz/miniapp/api/poultry/variety/update',
+  DeletePoultryVariety: ApiUrl + '/zhyz/miniapp/api/poultry/variety/delete',
+  PoultryVarietyDetail: ApiUrl + '/zhyz/miniapp/api/poultry/variety/detail',
 
-  SavePoultry: ApiUrl + '/zhyz/miniapp/poultry/save',
-  PoultryData: ApiUrl + '/zhyz/miniapp/poultry/data',
-  PoultryTypeNums: ApiUrl + '/zhyz/miniapp/poultry/tjdata',
+  SavePoultry: ApiUrl + '/zhyz/miniapp/api/poultry/save',
+  PoultryData: ApiUrl + '/zhyz/miniapp/api/poultry/data',
+  PoultryDetail: ApiUrl + '/zhyz/miniapp/api/poultry/detail',
+  PoultryTypeNums: ApiUrl + '/zhyz/miniapp/api/poultry/tjdata',
 
-  UploadApi: ApiUrl + '/zhyz/miniapp/poultry/upload'
+  PoultryQrcode: ApiUrl + '/zhyz/miniapp/api/poultry/qrcode/',
+
+  UploadApi: ApiUrl + '/basic/api/upload'
 }

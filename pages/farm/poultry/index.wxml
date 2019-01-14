@@ -74,7 +74,7 @@
   </view>
 
   <list class="menu menu-avatar">
-    <item class="arrow" wx:for="{{poultries}}" wx:key="poultryId" data-area-id="{{item.poultryId}}">
+    <item class="arrow" wx:for="{{poultries}}" wx:key="poultryId" data-poultry-id="{{item.poultryId}}" bindtap="toDetail">
       <avatar class="radius lg" style="background:#1cbbb4;">
         <text>{{item.poultryTypeName}}</text>
         <tag class="badge bg-brown light" style='font-size:20rpx;'>{{item.poultryState==1?'正常':item.poultryState==2?'已售卖':item.poultryState==3?'生病中':'已死亡'}}</tag>
@@ -85,16 +85,14 @@
           编号:{{item.poultryCode}}, {{item.hadVaccination==1?'已接种':'未接种'}}, {{item.bindState==1?'已绑定':'未绑定'}}
         </view>
       </view>
-      <view class='action'>
-      </view>
     </item>
   </list>
 
   <view class="bg-white padding" style='text-align:center'>
-    <text hidden="{{page == 1 && !haveNext}}">第{{page}}页</text>
+    <text hidden="{{page == 1 && (!haveNext || poultries.length < 10)}}">第{{page}}页</text>
     <view class=" cf padding-sm" style='margin-top:-68rpx;'>
       <view class='radius fl padding-sm' bindtap='prePage' hidden="{{page == 1}}">前页</view>
-      <view class='radius fr padding-sm' bindtap='aftPage' hidden="{{!haveNext}}">后页</view>
+      <view class='radius fr padding-sm' bindtap='aftPage' hidden="{{!haveNext || poultries.length < 10}}">后页</view>
     </view>
   </view>
 </view>

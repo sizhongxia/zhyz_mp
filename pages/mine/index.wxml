@@ -52,7 +52,7 @@
   <item class="arrow" bindtap='toPoultryVariety'>
     <view class='content'>
       <icon class='icon-activity text-green' />
-      <text class='text-grey'>禽畜品种</text>
+      <text class='text-grey'>禽畜品种管理</text>
     </view>
   </item>
 </list>
@@ -71,6 +71,15 @@
     </view>
     <view class='action'>
       <tag class='round'>扫描二维码</tag>
+    </view>
+  </item>
+  <item class="arrow" bindtap='toLiveVideo'>
+    <view class='content'>
+      <icon class='icon-video text-green' />
+      <text class='text-grey'>实时视频</text>
+    </view>
+    <view class='action'>
+      <tag class='round'>Beta</tag>
     </view>
   </item>
 </list>

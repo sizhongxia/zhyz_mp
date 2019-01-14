@@ -18,9 +18,16 @@ const getPoultryTypeNums = (farmId) => {
     farmId: farmId
   });
 }
+const getPoultryDetail = (poultryId) => {
+  return util.post(api.PoultryDetail, {
+    poultryId: poultryId
+  });
+}
+
 
 module.exports = {
   savePoultry: savePoultry,
   getPoultryTypeNums: getPoultryTypeNums,
-  getPoultryData: getPoultryData
+  getPoultryData: getPoultryData,
+  getPoultryDetail: getPoultryDetail
 }

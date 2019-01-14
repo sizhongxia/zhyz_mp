@@ -1,5 +1,6 @@
 var farmAreaService = require('../../../service/farmArea.js');
 const app = getApp()
+const logger = wx.getLogManager({ level: 1 })
 
 Page({
   data: {
@@ -80,7 +81,7 @@ Page({
       _this.setData({
         submiting: false
       });
-      LogManager.log(err);
+      logger.log(err);
     });
   }
 })

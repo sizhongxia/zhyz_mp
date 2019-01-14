@@ -1,5 +1,6 @@
 var equipmentAlarmConfService = require('../../../../service/equipmentAlarmConf.js');
 const app = getApp()
+const logger = wx.getLogManager({ level: 1 })
 
 Page({
   data: {
@@ -19,7 +20,7 @@ Page({
       wx.hideLoading();
     }).catch(err => {
       wx.hideLoading();
-      LogManager.log(err);
+      logger.log(err);
     });
   },
   switchUseState: function(e) {
@@ -40,7 +41,7 @@ Page({
         conf: conf
       });
       wx.hideLoading();
-      LogManager.log(err);
+      logger.log(err);
     });
     // this.setData({
     //   skin: e.detail.value
@@ -63,7 +64,7 @@ Page({
             });
           }).catch(err => {
             wx.hideLoading();
-            LogManager.log(err);
+            logger.log(err);
           });
         }
       }

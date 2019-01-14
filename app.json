@@ -2,8 +2,6 @@
   "pages": [
     "pages/auth/login/login",
     "pages/livevideo/index",
-    "pages/poultry/variety/index",
-    "pages/farm/poultry/index",
     "pages/index/index",
     "pages/equipment/index",
     "pages/equipment/type/index",
@@ -33,9 +31,11 @@
     "pages/equipment/alarm/conf/list",
     "pages/equipment/alarm/conf/add",
     "pages/equipment/alarm/conf/detail",
+    "pages/poultry/variety/index",
     "pages/poultry/variety/add",
     "pages/poultry/variety/detail",
-    "pages/farm/poultry/list",
+    "pages/farm/poultry/index",
+    "pages/farm/poultry/detail",
     "pages/farm/poultry/register"
   ],
   "window": {

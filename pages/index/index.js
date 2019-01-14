@@ -2,6 +2,7 @@ var farmService = require('../../service/farm.js');
 var equipmentService = require('../../service/equipment.js');
 var inspectionService = require('../../service/inspection.js');
 var feedService = require('../../service/feed.js');
+const logger = wx.getLogManager({ level: 1 })
 
 var util = require('../../utils/util.js');
 const app = getApp();
@@ -99,7 +100,7 @@ Page({
       }
     }).catch(err => {
       wx.hideLoading();
-      LogManager.log(err);
+      logger.log(err);
     });
 
     equipmentService.getEquipmentCollectionHomeTj(farmId).then(res => {
@@ -107,7 +108,7 @@ Page({
         monitorInfo: res
       });
     }).catch(err => {
-      LogManager.log(err);
+      logger.log(err);
     });
 
     inspectionService.getLastInspectionDetail(farmId).then(res => {
@@ -115,7 +116,7 @@ Page({
         inspection: res
       });
     }).catch(err => {
-      LogManager.log(err);
+      logger.log(err);
     });
 
     feedService.getLastFeedDetail(farmId).then(res => {
@@ -123,7 +124,7 @@ Page({
         feed: res
       });
     }).catch(err => {
-      LogManager.log(err);
+      logger.log(err);
     });
   },
   previewQrCodeImage: function() {

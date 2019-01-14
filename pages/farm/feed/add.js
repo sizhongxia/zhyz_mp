@@ -3,6 +3,7 @@ var feedService = require('../../../service/feed.js');
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 const app = getApp()
+const logger = wx.getLogManager({ level: 1 })
 
 Page({
   data: {
@@ -39,14 +40,14 @@ Page({
         form: form
       });
     }).catch(err => {
-      LogManager.log(err);
+      logger.log(err);
     });
     feedService.selectFeedTags().then(res => {
       _this.setData({
         feedTags: res
       });
     }).catch(err => {
-      LogManager.log(err);
+      logger.log(err);
     });
   },
   onReady: function () {
@@ -227,7 +228,7 @@ Page({
       _this.setData({
         submiting: false
       });
-      LogManager.log(err);
+      logger.log(err);
     });
   }
 })
