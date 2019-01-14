@@ -7,38 +7,18 @@
   </bar>
 </custom>
 
-<live-player id='rtmpPlayId'
-  src="rtmp://pili-publish.yeetong.cn/yeetong-zhny/5c2045427e298eb6d157ca7a"
-  mode="RTC"
-  autoplay
-  bindstatechange="rtmpPlayStateChange"
-  binderror="rtmpPlayError"
-  style="width: 750rpx; height: 480rpx;"
-/>
+<live-player id='rtmpPlayId' src="rtmp://pili-publish.yeetong.cn/yeetong-zhny/5c2045427e298eb6d157ca7a" mode="RTC" autoplay="{{false}}" bindstatechange="rtmpPlayStateChange" binderror="rtmpPlayError" style="width: 750rpx; height: 480rpx;" />
 
-<view class='grid col-5 padding-sm'>
-  <view class='margin-tb-sm text-center'>
-    <button class='round bg-green shadow' bindtap='toConnectSocket'>连接</button>
-  </view>
-  <view class='margin-tb-sm text-center'>
-    <button class='round bg-green shadow' bindtap='toTopic'>订阅</button>
-  </view>
-  <view class='margin-tb-sm text-center'>
-    <button class='round bg-green shadow' bindtap='toPullStream'>推流</button>
-  </view>
-  <view class='margin-tb-sm text-center'>
-    <button class='round bg-green shadow' bindtap='rtmpPlay'>播放</button>
-  </view>
-  <view class='margin-tb-sm text-center'>
-    <button class='round bg-green shadow' bindtap='rtmpPause'>暂停</button>
-  </view>
-  <view class='margin-tb-sm text-center'>
-    <button class='round bg-green shadow' bindtap='rtmpResume'>恢复</button>
-  </view>
-  <view class='margin-tb-sm text-center'>
-    <button class='round bg-green shadow' bindtap='rtmpFullScreen'>全屏</button>
-  </view>
-  <view class='margin-tb-sm text-center'>
-    <button class='round bg-green shadow' bindtap='rtmpExitFullScreen'>退出全屏</button>
-  </view>
+<view class='padding-sm'>
+  <button class='margin-tb-sm bg-green' bindtap='toConnectSocket'>连接</button>
+  <button class='margin-tb-sm bg-green' bindtap='toTopic'>订阅</button>
+  <button class='margin-tb-sm bg-green' bindtap='toPullStream'>推流</button>
+  <button class='margin-tb-sm bg-green' bindtap='rtmpPlay'>播放</button>
+  <button class='margin-tb-sm bg-green' bindtap='rtmpPause'>暂停</button>
+  <button class='margin-tb-sm bg-green' bindtap='rtmpResume'>恢复</button>
+  <button class='margin-tb-sm bg-green' bindtap='rtmpFullScreen'>全屏</button>
+  <button class='margin-tb-sm bg-green' bindtap='rtmpExitFullScreen'>退出全屏</button>
+</view>
+<view class='padding-sm'>
+  {{lastOptionTxt}}
 </view>
