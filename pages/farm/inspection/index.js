@@ -79,6 +79,11 @@ Page({
   loadMore: function () {
     this.load();
   },
+  toDetail: function (e) {
+    wx.navigateTo({
+      url: '/pages/farm/inspection/detail?inspectionId=' + e.currentTarget.dataset.inspectionId,
+    });
+  },
   onPullDownRefresh: function () {
     const _this = this;
     _this.setData({

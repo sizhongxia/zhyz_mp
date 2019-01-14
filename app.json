@@ -16,6 +16,7 @@
     "pages/farm/feedTag/edit",
     "pages/farm/inspection/index",
     "pages/farm/inspection/add",
+    "pages/farm/inspection/detail",
     "pages/farm/editInfo/index",
     "pages/farm/auths/index",
     "pages/farm/userApply/index",

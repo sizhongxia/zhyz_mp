@@ -10,6 +10,11 @@ const selectInspectionData = (farmId, page) => {
     page: page
   });
 }
+const selectInspectionDetail = (inspectionId) => {
+  return util.post(api.InspectionDetail, {
+    inspectionId: inspectionId
+  });
+}
 const deleteInspection = (inspectionId) => {
   return util.post(api.DeleteInspection, {
     inspectionId: inspectionId
@@ -25,5 +30,6 @@ module.exports = {
   saveInspection: saveInspection,
   selectInspectionData: selectInspectionData,
   deleteInspection: deleteInspection,
-  getLastInspectionDetail: getLastInspectionDetail
+  getLastInspectionDetail: getLastInspectionDetail,
+  selectInspectionDetail: selectInspectionDetail
 }

@@ -3,33 +3,38 @@
     <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
       <icon class='icon-back' /> 返回
     </navigator>
-    <view class='content'>投食详情</view>
+    <view class='content'>巡检详情</view>
   </bar>
 </custom>
 <list class="menu margin-top">
   <item>
     <view class='content'>
-      <text class='text-grey fs26'>投食厂区：{{feedObj.feamAreaName}}</text>
+      <text class='text-grey fs26'>巡检厂区：{{inspectionObj.feamAreaName}}</text>
     </view>
   </item>
   <item>
     <view class='content'>
-      <text class='text-grey fs26'>投食位置：{{feedObj.feedPosition}}</text>
+      <text class='text-grey fs26'>巡检位置：{{inspectionObj.inspectionPosition}}</text>
     </view>
   </item>
   <item>
     <view class='content'>
-      <text class='text-grey fs26'>投喂时间：{{feedObj.feedAt}}</text>
+      <text class='text-grey fs26'>巡检状态：{{inspectionObj.statusTxt}}</text>
     </view>
   </item>
   <item>
     <view class='content'>
-      <text class='text-grey fs26'>投 食 人：{{feedObj.feedRaiser}}</text>
+      <text class='text-grey fs26'>巡检内容：{{inspectionObj.inspectionRemark}}</text>
     </view>
   </item>
   <item>
     <view class='content'>
-      <text class='text-grey fs26'>投食内容：{{feedObj.feedRemark}}</text>
+      <text class='text-grey fs26'>巡 检 人：{{inspectionObj.operator}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>巡检时间：{{inspectionObj.inspectionAt}}</text>
     </view>
   </item>
 </list>
@@ -40,6 +45,6 @@
 </bar>
 <view class="bg-white padding">
   <view class="grid col-4 grid-square">
-    <view class="bg-img" wx:for="{{feedObj.feedPics}}" wx:key="item" data-pic-index="{{index}}" bindtap='previewImage' style="background-image:url({{item}});"></view>
+    <view class="bg-img" wx:for="{{inspectionObj.inspectionPics}}" wx:key="item" data-pic-index="{{index}}" bindtap='previewImage' style="background-image:url({{item}});"></view>
   </view>
 </view>

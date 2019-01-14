@@ -1,1 +1,4 @@
-/* pages/livevideo/index.wxss */
+.margin20 {
+  margin: 20rpx;
+  margin-left: 0rpx;
+}

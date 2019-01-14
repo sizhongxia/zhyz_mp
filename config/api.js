@@ -31,6 +31,7 @@ module.exports = {
 
   InspectionData: ApiUrl + '/zhyz/miniapp/api/inspection/data',
   SaveInspection: ApiUrl + '/zhyz/miniapp/api/inspection/save',
+  InspectionDetail: ApiUrl + '/zhyz/miniapp/api/inspection/detail',
   LastInspectionDetail: ApiUrl + '/zhyz/miniapp/api/inspection/getLastInspection',
   DeleteInspection: ApiUrl + '/zhyz/miniapp/api/inspection/delete',
 

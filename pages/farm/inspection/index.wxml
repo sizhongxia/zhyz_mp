@@ -10,7 +10,7 @@
 <view class="container">
 
   <card class="dynamic width-full">
-    <item wx:for="{{inspections}}" wx:key="inspectionId" class="shadow" data-inspection-id="{{item.inspectionId}}" bindlongpress="removeItem">
+    <item wx:for="{{inspections}}" wx:key="inspectionId" class="shadow" data-inspection-id="{{item.inspectionId}}" bindtap="toDetail" bindlongpress="removeItem">
       <list class="menu menu-avatar">
         <item>
           <avatar class="round lg" style="background-image:url({{item.userAvator}});"></avatar>
