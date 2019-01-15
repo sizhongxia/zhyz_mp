@@ -1,0 +1,87 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 返回
+    </navigator>
+    <view class='content'>新增产蛋记录</view>
+  </bar>
+</custom>
+
+<form>
+  <form-group class="margin-top">
+    <view class='title'>选择厂区</view>
+    <picker bindchange="areaPickerChange" value="{{index}}" range="{{areas}}" range-key="areaName">
+      <view class="picker">
+        {{ form.farmAreaName == '' ? '无厂区' : form.farmAreaName }}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>选择类型</view>
+    <picker bindchange="eggTypePickerChange" value="{{index}}" range="{{eggTypes}}" range-key="name">
+      <view class="picker">
+        {{ form.eggTypeName }}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>选择类型</view>
+    <picker bindchange="eggColorPickerChange" value="{{index}}" range="{{eggColors}}" range-key="name">
+      <view class="picker">
+        {{ form.eggColor }}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>产蛋数量</view>
+    <input placeholder="请输入产蛋数量" class='radius' name='eggNum' bindinput="inputEggNum" type='number' value="{{form.eggNum}}" style='text-align:right;'></input>
+  </form-group>
+  <form-group>
+    <view class='title'>产蛋日期</view>
+    <picker mode="date" value="{{form.collectDate}}" start="2019-01-01" end="2099-09-01" bindchange="collectDateChange">
+      <view class="picker">
+        {{form.collectDate}}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>拾蛋时间</view>
+    <picker mode="time" value="{{form.collectTime}}" start="00:00" end="23:59" bindchange="collectTimeChange">
+      <view class="picker">
+        {{form.collectTime}}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>拾蛋人</view>
+    <input placeholder="请输入拾蛋人" class='radius' name='collectUser' bindinput="inputCollectUser" value="{{form.collectUser}}" style='text-align:right;'></input>
+  </form-group>
+  <form-group>
+    <textarea placeholder="请输入备注" maxlength="200" placeholder-class='placeholder' bindinput="inputRemark" value='{{form.remark}}'></textarea>
+  </form-group>
+
+  <bar class="margin-top">
+    <view class='action'>
+      <icon class='icon-titles text-blue' /> 上传图片 (最多可上传8张)
+    </view>
+  </bar>
+  <form-group>
+    <view class="grid col-3 grid-square flex-sub">
+      <view class="padding-xs bg-img" wx:for="{{ form.layeggsPics }}" wx:key="item" style="background-image:url({{item}});">
+        <tag class="bg-red" bindtap="removePic" data-index="{{index}}">
+          <icon class='icon-close'></icon>
+        </tag>
+      </view>
+      <view class="padding-xs solids" bindtap='selectLayeggsPic' style='width:208rpx;'>
+        <icon class='icon-cameraadd'></icon>
+      </view>
+    </view>
+  </form-group>
+</form>
+<view class='h120 width-full'>Yeetong.cn</view>
+
+<bar class="btn-group options width-full">
+  <button loading='{{submiting}}' class='bg-green round lg' bindtap='toAdd'>
+    <icon class='icon-check'></icon> 保存
+  </button>
+</bar>

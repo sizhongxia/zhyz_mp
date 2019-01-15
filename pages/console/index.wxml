@@ -13,10 +13,10 @@
       <view class="nav-title">现场巡检</view>
       <view class="nav-name">Inspection</view>
     </navigator>
-    <view hover-class='none' url="" class="nav-li">
+    <navigator hover-class='none' url="/pages/farm/layeggs/index" class="nav-li">
       <view class="nav-title">产蛋管理</view>
       <view class="nav-name">LayingEggs</view>
-    </view>
+    </navigator>
     <navigator hover-class='none' url="/pages/farm/poultry/index" class="nav-li">
       <view class="nav-title">禽畜实名制</view>
       <view class="nav-name">RealName</view>

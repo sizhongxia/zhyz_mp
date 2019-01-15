@@ -37,7 +37,10 @@
     "pages/poultry/variety/detail",
     "pages/farm/poultry/index",
     "pages/farm/poultry/detail",
-    "pages/farm/poultry/register"
+    "pages/farm/poultry/register",
+    "pages/farm/layeggs/index",
+    "pages/farm/layeggs/detail",
+    "pages/farm/layeggs/add"
   ],
   "window": {
     "backgroundTextStyle": "light",

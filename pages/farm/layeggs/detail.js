@@ -1,4 +1,4 @@
-var feedService = require('../../../service/feed.js');
+var layeggsService = require('../../../service/layeggs.js');
 var util = require('../../../utils/util.js');
 const app = getApp()
 const logger = wx.getLogManager({ level: 1 })
@@ -7,13 +7,13 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
-    feedObj: {}
+    layeggsObj: {}
   },
   onLoad: function (options) {
     const _this = this;
-    feedService.selectFeedDetail(options.feedId).then(res => {
+    layeggsService.getLayeggsDetail(options.layeggsId).then(res => {
       _this.setData({
-        feedObj: res
+        layeggsObj: res
       });
     }).catch(err => {
       logger.log(err);
@@ -21,6 +21,6 @@ Page({
   },
   previewImage: function (e) {
     const _this = this;
-    util.previewImage(_this.data.feedObj.feedOriginalPics[e.currentTarget.dataset.picIndex], _this.data.feedObj.feedOriginalPics);
+    util.previewImage(_this.data.layeggsObj.layeggsOriginalPics[e.currentTarget.dataset.picIndex], _this.data.layeggsObj.layeggsOriginalPics);
   },
 })

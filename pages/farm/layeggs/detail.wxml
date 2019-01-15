@@ -1,0 +1,60 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 返回
+    </navigator>
+    <view class='content'>产蛋详情</view>
+  </bar>
+</custom>
+<list class="menu margin-top">
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>厂区：{{layeggsObj.feamAreaName}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>类别：{{layeggsObj.eggType == 'J' ? '鸡蛋' : layeggsObj.eggType == 'Y' ? '鸭蛋' : layeggsObj.eggType == 'E' ? '鹅蛋' : '未知'}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>数量：{{layeggsObj.eggNum}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>颜色：{{layeggsObj.eggColor}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>拾 蛋 人：{{layeggsObj.feedRaiser}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>拾蛋时间：{{layeggsObj.collectDate}} {{layeggsObj.collectTime}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>创 建 人：{{layeggsObj.createUserName}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey fs26'>备 注：{{layeggsObj.remark}}</text>
+    </view>
+  </item>
+</list>
+<bar class="margin-top solid-bottom">
+  <view class='action'>
+    <icon class='icon-titles text-blue' /> 图片列表
+  </view>
+</bar>
+<view class="bg-white padding">
+  <view class="grid col-4 grid-square">
+    <view class="bg-img" wx:for="{{layeggsObj.layeggsPics}}" wx:key="item" data-pic-index="{{index}}" bindtap='previewImage' style="background-image:url({{item}});"></view>
+  </view>
+</view>

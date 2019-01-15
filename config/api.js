@@ -70,8 +70,14 @@ module.exports = {
   PoultryData: ApiUrl + '/zhyz/miniapp/api/poultry/data',
   PoultryDetail: ApiUrl + '/zhyz/miniapp/api/poultry/detail',
   PoultryTypeNums: ApiUrl + '/zhyz/miniapp/api/poultry/tjdata',
-
   PoultryQrcode: ApiUrl + '/zhyz/miniapp/api/poultry/qrcode/',
+
+  LayeggsData: ApiUrl + '/zhyz/miniapp/api/layeggs/data',
+  LastLayeggs: ApiUrl + '/zhyz/miniapp/api/layeggs/getLastLayeggs',
+  SaveLayeggs: ApiUrl + '/zhyz/miniapp/api/layeggs/save',
+  LayeggsDetail: ApiUrl + '/zhyz/miniapp/api/layeggs/detail',
+  DeleteLayeggs: ApiUrl + '/zhyz/miniapp/api/layeggs/delete',
+  
 
   UploadApi: ApiUrl + '/basic/api/upload'
 }
