@@ -29,7 +29,7 @@
   </item>
   <item>
     <view class='content'>
-      <text class='text-grey fs26'>拾 蛋 人：{{layeggsObj.feedRaiser}}</text>
+      <text class='text-grey fs26'>拾 蛋 人：{{layeggsObj.collectUser}}</text>
     </view>
   </item>
   <item>
