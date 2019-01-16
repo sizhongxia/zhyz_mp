@@ -24,13 +24,13 @@
     按类别筛选：
   </view>
   <view class="padding-xs" bindtap='selectSearchType' data-type='J'>
-    <tag style="padding:12rpx 26rpx 10rpx;" class='{{searchType=="J" ? "line-blue" : "line-gray"}}'>鸡</tag>
+    <tag style="padding:12rpx 26rpx 10rpx;" class='{{searchType=="J" ? "line-blue" : "line-gray"}}'>鸡蛋</tag>
   </view>
   <view class="padding-xs" bindtap='selectSearchType' data-type='Y'>
-    <tag style="padding:12rpx 26rpx 10rpx;" class='{{searchType=="Y" ? "line-blue" : "line-gray"}}'>鸭</tag>
+    <tag style="padding:12rpx 26rpx 10rpx;" class='{{searchType=="Y" ? "line-blue" : "line-gray"}}'>鸭蛋</tag>
   </view>
   <view class="padding-xs" bindtap='selectSearchType' data-type='E'>
-    <tag style="padding:12rpx 26rpx 10rpx;" class='{{searchType=="E" ? "line-blue" : "line-gray"}}'>鹅</tag>
+    <tag style="padding:12rpx 26rpx 10rpx;" class='{{searchType=="E" ? "line-blue" : "line-gray"}}'>鹅蛋</tag>
   </view>
 </view>
 

@@ -26,7 +26,7 @@
         [{{item.statusTxt}}] {{item.inspectionRemark}}
       </view>
       <view class="grid col-3 grid-square flex-sub padding-lr">
-        <view class="bg-img" style="background-image:url({{inItem}});" bindtap='previewImage' data-pic-url="{{item.originalPics[idx]}}" wx:for="{{item.pics}}" wx:for-index="idx" wx:for-item="inItem" wx:key="inItem">
+        <view class="bg-img" style="background-image:url({{inItem}});" wx:for="{{item.pics}}" wx:for-index="idx" wx:for-item="inItem" wx:key="inItem">
         </view>
       </view>
       <view class='text-gray text-sm text-left padding'>

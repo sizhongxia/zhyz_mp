@@ -1,9 +1,6 @@
-
 .width-full {
   width: 750rpx;
 }
-
-
 .nav-li {
   color: #fefefe;
   padding: 15px;

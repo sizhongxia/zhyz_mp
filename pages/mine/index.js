@@ -23,10 +23,9 @@ Page({
   onReady: function () {
     const _this = this;
     var farmId = wx.getStorageSync('curr-farm-id');
-    var farmIdentity = wx.getStorageSync('curr-farm-identity');
     _this.setData({
       currentFarmId: farmId,
-      currentFarmIdentity: farmIdentity
+      currentFarmIdentity: wx.getStorageSync('curr-farm-identity')
     });
     wx.showLoading({
       title: '加载中...'
