@@ -1,7 +1,7 @@
 <card class="DhCard">
   <item class="gradual-blue padding-xl" style="margin: 0rpx;">
     <view style='margin-top: 120rpx;'>
-      <avatar class="xxl round" style="background-image:url({{userInfo.avator}});"></avatar>
+      <avatar bindtap='selectUserHeadPic' class="xxl round" style="background-image:url({{userInfo.avator}});"></avatar>
     </view>
     <view style='margin-top: 32rpx;'>
       <view style='font-size: 32rpx;'>{{userInfo.userName}}</view>
@@ -28,7 +28,7 @@
   <item class="arrow" wx:if='{{currentFarmIdentity == "admin"}}' bindtap='toAuthUserApply'>
     <view class='content'>
       <icon class='icon-crown text-green' />
-      <text class='text-grey'>农场访问申请审批</text>
+      <text class='text-grey'>处理农场访问申请</text>
     </view>
     <view class='action' wx:if="{{ auditsNum > 0 }}">
       <tag class='bg-red round'>{{ auditsNum }}</tag>
@@ -40,12 +40,6 @@
       <text class='text-grey'>设备告警推送设置</text>
     </view>
   </item>
-  <item class="arrow" bindtap='toFeedTags'>
-    <view class='content'>
-      <icon class='icon-tag text-green' />
-      <text class='text-grey'>投食快捷标签</text>
-    </view>
-  </item>
 </list>
 
 <list class="menu">
@@ -55,19 +49,25 @@
       <text class='text-grey'>禽畜品种管理</text>
     </view>
   </item>
+  <item class="arrow" bindtap='toFeedTags'>
+    <view class='content'>
+      <icon class='icon-tag text-green' />
+      <text class='text-grey'>投食标签管理</text>
+    </view>
+  </item>
 </list>
 
 <list class="menu">
   <item class="arrow" bindtap='toAuthFarms'>
     <view class='content'>
       <icon class='icon-emoji text-green' />
-      <text class='text-grey'>授权农场</text>
+      <text class='text-grey'>我授权的农场</text>
     </view>
   </item>
   <item class="arrow" bindtap='toApplyFarm'>
     <view class='content'>
       <icon class='icon-qr_code text-green' />
-      <text class='text-grey'>申请农场</text>
+      <text class='text-grey'>申请新农场</text>
     </view>
     <view class='action'>
       <tag class='round'>扫描二维码</tag>
@@ -76,7 +76,7 @@
   <item class="arrow" bindtap='toLiveVideo'>
     <view class='content'>
       <icon class='icon-video text-green' />
-      <text class='text-grey'>实时视频</text>
+      <text class='text-grey'>在线视频监控</text>
     </view>
     <view class='action'>
       <tag class='round'>Beta</tag>
@@ -86,4 +86,9 @@
 <view class="padding-xl">
   <button class='bg-red round shadow lg block' style='margin: 32rpx auto 0;' bindtap='logout'>安全退出</button>
 </view>
-<button class='lg bg-gray' style='width:750rpx;margin-bottom: 40rpx;' open-type='feedback'>意见反馈</button>
+<button class='lg bg-gray' style='width:750rpx;margin-bottom: 20rpx;' open-type='feedback'>意见反馈</button>
+
+<view style='width: 750rpx;height:200rpx;text-align:center;padding-top: 20rpx;'>
+  <view style='line-height:50rpx;'>北京一通无限科技有限公司</view>
+  <view style='line-height:50rpx;'>Copyright © 2018-2019 一通无限</view>
+</view>

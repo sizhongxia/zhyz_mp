@@ -1,4 +1,6 @@
 var mineService = require('../../service/mine.js');
+var util = require('../../utils/util.js');
+var api = require('../../config/api.js');
 const app = getApp()
 const logger = wx.getLogManager({ level: 1 })
 
@@ -51,6 +53,45 @@ Page({
             url: '/pages/auth/login/login'
           });
         }
+      }
+    });
+  },
+  selectUserHeadPic: function () {
+    const _this = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['compressed'],
+      sourceType: ['album'],
+      success(res) {
+        const tempFilePaths = res.tempFilePaths;
+        wx.showLoading({
+          title: '正在上传...',
+        });
+        wx.uploadFile({
+          url: api.UploadApi,
+          filePath: tempFilePaths[0],
+          name: 'file',
+          header: {
+            type: 'avator'
+          },
+          success(res) {
+            const data = res.data;
+            var userAvator = JSON.parse(data).data;
+            var userInfo = _this.data.userInfo;
+            mineService.updateUserAvator(userAvator).then(res=>{
+              userInfo.avator = JSON.parse(data).data;
+              app.globalData.userInfo = userInfo;
+              _this.setData({
+                userInfo: userInfo
+              });
+            }).catch(err=> {
+              logger.log(err);
+            });
+          },
+          complete() {
+            wx.hideLoading();
+          }
+        });
       }
     });
   },

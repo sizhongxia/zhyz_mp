@@ -127,8 +127,8 @@ Page({
       logger.log(err);
     });
   },
-  previewQrCodeImage: function() {
-    util.previewImage(this.data.farm.qrCodeUrl);
+  previewImage: function (e) {
+    util.previewImage(e.currentTarget.dataset.src.replace('-200x200', '-yeetong'));
   },
   toEquipment: function() {
     wx.switchTab({

@@ -7,6 +7,13 @@ const getMineBaseInfo = (farmId) => {
   });
 }
 
+const updateUserAvator = (avatarUrl) => {
+  return util.post(api.UpdateUserAvator, {
+    avatarUrl: avatarUrl
+  });
+}
+
 module.exports = {
-  getMineBaseInfo: getMineBaseInfo
+  getMineBaseInfo: getMineBaseInfo,
+  updateUserAvator: updateUserAvator
 }

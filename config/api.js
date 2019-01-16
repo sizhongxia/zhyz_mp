@@ -7,6 +7,7 @@ module.exports = {
   // 微信登陆
   AuthLogin: ApiUrl + '/zhyz/miniapp/api/auth/wxlogin',
   AuthBind: ApiUrl + '/zhyz/miniapp/api/auth/bind',
+  UpdateUserAvator: ApiUrl + '/zhyz/miniapp/api/updateUserAvator',
   // 授权访问的农场列表
   AuthFarms: ApiUrl + '/zhyz/miniapp/api/farm/auths',
   FarmUserVisitApply: ApiUrl + '/zhyz/miniapp/api/farm/userApplys',

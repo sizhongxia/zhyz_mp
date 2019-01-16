@@ -7,17 +7,17 @@
 <view class="container">
   <swiper class="screen-swiper square-dot width-full" indicator-dots="true" autoplay="true" interval="6000" duration="600">
     <swiper-item wx:for="{{banners}}" wx:key="{{item.id}}">
-      <image src="{{item.picUrl}}" mode='aspectFill' style='width:750rpx;'></image>
+      <image bindtap='previewImage' data-src="{{item.picUrl}}" src="{{item.picUrl}}" mode='aspectFill' style='width:750rpx;'></image>
     </swiper-item>
   </swiper>
   <view wx:if="{{ weather != '' }}" class='weather'>
     {{weather}}
   </view>
   <card class="article width-full">
-    <item class="shadow">
+    <item style='margin:0;border-radius:0;'>
       <view class="title" style='line-height:60rpx; padding:15rpx 30rpx 0;'>{{farm.farmName}}</view>
       <view class="content">
-        <image bindtap='previewQrCodeImage' style='width: 190rpx;height:190rpx;' src="{{farm.qrCodeUrl}}" mode="aspectFit"></image>
+        <image bindtap='previewImage' data-src="{{farm.qrCodeUrl}}" style='width: 190rpx;height:190rpx;' src="{{farm.qrCodeUrl}}" mode="aspectFit"></image>
         <view class="desc" style='margin-top:40rpx;height:144rpx;'>
           <view class='m-farm-baseinfo-item' bindtap='showMore' data-content='{{farm.address}}'>农场位置：{{farm.address}}</view>
           <view class='m-farm-baseinfo-item' bindtap='showMore' data-content='{{farm.acreage}}'>占地面积：{{farm.acreage}}</view>
@@ -27,6 +27,11 @@
     </item>
   </card>
 
+  <bar class="solid-bottom margin-top width-full">
+    <view class='action'>
+      <icon class='icon-titles text-orange ' /> 设备监控
+    </view>
+  </bar>
   <list class="grid no-border col-4 width-full" bindtap='toEquipment'>
     <item wx:for="{{monitorInfo}}" wx:key="typeId">
       <text class='typeName'>{{item.typeName}}</text>
@@ -93,10 +98,10 @@
     <item class="shadow">
       <view class="title">地点：{{feed.feedPosition}}</view>
       <view class="content">
-        <image src="{{feed.coverPicUrl}}" mode="aspectFill"></image>
+        <image bindtap='previewImage' data-src="{{feed.coverPicUrl}}" src="{{feed.coverPicUrl}}" mode="aspectFill"></image>
         <view class="desc">
           <view class='text-content'>{{feed.feedRemark}}</view>
-          <view>
+          <view style='color:#aaa;'>
             {{feed.feedRaiser}}, {{feed.feedAt}}
           </view>
         </view>
@@ -112,15 +117,18 @@
     <item class="shadow">
       <view class="title">地点：{{inspection.inspectionPosition}}</view>
       <view class="content">
-        <image src="{{inspection.pic}}" mode="aspectFill"></image>
+        <image bindtap='previewImage' data-src="{{inspection.pic}}" src="{{inspection.pic}}" mode="aspectFill"></image>
         <view class="desc">
           <view class='text-content'>{{inspection.inspectionRemark}}</view>
-          <view>
+          <view style='color:#aaa;'>
             {{inspection.operator}}, {{inspection.inspectionAt}}
           </view>
         </view>
       </view>
     </item>
   </card>
-
+  <view style='width: 750rpx;height:200rpx;text-align:center;padding-top: 60rpx;'>
+    <view style='line-height:50rpx;'>北京一通无限科技有限公司</view>
+    <view style='line-height:50rpx;'>Copyright © 2018-2019 一通无限</view>
+  </view>
 </view>

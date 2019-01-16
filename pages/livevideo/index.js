@@ -107,6 +107,7 @@ Page({
       logger.log('Socket连接关闭');
       _this.setOptionTxt('Socket连接关闭');
     });
+    _this.toConnectSocket();
   },
   toConnectSocket: function() {
     const _this = this;
