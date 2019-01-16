@@ -12,6 +12,14 @@ const userApplys = (farmId, state) => {
     state: state
   });
 }
+const getFarmUserAuthInfo = (resId) => {
+  return util.post(api.FarmUserAuthInfo, {
+    resId: resId
+  });
+}
+const updateFarmUserAuthInfo = (form) => {
+  return util.post(api.UpdateFarmUserAuthInfo, form);
+}
 const userApplyHandle = (resId, state) => {
   return util.post(api.FarmUserVisitApplyHandle, {
     resId: resId,
@@ -51,6 +59,8 @@ module.exports = {
   authFarms: authFarms,
   userApplys: userApplys,
   userApplyHandle: userApplyHandle,
+  getFarmUserAuthInfo: getFarmUserAuthInfo,
+  updateFarmUserAuthInfo: updateFarmUserAuthInfo,
   farmDetail: farmDetail,
   applyFarmVisit: applyFarmVisit,
   selectFarmBanners: selectFarmBanners,

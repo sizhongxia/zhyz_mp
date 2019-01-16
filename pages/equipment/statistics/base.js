@@ -8,6 +8,12 @@ Page({
     CustomBar: app.globalData.CustomBar,
     equipmentId: '',
     itemName: '',
+    max: '-',
+    maxTime: '-',
+    min: '-',
+    minTime: '-',
+    avg: '-',
+    unit: '',
     date: '',
     maxDate: '',
     tabIndex: '1',
@@ -31,6 +37,12 @@ Page({
       _this.setData({
         itemName: res.equipmentTypeName,
         date: res.date,
+        max: res.max,
+        maxTime: res.maxTime,
+        min: res.min,
+        minTime: res.minTime,
+        avg: res.avg,
+        unit: res.unit,
         maxDate: res.maxDate
       });
       // https://github.com/chmini-app/CHCharts-wechat

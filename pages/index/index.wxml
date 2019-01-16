@@ -27,7 +27,7 @@
     </item>
   </card>
 
-  <list class="grid no-border col-4 width-full margin-top" bindtap='toEquipment'>
+  <list class="grid no-border col-4 width-full margin-top">
     <item wx:for="{{monitorInfo}}" wx:key="typeId" style="{{ index < 3 ? 'border-right:1px solid #eee !important;' : '' }}">
       <text class='typeName'>{{item.typeName}}</text>
       <view class='typeInfo'>{{item.online}}</view>

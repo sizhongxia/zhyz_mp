@@ -43,7 +43,6 @@ Page({
       })
     });
   },
-  onShow: function() {},
   onPullDownRefresh: function() {
     this.loadData(function() {
       wx.stopPullDownRefresh();
@@ -102,7 +101,6 @@ Page({
       wx.hideLoading();
       logger.log(err);
     });
-
     equipmentService.getEquipmentCollectionHomeTj(farmId).then(res => {
       _this.setData({
         monitorInfo: res
@@ -129,10 +127,5 @@ Page({
   },
   previewImage: function (e) {
     util.previewImage(e.currentTarget.dataset.src.replace('-200x200', '-yeetong'));
-  },
-  toEquipment: function() {
-    wx.switchTab({
-      url: '/pages/equipment/index'
-    });
-  },
+  }
 })

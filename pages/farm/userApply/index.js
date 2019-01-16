@@ -1,6 +1,4 @@
 var farmService = require('../../../service/farm.js');
-var util = require('../../../utils/util.js');
-var api = require('../../../config/api.js');
 const app = getApp()
 const logger = wx.getLogManager({ level: 1 })
 
@@ -38,6 +36,20 @@ Page({
   toHandle: function (e) {
     const _this = this;
     var state = e.currentTarget.dataset.state;
+    if (state === 'Y' || state === 'N') {
+      wx.navigateTo({
+        url: '/pages/farm/userApply/reAuth?authId=' + e.currentTarget.dataset.id
+      });
+    } else if (state == 'D') {
+      _this.setData({
+        applyHandleModal: true,
+        selectResId: e.currentTarget.dataset.id
+      });
+    }
+  },
+  removeAuth: function(e) {
+    const _this = this;
+    var state = e.currentTarget.dataset.state;
     if (state === 'Y') {
       wx.showModal({
         title: '移除授权',
@@ -48,15 +60,12 @@ Page({
           }
         }
       });
-      return false;
+    } else {
+      wx.showToast({
+        title: '只能取消已授权的用户',
+        icon: 'none'
+      });
     }
-    if (state != 'D') {
-      return false;
-    }
-    _this.setData({
-      applyHandleModal: true,
-      selectResId: e.currentTarget.dataset.id
-    });
   },
   hideModal: function() {
     this.setData({
@@ -67,8 +76,17 @@ Page({
   toAdopt: function() {
     this.toApplyHandle(this.data.selectResId, 'Y');
   },
-  toRefuse: function() {
-    this.toApplyHandle(this.data.selectResId, 'N');
+  toRefuse: function () {
+    const _this = this;
+    wx.showModal({
+      title: '拒绝访问',
+      content: '是否要拒绝当前用户对农场的访问？',
+      success(res) {
+        if (res.confirm) {
+          _this.toApplyHandle(_this.data.selectResId, 'N');
+        }
+      }
+    });
   },
   toApplyHandle: function (resId, state) {
     const _this = this;

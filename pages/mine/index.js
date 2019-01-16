@@ -2,7 +2,9 @@ var mineService = require('../../service/mine.js');
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
 const app = getApp()
-const logger = wx.getLogManager({ level: 1 })
+const logger = wx.getLogManager({
+  level: 1
+})
 
 Page({
   data: {
@@ -14,13 +16,13 @@ Page({
     auditsNum: 0,
     userInfo: {}
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     const _this = this;
     _this.setData({
       userInfo: app.globalData.userInfo
     });
   },
-  onReady: function () {
+  onShow: function () {
     const _this = this;
     var farmId = wx.getStorageSync('curr-farm-id');
     _this.setData({
@@ -55,7 +57,7 @@ Page({
       }
     });
   },
-  selectUserHeadPic: function () {
+  selectUserHeadPic: function() {
     const _this = this;
     wx.chooseImage({
       count: 1,
@@ -77,13 +79,13 @@ Page({
             const data = res.data;
             var userAvator = JSON.parse(data).data;
             var userInfo = _this.data.userInfo;
-            mineService.updateUserAvator(userAvator).then(res=>{
+            mineService.updateUserAvator(userAvator).then(res => {
               userInfo.avator = JSON.parse(data).data;
               app.globalData.userInfo = userInfo;
               _this.setData({
                 userInfo: userInfo
               });
-            }).catch(err=> {
+            }).catch(err => {
               logger.log(err);
             });
           },
@@ -104,32 +106,32 @@ Page({
       url: "/pages/farm/auths/index"
     });
   },
-  toAuthUserApply: function () {
+  toAuthUserApply: function() {
     wx.navigateTo({
       url: "/pages/farm/userApply/index"
     });
   },
-  toApplyFarm: function () {
+  toApplyFarm: function() {
     wx.navigateTo({
       url: "/pages/farm/applyNew/index"
     });
   },
-  toPoultryVariety: function () {
+  toPoultryVariety: function() {
     wx.navigateTo({
       url: "/pages/poultry/variety/index"
     });
   },
-  toFeedTags: function () {
+  toFeedTags: function() {
     wx.navigateTo({
       url: "/pages/farm/feedTag/index"
     });
   },
-  toEquipmentConfs: function () {
+  toEquipmentConfs: function() {
     wx.navigateTo({
       url: "/pages/equipment/alarm/conf/index"
     });
   },
-  toLiveVideo: function () {
+  toLiveVideo: function() {
     wx.navigateTo({
       url: "/pages/livevideo/index"
     });

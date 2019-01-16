@@ -3,7 +3,7 @@
     <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
       <icon class='icon-back' /> 我的
     </navigator>
-    <view class='content'>授权农场</view>
+    <view class='content'>我的农场申请</view>
   </bar>
 </custom>
 

@@ -1,0 +1,52 @@
+<custom style='height:{{CustomBar}}px;'>
+  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
+    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
+      <icon class='icon-back' /> 返回
+    </navigator>
+    <view class='content'>授权详情</view>
+  </bar>
+</custom>
+
+
+<form>
+  <form-group>
+    <view class='title'>申请用户</view>
+    <view>{{authInfo.userName}}</view>
+  </form-group>
+  <form-group>
+    <view class='title'>申请身份</view>
+    <view>{{authInfo.identityName}}</view>
+  </form-group>
+  <form-group>
+    <view class='title'>申请时间</view>
+    <view>{{authInfo.applyAt}}</view>
+  </form-group>
+  <form-group>
+    <view class='title'>申请备注</view>
+    <view>{{authInfo.applyRemark}}</view>
+  </form-group>
+  <form-group wx:if="{{authInfo.applyState=='N'}}">
+    <view class='title'>申请状态</view>
+    <view>{{authInfo.applyStateName}}</view>
+  </form-group>
+  <form-group>
+    <view class='title'>处理时间</view>
+    <view>{{authInfo.handleAt}}</view>
+  </form-group>
+  <form-group class="margin-top" wx:if="{{authInfo.applyState=='Y'}}">
+    <view class='title'>变更身份</view>
+    <picker bindchange="identityPickerChange" value="{{index}}" range="{{identities}}" range-key="name">
+      <view class="picker">
+        {{ form.identityName }}
+      </view>
+    </picker>
+  </form-group>
+</form>
+
+<view class='h120 width-full'>Yeetong.cn</view>
+
+<bar class="btn-group options width-full" wx:if="{{authInfo.applyState=='Y'}}">
+  <button loading='{{submiting}}' class='bg-green round lg' bindtap='toUpdate'>
+    <icon class='icon-check'></icon> 修改
+  </button>
+</bar>

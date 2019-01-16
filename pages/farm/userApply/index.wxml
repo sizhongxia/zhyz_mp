@@ -3,7 +3,7 @@
     <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
       <icon class='icon-back' /> 我的
     </navigator>
-    <view class='content'>农场访问申请</view>
+    <view class='content'>农场申请审核</view>
   </bar>
 </custom>
 
@@ -13,7 +13,7 @@
 </scroll-view>
 
 <list class="menu menu-avatar no-padding">
-  <item wx:for="{{users}}" wx:key="{{item.resId}}" data-id="{{item.resId}}" data-state="{{item.applyState}}" bindtap='toHandle'>
+  <item wx:for="{{users}}" wx:key="{{item.resId}}" data-id="{{item.resId}}" data-state="{{item.applyState}}" bindtap='toHandle' bindlongpress="removeAuth">
     <avatar class="radius lg" style="background-image:url({{item.userAvator}});"></avatar>
     <view class='content'>
       <view>{{item.userName}} ({{item.farmIdentityTxt}})</view>
