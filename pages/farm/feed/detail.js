@@ -11,12 +11,17 @@ Page({
   },
   onLoad: function (options) {
     const _this = this;
+    wx.showLoading({
+      title: '加载中'
+    });
     feedService.selectFeedDetail(options.feedId).then(res => {
       _this.setData({
         feedObj: res
       });
+      wx.hideLoading();
     }).catch(err => {
       logger.log(err);
+      wx.hideLoading();
     });
   },
   previewImage: function (e) {

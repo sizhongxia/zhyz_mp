@@ -21,6 +21,9 @@
   <view style='text-align:center;'>
     <image style='width: 240rpx;height:240rpx;margin:80rpx auto 20rpx;' src='/static/images/scan.png' bindtap='scanFarmCode'></image>
     <view style='width: 620rpx;font-size:32rpx;margin:auto;line-height: 42rpx;'>未找到授权农场，您可通过扫码农场二维码进行访问申请。</view>
+    <view class='margin-top'>
+      <button bindtap='getAuths'>刷新</button>
+    </view>
   </view>
 </block>
 <block wx:if="{{loading}}">

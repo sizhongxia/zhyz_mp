@@ -12,13 +12,17 @@ Page({
   },
   onLoad: function (options) {
     const _this = this;
+    wx.showLoading({
+      title: '加载中...'
+    });
     inspectionService.selectInspectionDetail(options.inspectionId).then(res => {
-      console.info(res);
+      wx.hideLoading();
       _this.setData({
         inspectionObj: res
       });
     }).catch(err => {
-      console.info(err);
+      logger.log(err);
+      wx.hideLoading();
     });
   },
   previewImage: function (e) {

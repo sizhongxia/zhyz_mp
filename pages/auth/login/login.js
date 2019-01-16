@@ -14,6 +14,10 @@ Page({
   onReady: function () {
     const _this = this;
     if (wx.getStorageSync('token')) {
+      wx.showToast({
+        title: '正在自动登陆...',
+        icon: 'none'
+      });
       _this.toLogin();
     }
   },

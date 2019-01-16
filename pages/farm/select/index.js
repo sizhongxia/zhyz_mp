@@ -13,9 +13,12 @@ Page({
     loading: false,
     applyModalVisible: false
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     const _this = this;
-    console.debug('获取用户农场授权信息...');
+    _this.getAuths();
+  },
+  getAuths: function(){
+    const _this = this;
     _this.setData({
       loading: true
     });
