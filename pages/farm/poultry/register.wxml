@@ -6,7 +6,6 @@
     <view class='content'>禽畜登记</view>
   </bar>
 </custom>
-
 <form>
   <form-group class="margin-top">
     <view class='title'>选择厂区</view>
