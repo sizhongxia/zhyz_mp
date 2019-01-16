@@ -13,7 +13,7 @@
     <view class='title'>申请用户</view>
     <view>{{authInfo.userName}}</view>
   </form-group>
-  <form-group>
+  <form-group wx:if="{{authInfo.applyState=='N'}}">
     <view class='title'>申请身份</view>
     <view>{{authInfo.identityName}}</view>
   </form-group>
