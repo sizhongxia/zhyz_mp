@@ -28,6 +28,9 @@ Page({
   onLoad: function (options) {
     const _this = this;
     var farmId = wx.getStorageSync('curr-farm-id');
+    wx.showLoading({
+      title: '加载中...'
+    });
     farmService.selectFarmAreas(farmId).then(res => {
       var form = _this.data.form;
       form.farmId = farmId;
@@ -40,7 +43,9 @@ Page({
         areas: res,
         form: form
       });
+      wx.hideLoading();
     }).catch(err => {
+      wx.hideLoading();
       logger.log(err);
     });
   },

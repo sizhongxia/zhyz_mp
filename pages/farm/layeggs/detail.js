@@ -11,11 +11,16 @@ Page({
   },
   onLoad: function (options) {
     const _this = this;
+    wx.showLoading({
+      title: '加载中...'
+    });
     layeggsService.getLayeggsDetail(options.layeggsId).then(res => {
       _this.setData({
         layeggsObj: res
       });
+      wx.hideLoading();
     }).catch(err => {
+      wx.hideLoading();
       logger.log(err);
     });
   },

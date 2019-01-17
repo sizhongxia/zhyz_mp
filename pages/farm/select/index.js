@@ -22,7 +22,11 @@ Page({
     _this.setData({
       loading: true
     });
+    wx.showLoading({
+      title: '加载中...'
+    });
     farmService.authFarms('Y').then(res => {
+      wx.hideLoading();
       _this.setData({
         loading: false
       });

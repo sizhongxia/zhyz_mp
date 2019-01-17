@@ -3,7 +3,6 @@
 // const ApiUrl = 'http://192.168.1.107:9091';
 const ApiUrl = 'https://wxapi.yeetong.cn';
 module.exports = {
-
   // 微信登陆
   AuthLogin: ApiUrl + '/zhyz/miniapp/api/auth/wxlogin',
   AuthBind: ApiUrl + '/zhyz/miniapp/api/auth/bind',
@@ -80,7 +79,6 @@ module.exports = {
   SaveLayeggs: ApiUrl + '/zhyz/miniapp/api/layeggs/save',
   LayeggsDetail: ApiUrl + '/zhyz/miniapp/api/layeggs/detail',
   DeleteLayeggs: ApiUrl + '/zhyz/miniapp/api/layeggs/delete',
-  
 
   UploadApi: ApiUrl + '/basic/api/upload'
 }

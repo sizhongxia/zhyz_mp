@@ -15,11 +15,16 @@ Page({
   },
   onLoad: function (options) {
     const _this = this;
+    wx.showLoading({
+      title: '加载中...'
+    });
     feedService.selectFeedTagDetail(options.tagId).then(res => {
       _this.setData({
         form: res
       });
+      wx.hideLoading();
     }).catch(err => {
+      wx.hideLoading();
       logger.log(err);
     });
   },

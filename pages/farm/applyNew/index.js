@@ -38,7 +38,11 @@ Page({
   toApply: function () {
     const _this = this;
     _this.toClose();
+    wx.showLoading({
+      title: '加载中...'
+    });
     farmService.applyFarmVisit(_this.data.farm.farmId).then(res => {
+      wx.hideLoading();
       if (res === 'SUC') {
         wx.showModal({
           title: '申请成功',
@@ -54,6 +58,7 @@ Page({
         });
       }
     }).catch(err => {
+      wx.hideLoading();
       logger.log(err);
     });
   },

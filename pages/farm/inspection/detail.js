@@ -16,10 +16,10 @@ Page({
       title: '加载中...'
     });
     inspectionService.selectInspectionDetail(options.inspectionId).then(res => {
-      wx.hideLoading();
       _this.setData({
         inspectionObj: res
       });
+      wx.hideLoading();
     }).catch(err => {
       logger.log(err);
       wx.hideLoading();

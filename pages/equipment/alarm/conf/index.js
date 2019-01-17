@@ -13,10 +13,10 @@ Page({
   },
   load: function (callback) {
     const _this = this;
-    var farmId = wx.getStorageSync('curr-farm-id');
     wx.showLoading({
       title: '加载中...'
     });
+    var farmId = wx.getStorageSync('curr-farm-id');
     equipmentService.getFarmBaseEquipmentData(farmId).then(res => {
       _this.setData({
         equipments: res

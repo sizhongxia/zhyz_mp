@@ -24,13 +24,13 @@ Page({
   },
   onShow: function () {
     const _this = this;
+    wx.showLoading({
+      title: '加载中...'
+    });
     var farmId = wx.getStorageSync('curr-farm-id');
     _this.setData({
       currentFarmId: farmId,
       currentFarmIdentity: wx.getStorageSync('curr-farm-identity')
-    });
-    wx.showLoading({
-      title: '加载中...'
     });
     mineService.getMineBaseInfo(farmId).then(res => {
       _this.setData({

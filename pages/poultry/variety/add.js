@@ -26,9 +26,6 @@ Page({
     },
     submiting: false
   },
-  onLoad: function (options) {
-
-  },
   kindPickerChange: function (e) {
     const _this = this;
     if (e.detail.value > -1) {

@@ -13,8 +13,6 @@ Page({
     },
     submiting: false
   },
-  onLoad: function (options) {
-  },
   inputFeedTagName: function (e) {
     const _this = this;
     var form = _this.data.form;
