@@ -20,6 +20,12 @@ const getEquipmentTypeData = (farmId, typeId) => {
   });
 }
 
+const getEquipmentVideoData = (farmId) => {
+  return util.post(api.EquipmentVideoData, {
+    farmId: farmId
+  });
+}
+
 const getEquipmentCollectionHisData = (equipmentId, date) => {
   return util.post(api.EquipmentCollectionHisData, {
     equipmentId: equipmentId,
@@ -44,6 +50,7 @@ module.exports = {
   getEquipmentData: getEquipmentData,
   getFarmBaseEquipmentData: getFarmBaseEquipmentData,
   getEquipmentTypeData: getEquipmentTypeData,
+  getEquipmentVideoData: getEquipmentVideoData,
   getEquipmentCollectionHisData: getEquipmentCollectionHisData,
   getEquipmentCollectionAlarmData: getEquipmentCollectionAlarmData,
   getEquipmentCollectionHomeTj: getEquipmentCollectionHomeTj

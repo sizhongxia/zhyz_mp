@@ -51,6 +51,7 @@ module.exports = {
   EquipmentData: ApiUrl + '/zhyz/miniapp/api/equipment/list',
   FarmAllEquipmentsData: ApiUrl + '/zhyz/miniapp/api/equipment/allFarmEquipments',
   EquipmentTypeData: ApiUrl + '/zhyz/miniapp/api/equipment/typeList',
+  EquipmentVideoData: ApiUrl + '/zhyz/miniapp/api/equipment/videoList',
   EquipmentCollectionHisData: ApiUrl + '/zhyz/miniapp/api/equipment/collectionHisData',
   EquipmentCollectionAlarmData: ApiUrl + '/zhyz/miniapp/api/equipment/collectionAlarmData',
   EquipmentCollectionHomeTj: ApiUrl + '/zhyz/miniapp/api/equipment/homeTj',

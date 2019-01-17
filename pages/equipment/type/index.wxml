@@ -7,7 +7,7 @@
   </bar>
 </custom>
 
-<list class="menu menu-avatar">
+<list class="menu menu-avatar" wx:if="{{typeId!='SP'}}">
   <item wx:for="{{equipments}}" wx:key="equipmentId" data-equipment-id="{{item.equipmentId}}" bindtap='toStatistic'>
     <avatar class="radius lg {{item.online ? 'bg-green' : 'bg-red'}}">
       <text>{{item.online ? '在线' : '离线'}}</text>
@@ -20,6 +20,20 @@
     <view class='action'>
       <view class='text-xs'>{{item.lastUpdateTime}}</view>
       <view class='text-sm'>{{item.collectVal}}</view>
+    </view>
+  </item>
+</list>
+<list class="menu menu-avatar" wx:else>
+  <item wx:for="{{equipments}}" wx:key="cameraId" data-equipment-id="{{item.cameraId}}" bindtap='toVideoLive'>
+    <avatar class="radius lg {{item.online ? 'bg-green' : 'bg-red'}}">
+      <text>{{item.online ? '在线' : '离线'}}</text>
+    </avatar>
+    <view class='content'>
+      <view>{{item.cameraName}}</view>
+      <view class='text-gray text-sm'>{{item.brandName}}</view>
+    </view>
+    <view class='action'>
+      <view class='text-xs'>{{item.lastUpdateTime}}</view>
     </view>
   </item>
 </list>

@@ -90,10 +90,10 @@
     </view>
   </bar>
   <card class="article no-card width-full" wx:if="{{feed.had}}">
-    <item class="shadow">
+    <item class="shadow" data-feed-id="{{feed.feedId}}" bindtap="toFeedDetail">
       <view class="title">地点：{{feed.feedPosition}}</view>
       <view class="content">
-        <image bindtap='previewImage' data-src="{{feed.coverPicUrl}}" src="{{feed.coverPicUrl}}" mode="aspectFill"></image>
+        <image src="{{feed.coverPicUrl}}" mode="aspectFill"></image>
         <view class="desc">
           <view class='text-content'>{{feed.feedRemark}}</view>
           <view style='color:#aaa;'>
@@ -109,10 +109,10 @@
     </view>
   </bar>
   <card class="article no-card width-full" wx:if="{{inspection.had}}">
-    <item class="shadow">
+    <item class="shadow" data-inspection-id="{{inspection.inspectionId}}" bindtap="toInspectionDetail">
       <view class="title">地点：{{inspection.inspectionPosition}}</view>
       <view class="content">
-        <image bindtap='previewImage' data-src="{{inspection.pic}}" src="{{inspection.pic}}" mode="aspectFill"></image>
+        <image src="{{inspection.pic}}" mode="aspectFill"></image>
         <view class="desc">
           <view class='text-content'>{{inspection.inspectionRemark}}</view>
           <view style='color:#aaa;'>

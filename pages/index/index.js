@@ -125,6 +125,16 @@ Page({
       logger.log(err);
     });
   },
+  toFeedDetail: function (e) {
+    wx.navigateTo({
+      url: '/pages/farm/feed/detail?feedId=' + e.currentTarget.dataset.feedId,
+    });
+  },
+  toInspectionDetail: function (e) {
+    wx.navigateTo({
+      url: '/pages/farm/inspection/detail?inspectionId=' + e.currentTarget.dataset.inspectionId,
+    });
+  },
   previewImage: function (e) {
     util.previewImage(e.currentTarget.dataset.src.replace('-200x200', '-yeetong'));
   }

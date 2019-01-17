@@ -24,6 +24,22 @@ Page({
     wx.showLoading({
       title: '加载中...'
     });
+
+    if (_this.data.typeId == 'SP') {
+      equipmentService.getEquipmentVideoData(_this.data.farmId).then(res => {
+        _this.setData({
+          equipments: res.equipments,
+          typeName: res.equipmentTypeName
+        });
+        wx.hideLoading();
+        callback && callback();
+      }).catch(err => {
+        logger.log(err);
+        wx.hideLoading();
+        callback && callback();
+      });
+      return;
+    }
     equipmentService.getEquipmentTypeData(_this.data.farmId, _this.data.typeId).then(res => {
       _this.setData({
         equipments: res.equipments,
@@ -55,12 +71,13 @@ Page({
       wx.navigateTo({
         url: '/pages/equipment/statistics/' + path + '?equipmentId=' + e.currentTarget.dataset.equipmentId
       });
-    } else {
-      wx.showToast({
-        title: '功能开发中...',
-        icon: 'none'
-      });
-    } 
+    }
+  },
+  toVideoLive: function(e) {
+    wx.showToast({
+      title: '实时视频正在接入，敬请期待...',
+      icon: 'none'
+    });
   },
   onPullDownRefresh: function() {
     const _this = this;
