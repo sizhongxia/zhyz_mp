@@ -115,5 +115,8 @@ Page({
         hasUserInfo: true
       });
     }
+  },
+  toReg: function () {
+    
   }
 })

@@ -19,5 +19,11 @@
   </form>
   <view class="padding-xl">
     <button class='block bg-blue margin-tb-sm lg' open-type='getUserInfo' bindgetuserinfo='getUserInfo' loading='{{logining}}'>登录</button>
+    <!--
+    <view class="cf">
+      <button class='bg-gray margin-tb-sm fl'></button>
+      <button class='bg-gray margin-tb-sm fr' bindtap='toReg'>新用户注册</button>
+    </view>
+     -->
   </view>
 </view>
