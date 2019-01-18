@@ -19,7 +19,8 @@ Page({
       title: '加载中...',
       mask: true
     });
-    poultryVarietyService.getPoultryVarietyData().then(res => {
+    var farmId = wx.getStorageSync('curr-farm-id');
+    poultryVarietyService.getPoultryVarietyData(farmId).then(res => {
       _this.setData({
         varieties: res
       });

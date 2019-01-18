@@ -20,11 +20,20 @@ Page({
       name: '猪'
     }],
     form: {
+      farmId: '',
       poultryTypeId: '5c1cab687e29fcb927859601',
       poultryTypeName: '鸡',
       varietyName: ''
     },
     submiting: false
+  },
+  onLoad: function () {
+    const _this = this;
+    var form = _this.data.form;
+    form.farmId = wx.getStorageSync('curr-farm-id');
+    _this.setData({
+      form: form
+    });
   },
   kindPickerChange: function (e) {
     const _this = this;

@@ -17,7 +17,7 @@
   <item wx:for="{{farms}}" wx:key="{{item.resId}}" data-id="{{item.resId}}" bindtap='itemSelect'>
     <avatar class="radius lg" style="background-image:url({{item.farmLogo}});"></avatar>
     <view class='content'>
-      <view>{{item.farmName}} ({{item.farmIdentityTxt}})</view>
+      <view style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width:395rpx">{{item.farmName}} ({{item.farmIdentityTxt}})</view>
       <view class='text-gray text-sm'>{{item.address}}</view>
     </view>
     <view class='action'>

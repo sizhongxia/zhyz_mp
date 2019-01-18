@@ -9,7 +9,7 @@
 }
 
 .m-farm-baseinfo-item {
-  width: 420rpx;
+  width: 470rpx;
   line-height: 47.5rpx;
   font-size: 26rpx;
   overflow: hidden;

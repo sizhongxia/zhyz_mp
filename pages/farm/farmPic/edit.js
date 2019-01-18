@@ -1,6 +1,7 @@
 var farmPicService = require('../../../service/farmPic.js');
 const app = getApp()
 const logger = wx.getLogManager({ level: 1 })
+var util = require('../../../utils/util.js');
 
 Page({
   data: {
@@ -69,5 +70,8 @@ Page({
       });
       logger.log(err);
     });
+  },
+  previewImage: function (e) {
+    util.previewImage(e.currentTarget.dataset.src.replace('-200x200', '-yeetong'));
   }
 })
