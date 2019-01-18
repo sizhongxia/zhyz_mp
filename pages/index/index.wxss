@@ -2,10 +2,10 @@
 
 .weather {
   position: absolute;
-  right: 28rpx;
-  top: 180rpx;
-  font-size: 32rpx;
-  color: #f2f2f2;
+  right: 40rpx;
+  top: 150rpx;
+  font-size: 28rpx;
+  color: #484848;
 }
 
 .m-farm-baseinfo-item {
