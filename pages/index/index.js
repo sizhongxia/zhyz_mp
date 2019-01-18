@@ -137,5 +137,13 @@ Page({
   },
   previewImage: function (e) {
     util.previewImage(e.currentTarget.dataset.src.replace('-200x200', '-yeetong'));
+  },
+  toMapPage: function () {
+    const _this = this;
+    if (_this.data.farm.latitude && _this.data.farm.longitude) {
+      wx.navigateTo({
+        url: '/pages/farm/farmMap/index?longitude=' + _this.data.farm.longitude + '&latitude=' + _this.data.farm.latitude + '&farmName=' + _this.data.farm.farmName
+      });
+    }
   }
 })

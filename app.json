@@ -3,6 +3,7 @@
     "pages/auth/login/login",
     "pages/livevideo/index",
     "pages/index/index",
+    "pages/farm/farmMap/index",
     "pages/equipment/index",
     "pages/equipment/type/index",
     "pages/equipment/statistics/base",
