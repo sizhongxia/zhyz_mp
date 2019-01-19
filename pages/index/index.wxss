@@ -3,7 +3,7 @@
 .weather {
   position: absolute;
   right: 40rpx;
-  top: 150rpx;
+  top: 180rpx;
   font-size: 28rpx;
   color: #484848;
 }
