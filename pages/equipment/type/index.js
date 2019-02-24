@@ -71,6 +71,10 @@ Page({
       wx.navigateTo({
         url: '/pages/equipment/statistics/' + path + '?equipmentId=' + e.currentTarget.dataset.equipmentId
       });
+    } else {
+      wx.navigateTo({
+        url: '/pages/webview/index?path=https://www.yeetong.cn/equipment/statistics/' + e.currentTarget.dataset.equipmentId
+      });
     }
   },
   toVideoLive: function(e) {

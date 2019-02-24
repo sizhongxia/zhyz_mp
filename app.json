@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/auth/login/login",
+    "pages/webview/index",
     "pages/livevideo/index",
     "pages/index/index",
     "pages/farm/farmMap/index",
@@ -42,7 +43,8 @@
     "pages/farm/poultry/register",
     "pages/farm/layeggs/index",
     "pages/farm/layeggs/detail",
-    "pages/farm/layeggs/add"
+    "pages/farm/layeggs/add",
+    "pages/news/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -62,14 +64,14 @@
         "selectedIconPath": "/static/images/menus/home-s.png"
       },
       {
-        "pagePath": "pages/equipment/index",
-        "text": "设备",
-        "iconPath": "/static/images/menus/equipment.png",
-        "selectedIconPath": "/static/images/menus/equipment-s.png"
+        "pagePath": "pages/news/index",
+        "text": "资讯",
+        "iconPath": "/static/images/menus/news.png",
+        "selectedIconPath": "/static/images/menus/news-s.png"
       },
       {
         "pagePath": "pages/console/index",
-        "text": "管理",
+        "text": "应用",
         "iconPath": "/static/images/menus/console.png",
         "selectedIconPath": "/static/images/menus/console-s.png"
       },

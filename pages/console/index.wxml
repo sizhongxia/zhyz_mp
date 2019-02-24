@@ -1,6 +1,6 @@
 <custom style="height:{{CustomBar}}px;">
   <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
-    <view class='content'>农场控制台</view>
+    <view class='content'>应用中心</view>
   </bar>
 </custom>
 <view style='margin-top:60rpx;' wx:if='{{currentFarmIdentity == "admin" || currentFarmIdentity == "manager"}}'>
@@ -23,6 +23,10 @@
     </navigator>
     <navigator hover-class='none' url="/pages/farm/farmArea/index" class="nav-li">
       <view class="nav-title">厂区管理</view>
+      <view class="nav-name">Areas</view>
+    </navigator>
+    <navigator hover-class='none' url="/pages/equipment/index" class="nav-li">
+      <view class="nav-title">设备管理</view>
       <view class="nav-name">Areas</view>
     </navigator>
     <navigator hover-class='none' url="/pages/farm/farmPic/index" class="nav-li">
