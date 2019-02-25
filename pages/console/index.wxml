@@ -1,39 +1,63 @@
-<custom style="height:{{CustomBar}}px;">
-  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
-    <view class='content'>应用中心</view>
-  </bar>
-</custom>
+<view style='width: 750rpx;height: 280rpx;'>
+  <image src='/static/images/console_banner.jpg' style='width: 100%;height:100%;'></image>
+</view>
 <view style='margin-top:60rpx;' wx:if='{{currentFarmIdentity == "admin" || currentFarmIdentity == "manager"}}'>
-  <view class='nav-list width-full'>
-    <navigator hover-class='none' url="/pages/farm/feed/index" class="nav-li">
-      <view class="nav-title">投食管理</view>
-      <view class="nav-name">Feed</view>
-    </navigator>
-    <navigator hover-class='none' url="/pages/farm/inspection/index" class="nav-li">
-      <view class="nav-title">现场巡检</view>
-      <view class="nav-name">Inspection</view>
-    </navigator>
-    <navigator hover-class='none' url="/pages/farm/layeggs/index" class="nav-li">
-      <view class="nav-title">产蛋管理</view>
-      <view class="nav-name">LayingEggs</view>
-    </navigator>
-    <navigator hover-class='none' url="/pages/farm/poultry/index" class="nav-li">
-      <view class="nav-title">禽畜实名制</view>
-      <view class="nav-name">RealName</view>
-    </navigator>
-    <navigator hover-class='none' url="/pages/farm/farmArea/index" class="nav-li">
-      <view class="nav-title">厂区管理</view>
-      <view class="nav-name">Areas</view>
-    </navigator>
-    <navigator hover-class='none' url="/pages/equipment/index" class="nav-li">
-      <view class="nav-title">设备管理</view>
-      <view class="nav-name">Areas</view>
-    </navigator>
-    <navigator hover-class='none' url="/pages/farm/farmPic/index" class="nav-li">
-      <view class="nav-title">图片管理</view>
-      <view class="nav-name">Pictures</view>
-    </navigator>
-  </view>
+  <bar class="solid-bottom width-full" style="background: none;">
+    <view class='action'>
+      <icon class='icon-titles text-orange ' /> 基础应用
+    </view>
+  </bar>
+  <list class="grid no-border col-3">
+    <item>
+      <navigator hover-class='none' url="/pages/farm/farmArea/index">
+        <image src='https://static.yeetong.cn/yeetong/function/icon/1.png-yeetong'></image>
+        <text>厂区管理</text>
+      </navigator>
+    </item>
+    <item>
+      <navigator hover-class='none' url="/pages/equipment/index">
+        <image src='https://static.yeetong.cn/yeetong/function/icon/1.png-yeetong'></image>
+        <text>设备管理</text>
+      </navigator>
+    </item>
+    <item>
+      <navigator hover-class='none' url="/pages/farm/farmPic/index">
+        <image src='https://static.yeetong.cn/yeetong/function/icon/1.png-yeetong'></image>
+        <text>图片管理</text>
+      </navigator>
+    </item>
+  </list>
+  <bar class="solid-bottom width-full" style="background: none;">
+    <view class='action'>
+      <icon class='icon-titles text-orange ' /> 免费应用
+    </view>
+  </bar>
+  <list class="grid no-border col-3">
+    <item>
+      <navigator hover-class='none' url="/pages/farm/feed/index">
+        <image src='https://static.yeetong.cn/yeetong/function/icon/1.png-yeetong'></image>
+        <text>投食管理</text>
+      </navigator>
+    </item>
+    <item>
+      <navigator hover-class='none' url="/pages/farm/inspection/index">
+        <image src='https://static.yeetong.cn/yeetong/function/icon/1.png-yeetong'></image>
+        <text>现场巡检</text>
+      </navigator>
+    </item>
+    <item>
+      <navigator hover-class='none' url="/pages/farm/layeggs/index">
+        <image src='https://static.yeetong.cn/yeetong/function/icon/1.png-yeetong'></image>
+        <text>产蛋管理</text>
+      </navigator>
+    </item>
+    <item>
+      <navigator hover-class='none' url="/pages/farm/poultry/index">
+        <image src='https://static.yeetong.cn/yeetong/function/icon/1.png-yeetong'></image>
+        <text>禽畜实名制</text>
+      </navigator>
+    </item>
+  </list>
 </view>
 <view wx:else style='padding:80rpx 0;text-align:center;'>
   您当前身份未访客，暂不允许管理当前农场。

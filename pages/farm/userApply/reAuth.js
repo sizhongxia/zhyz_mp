@@ -6,8 +6,6 @@ const logger = wx.getLogManager({
 
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
     authInfo: {},
     identities: [{
       name: '管理员',

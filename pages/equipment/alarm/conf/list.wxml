@@ -1,12 +1,3 @@
-<custom style='height:{{CustomBar}}px;'>
-  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
-    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
-      <icon class='icon-back' /> 返回
-    </navigator>
-    <view class='content'>告警配置项列表</view>
-  </bar>
-</custom>
-
 <list class="menu no-padding">
   <item class="arrow" wx:for="{{confs}}" wx:key="confId" data-conf-id="{{item.confId}}" bindtap="toDetail">
     <view class='content'>

@@ -1,12 +1,3 @@
-<custom style='height:{{CustomBar}}px;'>
-  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
-    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
-      <icon class='icon-back' /> 返回
-    </navigator>
-    <view class='content'>新增投食标签</view>
-  </bar>
-</custom>
-
 <form>
   <form-group>
     <input placeholder="请输入投食标签名称" class='radius' name='input' bindinput="inputFeedTagName" value="{{form.feedTagName}}"></input>

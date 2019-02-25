@@ -1,8 +1,3 @@
-<custom style="height:{{CustomBar}}px;">
-  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
-    <view class='content'>{{ barTitle }}</view>
-  </bar>
-</custom>
 <block wx:if="{{authFarms.length > 0 && !loading}}">
   <bar class="solid-bottom">
     <view class='action'>

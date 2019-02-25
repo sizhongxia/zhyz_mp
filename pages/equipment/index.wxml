@@ -1,11 +1,4 @@
-<custom style='height:{{CustomBar}}px;'>
-  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
-    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
-      <icon class='icon-back' /> 返回
-    </navigator>
-    <view class='content'>设备监控</view>
-  </bar>
-</custom>
+
 <list class="menu menu-avatar no-padding" wx:if="{{equipments.length == 0}}">
   <view class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无设备</view>
 </list>

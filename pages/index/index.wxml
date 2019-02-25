@@ -1,21 +1,15 @@
-<custom style="height:{{CustomBar}}px;">
-  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
-    <view class='content'>智慧·物联养殖</view>
-  </bar>
-</custom>
-
 <view class="container">
   <swiper class="screen-swiper square-dot width-full" indicator-dots="true" autoplay="true" interval="6000" duration="600">
     <swiper-item wx:for="{{banners}}" wx:key="{{item.id}}">
       <image bindtap='previewImage' data-src="{{item.picUrl}}" src="{{item.picUrl}}" mode='aspectFill' style='width:750rpx;'></image>
     </swiper-item>
   </swiper>
-  <view wx:if="{{ weather != '' }}" class='weather'>
-    {{weather}}
-  </view>
   <card class="article width-full">
     <item style='margin:0;border-radius:0;'>
-      <view class="title" style='line-height:60rpx; padding:15rpx 30rpx 0;'>{{farm.farmName}}</view>
+      <view class="title" style='line-height:60rpx; padding:15rpx 30rpx 0;'>
+        {{farm.farmName}}
+        <text wx:if="{{ weather != '' }}" style='float:right;font-weight: 300'>{{weather}}</text>
+      </view>
       <view class="content">
         <image bindtap='previewImage' data-src="{{farm.qrCodeUrl}}" style='width: 190rpx;height:190rpx;' src="{{farm.qrCodeUrl}}" mode="aspectFit"></image>
         <view class="desc" style='margin-top:30rpx;height:144rpx;'>

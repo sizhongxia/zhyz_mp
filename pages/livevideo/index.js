@@ -5,8 +5,6 @@ const logger = wx.getLogManager({
 var lpc = null; // LivePlayerContext
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
     farmId: '5c2045427e298eb6d157ca7a',
     cameraId: '5c2045427e298eb6d157ca7a',
     height: wx.getSystemInfoSync().windowHeight,

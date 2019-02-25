@@ -1,11 +1,3 @@
-<custom style="height:{{CustomBar}}px;">
-  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
-    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
-      <icon class='icon-back' /> 返回
-    </navigator>
-    <view class='content'>申请新农场</view>
-  </bar>
-</custom>
 <view style='text-align:center;'>
   <image style='width: 240rpx;height:240rpx;margin:80rpx auto 20rpx;' src='/static/images/scan.png' bindtap='scanFarmCode'></image>
   <view style='width: 620rpx;font-size:32rpx;margin:auto;line-height: 42rpx;'>您可通过扫码农场二维码进行访问申请。</view>

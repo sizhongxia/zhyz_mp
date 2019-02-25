@@ -1,4 +1,5 @@
 {
   "usingComponents": {
-  }
+  },
+  "navigationBarTitleText": "应用中心"
 }

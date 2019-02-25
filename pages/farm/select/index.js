@@ -5,9 +5,6 @@ const logger = wx.getLogManager({ level: 1 })
 
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
-    barTitle: '选择农场',
     authFarms: [],
     farm: {},
     loading: false,
@@ -31,9 +28,9 @@ Page({
         loading: false
       });
       if (res.length === 0) {
-        _this.setData({
-          barTitle: '扫码申请'
-        });
+        wx.setNavigationBarTitle({
+          title: '扫码申请'
+        })
         return false;
       }
       _this.setData({

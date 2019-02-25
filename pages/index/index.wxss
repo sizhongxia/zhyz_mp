@@ -1,13 +1,4 @@
 /* pages/index/index.wxss */
-
-.weather {
-  position: absolute;
-  right: 40rpx;
-  top: 180rpx;
-  font-size: 28rpx;
-  color: #484848;
-}
-
 .m-farm-baseinfo-item {
   width: 470rpx;
   line-height: 47.5rpx;

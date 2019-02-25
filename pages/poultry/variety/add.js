@@ -4,8 +4,6 @@ const logger = wx.getLogManager({ level: 1 })
 
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
     kinds: [{
       id: '5c1cab687e29fcb927859601',
       name: '鸡'

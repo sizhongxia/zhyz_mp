@@ -47,11 +47,10 @@
     "pages/news/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "一通无限智慧养殖",
-    "navigationStyle": "custom",
-    "navigationBarTextStyle": "white"
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "智慧农场",
+    "backgroundTextStyle": "light"
   },
   "tabBar": {
     "color": "#515151",

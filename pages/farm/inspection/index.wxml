@@ -1,14 +1,4 @@
-<custom style='height:{{CustomBar}}px;'>
-  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
-    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
-      <icon class='icon-back' /> 返回
-    </navigator>
-    <view class='content'>巡检记录</view>
-  </bar>
-</custom>
-
 <view class="container">
-
   <card class="dynamic width-full">
     <item wx:for="{{inspections}}" wx:key="inspectionId" class="shadow" data-inspection-id="{{item.inspectionId}}" bindtap="toDetail" bindlongpress="removeItem">
       <list class="menu menu-avatar">

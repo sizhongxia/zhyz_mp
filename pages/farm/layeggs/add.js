@@ -9,8 +9,6 @@ const logger = wx.getLogManager({
 
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
     areas: [],
     eggTypes: [{
       value: 'J',

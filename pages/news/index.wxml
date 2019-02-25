@@ -1,5 +1,0 @@
-<custom style="height:{{CustomBar}}px;">
-  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
-    <view class='content'>新闻资讯</view>
-  </bar>
-</custom>

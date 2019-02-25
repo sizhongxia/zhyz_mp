@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "ch-canvas": "../../../ch-canvas/ch-canvas"
-  }
+  },
+  "navigationBarTitleText": "禽畜实名制"
 }

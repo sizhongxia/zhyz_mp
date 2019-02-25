@@ -1,11 +1,3 @@
-<custom style='height:{{CustomBar}}px;'>
-  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
-    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
-      <icon class='icon-back' /> 返回
-    </navigator>
-    <view class='content'>视频直播</view>
-  </bar>
-</custom>
 
 <live-player id='rtmpPlayId' src="rtmp://pili-publish.yeetong.cn/yeetong-zhny/5c2045427e298eb6d157ca7a" mode="RTC" autoplay="{{false}}" bindstatechange="rtmpPlayStateChange" binderror="rtmpPlayError" style="width: 750rpx; height: 480rpx;" />
 

@@ -4,8 +4,6 @@ const app = getApp()
 const logger = wx.getLogManager({ level: 1 })
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
     poultryId: '',
     poultryQrcodeBaseUrl: api.PoultryQrcode,
     poultry: {}

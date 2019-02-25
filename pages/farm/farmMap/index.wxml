@@ -1,9 +1,1 @@
-<custom style='height:{{CustomBar}}px;'>
-  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
-    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
-      <icon class='icon-back' /> 返回
-    </navigator>
-    <view class='content'>地图位置</view>
-  </bar>
-</custom>
 <map id="myMap" style="width: 100%; height: {{height}}px;" longitude="{{longitude}}" latitude="{{latitude}}" scale='16' show-compass='{{true}}' subkey="JRVBZ-XPSW5-STRIM-QGWQC-6D3T6-5ABT3" markers="{{markers}}"></map>

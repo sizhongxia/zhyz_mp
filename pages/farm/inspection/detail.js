@@ -6,8 +6,6 @@ const logger = wx.getLogManager({ level: 1 })
 
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
     inspectionObj: {}
   },
   onLoad: function (options) {

@@ -1,12 +1,3 @@
-<custom style='height:{{CustomBar}}px;'>
-  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
-    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
-      <icon class='icon-back' /> 我的
-    </navigator>
-    <view class='content'>禽畜品种管理</view>
-  </bar>
-</custom>
-
 <list class="menu no-padding">
   <item class="arrow" wx:for="{{varieties}}" wx:key="varietyId" data-variety-id="{{item.varietyId}}" bindtap="toDetail">
     <view class='content'>

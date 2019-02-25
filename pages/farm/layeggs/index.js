@@ -6,8 +6,6 @@ const logger = wx.getLogManager({ level: 1 })
 
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
     farmId: '',
     page: 1, //当前页
     haveNext: false,

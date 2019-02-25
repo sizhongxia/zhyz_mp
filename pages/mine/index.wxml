@@ -1,13 +1,10 @@
 <card class="DhCard">
-  <item class="gradual-blue padding-xl" style="margin: 0rpx;">
-    <view style='margin-top: 120rpx;'>
+  <item class="gradual-blue padding-xl">
+    <view style='margin-top: 60rpx;'>
       <avatar bindtap='selectUserHeadPic' class="xxl round" style="background-image:url({{userInfo.avator}});"></avatar>
     </view>
     <view style='margin-top: 32rpx;'>
       <view style='font-size: 32rpx;'>{{userInfo.userName}}</view>
-    </view>
-    <view class='animation-wave'>
-      <view class='wave'></view>
     </view>
   </item>
 </card>

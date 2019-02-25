@@ -8,8 +8,6 @@ const logger = wx.getLogManager({
 
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
     currentFarmId: '',
     currentFarmIdentity: '',
     farmName: '',
