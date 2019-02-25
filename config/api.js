@@ -81,5 +81,7 @@ module.exports = {
   LayeggsDetail: ApiUrl + '/zhyz/miniapp/api/layeggs/detail',
   DeleteLayeggs: ApiUrl + '/zhyz/miniapp/api/layeggs/delete',
 
+  NewsData: ApiUrl + '/basic/api/yt/news/list',
+
   UploadApi: ApiUrl + '/basic/api/upload'
 }

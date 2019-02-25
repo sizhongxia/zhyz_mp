@@ -1,66 +1,48 @@
-// pages/news/index.js
+var newsService = require('../../service/news.js');
+var util = require('../../utils/util.js');
+var api = require('../../config/api.js');
+const app = getApp()
+const logger = wx.getLogManager({
+  level: 1
+})
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    news: [],
+    page: 1,
+    total: 0
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    this.loadNews(1);
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  loadNews: function (page) {
+    const _this = this;
+    wx.showLoading({
+      title: '加载中...'
+    });
+    newsService.getNewsByPage(page).then(res => {
+      let news = _this.data.news;
+      if (page > 1) {
+        news.push(res.list);
+      }
+      console.info(res)
+      _this.setData({
+        news: res.list,
+        page: res.current,
+        total: res.total
+      });
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
+      logger.log(err);
+    });
+  },
   onReady: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

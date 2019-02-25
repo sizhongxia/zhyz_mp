@@ -6,7 +6,7 @@ list.grid {
   background: none;
 }
 list.grid>item {
-  margin-bottom: 20rpx;
+  margin-bottom: 10rpx;
 }
 
 list.grid>item>navigator {

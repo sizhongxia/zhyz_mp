@@ -1,1 +1,11 @@
-/* pages/news/index.wxss */
+card.article>item .title {
+  font-size: 28rpx;
+  font-weight: normal;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #333;
+  line-height: 68rpx;
+  padding: 0;
+  overflow: hidden;
+}

@@ -1,7 +1,7 @@
 <view style='width: 750rpx;height: 280rpx;'>
-  <image src='/static/images/console_banner.jpg' style='width: 100%;height:100%;'></image>
+  <image src='https://static.yeetong.cn/yeetong/function/icon/console_head.png-yeetong?v3' style='width: 100%;height:100%;'></image>
 </view>
-<view style='margin-top:60rpx;' wx:if='{{currentFarmIdentity == "admin" || currentFarmIdentity == "manager"}}'>
+<view wx:if='{{currentFarmIdentity == "admin" || currentFarmIdentity == "manager"}}'>
   <bar class="solid-bottom width-full" style="background: none;">
     <view class='action'>
       <icon class='icon-titles text-orange ' /> 基础应用
@@ -10,19 +10,19 @@
   <list class="grid no-border col-3">
     <item>
       <navigator hover-class='none' url="/pages/farm/farmArea/index">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/1.png-yeetong'></image>
+        <image src='https://static.yeetong.cn/yeetong/function/icon/console_area.png-yeetong?v2'></image>
         <text>厂区管理</text>
       </navigator>
     </item>
     <item>
       <navigator hover-class='none' url="/pages/equipment/index">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/1.png-yeetong'></image>
+        <image src='https://static.yeetong.cn/yeetong/function/icon/console_equipment.png-yeetong?v2'></image>
         <text>设备管理</text>
       </navigator>
     </item>
     <item>
       <navigator hover-class='none' url="/pages/farm/farmPic/index">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/1.png-yeetong'></image>
+        <image src='https://static.yeetong.cn/yeetong/function/icon/console_image.png-yeetong?v2'></image>
         <text>图片管理</text>
       </navigator>
     </item>
@@ -35,25 +35,31 @@
   <list class="grid no-border col-3">
     <item>
       <navigator hover-class='none' url="/pages/farm/feed/index">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/1.png-yeetong'></image>
+        <image src='https://static.yeetong.cn/yeetong/function/icon/console_feed.png-yeetong?v2'></image>
         <text>投食管理</text>
       </navigator>
     </item>
     <item>
       <navigator hover-class='none' url="/pages/farm/inspection/index">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/1.png-yeetong'></image>
+        <image src='https://static.yeetong.cn/yeetong/function/icon/console_inspection.png-yeetong?v2'></image>
         <text>现场巡检</text>
       </navigator>
     </item>
     <item>
       <navigator hover-class='none' url="/pages/farm/layeggs/index">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/1.png-yeetong'></image>
+        <image src='https://static.yeetong.cn/yeetong/function/icon/console_egg.png-yeetong?v2'></image>
         <text>产蛋管理</text>
       </navigator>
     </item>
     <item>
+      <navigator hover-class='none' url="/pages/poultry/variety/index">
+        <image src='https://static.yeetong.cn/yeetong/function/icon/console_variety.png-yeetong?v2'></image>
+        <text>禽畜品种</text>
+      </navigator>
+    </item>
+    <item>
       <navigator hover-class='none' url="/pages/farm/poultry/index">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/1.png-yeetong'></image>
+        <image src='https://static.yeetong.cn/yeetong/function/icon/console_poultry.png-yeetong?v2'></image>
         <text>禽畜实名制</text>
       </navigator>
     </item>

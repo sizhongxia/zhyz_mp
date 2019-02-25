@@ -15,7 +15,6 @@ function request(url, data = {}, method = "POST") {
         'token': token
       },
       success: function(res) {
-        console.debug(res)
         if (res.statusCode === 401) {
           wx.removeStorageSync('token');
           wx.redirectTo({

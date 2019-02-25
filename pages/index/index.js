@@ -27,7 +27,6 @@ Page({
     _this.loadData();
     const updateManager = wx.getUpdateManager()
     updateManager.onCheckForUpdate(function(res) {
-      console.log(res.hasUpdate)
     });
     updateManager.onUpdateReady(function() {
       wx.showModal({

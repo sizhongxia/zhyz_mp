@@ -114,11 +114,6 @@ Page({
       url: "/pages/farm/applyNew/index"
     });
   },
-  toPoultryVariety: function() {
-    wx.navigateTo({
-      url: "/pages/poultry/variety/index"
-    });
-  },
   toFeedTags: function() {
     wx.navigateTo({
       url: "/pages/farm/feedTag/index"

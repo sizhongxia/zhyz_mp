@@ -1,0 +1,15 @@
+
+<card class="article no-card">
+  <item wx:for="{{news}}" wx:key="uniqueId" wx:for-index="idx" wx:for-item="item" class="shadow" style="padding: 30rpx">
+    <view class="title"><text wx:if="{{item.isNew}}">[新]</text>{{item.newsTitle}}</view>
+    <view class="content" style="padding: 0">
+      <image src="{{item.coverPic}}" mode="aspectFill"></image>
+      <view class="desc">
+        <view class='text-content'>{{item.abstract}}</view>
+        <view>
+          <tag class='bg-grey light sm'>{{item.releaseTime}}</tag>
+        </view>
+      </view>
+    </view>
+  </item>
+</card>
