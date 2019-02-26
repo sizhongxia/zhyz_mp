@@ -9,40 +9,44 @@ Page({
   data: {
     news: [],
     page: 1,
-    total: 0
+    totalPage: 1
   },
-  onLoad: function (options) {
-    this.loadNews(1);
-  },
-  loadNews: function (page) {
+  loadNews: function (page, ck) {
     const _this = this;
     wx.showLoading({
       title: '加载中...'
     });
-    newsService.getNewsByPage(page).then(res => {
+    newsService.getNewsByPage(page, 10).then(res => {
       let news = _this.data.news;
       if (page > 1) {
-        news.push(res.list);
+        var len = res.list.length;
+        for (var i = 0; i < len; ++i) {
+          news.push(res.list[i]);
+        }
+      } else {
+        news = res.list;
       }
-      console.info(res)
       _this.setData({
-        news: res.list,
+        news: news,
         page: res.current,
-        total: res.total
+        totalPage: res.totalPage
       });
       wx.hideLoading();
+      ck && ck();
     }).catch(err => {
       wx.hideLoading();
       logger.log(err);
     });
   },
   onReady: function () {
-
+    this.loadNews(1);
   },
-  onShow: function () {
-
+  loadMore: function () {
+    this.loadNews(this.data.page + 1);
   },
   onPullDownRefresh: function () {
-
+    this.loadNews(1, function () {
+      wx.stopPullDownRefresh();
+    });
   }
 })

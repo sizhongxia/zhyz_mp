@@ -1,9 +1,10 @@
 var api = require('../config/api.js')
 var util = require('../utils/util.js')
 
-const getNewsByPage = (page) => {
+const getNewsByPage = (page, size) => {
   return util.post(api.NewsData, {
-    page: page
+    page: page,
+    size: size || 10
   });
 }
 
