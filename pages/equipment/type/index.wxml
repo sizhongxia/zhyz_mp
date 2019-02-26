@@ -1,12 +1,3 @@
-<custom style='height:{{CustomBar}}px;'>
-  <bar class='fixed gradual-blue' style='height:{{CustomBar}}px;padding-top:{{StatusBar}}px;'>
-    <navigator class='action' open-type='navigateBack' delta='1' hover-class='none'>
-      <icon class='icon-back' /> 返回
-    </navigator>
-    <view class='content'>{{typeName}}</view>
-  </bar>
-</custom>
-
 <list class="menu menu-avatar" wx:if="{{typeId!='SP'}}">
   <item wx:for="{{equipments}}" wx:key="equipmentId" data-equipment-id="{{item.equipmentId}}" bindtap='toStatistic'>
     <avatar class="radius lg {{item.online ? 'bg-green' : 'bg-red'}}">

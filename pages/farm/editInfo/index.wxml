@@ -12,8 +12,8 @@
     <input value='{{farm.address}}' placeholder='请输入农场地址' class='radius' name='address'></input>
   </form-group>
   <form-group>
-    <view class='title'>推广链接</view>
-    <input value='{{farm.website}}' placeholder='请输入农场推广链接' class='radius' name='website'></input>
+    <view class='title'>公司网址</view>
+    <input value='{{farm.website}}' placeholder='请输入公司网址' class='radius' name='website'></input>
   </form-group>
   <form-group class='top'>
     <view class='title'>农场描述</view>
@@ -35,7 +35,8 @@
     <button class='block bg-blue margin-tb-sm lg' form-type="submit" loading='{{updating}}'>修改</button>
   </view>
 </form>
-
+<!--
 <view class='padding-xl' style='text-align:center'>
   <image bindtap='previewQrCodeImage' style='width: 320rpx;height:320rpx;margin:auto;' src='{{farm.qrCodeUrl}}'></image>
 </view>
+-->
