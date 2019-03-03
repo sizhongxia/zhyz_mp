@@ -1,0 +1,36 @@
+<view>
+  <form report-submit="{{true}}" bindsubmit="toReg">
+    <form-group class="margin-top">
+      <view class='title'>平台账号</view>
+      <input placeholder="请输入平台账号" class='radius' name='username'></input>
+    </form-group>
+    <form-group>
+      <view class='title'>手机号</view>
+      <input placeholder="请输入手机号" class='radius' bindinput='changePhoneNo' name='phoneNo'></input>
+    </form-group>
+    <form-group>
+      <view class='title'>验证码</view>
+      <input placeholder="请输入短信验证码" class='radius' name='vcode'></input>
+      <button class='bg-gray shadow' disabled='{{vcodeLoading}}' bindtap='sendSmsVcode'>{{vcodeTxt}}</button>
+    </form-group>
+    <form-group>
+      <view class='title'>登陆密码</view>
+      <input placeholder="请输入登陆密码" type='password' class='radius' name='password'></input>
+    </form-group>
+    <form-group>
+      <view class='title'>重复密码</view>
+      <input placeholder="请再次输入登陆密码" type='password' class='radius' name='repassword'></input>
+    </form-group>
+    <form-group>
+      <navigator url="/pages/auth/protocol/index" style='background: #fff'>
+        <view class='title' style='width: 520rpx;text-align:left;color: blue;font-size: 25rpx;'>请先阅读《用户协议》，同意后可点击注册</view>
+      </navigator>
+      <checkbox-group bindchange="changeAgreeState">
+        <checkbox class='sm' value="Y" checked='{{agree}}'></checkbox> 同意
+      </checkbox-group>
+    </form-group>
+    <view class="padding-xl">
+      <button disabled='{{!agree}}' class='block bg-blue margin-tb-sm lg' form-type="submit">注册</button>
+    </view>
+  </form>
+</view>

@@ -1,10 +1,14 @@
 {
   "pages": [
     "pages/auth/login/login",
+    "pages/auth/regist/index",
+    "pages/auth/resetpwd/index",
+    "pages/auth/protocol/index",
     "pages/webview/index",
     "pages/livevideo/index",
     "pages/index/index",
     "pages/farm/farmMap/index",
+    "pages/farm/create/index",
     "pages/equipment/index",
     "pages/equipment/type/index",
     "pages/equipment/statistics/base",

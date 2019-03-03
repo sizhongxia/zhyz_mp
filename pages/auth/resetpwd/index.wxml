@@ -1,0 +1,24 @@
+<view>
+  <form report-submit="{{true}}" bindsubmit="toResetPwd">
+    <form-group class="margin-top">
+      <view class='title'>手机号</view>
+      <input placeholder="请输入手机号" class='radius' bindinput='changePhoneNo' name='phoneNo'></input>
+    </form-group>
+    <form-group>
+      <view class='title'>验证码</view>
+      <input placeholder="请输入短信验证码" class='radius' name='vcode'></input>
+      <button class='bg-gray shadow' disabled='{{vcodeLoading}}' bindtap='sendSmsVcode'>{{vcodeTxt}}</button>
+    </form-group>
+    <form-group>
+      <view class='title'>新密码</view>
+      <input placeholder="请输入新的登陆密码" type='password' class='radius' name='password'></input>
+    </form-group>
+    <form-group>
+      <view class='title'>重复密码</view>
+      <input placeholder="请再次输入登陆密码" type='password' class='radius' name='repassword'></input>
+    </form-group>
+    <view class="padding-xl">
+      <button class='block bg-blue margin-tb-sm lg' form-type="submit">重置密码</button>
+    </view>
+  </form>
+</view>

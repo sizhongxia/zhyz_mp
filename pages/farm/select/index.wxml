@@ -15,9 +15,12 @@
 <block wx:if="{{authFarms.length == 0 && !loading}}">
   <view style='text-align:center;'>
     <image style='width: 240rpx;height:240rpx;margin:80rpx auto 20rpx;' src='/static/images/scan.png' bindtap='scanFarmCode'></image>
-    <view style='width: 620rpx;font-size:32rpx;margin:auto;line-height: 42rpx;'>未找到授权农场，您可通过扫码农场二维码进行访问申请。</view>
+    <view style='width: 620rpx;font-size:32rpx;margin:auto;line-height: 42rpx;'>未找到农场信息，您可直接创建农场或通过扫码已存在的农场二维码进行访问申请。</view>
     <view class='margin-top'>
-      <button bindtap='getAuths'>刷新</button>
+      <button class="bg-blue button-hover" bindtap='toCreateFarm'><icon class='icon-add' /> 新增农场</button>
+    </view>
+    <view class='margin-top'>
+      <button bindtap='getAuths'><icon class='icon-refresh' /> 刷新页面</button>
     </view>
   </view>
 </block>

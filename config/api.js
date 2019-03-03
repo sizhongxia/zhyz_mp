@@ -5,8 +5,14 @@ const ApiUrl = 'https://wxapi.yeetong.cn';
 module.exports = {
   // 微信登陆
   AuthLogin: ApiUrl + '/zhyz/miniapp/api/auth/wxlogin',
+  AuthReg: ApiUrl + '/zhyz/miniapp/api/auth/reg',
+  AuthResetPwd: ApiUrl + '/zhyz/miniapp/api/auth/resetpwd',
   AuthBind: ApiUrl + '/zhyz/miniapp/api/auth/bind',
+  AuthBindWx: ApiUrl + '/zhyz/miniapp/api/auth/bindwx',
   UpdateUserAvator: ApiUrl + '/zhyz/miniapp/api/updateUserAvator',
+
+  SendSmsVcode: ApiUrl + '/zhyz/miniapp/api/sendsmsvcode',
+
   // 授权访问的农场列表
   AuthFarms: ApiUrl + '/zhyz/miniapp/api/farm/auths',
   FarmUserVisitApply: ApiUrl + '/zhyz/miniapp/api/farm/userApplys',

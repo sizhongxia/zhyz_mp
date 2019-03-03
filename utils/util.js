@@ -26,9 +26,6 @@ function request(url, data = {}, method = "POST") {
           if (res.data.code === 200) {
             resolve(res.data.data);
           } else {
-            wx.showModal({
-              content: res.data.message
-            });
             reject(res.data);
           }
         } else {

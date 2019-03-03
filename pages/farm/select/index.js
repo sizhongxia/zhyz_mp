@@ -29,7 +29,7 @@ Page({
       });
       if (res.length === 0) {
         wx.setNavigationBarTitle({
-          title: '扫码申请'
+          title: '创建/申请'
         })
         return false;
       }
@@ -65,6 +65,11 @@ Page({
       });
       logger.log(err);
     });
+  },
+  toCreateFarm: function () {
+    wx.navigateTo({
+      url: '/pages/farm/create/index'
+    })
   },
   toDetail: function(e) {
     wx.setStorageSync('curr-farm-id', e.currentTarget.dataset.farmId);

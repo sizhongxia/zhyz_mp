@@ -48,7 +48,6 @@
   </item>
 </list>
 -->
-
 <list class="menu">
   <item class="arrow" bindtap='toAuthFarms'>
     <view class='content'>
@@ -75,11 +74,9 @@
     </view>
   </item>
 </list>
-<view class="padding-xl">
-  <button class='bg-red round shadow lg block' style='margin: 32rpx auto 0;' bindtap='logout'>安全退出</button>
+<view style="width: 750rpx;text-align:center;">
+  <button class='lg bg-gray' style='width:520rpx;margin: 50rpx 0 20rpx;' open-type='feedback'>意见反馈</button>
 </view>
-<button class='lg bg-gray' style='width:750rpx;margin-bottom: 20rpx;' open-type='feedback'>意见反馈</button>
-
 <view style='width: 750rpx;height:200rpx;text-align:center;padding-top: 20rpx;'>
   <view style='line-height:50rpx;'>北京一通无限科技有限公司</view>
   <view style='line-height:50rpx;'>Copyright © 2018-2019 一通无限</view>

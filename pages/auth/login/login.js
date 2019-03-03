@@ -9,45 +9,30 @@ Page({
     password: '',
     logining: false
   },
-  onReady: function () {
-    const _this = this;
-    if (wx.getStorageSync('token')) {
-      wx.showToast({
-        title: '正在自动登陆...',
-        icon: 'none'
-      });
-      _this.toLogin();
-    }
+  onShow: function () {
+    this.toLogin();
   },
   toLogin: function () {
     const _this = this;
-    if (_this.data.logining) {
-      return false;
-    }
-    _this.setData({
-      logining: true
-    });
+    wx.showLoading();
     util.login().then(code => {
       return loginService.loginRequest(code);
     }).then(res => {
+      wx.hideLoading();
       app.globalData.userInfo = res;
       wx.setStorageSync('token', res.token);
       wx.redirectTo({
         url: '/pages/farm/select/index'
       });
     }).catch(err => {
-      _this.setData({
-        logining: false
-      });
+      wx.hideLoading();
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
-          return false;
         } else {
           logger.log(err);
         }
       }
-      util.showErrorToast('登陆失败');
     });
   },
   setUsername: function(e) {
@@ -59,6 +44,38 @@ Page({
     this.setData({
       password: e.detail.value
     });
+  },
+  getUserInfoForWx: function (res) {
+    const _this = this;
+    if (res.detail.userInfo) {
+      wx.showLoading();
+      util.login().then(code => {
+        return loginService.bindRequestByWx({
+          code: code,
+          nickName: res.detail.userInfo.nickName,
+          avatarUrl: res.detail.userInfo.avatarUrl,
+          gender: res.detail.userInfo.gender,
+          country: res.detail.userInfo.country,
+          province: res.detail.userInfo.province,
+          city: res.detail.userInfo.city
+        });
+      }).then(res => {
+        wx.hideLoading();
+        _this.toLogin();
+      }).catch(err => {
+        wx.hideLoading();
+        if (err) {
+          if (err.message) {
+            util.showErrorToast(err.message);
+            return false;
+          } else {
+            logger.log(err);
+          }
+        }
+      });
+    } else {
+      util.showErrorToast('请允许授权访问您的基本信息');
+    }
   },
   getUserInfo: function(res) {
     const _this = this;
@@ -114,7 +131,18 @@ Page({
       });
     }
   },
-  toReg: function () {
-    
+  getUserInfoToReg: function (res) {
+    const _this = this;
+    if (res.detail.userInfo) {
+      wx.setStorageSync('wx-user-info', res.detail.userInfo)
+      wx.navigateTo({
+        url: '/pages/auth/regist/index'
+      })
+    }
+  },
+  toResetpwd: function () {
+    wx.navigateTo({
+      url: '/pages/auth/resetpwd/index'
+    })
   }
 })

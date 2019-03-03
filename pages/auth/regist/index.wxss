@@ -1,0 +1,8 @@
+.align-center {
+  text-align: center;
+}
+
+form-group .title {
+  text-align:right;
+  width:190rpx;
+}
