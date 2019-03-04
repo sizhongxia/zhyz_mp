@@ -97,7 +97,9 @@ Page({
     formVals.provinceCode = provinceCode;
     formVals.cityCode = cityCode;
     formVals.countyCode = countyCode;
-    wx.showLoading();
+    wx.showLoading({
+      title: '正在保存'
+    });
     farmService.createFarm(formVals).then(res => {
       wx.hideLoading();
       wx.showModal({
