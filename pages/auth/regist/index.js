@@ -31,7 +31,10 @@ Page({
   },
   sendSmsVcode: function () {
     const _this = this;
-    wx.showLoading();
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
     smsService.sendSmsVcode({
       smsType: this.data.smsType,
       phoneNo: this.data.formData.phoneNo
@@ -101,7 +104,10 @@ Page({
       util.showErrorToast('两次密码输入不一致');
       return;
     }
-    wx.showLoading();
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
     var obj = Object.assign(e.detail.value, this.data.userInfo);
     util.login().then(code => {
       obj.code = code;

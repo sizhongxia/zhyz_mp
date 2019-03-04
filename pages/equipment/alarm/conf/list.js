@@ -19,7 +19,8 @@ Page({
     const _this = this;
     var farmId = wx.getStorageSync('curr-farm-id');
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     equipmentAlarmConfService.getEquipmentAlarmConfData(_this.data.equipmentId).then(res => {
       _this.setData({

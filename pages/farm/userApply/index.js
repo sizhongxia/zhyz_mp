@@ -15,9 +15,10 @@ Page({
   tabSelect: function(e) {
     this.loadData(e.currentTarget.dataset.id);
   },
-  loadData: function(state) {
+  loadData: function (state) {
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     var farmId = wx.getStorageSync('curr-farm-id');
     farmService.userApplys(farmId, state).then(res => {
@@ -90,8 +91,9 @@ Page({
     const _this = this;
     _this.hideModal();
     wx.showLoading({
-      title: '处理中...'
-    })
+      title: '请稍后...',
+      mask: true
+    });
     farmService.userApplyHandle(resId, state).then(res => {
       wx.hideLoading();
       _this.loadData(_this.data.selectState);

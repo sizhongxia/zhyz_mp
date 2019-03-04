@@ -27,7 +27,8 @@ Page({
   onLoad: function(options) {
     const _this = this;
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     farmService.getFarmUserAuthInfo(options.authId).then(res => {
       var form = _this.data.form;
@@ -59,7 +60,8 @@ Page({
   toUpdate: function () {
     const _this = this;
     wx.showLoading({
-      title: '正在修改...'
+      title: '请稍后...',
+      mask: true
     });
     farmService.updateFarmUserAuthInfo(_this.data.form).then(res => {
       wx.hideLoading();

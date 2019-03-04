@@ -19,7 +19,8 @@ Page({
   },
   loadData: function (state) {
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     farmService.authFarms(state).then(res => {
       this.setData({

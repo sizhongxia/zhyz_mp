@@ -20,7 +20,8 @@ Page({
       loading: true
     });
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     farmService.authFarms('Y').then(res => {
       wx.hideLoading();

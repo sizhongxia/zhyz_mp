@@ -1,7 +1,7 @@
-// const ApiUrl = 'http://192.168.31.144:9091';
+const ApiUrl = 'http://192.168.31.144:9091';
 // const ApiUrl = 'http://192.168.31.96:9091';
 // const ApiUrl = 'http://192.168.1.108:9091';
-const ApiUrl = 'https://wxapi.yeetong.cn';
+// const ApiUrl = 'https://wxapi.yeetong.cn';
 module.exports = {
   // 微信登陆
   AuthLogin: ApiUrl + '/zhyz/miniapp/api/auth/wxlogin',
@@ -12,6 +12,7 @@ module.exports = {
   UpdateUserAvator: ApiUrl + '/zhyz/miniapp/api/updateUserAvator',
 
   Cities: ApiUrl + '/zhyz/miniapp/api/cities',
+  WeatherCities: ApiUrl + '/zhyz/miniapp/api/weatherCities',
   SendSmsVcode: ApiUrl + '/zhyz/miniapp/api/sendsmsvcode',
 
   // 授权访问的农场列表

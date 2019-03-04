@@ -7,9 +7,9 @@ Page({
     form: {},
     submiting: false
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     wx.showLoading({
-      title: '加载中...',
+      title: '请稍后...',
       mask: true
     });
     const _this = this;
@@ -61,7 +61,7 @@ Page({
       success(res) {
         if (res.confirm) {
           wx.showLoading({
-            title: '正在删除...',
+            title: '请稍后...',
             mask: true
           });
           poultryVarietyService.deletePoultryVariety(_this.data.form.varietyId).then(res => {

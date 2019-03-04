@@ -12,7 +12,8 @@ Page({
   load: function (callback) {
     const _this = this;
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     var farmId = wx.getStorageSync('curr-farm-id');
     equipmentService.getFarmBaseEquipmentData(farmId).then(res => {

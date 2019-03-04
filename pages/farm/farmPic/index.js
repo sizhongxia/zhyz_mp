@@ -19,7 +19,8 @@ Page({
   },
   load: function (callback) {
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     const _this = this;
     farmPicService.getFarmPicData(_this.data.farmId).then(res => {
@@ -58,7 +59,8 @@ Page({
       success(res) {
         if (res.confirm) {
           wx.showLoading({
-            title: '正在删除...'
+            title: '请稍后...',
+            mask: true
           });
           farmPicService.deleteFarmPic(e.currentTarget.dataset.id).then(res => {
             wx.hideLoading();

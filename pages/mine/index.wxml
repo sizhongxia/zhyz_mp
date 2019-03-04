@@ -75,6 +75,14 @@
     </view>
   </item>-->
 </list>
+<list class="menu">
+  <item class="arrow" bindtap='toResetpwd'>
+    <view class='content'>
+      <icon class='icon-lock text-green' />
+      <text class='text-grey'>修改密码</text>
+    </view>
+  </item>
+</list>
 <view style="width: 750rpx;text-align:center;">
   <button class='lg bg-gray' style='width:520rpx;margin: 50rpx 0 20rpx;' open-type='feedback'>意见反馈</button>
 </view>

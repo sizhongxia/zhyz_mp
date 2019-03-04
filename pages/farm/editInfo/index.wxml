@@ -4,16 +4,29 @@
     <input value='{{farm.farmName}}' placeholder='请输入农场名称' class='radius' name='farmName'></input>
   </form-group>
   <form-group>
+    <view class='title'>所在城市</view>
+    <picker mode="multiSelector" bindchange="bindCityPickerChange" bindcolumnchange="bindCityPickerColumnChange" value="{{citiesIndex}}" range="{{cities}}" range-key="name">
+      <view class="picker" style='text-align:left'>
+        {{cities[0][citiesIndex[0]].name}}，{{cities[1][citiesIndex[1]].name}}，{{cities[2][citiesIndex[2]].name}}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>地图位置</view>
+    <input placeholder="请输入地图经纬度" class='radius' name='latlng' disabled="{{true}}" value="{{farm.latlng}}"></input>
+    <button class='bg-gray shadow' bindtap='chooseFarmLocation'>获取</button>
+  </form-group>
+  <form-group>
+    <view class='title'>详细地址</view>
+    <input value='{{farm.address}}' placeholder='请输入农场详细地址' class='radius' name='address'></input>
+  </form-group>
+  <form-group>
     <view class='title'>占地面积</view>
     <input value='{{farm.acreage}}' placeholder='请输入农场占地面积' class='radius' name='acreage'></input>
   </form-group>
   <form-group>
-    <view class='title'>农场地址</view>
-    <input value='{{farm.address}}' placeholder='请输入农场地址' class='radius' name='address'></input>
-  </form-group>
-  <form-group>
-    <view class='title'>公司网址</view>
-    <input value='{{farm.website}}' placeholder='请输入公司网址' class='radius' name='website'></input>
+    <view class='title'>宣传链接</view>
+    <input value='{{farm.website}}' placeholder='请输入农场宣传链接' class='radius' name='website'></input>
   </form-group>
   <form-group class='top'>
     <view class='title'>农场描述</view>

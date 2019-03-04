@@ -110,7 +110,8 @@ Page({
   loadPoultryVarietyData: function() {
     const _this = this;
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     poultryVarietyService.getPoultryVarietyData(_this.data.form.kindId).then(res => {
       _this.setData({
@@ -236,9 +237,9 @@ Page({
       submiting: true
     });
     wx.showLoading({
-      title: '正在保存',
+      title: '请稍后...',
       mask: true
-    })
+    });
     poultryService.savePoultry(_this.data.form).then(res => {
       wx.hideLoading();
       wx.showToast({

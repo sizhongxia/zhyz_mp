@@ -14,7 +14,7 @@
     </form-group>
     <form-group>
       <view class='title'>地图位置</view>
-      <input placeholder="请输入地图经纬度" class='radius' name='latlng' value="{{formData.latlng}}"></input>
+      <input placeholder="请输入地图经纬度" class='radius' disabled="{{true}}" name='latlng' value="{{formData.latlng}}"></input>
       <button class='bg-gray shadow' bindtap='chooseFarmLocation'>获取</button>
     </form-group>
     <form-group>

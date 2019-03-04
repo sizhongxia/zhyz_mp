@@ -20,7 +20,8 @@ Page({
   load: function(callback) {
     const _this = this;
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     if (_this.data.typeId == 'SP') {
       equipmentService.getEquipmentVideoData(_this.data.farmId).then(res => {

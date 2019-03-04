@@ -15,7 +15,8 @@ Page({
   onLoad: function (options) {
     const _this = this;
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     farmAreaService.getFarmAreaDetail(options.areaId).then(res => {
       _this.setData({

@@ -13,7 +13,8 @@ Page({
     const _this = this;
     var farmId = wx.getStorageSync('curr-farm-id');
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     farmService.selectFarmAreas(farmId).then(res => {
       _this.setData({
@@ -45,7 +46,8 @@ Page({
       success(res) {
         if (res.confirm) {
           wx.showLoading({
-            title: '正在删除...'
+            title: '请稍后...',
+            mask: true
           });
           farmAreaService.deleteFarmArea(e.currentTarget.dataset.areaId).then(res => {
             wx.hideLoading();

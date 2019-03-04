@@ -26,7 +26,8 @@ Page({
   onShow: function() {
     const _this = this;
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     poultryService.getPoultryTypeNums(_this.data.farmId).then(res => {
       _this.setData({
@@ -64,7 +65,10 @@ Page({
   tabSelect: function(e) {
     const _this = this;
     if (e.currentTarget.dataset.index == 3) {
-      wx.showLoading();
+      wx.showLoading({
+        title: '请稍后...',
+        mask: true
+      });
       wx.navigateTo({
         url: '/pages/farm/poultry/register',
         complete: function() {
@@ -136,7 +140,8 @@ Page({
   loadPoultries: function(aftPage) {
     const _this = this;
     wx.showLoading({
-      title: '加载中'
+      title: '请稍后...',
+      mask: true
     });
     poultryService.getPoultryData(_this.data.farmId, _this.data.searchPoultryCode, _this.data.batchNo, _this.data.searchType, _this.data.page).then(res => {
       wx.hideLoading();

@@ -14,7 +14,8 @@ Page({
   loadNews: function (page, ck) {
     const _this = this;
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     newsService.getNewsByPage(page, 10).then(res => {
       let news = _this.data.news;

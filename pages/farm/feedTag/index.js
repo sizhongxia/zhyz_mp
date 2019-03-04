@@ -12,7 +12,8 @@ Page({
   load: function () {
     const _this = this;
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     feedService.selectFeedTags().then(res => {
       _this.setData({

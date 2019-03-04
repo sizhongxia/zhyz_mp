@@ -68,7 +68,8 @@ Page({
   loadData: function(callback) {
     const _this = this;
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     var farmId = wx.getStorageSync('curr-farm-id');
     farmService.selectFarmBanners(farmId).then(res => {
@@ -80,20 +81,19 @@ Page({
       _this.setData({
         farm: res
       });
-      if (res.weatherCityCode) {
-        return farmService.selectFarmWeather(res.weatherCityCode)
-      } else {
-        wx.hideLoading();
-        callback && callback();
+      let weatherCityCode = res.weatherCityCode;
+      if (!weatherCityCode) {
+        weatherCityCode = 'CN101010100';
       }
+      return farmService.selectFarmWeather(weatherCityCode)
     }).then(res => {
       if (res) {
         _this.setData({
           weather: res
         });
-        wx.hideLoading();
-        callback && callback();
       }
+      wx.hideLoading();
+      callback && callback();
     }).catch(err => {
       wx.hideLoading();
       logger.log(err);
@@ -120,6 +120,16 @@ Page({
       });
     }).catch(err => {
       logger.log(err);
+    });
+  },
+  toEditFarmInfo: function () {
+    wx.navigateTo({
+      url: "/pages/farm/editInfo/index"
+    });
+  },
+  toSelectWeatherCity: function () {
+    wx.navigateTo({
+      url: "/pages/weather/select"
     });
   },
   toFeedDetail: function (e) {

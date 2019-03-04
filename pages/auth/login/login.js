@@ -14,7 +14,10 @@ Page({
   },
   toLogin: function () {
     const _this = this;
-    wx.showLoading();
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
     util.login().then(code => {
       return loginService.loginRequest(code);
     }).then(res => {
@@ -48,7 +51,10 @@ Page({
   getUserInfoForWx: function (res) {
     const _this = this;
     if (res.detail.userInfo) {
-      wx.showLoading();
+      wx.showLoading({
+        title: '请稍后...',
+        mask: true
+      });
       util.login().then(code => {
         return loginService.bindRequestByWx({
           code: code,

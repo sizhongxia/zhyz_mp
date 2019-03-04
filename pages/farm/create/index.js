@@ -16,6 +16,9 @@ Page({
       address: ''
     }
   },
+  onShow: function() {
+    
+  },
   bindCityPickerChange(e) {
     this.setData({
       citiesIndex: e.detail.value
@@ -29,7 +32,10 @@ Page({
     }
     if (e.detail.column === 0) {
       data.citiesIndex[0] = e.detail.value;
-      wx.showLoading()
+      wx.showLoading({
+        title: '请稍后...',
+        mask: true
+      });
       cityService.cities(data.cities[0][e.detail.value].code).then(res => {
         data.cities[1] = res
         return cityService.cities(data.cities[1][0].code);
@@ -45,7 +51,10 @@ Page({
         logger.log(err);
       });
     } else if (e.detail.column === 1) {
-      wx.showLoading()
+      wx.showLoading({
+        title: '请稍后...',
+        mask: true
+      });
       cityService.cities(data.cities[1][e.detail.value].code).then(res => {
         data.cities[2] = res
         data.citiesIndex[1] = e.detail.value
@@ -63,9 +72,43 @@ Page({
   },
   chooseFarmLocation: function () {
     const _this = this;
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userLocation']) {
+          wx.authorize({
+            scope: 'scope.userLocation',
+            success() {
+              _this.chooseLocation();
+            },
+            fail() {
+              wx.showModal({
+                title: '授权提示',
+                content: '请允许获取您的位置信息来完善农场地理位置信息。',
+                showCancel: false,
+                success: function () {
+                  wx.openSetting({
+                    success(res) {
+                      if (!res.authSetting['scope.userLocation']) {
+                        wx.navigateBack();
+                      } else {
+                        _this.chooseLocation();
+                      }
+                    }
+                  })
+                }
+              })
+            }
+          })
+        } else {
+          _this.chooseLocation();
+        }
+      }
+    })
+  },
+  chooseLocation: function() {
+    const _this = this;
     wx.chooseLocation({
       success: function (res) {
-        console.info(res)
         var formData = _this.data.formData;
         formData.latlng = res.longitude + "," + res.latitude
         formData.address = res.address + res.name
@@ -82,7 +125,6 @@ Page({
     }
     e.detail.value.formId = formId;
     var formVals = e.detail.value;
-    console.info(formVals)
     if (formVals.farmName === '') {
       util.showErrorToast('农场名称不允许为空');
       return;

@@ -53,7 +53,8 @@ Page({
     const _this = this;
     var farmId = wx.getStorageSync('curr-farm-id');
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     farmService.selectFarmAreas(farmId).then(res => {
       var form = _this.data.form;
@@ -203,7 +204,8 @@ Page({
         const tempFilePaths = res.tempFilePaths;
         const size = tempFilePaths.length;
         wx.showLoading({
-          title: '正在上传...',
+          title: '请稍后...',
+          mask: true
         });
         var uploading = false;
         var sucNum = 0;

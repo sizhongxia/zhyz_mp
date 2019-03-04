@@ -10,7 +10,8 @@ Page({
   onLoad: function (options) {
     const _this = this;
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     layeggsService.getLayeggsDetail(options.layeggsId).then(res => {
       _this.setData({

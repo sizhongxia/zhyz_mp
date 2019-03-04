@@ -23,7 +23,8 @@ Page({
   onShow: function () {
     const _this = this;
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     var farmId = wx.getStorageSync('curr-farm-id');
     _this.setData({
@@ -64,7 +65,8 @@ Page({
       success(res) {
         const tempFilePaths = res.tempFilePaths;
         wx.showLoading({
-          title: '正在上传...',
+          title: '请稍后...',
+          mask: true
         });
         wx.uploadFile({
           url: api.UploadApi,
@@ -128,5 +130,10 @@ Page({
     wx.navigateTo({
       url: "/pages/livevideo/index"
     });
+  },
+  toResetpwd: function () {
+    wx.navigateTo({
+      url: '/pages/auth/resetpwd/index'
+    })
   }
 })

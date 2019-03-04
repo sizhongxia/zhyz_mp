@@ -17,7 +17,10 @@ Page({
   },
   sendSmsVcode: function () {
     const _this = this;
-    wx.showLoading();
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
     smsService.sendSmsVcode({
       smsType: this.data.smsType,
       phoneNo: this.data.formData.phoneNo
@@ -84,7 +87,10 @@ Page({
       return;
     }
     formVals.smsType = this.data.smsType;
-    wx.showLoading();
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
     loginService.resetPwdRequest(formVals).then(res => {
       wx.hideLoading();
       wx.showModal({

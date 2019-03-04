@@ -153,7 +153,8 @@ Page({
       return;
     }
     wx.showLoading({
-      title: '检查中...'
+      title: '请稍后...',
+      mask: true
     });
     equipmentAlarmConfService.checkAlarmPhone(phoneNo).then(res => {
       wx.hideLoading();

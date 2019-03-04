@@ -9,7 +9,8 @@ Page({
   onLoad: function(options) {
     const _this = this;
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     equipmentAlarmConfService.getEquipmentAlarmConfDetail(options.confId).then(res => {
       _this.setData({
@@ -24,7 +25,8 @@ Page({
   switchUseState: function(e) {
     const _this = this;
     wx.showLoading({
-      title: '正在切换状态...'
+      title: '请稍后...',
+      mask: true
     });
     var conf = _this.data.conf;
     equipmentAlarmConfService.changeEquipmentAlarmConfUseState(_this.data.conf.confId, e.detail.value?1:0).then(res => {
@@ -53,7 +55,8 @@ Page({
       success(res) {
         if (res.confirm) {
           wx.showLoading({
-            title: '正在删除...'
+            title: '请稍后...',
+            mask: true
           });
           equipmentAlarmConfService.deleteEquipmentAlarmConf(_this.data.conf.confId).then(res => {
             wx.hideLoading();

@@ -85,7 +85,8 @@ Page({
         const tempFilePaths = res.tempFilePaths;
         const size = tempFilePaths.length;
         wx.showLoading({
-          title: '正在上传...',
+          title: '请稍后...',
+          mask: true
         });
         var uploading = false;
         var sucNum = 0;

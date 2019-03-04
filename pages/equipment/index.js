@@ -17,7 +17,8 @@ Page({
   load: function(callback) {
     const _this = this;
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     equipmentService.getEquipmentData(_this.data.farmId).then(res => {
       _this.setData({
