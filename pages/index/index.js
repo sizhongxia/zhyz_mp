@@ -128,9 +128,9 @@ Page({
     });
   },
   toSelectWeatherCity: function () {
-    wx.navigateTo({
-      url: "/pages/weather/select"
-    });
+    // wx.navigateTo({
+    //   url: "/pages/weather/select"
+    // });
   },
   toFeedDetail: function (e) {
     wx.navigateTo({
