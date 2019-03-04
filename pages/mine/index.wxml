@@ -52,18 +52,19 @@
   <item class="arrow" bindtap='toAuthFarms'>
     <view class='content'>
       <icon class='icon-emoji text-green' />
-      <text class='text-grey'>我授权的农场</text>
+      <text class='text-grey'>切换农场</text>
     </view>
   </item>
   <item class="arrow" bindtap='toApplyFarm'>
     <view class='content'>
       <icon class='icon-qr_code text-green' />
-      <text class='text-grey'>申请新农场</text>
+      <text class='text-grey'>创建新农场</text>
     </view>
     <view class='action'>
-      <tag class='round'>扫描二维码</tag>
+      <tag class='round'>扫描申请</tag>
     </view>
   </item>
+  <!-- 
   <item class="arrow" bindtap='toLiveVideo'>
     <view class='content'>
       <icon class='icon-video text-green' />
@@ -72,7 +73,7 @@
     <view class='action'>
       <tag class='round'>Beta</tag>
     </view>
-  </item>
+  </item>-->
 </list>
 <view style="width: 750rpx;text-align:center;">
   <button class='lg bg-gray' style='width:520rpx;margin: 50rpx 0 20rpx;' open-type='feedback'>意见反馈</button>

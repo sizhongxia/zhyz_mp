@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "ch-canvas": "../../../ch-canvas/ch-canvas"
-  },
-  "navigationBarTitleText": "历史统计"
-}

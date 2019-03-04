@@ -1,6 +1,10 @@
 <view style='text-align:center;'>
   <image style='width: 240rpx;height:240rpx;margin:80rpx auto 20rpx;' src='/static/images/scan.png' bindtap='scanFarmCode'></image>
-  <view style='width: 620rpx;font-size:32rpx;margin:auto;line-height: 42rpx;'>您可通过扫码农场二维码进行访问申请。</view>
+  <view style='width: 620rpx;font-size:32rpx;margin:auto;line-height: 42rpx;'>您可通过扫描农场二维码进行访问申请。</view>
+  <view style='margin-top: 80rpx;'>
+      <button class="bg-blue button-hover lg" bindtap='toCreateFarm' style="width: 320rpx;"><icon class='icon-add' /> 新增农场</button>
+      <view style='width: 620rpx;font-size:28rpx;margin:20rpx auto;line-height: 42rpx;color: #484848;text-align:left;'>注：为了更好的利用空间及网络资源，每个用户可创建农场的数量是有限制的，如果当前可创建农场数量无法满足您的需求，您可与平台联系，我们将会为您提供更多资源。</view>
+    </view>
 </view>
 <modal-box class="{{applyModalVisible?'show':''}}">
   <dialog>

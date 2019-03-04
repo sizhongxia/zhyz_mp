@@ -15,7 +15,8 @@
         <view class="desc" style='margin-top:30rpx;height:144rpx;'>
           <view class='m-farm-baseinfo-item' bindtap='toMapPage'>农场位置：{{farm.address}}</view>
           <view class='m-farm-baseinfo-item'>占地面积：{{farm.acreage}}</view>
-          <view class='m-farm-baseinfo-item' bindtap='showMore' data-content='{{farm.website}}'>宣传网址：{{farm.website}}</view>
+          <view wx:if="{{ farm.website != '' }}" class='m-farm-baseinfo-item' bindtap='showMore' data-content='{{farm.website}}'>宣传网址：{{farm.website}}</view>
+          <view wx:else class='m-farm-baseinfo-item'><text space="emsp"> \t </text></view>
         </view>
       </view>
     </item>

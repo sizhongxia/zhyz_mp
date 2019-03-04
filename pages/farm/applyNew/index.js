@@ -33,6 +33,11 @@ Page({
       }
     });
   },
+  toCreateFarm: function () {
+    wx.navigateTo({
+      url: '/pages/farm/create/index'
+    })
+  },
   toApply: function () {
     const _this = this;
     _this.toClose();

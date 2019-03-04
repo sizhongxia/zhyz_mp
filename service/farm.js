@@ -20,6 +20,9 @@ const getFarmUserAuthInfo = (resId) => {
 const updateFarmUserAuthInfo = (form) => {
   return util.post(api.UpdateFarmUserAuthInfo, form);
 }
+const createFarm = (form) => {
+  return util.post(api.FarmCreate, form);
+}
 const userApplyHandle = (resId, state) => {
   return util.post(api.FarmUserVisitApplyHandle, {
     resId: resId,
@@ -57,6 +60,7 @@ const selectFarmAreas = (farmId) => {
 
 module.exports = {
   authFarms: authFarms,
+  createFarm: createFarm,
   userApplys: userApplys,
   userApplyHandle: userApplyHandle,
   getFarmUserAuthInfo: getFarmUserAuthInfo,
