@@ -10,4 +10,5 @@
 <list class="menu menu-avatar no-padding" wx:if="{{equipments.length === 0}}">
   <view class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无设备</view>
 </list>
+
 <view class='h120 width-full' style='color: #aaa'>Copyright © 2018-2019 一通无限</view>
