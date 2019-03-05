@@ -62,7 +62,13 @@ Page({
       });
       callback && callback();
     }).catch(err => {
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
       _this.setData({
         loading: false
       });
@@ -115,7 +121,13 @@ Page({
             _this.load();
           }).catch(err => {
             wx.hideLoading();
-            logger.log(err);
+            if (err) {
+              if (err.message) {
+                util.showErrorToast(err.message);
+              } else {
+                logger.log(err);
+              }
+            }
           });
         }
       }

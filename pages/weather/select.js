@@ -25,7 +25,13 @@ Page({
       })
     }).catch(err => {
       wx.hideLoading();
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   },
   onReady() {

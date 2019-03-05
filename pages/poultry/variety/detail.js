@@ -1,4 +1,5 @@
 var poultryVarietyService = require('../../../service/poultryVariety.js');
+var util = require('../../../utils/util.js');
 const app = getApp()
 const logger = wx.getLogManager({ level: 1 })
 
@@ -20,7 +21,13 @@ Page({
       wx.hideLoading();
     }).catch(err => {
       wx.hideLoading();
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   },
   inputVarietyName: function(e) {
@@ -50,7 +57,13 @@ Page({
       _this.setData({
         submiting: false
       });
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   },
   toDelete: function() {
@@ -71,7 +84,13 @@ Page({
             });
           }).catch(err => {
             wx.hideLoading();
-            logger.log(err);
+            if (err) {
+              if (err.message) {
+                util.showErrorToast(err.message);
+              } else {
+                logger.log(err);
+              }
+            }
           });
         }
       }

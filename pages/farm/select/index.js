@@ -64,7 +64,13 @@ Page({
       _this.setData({
         loading: false
       });
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   },
   toCreateFarm: function () {
@@ -123,7 +129,13 @@ Page({
         });
       }
     }).catch(err => {
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   },
   toClose: function() {

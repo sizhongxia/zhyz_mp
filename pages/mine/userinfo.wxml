@@ -1,0 +1,34 @@
+<view>
+  <form>
+    <form-group class="margin-top">
+      <view class='title'>平台账号：</view>
+      <input class='radius' disabled="{{true}}" value='{{user.userName}}'></input>
+    </form-group>
+    <form-group>
+      <view class='title'>手机号：</view>
+      <input class='radius' disabled="{{true}}" value='{{user.phoneNo}}'></input>
+      <button class='bg-gray shadow' wx:if="{{false}}">修改</button>
+    </form-group>
+    <form-group>
+      <view class='title'>电子邮箱：</view>
+      <input class='radius' disabled="{{true}}" value='{{user.email}}'></input>
+      <button class='bg-gray shadow' wx:if="{{false}}">修改</button>
+    </form-group>
+    <form-group>
+      <view class='title'>所属公司：</view>
+      <input class='radius' disabled="{{true}}" value='-'></input>
+    </form-group>
+    <form-group>
+      <view class='title'>可创建农场数：</view>
+      <input class='radius' disabled="{{true}}" value='{{user.maxFarmNum}}'></input>
+    </form-group>
+    <form-group>
+      <view class='title'>邀请码：</view>
+      <input class='radius' disabled="{{true}}" value='{{user.invitationCode}}'></input>
+    </form-group>
+    <form-group>
+      <view class='title'>注册时间：</view>
+      <input class='radius' disabled="{{true}}" value='{{user.createAt}}'></input>
+    </form-group>
+  </form>
+</view>

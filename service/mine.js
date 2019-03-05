@@ -13,7 +13,13 @@ const updateUserAvator = (avatarUrl) => {
   });
 }
 
+const userInfo = () => {
+  return util.post(api.UserInfo);
+}
+
+
 module.exports = {
   getMineBaseInfo: getMineBaseInfo,
-  updateUserAvator: updateUserAvator
+  updateUserAvator: updateUserAvator,
+  userInfo: userInfo
 }

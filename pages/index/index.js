@@ -86,14 +86,26 @@ Page({
       callback && callback();
     }).catch(err => {
       wx.hideLoading();
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
     equipmentService.getEquipmentCollectionHomeTj(farmId).then(res => {
       _this.setData({
         monitorInfo: res
       });
     }).catch(err => {
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
 
     inspectionService.getLastInspectionDetail(farmId).then(res => {
@@ -101,7 +113,13 @@ Page({
         inspection: res
       });
     }).catch(err => {
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
 
     feedService.getLastFeedDetail(farmId).then(res => {
@@ -109,7 +127,13 @@ Page({
         feed: res
       });
     }).catch(err => {
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   },
   toEditFarmInfo: function () {

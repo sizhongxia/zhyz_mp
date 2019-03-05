@@ -38,14 +38,26 @@ Page({
         form: form
       });
     }).catch(err => {
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
     feedService.selectFeedTags().then(res => {
       _this.setData({
         feedTags: res
       });
     }).catch(err => {
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   },
   onReady: function () {

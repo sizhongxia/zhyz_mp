@@ -48,7 +48,13 @@ Page({
         wx.hideLoading()
       }).catch(err => {
         wx.hideLoading()
-        logger.log(err);
+        if (err) {
+          if (err.message) {
+            util.showErrorToast(err.message);
+          } else {
+            logger.log(err);
+          }
+        }
       });
     } else if (e.detail.column === 1) {
       wx.showLoading({
@@ -63,7 +69,13 @@ Page({
         wx.hideLoading()
       }).catch(err => {
         wx.hideLoading()
-        logger.log(err);
+        if (err) {
+          if (err.message) {
+            util.showErrorToast(err.message);
+          } else {
+            logger.log(err);
+          }
+        }
       });
     } else {
       data.citiesIndex[2] = e.detail.value

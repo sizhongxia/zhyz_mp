@@ -3,8 +3,8 @@
     <view style='margin-top: 60rpx;'>
       <avatar bindtap='selectUserHeadPic' class="xxl round" style="background-image:url({{userInfo.avator}});"></avatar>
     </view>
-    <view style='margin-top: 32rpx;'>
-      <view style='font-size: 32rpx;'>{{userInfo.userName}}</view>
+    <view style='margin-top: 42rpx;'>
+      <view style='font-size: 36rpx;font-weight: 300' bindtap='toUserInfo'>{{userInfo.userName}}</view>
     </view>
   </item>
 </card>
@@ -15,14 +15,14 @@
   </view>
 </view>
 
-<list class="menu margin-top" wx:if='{{currentFarmIdentity == "admin" || currentFarmIdentity == "manager"}}'>
+<list class="menu margin-top" wx:if='{{ currentFarmIdentity === "admin" }}'>
   <item class="arrow" bindtap='toEditFarmInfo'>
     <view class='content'>
       <icon class='icon-circle text-green' />
       <text class='text-grey'>修改农场信息</text>
     </view>
   </item>
-  <item class="arrow" wx:if='{{currentFarmIdentity == "admin"}}' bindtap='toAuthUserApply'>
+  <item class="arrow" wx:if='{{ currentFarmIdentity === "admin" }}' bindtap='toAuthUserApply'>
     <view class='content'>
       <icon class='icon-group text-green' />
       <text class='text-grey'>处理农场访问申请</text>
@@ -48,7 +48,7 @@
   </item>
 </list>
 -->
-<list class="menu">
+<list class="menu margin-top">
   <item class="arrow" bindtap='toAuthFarms'>
     <view class='content'>
       <icon class='icon-emoji text-green' />
@@ -108,7 +108,8 @@
     </bar>
     <view style='background:#fff'>
       <image src='/static/images/mp_ewm.jpg' style='width:420rpx;height:506rpx'></image>
-      <view></view>
+      <view style='line-height:64rpx;font-size:32rpx;font-weight:300;'>邀请码：{{invitationCode}}</view>
+      <view style='line-height:48rpx;padding-bottom:64rpx;font-size:24rpx;font-weight:300;'>每成功邀请一人，可创建农场数量 <span style="font-weight:bold;">+1</span>。</view>
     </view>
   </dialog>
 </modal-box>

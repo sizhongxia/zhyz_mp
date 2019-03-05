@@ -1,7 +1,7 @@
 var farmPicService = require('../../../service/farmPic.js');
+var util = require('../../../utils/util.js');
 const app = getApp()
 const logger = wx.getLogManager({ level: 1 })
-var util = require('../../../utils/util.js');
 
 Page({
   data: {
@@ -27,8 +27,14 @@ Page({
       });
       wx.hideLoading();
     }).catch(err => {
-      logger.log(err);
       wx.hideLoading();
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   },
   inputPicTitle: function (e) {
@@ -66,7 +72,13 @@ Page({
       _this.setData({
         submiting: false
       });
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   },
   previewImage: function (e) {

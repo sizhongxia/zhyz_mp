@@ -1,5 +1,6 @@
 var farmService = require('../../../service/farm.js');
-var feedService = require('../../../service/feed.js')
+var feedService = require('../../../service/feed.js');
+var util = require('../../../utils/util.js');
 const app = getApp()
 const logger = wx.getLogManager({ level: 1 })
 

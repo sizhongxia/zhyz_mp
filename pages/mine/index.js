@@ -11,6 +11,7 @@ Page({
     currentFarmId: '',
     currentFarmIdentity: '',
     farmName: '',
+    invitationCode: '',
     auditsNum: 0,
     userInfo: {},
     recommendModel: false
@@ -35,12 +36,19 @@ Page({
     mineService.getMineBaseInfo(farmId).then(res => {
       _this.setData({
         farmName: res.farmName,
-        auditsNum: res.auditsNum
+        auditsNum: res.auditsNum,
+        invitationCode: res.invitationCode
       });
       wx.hideLoading();
     }).catch(err => {
       wx.hideLoading();
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   },
   logout: function() {
@@ -87,7 +95,13 @@ Page({
                 userInfo: userInfo
               });
             }).catch(err => {
-              logger.log(err);
+              if (err) {
+                if (err.message) {
+                  util.showErrorToast(err.message);
+                } else {
+                  logger.log(err);
+                }
+              }
             });
           },
           complete() {
@@ -135,6 +149,11 @@ Page({
   toResetpwd: function () {
     wx.navigateTo({
       url: '/pages/auth/resetpwd/index'
+    })
+  },
+  toUserInfo: function () {
+    wx.navigateTo({
+      url: '/pages/mine/userinfo'
     })
   },
   toRecommend: function () {

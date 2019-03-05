@@ -20,8 +20,14 @@ Page({
       });
       wx.hideLoading();
     }).catch(err => {
-      logger.log(err);
       wx.hideLoading();
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   },
   previewImage: function (e) {

@@ -22,6 +22,10 @@
       <input placeholder="请再次输入登陆密码" type='password' class='radius' name='repassword'></input>
     </form-group>
     <form-group>
+      <view class='title'>邀请码</view>
+      <input placeholder="请输入邀请码" class='radius' name='invitationCode'></input>
+    </form-group>
+    <form-group>
       <navigator url="/pages/auth/protocol/index" style='background: #fff'>
         <view class='title' style='width: 520rpx;text-align:left;color: blue;font-size: 25rpx;'>请先阅读《用户协议》，同意后可点击注册</view>
       </navigator>

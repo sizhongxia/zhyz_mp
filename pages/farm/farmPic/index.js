@@ -30,9 +30,15 @@ Page({
       wx.hideLoading();
       callback && callback();
     }).catch(err => {
-      logger.log(err);
       wx.hideLoading();
       callback && callback();
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   },
   toUpload: function() {
@@ -67,7 +73,13 @@ Page({
             _this.load();
           }).catch(err => {
             wx.hideLoading();
-            logger.log(err);
+            if (err) {
+              if (err.message) {
+                util.showErrorToast(err.message);
+              } else {
+                logger.log(err);
+              }
+            }
           });
         }
       }

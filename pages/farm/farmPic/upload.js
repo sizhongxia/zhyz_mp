@@ -36,7 +36,13 @@ Page({
         form: form
       });
     }).catch(err => {
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   },
   areaPickerChange: function (e) {

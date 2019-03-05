@@ -61,7 +61,13 @@ Page({
       });
       callback && callback();
     }).catch(err => {
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
       _this.setData({
         loading: false
       });

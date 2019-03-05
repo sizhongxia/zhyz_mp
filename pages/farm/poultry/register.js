@@ -1,6 +1,7 @@
 var poultryVarietyService = require('../../../service/poultryVariety.js');
 var poultryService = require('../../../service/poultry.js');
 var farmService = require('../../../service/farm.js');
+var util = require('../../../utils/util.js');
 const app = getApp()
 const logger = wx.getLogManager({ level: 1 })
 Page({
@@ -104,7 +105,13 @@ Page({
         form: form
       });
     }).catch(err => {
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   },
   loadPoultryVarietyData: function() {
@@ -123,7 +130,13 @@ Page({
         varieties: []
       });
       wx.hideLoading();
-      console.info(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   },
   areaPickerChange: function (e) {

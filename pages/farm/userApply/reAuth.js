@@ -41,8 +41,14 @@ Page({
       });
       wx.hideLoading();
     }).catch(err => {
-      logger.log(err);
       wx.hideLoading();
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   },
   identityPickerChange: function(e) {
@@ -69,9 +75,14 @@ Page({
         title: '修改成功'
       })
     }).catch(err => {
-      logger.log(err);
       wx.hideLoading();
-      util.showErrorToast(err.message)
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   }
 })
