@@ -10,6 +10,7 @@ const app = getApp();
 Page({
   data: {
     userInfo: {},
+    farmIdentity: '',
     // 轮播图
     banners: [],
     // 农场详情
@@ -21,7 +22,8 @@ Page({
   },
   onLoad: function() {
     this.setData({
-      userInfo: app.globalData.userInfo
+      userInfo: app.globalData.userInfo,
+      farmIdentity: wx.getStorageSync('curr-farm-identity')
     });
     this.loadData();
   },
@@ -111,11 +113,17 @@ Page({
     });
   },
   toEditFarmInfo: function () {
+    if (this.data.farmIdentity != 'admin') {
+      return;
+    }
     wx.navigateTo({
       url: "/pages/farm/editInfo/index"
     });
   },
   toSelectWeatherCity: function () {
+    if (this.data.farmIdentity != 'admin') {
+      return;
+    }
     wx.navigateTo({
       url: "/pages/weather/select"
     });

@@ -209,9 +209,6 @@ Page({
     if (_this.data.updating) {
       return false;
     }
-    _this.setData({
-      updating: true
-    });
     var farm = _this.data.farm;
     var nVal = e.detail.value;
     farm.farmName = nVal.farmName;
@@ -232,7 +229,9 @@ Page({
     if (cities[2][citiesIndex[2]]) {
       farm.countyCode = cities[2][citiesIndex[2]].code;
     }
-
+    _this.setData({
+      updating: true
+    });
     farmService.updateFarm(farm).then(res => {
       wx.showModal({
         showCancel: false,

@@ -64,9 +64,6 @@
     <input placeholder="请输入登记数量" class='radius' type='number' name='number' bindinput="inputNumber" value="{{form.number}}" style='text-align:right;'></input>
   </form-group>
 </form>
-
-<view class='h120 width-full'>Yeetong.cn</view>
-
 <bar class="btn-group options width-full">
   <button loading='{{submiting}}' class='bg-green round lg' bindtap='toAdd'>
     <icon class='icon-check'></icon> 保存
