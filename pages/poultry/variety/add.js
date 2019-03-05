@@ -1,4 +1,5 @@
 var poultryVarietyService = require('../../../service/poultryVariety.js');
+var util = require('../../../utils/util.js');
 const app = getApp()
 const logger = wx.getLogManager({ level: 1 })
 
@@ -77,7 +78,13 @@ Page({
       _this.setData({
         submiting: false
       });
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   }
 })

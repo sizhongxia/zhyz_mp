@@ -215,6 +215,10 @@ Page({
     var farm = _this.data.farm;
     var nVal = e.detail.value;
     farm.farmName = nVal.farmName;
+    if (farm.farmName === '') {
+      util.showErrorToast('农场名称不允许为空');
+      return;
+    }
     farm.acreage = nVal.acreage;
     farm.farmAddress = nVal.address;
     farm.farmRemark = nVal.remark;
@@ -238,10 +242,16 @@ Page({
         updating: false
       });
     }).catch(err => {
-      logger.log(err);
       _this.setData({
         updating: false
       });
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   }
 })

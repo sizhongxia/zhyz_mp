@@ -36,8 +36,7 @@
   <form-group class='margin-top'>
     <view class='title'>农场LOGO</view>
     <view class='grid col-3 grid-square flex-sub'>
-      <view class='padding-xs bg-img' bindtap='previewFarmLogoImage' style='background-image:url({{farm.farmLogo}});'>
-      </view>
+      <view class='padding-xs bg-img' bindtap='previewFarmLogoImage' style='background-image:url({{farm.farmLogo}});width: 168rpx'></view>
       <view class='padding-xs solids' bindtap='selectFarmLogo'>
         <icon class='icon-cameraadd'></icon>
       </view>

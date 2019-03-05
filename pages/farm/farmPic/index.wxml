@@ -6,7 +6,8 @@
       <bar class='bg-shadeBottom'>{{item.title}}</bar>
     </view>
   </item>
-  <view class='h120 width-full'>Yeetong.cn</view>
+  <view wx:if="{{pics.length === 0}}" class='h120 width-full' style='color: #484848'>暂无图片</view>
+  <view class='h120 width-full' style='color: #aaa'>Copyright © 2018-2019 一通无限</view>
 </card>
 <bar class="btn-group options width-full">
   <button class='bg-green round lg' bindtap='toUpload'>

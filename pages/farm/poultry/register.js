@@ -267,7 +267,13 @@ Page({
       _this.setData({
         submiting: false
       });
-      logger.log(err);
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        } else {
+          logger.log(err);
+        }
+      }
     });
   }
 })

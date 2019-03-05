@@ -1,7 +1,12 @@
 .width-full {
   width: 750rpx;
 }
-
+.h120 {
+  height: 120rpx;
+  color: white;
+  text-align: center;
+  line-height: 120rpx;
+}
 .nav-list {
   padding: 0 20rpx 0;
 }

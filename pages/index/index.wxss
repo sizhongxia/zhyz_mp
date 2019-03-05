@@ -7,7 +7,12 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-
+.h120 {
+  height: 120rpx;
+  color: white;
+  text-align: center;
+  line-height: 120rpx;
+}
 .typeName {
   margin: 30rpx auto 2rpx;
   font-weight: 900;

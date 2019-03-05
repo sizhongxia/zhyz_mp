@@ -12,7 +12,8 @@ Page({
     currentFarmIdentity: '',
     farmName: '',
     auditsNum: 0,
-    userInfo: {}
+    userInfo: {},
+    recommendModel: false
   },
   onLoad: function(options) {
     const _this = this;
@@ -134,6 +135,16 @@ Page({
   toResetpwd: function () {
     wx.navigateTo({
       url: '/pages/auth/resetpwd/index'
+    })
+  },
+  toRecommend: function () {
+    this.setData({
+      recommendModel: true
+    })
+  },
+  hideRecommendModel: function () {
+    this.setData({
+      recommendModel: false
     })
   }
 })

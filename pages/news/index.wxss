@@ -9,3 +9,9 @@ card.article>item .title {
   padding: 0;
   overflow: hidden;
 }
+.h120 {
+  height: 120rpx;
+  color: white;
+  text-align: center;
+  line-height: 120rpx;
+}

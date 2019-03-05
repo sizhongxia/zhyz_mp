@@ -24,7 +24,7 @@
   </item>
   <item class="arrow" wx:if='{{currentFarmIdentity == "admin"}}' bindtap='toAuthUserApply'>
     <view class='content'>
-      <icon class='icon-crown text-green' />
+      <icon class='icon-group text-green' />
       <text class='text-grey'>处理农场访问申请</text>
     </view>
     <view class='action' wx:if="{{ auditsNum > 0 }}">
@@ -82,6 +82,12 @@
       <text class='text-grey'>修改密码</text>
     </view>
   </item>
+  <item class="arrow" bindtap='toRecommend'>
+    <view class='content'>
+      <icon class='icon-crown text-green' />
+      <text class='text-grey'>推荐有礼</text>
+    </view>
+  </item>
 </list>
 <view style="width: 750rpx;text-align:center;">
   <button class='lg bg-gray' style='width:520rpx;margin: 50rpx 0 20rpx;' open-type='feedback'>意见反馈</button>
@@ -90,3 +96,19 @@
   <view style='line-height:50rpx;'>北京一通无限科技有限公司</view>
   <view style='line-height:50rpx;'>Copyright © 2018-2019 一通无限</view>
 </view>
+
+
+<modal-box class="{{recommendModel?'show':''}}">
+  <dialog>
+    <bar class="justify-end">
+      <view class='content'>推荐有礼</view>
+      <view class='action' bindtap='hideRecommendModel'>
+        <icon class='icon-close text-red'></icon>
+      </view>
+    </bar>
+    <view style='background:#fff'>
+      <image src='/static/images/mp_ewm.jpg' style='width:420rpx;height:506rpx'></image>
+      <view></view>
+    </view>
+  </dialog>
+</modal-box>

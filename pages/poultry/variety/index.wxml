@@ -13,7 +13,7 @@
   <view wx:if="{{varieties.length === 0}}" class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无数据</view>
 </list>
 
-<view class='h120 width-full'>Yeetong.cn</view>
+<view class='h120 width-full' style='color: #aaa'>Copyright © 2018-2019 一通无限</view>
 
 <bar class="btn-group options width-full">
   <button class='bg-green round lg' bindtap='toAdd'>

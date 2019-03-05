@@ -1,15 +1,13 @@
-
-<list class="menu menu-avatar no-padding" wx:if="{{equipments.length == 0}}">
+<view wx:if="{{equipments.length > 0}}" class='nav-list width-full' style="margin-top: 60rpx">
+  <navigator wx:for="{{equipments}}" wx:key="typeId" hover-class='none' url="/pages/equipment/type/index?typeId={{item.typeId}}" class="nav-li item-bg">
+    <view class="nav-title">
+      <avatar class="radius lg" style="background-image:url({{item.typeIcon}});background-color:#fff;"></avatar>
+    </view>
+    <view class="nav-name" style='color:#484848'>{{item.typeName}}</view>
+    <view class="nav-name">在线：{{item.online}} | 离线：{{item.outline}}</view>
+  </navigator>
+</view>
+<list class="menu menu-avatar no-padding" wx:if="{{equipments.length === 0}}">
   <view class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无设备</view>
 </list>
-<view style='margin-top:60rpx;'>
-  <view class='nav-list width-full'>
-    <navigator wx:for="{{equipments}}" wx:key="typeId" hover-class='none' url="/pages/equipment/type/index?typeId={{item.typeId}}" class="nav-li item-bg">
-      <view class="nav-title">
-        <avatar class="radius lg" style="background-image:url({{item.typeIcon}});background-color:#fff;"></avatar>
-      </view>
-      <view class="nav-name" style='color:#484848'>{{item.typeName}}</view>
-      <view class="nav-name">在线：{{item.online}} | 离线：{{item.outline}}</view>
-    </navigator>
-  </view>
-</view>
+<view class='h120 width-full' style='color: #aaa'>Copyright © 2018-2019 一通无限</view>

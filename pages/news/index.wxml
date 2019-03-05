@@ -16,3 +16,4 @@
   </item>
   <view wx:if="{{ totalPage > page }}" bindtap="loadMore" style="line-height: 52rpx;font-size: 26rpx;text-align: center;margin: 32rpx;">加载更多</view>
 </card>
+<view class='h120 width-full' style='color: #aaa'>Copyright © 2018-2019 一通无限</view>

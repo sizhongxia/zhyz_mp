@@ -1,5 +1,6 @@
 var farmService = require('../../service/farm.js');
 var cityService = require('../../service/city.js');
+var util = require('../../utils/util.js');
 const app = getApp();
 const logger = wx.getLogManager({ level: 1 })
 Page({
@@ -120,7 +121,13 @@ Page({
             wx.navigateBack();
           }).catch(err => {
             wx.hideLoading();
-            logger.log(err);
+            if (err) {
+              if (err.message) {
+                util.showErrorToast(err.message);
+              } else {
+                logger.log(err);
+              }
+            }
           });
         }
       }

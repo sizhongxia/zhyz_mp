@@ -13,8 +13,8 @@
       <view class="content">
         <image bindtap='previewImage' data-src="{{farm.qrCodeUrl}}" style='width: 190rpx;height:190rpx;' src="{{farm.qrCodeUrl}}" mode="aspectFit"></image>
         <view class="desc" style='margin-top:30rpx;height:144rpx;'>
-          <view class='m-farm-baseinfo-item' bindtap='toMapPage'>农场位置：{{farm.address}}</view>
-          <view class='m-farm-baseinfo-item'>占地面积：{{farm.acreage}}</view>
+          <view wx:if="{{ farm.address != '' }}" class='m-farm-baseinfo-item' bindtap='toMapPage'>农场位置：{{farm.address}}</view>
+          <view wx:if="{{ farm.acreage != '' }}" class='m-farm-baseinfo-item'>占地面积：{{farm.acreage}}</view>
           <view wx:if="{{ farm.website != '' }}" class='m-farm-baseinfo-item' bindtap='showMore' data-content='{{farm.website}}'>宣传网址：{{farm.website}}</view>
           <view wx:else class='m-farm-baseinfo-item'><text space="emsp"> \t </text></view>
         </view>
@@ -117,8 +117,5 @@
       </view>
     </item>
   </card>
-  <view style='width: 750rpx;height:200rpx;text-align:center;padding-top: 60rpx;'>
-    <view style='line-height:50rpx;'>北京一通无限科技有限公司</view>
-    <view style='line-height:50rpx;'>Copyright © 2018-2019 一通无限</view>
-  </view>
+  <view class='h120 width-full' style='color: #aaa'>Copyright © 2018-2019 一通无限</view>
 </view>
