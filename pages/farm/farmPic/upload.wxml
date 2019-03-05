@@ -29,7 +29,7 @@
     </view>
   </form-group>
 </form>
-<view class='h120 width-full'>Yeetong.cn</view>
+<view class='h120 width-full' style='color: #aaa'>Copyright © 2018-2019 一通无限</view>
 <bar class="btn-group options width-full">
   <button loading='{{submiting}}' class='bg-green round lg' bindtap='toSave'>
     <icon class='icon-check'></icon> 保存
