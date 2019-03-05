@@ -97,7 +97,6 @@
   <view style='line-height:50rpx;'>Copyright © 2018-2019 一通无限</view>
 </view>
 
-
 <modal-box class="{{recommendModel?'show':''}}">
   <dialog>
     <bar class="justify-end">
