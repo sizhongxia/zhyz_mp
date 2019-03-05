@@ -1,21 +1,26 @@
-const app = getApp();
+var farmService = require('../../service/farm.js');
 var cityService = require('../../service/city.js');
+const app = getApp();
+const logger = wx.getLogManager({ level: 1 })
 Page({
   data: {
-    hidden: true
+    hidden: true,
+    kw: '',
+    datas: []
   },
   onLoad() {
-    let list = [];
-    for (let i = 0; i < 26; i++) {
-      list[i] = String.fromCharCode(65 + i)
-    }
-    this.setData({
-      list: list,
-      listCur: list[0]
+    this.loadWeatherCity();
+  },
+  loadWeatherCity() {
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
     })
-    cityService.weatherCities().then(res => {
-      this.setData({
-        data: res
+    const _this = this;
+    cityService.weatherCities(_this.data.kw).then(res => {
+      wx.hideLoading();
+      _this.setData({
+        datas: res
       })
     }).catch(err => {
       wx.hideLoading();
@@ -39,7 +44,7 @@ Page({
   getCur(e) {
     this.setData({
       hidden: false,
-      listCur: this.data.list[e.target.id],
+      listCur: this.data.datas[e.target.id].key
     })
   },
   setCur(e) {
@@ -57,7 +62,7 @@ Page({
     if (y > offsettop) {
       let num = parseInt((y - offsettop) / 20);
       this.setData({
-        listCur: that.data.list[num]
+        listCur: that.data.datas[num].key
       })
     };
   },
@@ -77,16 +82,48 @@ Page({
   indexSelect(e) {
     let that = this;
     let barHeight = this.data.barHeight;
-    let list = this.data.list;
+    console.info(barHeight)
+    let list = this.data.datas;
     let scrollY = Math.ceil(list.length * e.detail.y / barHeight);
     for (let i = 0; i < list.length; i++) {
       if (scrollY < i + 1) {
         that.setData({
-          listCur: list[i],
+          listCur: list[i].key,
           movableY: i * 20
         })
         return false
       }
     }
+  },
+  bindKeyWordInput(e) {
+    this.setData({
+      kw: e.detail.value
+    })
+  },
+  toSearch() {
+    this.loadWeatherCity()
+  },
+  updateFarmWeatherInfo(e) {
+
+    wx.showModal({
+      title: '提示',
+      content: '是否要更改农场天气城市信息。',
+      success: function (r) {
+        if (r.confirm) {
+          wx.showLoading({
+            title: '请稍后...',
+            mask: true
+          })
+          var farmId = wx.getStorageSync('curr-farm-id');
+          farmService.updateFarmWeatherInfo(farmId, e.currentTarget.dataset.code).then(res => {
+            wx.hideLoading();
+            wx.navigateBack();
+          }).catch(err => {
+            wx.hideLoading();
+            logger.log(err);
+          });
+        }
+      }
+    })
   }
 });

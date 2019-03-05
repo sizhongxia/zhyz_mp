@@ -6,8 +6,10 @@ const cities = code => {
     pcode: code
   })
 }
-const weatherCities = code => {
-  return util.post(api.WeatherCities)
+const weatherCities = kw => {
+  return util.post(api.WeatherCities, {
+    kw: kw
+  })
 }
 
 module.exports = {

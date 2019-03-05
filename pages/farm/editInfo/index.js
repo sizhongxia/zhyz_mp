@@ -154,9 +154,9 @@ Page({
     wx.chooseLocation({
       success: function (res) {
         var farm = _this.data.farm;
-        farm.longitude = res.longitude
-        farm.latitude = res.latitude
-        farm.latlng = res.longitude + "," + res.latitude
+        farm.longitude = Number(res.longitude).toFixed(6)
+        farm.latitude = Number(res.latitude).toFixed(6)
+        farm.latlng = Number(res.longitude).toFixed(6) + "," + Number(res.latitude).toFixed(6)
         farm.address = res.address + res.name
         _this.setData({
           farm: farm
@@ -231,6 +231,7 @@ Page({
 
     farmService.updateFarm(farm).then(res => {
       wx.showModal({
+        showCancel: false,
         content: '修改成功'
       });
       _this.setData({

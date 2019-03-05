@@ -1,23 +1,21 @@
 <bar class="search fixed">
   <view class='serach-form round'>
     <icon class="icon-search" />
-    <input type="text" placeholder="输入搜索的关键词" confirm-type="search" />
+    <input type="text" placeholder="输入省份\城市名称或拼音检索" bindinput="bindKeyWordInput" value="{{kw}}" confirm-type="search" />
   </view>
   <view class='action'>
-    <button class='gradual-green shadow-blur round'>搜索</button>
+    <button class='gradual-green shadow-blur round' bindtap='toSearch'>搜索</button>
   </view>
 </bar>
 <scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID}}" style='height:calc(100vh - 50px)' scroll-with-animation="true" enable-back-to-top="true">
-  <block wx:for="{{data}}" wx:key="code">
-    <view class='padding indexItem-{{item.pinyin}}' id="indexes-{{item.pinyin}}" data-index="{{item.pinyin}}">{{item.pinyin}}</view>
+  <block wx:for="{{datas}}" wx:key="key">
+    <view class='padding indexItem-{{item.key}}' id="indexes-{{item.key}}" data-index="{{item.key}}">{{item.key}}</view>
     <list class="menu menu-avatar no-padding">
-      <item wx:for="{{2}}" wx:key wx:for-index="sub">
-        <avatar class="round lg">{{item.pinyin}}</avatar>
+      <item wx:for="{{item.list}}" wx:for-index="idx" wx:for-item="nitem" wx:key="code" data-code="{{nitem.code}}" bindtap='updateFarmWeatherInfo'>
+        <avatar class="round lg">{{nitem.firstName}}</avatar>
         <view class='content'>
-          <view class='text-grey'>{{item.pinyin}}<text class='text-abc'>{{list[sub]}}</text>君</view>
-          <view class='text-gray text-sm'>
-            有{{sub+2}}个主子需要伺候
-          </view>
+          <view class='text-grey'>{{nitem.name}} - {{nitem.provinceName}}</view>
+          <view class='text-gray text-sm'>{{nitem.code}}</view>
         </view>
       </item>
     </list>
@@ -25,7 +23,7 @@
 </scroll-view>
 <view class='indexBar' style='height:calc(100vh - 50px)'>
   <view class='indexBar-box' bindtouchstart="tStart" bindtouchend="tEnd" catchtouchmove="tMove">
-    <view class="indexBar-item " wx:for="{{list}}" wx:key id='{{index}}' bindtouchstart="getCur" bindtouchend="setCur" >{{list[index]}}</view>
+    <view class="indexBar-item " wx:for="{{datas}}" wx:key id='{{index}}' bindtouchstart="getCur" bindtouchend="setCur" >{{item.key}}</view>
   </view>
 </view>
 <!--选择显示-->

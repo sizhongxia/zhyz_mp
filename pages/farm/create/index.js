@@ -110,7 +110,7 @@ Page({
     wx.chooseLocation({
       success: function (res) {
         var formData = _this.data.formData;
-        formData.latlng = res.longitude + "," + res.latitude
+        formData.latlng = Number(res.longitude).toFixed(6) + "," + Number(res.latitude).toFixed(6)
         formData.address = res.address + res.name
         _this.setData({
           formData: formData
@@ -145,8 +145,8 @@ Page({
     farmService.createFarm(formVals).then(res => {
       wx.hideLoading();
       wx.showModal({
-        title: '提示',
         content: '创建成功',
+        showCancel: false,
         success(res) {
           wx.navigateBack();
         }

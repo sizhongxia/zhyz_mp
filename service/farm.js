@@ -58,6 +58,13 @@ const selectFarmAreas = (farmId) => {
   });
 }
 
+const updateFarmWeatherInfo = (farmId, cityCode) => {
+  return util.post(api.UpdateFarmWeatherInfo, {
+    farmId: farmId,
+    cityCode: cityCode
+  });
+}
+
 module.exports = {
   authFarms: authFarms,
   createFarm: createFarm,
@@ -65,6 +72,7 @@ module.exports = {
   userApplyHandle: userApplyHandle,
   getFarmUserAuthInfo: getFarmUserAuthInfo,
   updateFarmUserAuthInfo: updateFarmUserAuthInfo,
+  updateFarmWeatherInfo: updateFarmWeatherInfo,
   farmDetail: farmDetail,
   applyFarmVisit: applyFarmVisit,
   selectFarmBanners: selectFarmBanners,
