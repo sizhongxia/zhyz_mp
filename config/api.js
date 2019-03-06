@@ -30,8 +30,8 @@ module.exports = {
   FarmUserAuthInfo: ApiUrl + '/zhyz/miniapp/api/farm/userAuthInfo',
   UpdateFarmUserAuthInfo: ApiUrl + '/zhyz/miniapp/api/farm/updateUserAuthInfo',
   MineBaseInfo: ApiUrl + '/zhyz/miniapp/api/farm/mineBaseInfo',
-
   FarmAreas: ApiUrl + '/zhyz/miniapp/api/farm/areas',
+  
   SaveFeed: ApiUrl + '/zhyz/miniapp/api/feed/save',
   SaveFeedTag: ApiUrl + '/zhyz/miniapp/api/feed/saveTag',
   DeleteFeedTag: ApiUrl + '/zhyz/miniapp/api/feed/deleteTag',
