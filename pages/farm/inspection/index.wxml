@@ -24,8 +24,8 @@
       </view>
     </item>
   </card>
-  <load class="bg-grey {{loading?'loading':''}} {{isOver?'over':''}} width-full" bindtap="loadMore">
-    {{loading?'':isOver?'':'更多...'}}
+  <load class="bg-gray {{loading?'loading':''}} {{isOver?'over':''}} width-full" style="line-height: 100rpx" bindtap="loadMore">
+    {{loading?'':isOver?'':'加载更多'}}
   </load>
   <view class='h120 width-full' style='color: #aaa'>Copyright © 2018-2019 一通无限</view>
 </view>

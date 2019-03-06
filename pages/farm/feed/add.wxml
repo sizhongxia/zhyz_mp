@@ -34,13 +34,14 @@
   <form-group>
     <textarea placeholder="请输入投食内容" maxlength="200" placeholder-class='placeholder' bindinput="inputFeedRemark" value='{{form.feedRemark}}'></textarea>
   </form-group>
-  <view class='padding-sm flex flex-wrap' wx:if="{{feedTags.length > 0}}">
+  <view class='padding-sm flex flex-wrap'>
+    <text style='font-size: 26rpx;margin-top: 20rpx'>小提示：您可以通过(点击)标签进行快速输入投食内容。</text>
+  </view>
+  <view style='font-size: 28rpx;font-weight: 300;color: blue;padding: 10rpx 0 10rpx 20rpx;' bindtap='toFeedTags'>标签管理</view>
+  <view class='padding-xs flex flex-wrap' wx:if="{{feedTags.length > 0}}">
     <view class="padding-xs" wx:for="{{feedTags}}" wx:key="tagId">
       <tag bindtap='selectFeedTag' class='line-gray' data-tag-id="{{item.tagId}}" data-content="{{item.tagContent}}">{{item.tagName}}</tag>
     </view>
-  </view>
-  <view class='padding-sm flex flex-wrap' wx:else>
-    <text style='font-size: 24rpx;'>小提示：您可以通过增加标签进行快速输入投食内容。</text>
   </view>
 
   <bar class="margin-top">
@@ -48,7 +49,7 @@
       <icon class='icon-titles text-blue' /> 上传图片 (最多可上传8张)
     </view>
   </bar>
-  <form-group>
+  <form-group style="margin-bottom:164rpx;padding-bottom:20rpx;">
     <view class="grid col-3 grid-square flex-sub">
       <view class="padding-xs bg-img" wx:for="{{ form.feedPics }}" wx:key="item" style="background-image:url({{item}});">
         <tag class="bg-red" bindtap="removePic" data-index="{{index}}">
@@ -61,7 +62,7 @@
     </view>
   </form-group>
 </form>
-<view class='h120 width-full' style='color: #aaa'>Copyright © 2018-2019 一通无限</view>
+
 <bar class="btn-group options width-full">
   <button loading='{{submiting}}' class='bg-green round lg' bindtap='toAdd'>
     <icon class='icon-check'></icon> 保存

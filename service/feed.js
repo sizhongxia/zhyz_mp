@@ -7,8 +7,15 @@ const saveFeed = (feed) => {
 const saveFeedTag = (feedTag) => {
   return util.post(api.SaveFeedTag, feedTag);
 }
-const selectFeedTags = () => {
-  return util.post(api.FeedTags, {});
+const selectFeedTags = (farmId) => {
+  return util.post(api.FeedTags, {
+    farmId: farmId
+  });
+}
+const deleteFeedTag = (tagId) => {
+  return util.post(api.DeleteFeedTag, {
+    feedTagId: tagId
+  });
 }
 const selectFeedData = (farmId, farmAreaId, page) => {
   return util.post(api.FeedData, {
@@ -46,6 +53,7 @@ module.exports = {
   saveFeed: saveFeed,
   saveFeedTag: saveFeedTag,
   selectFeedTags: selectFeedTags,
+  deleteFeedTag: deleteFeedTag,
   selectFeedData: selectFeedData,
   selectFeedDetail: selectFeedDetail,
   changeFeedTagSortNum: changeFeedTagSortNum,

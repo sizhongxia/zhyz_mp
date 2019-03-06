@@ -52,7 +52,12 @@ Page({
     _this.setData({
       submiting: true
     });
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
     feedService.updateFeedTag(_this.data.form).then(res => {
+      wx.hideLoading();
       wx.showToast({
         title: '修改成功'
       });
@@ -60,6 +65,7 @@ Page({
         submiting: false
       });
     }).catch(err => {
+      wx.hideLoading();
       _this.setData({
         submiting: false
       });

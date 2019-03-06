@@ -19,7 +19,8 @@ Page({
   onLoad: function (options) {
     const _this = this;
     wx.showLoading({
-      title: '加载中...'
+      title: '请稍后...',
+      mask: true
     });
     farmPicService.getFarmPicDetail(options.picId).then(res => {
       _this.setData({

@@ -6,8 +6,6 @@
     <textarea placeholder="请输入投食标签内容" maxlength="200" placeholder-class='placeholder' bindinput="inputFeedTagContent" value='{{form.feedTagContent}}'></textarea>
   </form-group>
 </form>
-<view class='h120 width-full'>Yeetong.cn</view>
-
 <bar class="btn-group options width-full">
   <button loading='{{submiting}}' class='bg-green round lg' bindtap='toAdd'>
     <icon class='icon-check'></icon> 保存

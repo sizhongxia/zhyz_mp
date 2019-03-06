@@ -7,6 +7,7 @@ const logger = wx.getLogManager({ level: 1 })
 Page({
   data: {
     form: {
+      farmId: '',
       feedTagName: '',
       feedTagContent: '',
     },
@@ -36,7 +37,13 @@ Page({
     _this.setData({
       submiting: true
     });
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    _this.data.form.farmId = wx.getStorageSync('curr-farm-id');
     feedService.saveFeedTag(_this.data.form).then(res => {
+      wx.hideLoading();
       wx.showToast({
         title: '保存成功'
       });
@@ -48,6 +55,7 @@ Page({
         form: form
       });
     }).catch(err => {
+      wx.hideLoading();
       _this.setData({
         submiting: false
       });

@@ -38,13 +38,12 @@
   <form-group>
     <textarea placeholder="请输入巡检描述" maxlength="200" placeholder-class='placeholder' bindinput="inputInspectionRemark" value='{{form.inspectionRemark}}'></textarea>
   </form-group>
-
   <bar class="margin-top">
     <view class='action'>
       <icon class='icon-titles text-blue' /> 上传图片 (最多可上传8张)
     </view>
   </bar>
-  <form-group>
+  <form-group style="margin-bottom: 164rpx;padding-bottom:20rpx;">
     <view class="grid col-3 grid-square flex-sub">
       <view class="padding-xs bg-img" wx:for="{{ form.inspectionPics }}" wx:key="item" style="background-image:url({{item}});">
         <tag class="bg-red" bindtap="removePic" data-index="{{index}}">

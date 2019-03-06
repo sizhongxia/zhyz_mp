@@ -56,7 +56,7 @@
       <icon class='icon-titles text-blue' /> 上传图片 (最多可上传8张)
     </view>
   </bar>
-  <form-group>
+  <form-group style="margin-bottom: 164rpx;padding-bottom:20rpx;">
     <view class="grid col-3 grid-square flex-sub">
       <view class="padding-xs bg-img" wx:for="{{ form.layeggsPics }}" wx:key="item" style="background-image:url({{item}});">
         <tag class="bg-red" bindtap="removePic" data-index="{{index}}">

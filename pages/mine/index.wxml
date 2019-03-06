@@ -4,13 +4,15 @@
       <avatar bindtap='selectUserHeadPic' class="xxl round" style="background-image:url({{userInfo.avator}});"></avatar>
     </view>
     <view style='margin-top: 42rpx;'>
-      <view style='font-size: 36rpx;font-weight: 300' bindtap='toUserInfo'>{{userInfo.userName}}</view>
+      <view style='font-size: 36rpx;font-weight: 300' bindtap='toUserInfo'>
+        {{userInfo.userName}} <icon class='icon-edit' style='margin-top: -10rpx'></icon>
+      </view>
     </view>
   </item>
 </card>
 <view class="shadow-warp bg-white" style='margin-top:-1px;padding:20rpx;font-size:28rpx;line-height:36rpx;text-align:center;'>
   <view class="flex">
-    <view class='flex-sub padding-sm margin-xs radius'>{{farmName}}</view>
+    <view class='flex-sub padding-sm margin-xs radius ovtxt'>{{farmName}}</view>
     <view class='flex-sub padding-sm margin-xs radius'>身份：{{currentFarmIdentity == "admin" ? "管理员" : currentFarmIdentity == "manager" ? "运维人员" : "访客"}}</view>
   </view>
 </view>
@@ -82,7 +84,7 @@
       <text class='text-grey'>修改密码</text>
     </view>
   </item>
-  <item class="arrow" bindtap='toRecommend'>
+  <item bindtap='toRecommend'>
     <view class='content'>
       <icon class='icon-crown text-green' />
       <text class='text-grey'>推荐有礼</text>

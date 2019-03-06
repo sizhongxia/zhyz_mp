@@ -131,11 +131,6 @@ Page({
       url: "/pages/farm/applyNew/index"
     });
   },
-  toFeedTags: function() {
-    wx.navigateTo({
-      url: "/pages/farm/feedTag/index"
-    });
-  },
   toEquipmentConfs: function() {
     wx.navigateTo({
       url: "/pages/equipment/alarm/conf/index"

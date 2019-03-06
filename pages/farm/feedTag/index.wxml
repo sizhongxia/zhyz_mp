@@ -1,5 +1,5 @@
 <list class="menu no-padding">
-  <item wx:for="{{feedTags}}" wx:key="tagId" data-tag-id="{{item.tagId}}" bindtap='toEdit'>
+  <item wx:for="{{feedTags}}" wx:key="tagId" data-tag-id="{{item.tagId}}" bindtap='toEdit' bindlongpress="removeItem">
     <view class='content'>
       <view>
         <icon class='icon-tag' /> {{item.tagName}}
@@ -10,9 +10,6 @@
   </item>
   <view wx:if="{{feedTags.length === 0}}" class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无数据</view>
 </list>
-
-<view class='h120 width-full'>Yeetong.cn</view>
-
 <bar class="btn-group options width-full">
   <button class='bg-green round lg' bindtap='toAdd'>
     <icon class='icon-add'></icon> 新增记录

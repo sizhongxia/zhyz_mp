@@ -15,8 +15,6 @@
     <textarea placeholder="请输入厂区描述" maxlength="200" placeholder-class='placeholder' bindinput="inputAreaDescribe" value='{{form.areaDescribe}}'></textarea>
   </form-group>
 </form>
-<view class='h120 width-full'>Yeetong.cn</view>
-
 <bar class="btn-group options width-full">
   <button loading='{{submiting}}' class='bg-green round lg' bindtap='toAdd'>
     <icon class='icon-check'></icon> 保存

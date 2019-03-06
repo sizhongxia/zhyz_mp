@@ -62,9 +62,9 @@
         </item>
       </list>
     </view>
-    <bar class="justify-end" wx:if="{{farm.applyState == 'Y'}}">
+    <bar style="justify-content:center;" wx:if="{{farm.applyState == 'Y'}}">
       <view class='action'>
-        <button class='bg-green margin-left' bindtap='goIn'>进入当前农场首页</button>
+        <button class='bg-green' bindtap='goIn'>进入当前农场首页</button>
       </view>
     </bar>
   </dialog>

@@ -25,7 +25,12 @@ Page({
   onLoad: function (options) {
     const _this = this;
     var farmId = wx.getStorageSync('curr-farm-id');
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
     farmService.selectFarmAreas(farmId).then(res => {
+      wx.hideLoading();
       var form = _this.data.form;
       form.farmId = farmId;
       if (res.length > 0) {
@@ -38,6 +43,7 @@ Page({
         form: form
       });
     }).catch(err => {
+      wx.hideLoading();
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
@@ -46,11 +52,20 @@ Page({
         }
       }
     });
-    feedService.selectFeedTags().then(res => {
+  },
+  onShow: function () {
+    const _this = this;
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    feedService.selectFeedTags(wx.getStorageSync('curr-farm-id')).then(res => {
+      wx.hideLoading();
       _this.setData({
         feedTags: res
       });
     }).catch(err => {
+      wx.hideLoading();
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
@@ -100,6 +115,11 @@ Page({
         form: form
       });
     }
+  },
+  toFeedTags: function () {
+    wx.navigateTo({
+      url: "/pages/farm/feedTag/index"
+    });
   },
   feedDateChange: function (e) {
     const _this = this;
