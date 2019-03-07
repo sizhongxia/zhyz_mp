@@ -6,6 +6,11 @@ const authFarms = (state) => {
     state: state
   });
 }
+const getFarmFuncs = (farmId) => {
+  return util.post(api.FarmFuncs, {
+    farmId: farmId
+  });
+}
 const userApplys = (farmId, state) => {
   return util.post(api.FarmUserVisitApply, {
     farmId: farmId,
@@ -68,6 +73,7 @@ const updateFarmWeatherInfo = (farmId, cityCode) => {
 module.exports = {
   authFarms: authFarms,
   createFarm: createFarm,
+  getFarmFuncs: getFarmFuncs,
   userApplys: userApplys,
   userApplyHandle: userApplyHandle,
   getFarmUserAuthInfo: getFarmUserAuthInfo,

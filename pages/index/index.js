@@ -2,7 +2,6 @@ var farmService = require('../../service/farm.js');
 var equipmentService = require('../../service/equipment.js');
 var inspectionService = require('../../service/inspection.js');
 var feedService = require('../../service/feed.js');
-const logger = wx.getLogManager({ level: 1 })
 
 var util = require('../../utils/util.js');
 const app = getApp();
@@ -89,8 +88,6 @@ Page({
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
-        } else {
-          logger.log(err);
         }
       }
     });
@@ -102,8 +99,6 @@ Page({
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
-        } else {
-          logger.log(err);
         }
       }
     });
@@ -116,8 +111,6 @@ Page({
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
-        } else {
-          logger.log(err);
         }
       }
     });
@@ -130,8 +123,6 @@ Page({
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
-        } else {
-          logger.log(err);
         }
       }
     });

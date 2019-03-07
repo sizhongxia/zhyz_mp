@@ -1,7 +1,6 @@
 var util = require('../../../utils/util.js');
 var loginService = require('../../../service/login.js');
 var smsService = require('../../../service/sms.js');
-const logger = wx.getLogManager({ level: 1 })
 const app = getApp()
 Page({
   data: {
@@ -63,8 +62,6 @@ Page({
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
-        } else {
-          logger.log(err);
         }
       }
     });
@@ -127,8 +124,6 @@ Page({
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
-        } else {
-          logger.log(err);
         }
       }
     });

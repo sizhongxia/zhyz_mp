@@ -1,5 +1,4 @@
 var api = require('../config/api.js')
-const logger = wx.getLogManager({ level: 1 })
 /**
  * 封封微信的的request
  */
@@ -29,15 +28,11 @@ function request(url, data = {}, method = "POST") {
             reject(res.data);
           }
         } else {
-          logger.log(token);
-          logger.log(res);
           showErrorToast(res.errMsg)
           reject(null);
         }
       },
       fail: function (err) {
-        logger.log(token);
-        logger.log(err);
         showErrorToast('请检查网络连接');
         reject(err);
       }
@@ -83,13 +78,11 @@ function login() {
         if (res.code) {
           resolve(res.code);
         } else {
-          logger.log(res);
           reject(res);
         }
       },
       fail: function(err) {
         reject(err);
-        logger.log(err);
       }
     });
   });

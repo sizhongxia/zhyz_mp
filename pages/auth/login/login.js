@@ -1,6 +1,5 @@
 var util = require('../../../utils/util.js');
 var loginService = require('../../../service/login.js');
-const logger = wx.getLogManager({ level: 1 })
 const app = getApp()
 
 Page({
@@ -46,8 +45,6 @@ Page({
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
-        } else {
-          logger.log(err);
         }
       }
     });
@@ -88,8 +85,6 @@ Page({
           if (err.message) {
             util.showErrorToast(err.message);
             return false;
-          } else {
-            logger.log(err);
           }
         }
       });
@@ -139,8 +134,6 @@ Page({
           if (err.message) {
             util.showErrorToast(err.message);
             return false;
-          } else {
-            logger.log(err);
           }
         }
         util.showErrorToast('请求失败');

@@ -3,9 +3,6 @@ var layeggsService = require('../../../service/layeggs.js');
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 const app = getApp()
-const logger = wx.getLogManager({
-  level: 1
-})
 
 Page({
   data: {
@@ -74,8 +71,6 @@ Page({
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
-        } else {
-          logger.log(err);
         }
       }
     });
@@ -279,8 +274,6 @@ Page({
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
-        } else {
-          logger.log(err);
         }
       }
     });

@@ -1,7 +1,6 @@
 var feedService = require('../../../service/feed.js');
 var util = require('../../../utils/util.js');
 const app = getApp()
-const logger = wx.getLogManager({ level: 1 })
 
 Page({
   data: {
@@ -19,8 +18,12 @@ Page({
       });
       wx.hideLoading();
     }).catch(err => {
-      logger.log(err);
       wx.hideLoading();
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        }
+      }
     });
   },
   previewImage: function (e) {

@@ -1,6 +1,5 @@
 var equipmentService = require('../../service/equipment.js');
 const app = getApp();
-const logger = wx.getLogManager({ level: 1 })
 
 Page({
   data: {
@@ -27,8 +26,12 @@ Page({
       wx.hideLoading();
       callback && callback();
     }).catch(err => {
-      logger.log(err);
       wx.hideLoading();
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        }
+      }
       callback && callback();
     });
   },

@@ -3,7 +3,7 @@ var poultryService = require('../../../service/poultry.js');
 var farmService = require('../../../service/farm.js');
 var util = require('../../../utils/util.js');
 const app = getApp()
-const logger = wx.getLogManager({ level: 1 })
+
 Page({
   data: {
     kinds: [{
@@ -108,8 +108,6 @@ Page({
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
-        } else {
-          logger.log(err);
         }
       }
     });
@@ -133,8 +131,6 @@ Page({
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
-        } else {
-          logger.log(err);
         }
       }
     });
@@ -283,8 +279,6 @@ Page({
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
-        } else {
-          logger.log(err);
         }
       }
     });

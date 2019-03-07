@@ -1,7 +1,5 @@
 const app = getApp()
-const logger = wx.getLogManager({
-  level: 1
-})
+
 var lpc = null; // LivePlayerContext
 Page({
   data: {
@@ -39,7 +37,6 @@ Page({
     const _this = this;
     _this.lpc = wx.createLivePlayerContext('rtmpPlayId');
     wx.onSocketError(function() {
-      logger.log('连接 wss://wxapi.yeetong.cn/socket 失败');
       _this.setOptionTxt('连接 wss://wxapi.yeetong.cn/socket 失败')
     });
     wx.onSocketOpen(function() {
@@ -52,7 +49,6 @@ Page({
     wx.onSocketMessage(function(data) {
       _this.setOptionTxt('接收到Socket服务器传来的消息');
       _this.setOptionTxt('数据：' + data.data);
-      logger.log(data);
       console.info(data.data);
       if (data.data === '#topic#true#') {
         _this.setOptionTxt('订阅成功');
@@ -102,7 +98,6 @@ Page({
       _this.setData({
         socketConnect: false
       });
-      logger.log('Socket连接关闭');
       _this.setOptionTxt('Socket连接关闭');
     });
     _this.toConnectSocket();
@@ -176,7 +171,6 @@ Page({
           });
         },
         fail: function(err) {
-          logger.log(err);
         }
       });
     }
@@ -197,7 +191,6 @@ Page({
           });
         },
         fail: function(err) {
-          logger.log(err);
         }
       });
     }
@@ -218,7 +211,6 @@ Page({
           });
         },
         fail: function(err) {
-          logger.log(err);
         }
       });
     }
@@ -235,7 +227,6 @@ Page({
           });
         },
         fail: function(err) {
-          logger.log(err);
         }
       });
     }
@@ -251,17 +242,14 @@ Page({
           });
         },
         fail: function(err) {
-          logger.log(err);
         }
       });
     }
   },
   rtmpPlayStateChange: function(e) {
-    logger.log('live-player code:', e.detail.code)
     _this.setOptionTxt('live-player code:' + e.detail.code);
   },
   rtmpPlayError: function(e) {
-    logger.log('live-player error:', e.detail.errMsg);
     wx.showToast({
       title: '视频（直播）播放失败',
       icon: 'none'
@@ -289,7 +277,6 @@ Page({
     wx.sendSocketMessage({
       data: msg,
       fail: function(err) {
-        logger.log(err);
       }
     });
   }
