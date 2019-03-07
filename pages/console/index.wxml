@@ -32,15 +32,23 @@
       <icon class='icon-titles text-orange ' /> 农场应用
     </view>
   </bar>
+  <!-- 
   <view wx:if="{{ funcs.length === 0 }}" class="padding-xl" style='box-shadow: none;text-align:center;line-height:62rpx'>
     <view>当前农场暂未开通任何应用</view>
     <view>您可在平台网站后台中去申请开通</view>
   </view>
+  -->
   <list class="grid no-border col-3">
     <item wx:for="{{ funcs }}" wx:key="resId">
       <navigator hover-class='none' url="{{item.inletUrl}}">
         <image src='{{item.funcIcon}}'></image>
         <text>{{item.funcName}}</text>
+      </navigator>
+    </item>
+    <item>
+      <navigator hover-class='none' url="/pages/func/index">
+        <image src='https://static.yeetong.cn/yeetong/function/icon/add_more.png-yeetong'></image>
+        <text>更多应用</text>
       </navigator>
     </item>
   </list>
