@@ -1,7 +1,7 @@
 <view style='width: 750rpx;height: 280rpx;'>
   <image src='https://static.yeetong.cn/yeetong/function/icon/console_head.png-yeetong?v3' style='width: 100%;height:100%;'></image>
 </view>
-<view wx:if='{{currentFarmIdentity == "admin" || currentFarmIdentity == "manager"}}'>
+<view wx:if='{{currentFarmIdentity === "admin" || currentFarmIdentity === "manager"}}'>
   <bar class="solid-bottom width-full" style="background: none;">
     <view class='action'>
       <icon class='icon-titles text-orange ' /> 基础应用
@@ -32,39 +32,17 @@
       <icon class='icon-titles text-orange ' /> 农场应用
     </view>
   </bar>
+  <view wx:if="{{ funcs.length === 0 }}" class="padding-xl" style='box-shadow: none;text-align:center;line-height:62rpx'>
+    <view>当前农场暂未开通任何应用</view>
+    <view>您可在平台网站后台中去申请开通</view>
+  </view>
   <list class="grid no-border col-3">
-    <item>
-      <navigator hover-class='none' url="/pages/farm/feed/index">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/console_feed.png-yeetong?v2'></image>
-        <text>投食管理</text>
-      </navigator>
-    </item>
-    <item>
-      <navigator hover-class='none' url="/pages/farm/inspection/index">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/console_inspection.png-yeetong?v2'></image>
-        <text>现场巡检</text>
-      </navigator>
-    </item>
-    <item>
-      <navigator hover-class='none' url="/pages/farm/layeggs/index">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/console_egg.png-yeetong?v2'></image>
-        <text>产蛋管理</text>
-      </navigator>
-    </item>
-    <item>
-      <navigator hover-class='none' url="/pages/poultry/variety/index">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/console_variety.png-yeetong?v2'></image>
-        <text>禽畜品种</text>
-      </navigator>
-    </item>
-    <item>
-      <navigator hover-class='none' url="/pages/farm/poultry/index">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/console_poultry.png-yeetong?v2'></image>
-        <text>禽畜实名制</text>
+    <item wx:for="{{ funcs }}" wx:key="resId">
+      <navigator hover-class='none' url="{{item.inletUrl}}">
+        <image src='{{item.funcIcon}}'></image>
+        <text>{{item.funcName}}</text>
       </navigator>
     </item>
   </list>
 </view>
-<view wx:else style='padding:80rpx 0;text-align:center;'>
-  您当前身份未访客，暂不允许管理当前农场。
-</view>
+<view wx:else style='padding:80rpx 0;text-align:center;'>访客身份暂不允许使用当前农场应用！</view>
