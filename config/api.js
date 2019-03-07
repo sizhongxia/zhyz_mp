@@ -21,6 +21,7 @@ module.exports = {
   FarmUserVisitApply: ApiUrl + '/zhyz/miniapp/api/farm/userApplys',
   FarmUserVisitApplyHandle: ApiUrl + '/zhyz/miniapp/api/farm/userApplyHandle',
   FarmDetail: ApiUrl + '/zhyz/miniapp/api/farm/detail',
+  FarmFuncs: ApiUrl + '/zhyz/miniapp/api/farm/funcs',
   FarmCreate: ApiUrl + '/zhyz/miniapp/api/farm/create',
   UpdateFarmWeatherInfo: ApiUrl + '/zhyz/miniapp/api/farm/updateWeatherInfo',
   ToApplyFarmVisit: ApiUrl + '/zhyz/miniapp/api/farm/toApply',
