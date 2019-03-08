@@ -36,6 +36,9 @@ Page({
         auditsNum: res.auditsNum,
         invitationCode: res.invitationCode
       });
+      if (res.farmIdentity) {
+        wx.setStorageSync('curr-farm-identity', res.farmIdentity);
+      }
       wx.hideLoading();
     }).catch(err => {
       wx.hideLoading();

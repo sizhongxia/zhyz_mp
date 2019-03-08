@@ -1,19 +1,27 @@
 var funcService = require('../../service/func.js');
+var farmService = require('../../service/farm.js');
 var util = require('../../utils/util.js');
 const app = getApp();
 Page({
   data: {
     moveing: false,
+    resId: '',
     func: {}
   },
   onLoad: function (options) {
+    this.setData({
+      resId: options.resId
+    })
+    this.load();
+  },
+  load: function() {
     const _this = this;
     wx.showLoading({
       title: '请稍后...',
       mask: true
     });
     var farmId = wx.getStorageSync('curr-farm-id');
-    funcService.getFuncDetail(options.resId, farmId).then(res => {
+    funcService.getFuncDetail(_this.data.resId, farmId).then(res => {
       wx.hideLoading();
       _this.setData({
         func: res
@@ -28,7 +36,6 @@ Page({
       }
     });
   },
-
   // 初始化towerSwiper
   towerSwiper(list) {
     for (let i = 0; i < list.length; i++) {
@@ -99,4 +106,58 @@ Page({
       })
     }
   },
+  toAdd: function() {
+    const _this = this;
+    wx.showModal({
+      title: '提示',
+      content: '是否要添加当前应用到该农场？',
+      success(res) {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '请稍后...',
+            mask: true
+          });
+          var farmId = wx.getStorageSync('curr-farm-id');
+          farmService.saveFarmFunc(farmId, _this.data.resId).then(res => {
+            wx.hideLoading();
+            _this.load();
+          }).catch(err => {
+            wx.hideLoading();
+            if (err) {
+              if (err.message) {
+                util.showErrorToast(err.message);
+              }
+            }
+          });
+        }
+      }
+    });
+  },
+  toRemove: function () {
+    const _this = this;
+    wx.showModal({
+      title: '提示',
+      content: '是否要移除当前应用？移除不会清除数据！',
+      success(res) {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '请稍后...',
+            mask: true
+          });
+          var farmId = wx.getStorageSync('curr-farm-id');
+          farmService.delFarmFunc(farmId, _this.data.resId).then(res => {
+            wx.hideLoading();
+            _this.load();
+          }).catch(err => {
+            wx.hideLoading();
+            if (err) {
+              if (err.message) {
+                util.showErrorToast(err.message);
+              }
+            }
+          });
+        }
+      }
+    });
+  }
 });

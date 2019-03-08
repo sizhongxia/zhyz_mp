@@ -45,7 +45,7 @@
         <text>{{item.funcName}}</text>
       </navigator>
     </item>
-    <item>
+    <item wx:if='{{ currentFarmIdentity === "admin" }}'>
       <navigator hover-class='none' url="/pages/func/index">
         <image src='https://static.yeetong.cn/yeetong/function/icon/add_more.png-yeetong'></image>
         <text>更多应用</text>

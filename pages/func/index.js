@@ -7,7 +7,7 @@ Page({
   data: {
     funcs: []
   },
-  onLoad: function() {
+  onShow: function() {
     const _this = this;
     wx.showLoading({
       title: '请稍后...',

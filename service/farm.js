@@ -11,6 +11,18 @@ const getFarmFuncs = (farmId) => {
     farmId: farmId
   });
 }
+const saveFarmFunc = (farmId, funcPlatformId) => {
+  return util.post(api.FarmSaveFunc, {
+    farmId: farmId,
+    funcPlatformId: funcPlatformId
+  });
+}
+const delFarmFunc = (farmId, funcPlatformId) => {
+  return util.post(api.FarmDelFunc, {
+    farmId: farmId,
+    funcPlatformId: funcPlatformId
+  });
+}
 const userApplys = (farmId, state) => {
   return util.post(api.FarmUserVisitApply, {
     farmId: farmId,
@@ -74,6 +86,8 @@ module.exports = {
   authFarms: authFarms,
   createFarm: createFarm,
   getFarmFuncs: getFarmFuncs,
+  saveFarmFunc: saveFarmFunc,
+  delFarmFunc: delFarmFunc,
   userApplys: userApplys,
   userApplyHandle: userApplyHandle,
   getFarmUserAuthInfo: getFarmUserAuthInfo,

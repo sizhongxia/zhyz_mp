@@ -30,7 +30,7 @@ tag.sm {
 
 card.article>item .content button {
   height: 52rpx;
-  width: 52px;
+  width: 72px;
   margin-top: 40rpx;
   margin-left: 10rpx;
 }

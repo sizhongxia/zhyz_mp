@@ -1,7 +1,21 @@
 <view class="base">
   <view class="icon">
     <image src='{{func.funcIcon}}'></image>
-    <view class='title'>{{func.funcName}}</view>
+    <view class='title'>{{func.funcName}} {{func.version}}</view>
+  </view>
+  <view class="dev">
+    <view class="itm">
+      <view class="title">费用</view>
+      <view>{{func.funcFee}}{{func.funcFeeCycle}}</view>
+    </view>
+    <view class="itm">
+      <view class="title">发布状态</view>
+      {{func.funcState}}
+    </view>
+    <view class="itm">
+      <view class="title">更新时间</view>
+      {{func.updateAt}}
+    </view>
   </view>
 </view>
 
@@ -10,3 +24,16 @@
     <view class='bg-img shadow-blur' style="background-image:url({{item.url}})"></view>
   </view>
 </view>
+
+<view class="desc">
+  <view class="con">{{func.funcSynopsis}}</view>
+</view>
+
+<bar class="btn-group options width-full">
+  <button wx:if="{{func.have}}" class='bg-red round lg' bindtap='toRemove'>
+    <icon class='icon-close'></icon> 移除
+  </button>
+  <button wx:else class='bg-grey round lg' bindtap='toAdd'>
+    <icon class='icon-check'></icon> 获取
+  </button>
+</bar>

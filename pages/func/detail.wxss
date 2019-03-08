@@ -2,14 +2,44 @@
   width: 100%;
   background:#fff;
 }
+
 .base .icon {
   text-align: center;
-  padding: 68rpx;
+  padding: 68rpx 0 0 0;
 }
+
 .base .icon image {
   width: 180rpx;
   height: 180rpx;
 }
+
+.base .icon .title {
+  line-height:64rpx;
+  font-size:32rpx;
+  font-weight:300;
+}
+
+.base .dev {
+  flex:1;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 18rpx;
+}
+
+.base .dev .itm {
+  width:100%;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight:300;
+  color: #808080;
+}
+
+.base .dev .itm .title {
+  line-height: 62rpx;
+  color: #000000;
+}
+
 .tower-swiper {
   height: 720rpx;
   background:#fff;
@@ -20,4 +50,33 @@
   height: 720rpx;
   width: 520rpx;
   left: 35%;
+}
+
+.desc {
+  width: 100%;
+  background:#fff;
+  padding-bottom: 220rpx;
+}
+
+.desc .con {
+  font-size:32rpx;
+  line-height:46rpx;
+  padding:0 68rpx;
+}
+
+.container {
+  width: 750rpx;
+}
+
+.options {
+  position: fixed;
+  bottom: 0;
+  height: 120rpx;
+  line-height: 120rpx;
+  background:#fafafa;
+  border-top:1px solid #eee;
+}
+
+.width-full {
+  width: 750rpx;
 }
