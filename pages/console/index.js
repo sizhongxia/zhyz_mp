@@ -7,23 +7,19 @@ Page({
     currentFarmIdentity: '',
     funcs: []
   },
-  onLoad: function () {
-    const _this = this;
-    _this.setData({
-      currentFarmId: wx.getStorageSync('curr-farm-id'),
-      currentFarmIdentity: wx.getStorageSync('curr-farm-identity')
-    });
-  },
   onShow: function () {
     const _this = this;
     wx.showLoading({
       title: '请稍后...',
       mask: true
     });
-    farmService.getFarmFuncs(_this.data.currentFarmId).then(res => {
+    var currentFarmId = wx.getStorageSync('curr-farm-id');
+    farmService.getFarmFuncs(currentFarmId).then(res => {
       wx.hideLoading();
       _this.setData({
-        funcs: res
+        funcs: res,
+        currentFarmId: currentFarmId,
+        currentFarmIdentity: wx.getStorageSync('curr-farm-identity')
       });
     }).catch(err => {
       wx.hideLoading();
