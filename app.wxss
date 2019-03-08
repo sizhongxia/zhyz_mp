@@ -10,6 +10,13 @@
   box-sizing: border-box;
 }
 
+.h120 {
+  height: 120rpx;
+  color: white;
+  text-align: center;
+  line-height: 120rpx;
+}
+
 .nav-list {
   display: flex;
   flex-wrap: wrap;
@@ -97,4 +104,8 @@
 
 .text-light {
   font-weight: 300;
+}
+
+.shadow {
+  box-shadow:0 1rpx 6rpx rgba(0, 0, 0, 0.3);
 }

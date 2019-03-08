@@ -1,0 +1,11 @@
+.tower-swiper {
+  height: 720rpx;
+  background:#fff;
+
+}
+
+.tower-swiper .tower-item {
+  height: 720rpx;
+  width: 520rpx;
+  left: 35%;
+}

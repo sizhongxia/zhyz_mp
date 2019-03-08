@@ -1,0 +1,17 @@
+
+<card class="article no-card">
+  <item wx:for="{{funcs}}" wx:key="resId" wx:for-index="idx" wx:for-item="item" class="shadow" style="padding: 30rpx">
+    <navigator hover-class='none' url="/pages/func/detail?resId={{item.resId}}">
+      <view class="content" style="padding: 0">
+        <image src="{{item.funcIcon}}" mode="aspectFill"></image>
+        <view class="desc">
+          <view class='text-title'>{{item.funcName}} <tag class='bg-grey light sm'>{{item.version}}</tag></view>
+          <view class='text-content'>{{item.funcSynopsis}}</view>
+        </view>
+        <button class="round sm" wx:if="{{ !item.have }}">获取</button>
+        <button class="round sm bg-green" wx:else>已获取</button>
+      </view>
+    </navigator>
+  </item>
+</card>
+<view class='h120 width-full' style='color: #aaa'>Copyright © 2018-2019 一通无限</view>
