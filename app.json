@@ -49,8 +49,9 @@
     "pages/farm/layeggs/index",
     "pages/farm/layeggs/detail",
     "pages/farm/layeggs/add",
-    "pages/news/index",
-    "pages/func/index"
+    "pages/func/index",
+    "pages/func/detail",
+    "pages/news/index"
   ],
   "permission": {
     "scope.userLocation": {

@@ -1,5 +1,4 @@
 const ApiUrl = 'http://192.168.31.144:9091';
-// const ApiUrl = 'http://192.168.31.96:9091';
 // const ApiUrl = 'http://192.168.1.108:9091';
 // const ApiUrl = 'https://wxapi.yeetong.cn';
 module.exports = {
@@ -93,6 +92,9 @@ module.exports = {
   SaveLayeggs: ApiUrl + '/zhyz/miniapp/api/layeggs/save',
   LayeggsDetail: ApiUrl + '/zhyz/miniapp/api/layeggs/detail',
   DeleteLayeggs: ApiUrl + '/zhyz/miniapp/api/layeggs/delete',
+
+  GetFuncs: ApiUrl + '/zhyz/miniapp/api/getFuncs',
+  GetFuncDetail: ApiUrl + '/zhyz/miniapp/api/getFuncDetail',
 
   NewsData: ApiUrl + '/basic/api/yt/news/list',
 

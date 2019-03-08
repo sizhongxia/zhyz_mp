@@ -1,0 +1,36 @@
+card.article>item .content > image {
+  width: 126rpx;
+  height: 126rpx;
+}
+
+card.article>item .content .desc {
+  display: block;
+}
+
+card.article>item .content .text-title {
+  font-size: 32rpx;
+  font-weight: 300;
+  padding-top: 10rpx;
+  padding-left: 10rpx;
+  color: #484848;
+}
+
+card.article>item .content .text-content {
+  font-size: 24rpx;
+  padding-top: 10rpx;
+  padding-left: 10rpx;
+  font-weight: 300;
+  height: 80rpx;
+  line-height: 40rpx;
+}
+
+tag.sm {
+  margin-top: -4px;
+}
+
+card.article>item .content button {
+  height: 52rpx;
+  width: 52px;
+  margin-top: 40rpx;
+  margin-left: 10rpx;
+}
