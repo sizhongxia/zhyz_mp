@@ -1,5 +1,8 @@
-<view>
-
+<view class="base">
+  <view class="icon">
+    <image src='{{func.funcIcon}}'></image>
+    <view class='title'>{{func.funcName}}</view>
+  </view>
 </view>
 
 <view class="tower-swiper" bindtouchmove="towerMove" bindtouchstart="towerStart" bindtouchend="towerEnd">
