@@ -1,6 +1,6 @@
 card.article>item .content > image {
-  width: 126rpx;
-  height: 126rpx;
+  width: 100rpx;
+  height: 100rpx;
 }
 
 card.article>item .content .desc {

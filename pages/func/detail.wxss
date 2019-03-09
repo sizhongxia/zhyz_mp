@@ -59,7 +59,7 @@
 }
 
 .desc .con {
-  font-size:32rpx;
+  font-size:28rpx;
   line-height:46rpx;
   padding:0 68rpx;
 }

@@ -7,7 +7,7 @@
       <icon class='icon-titles text-orange ' /> 基础应用
     </view>
   </bar>
-  <list class="grid no-border col-3">
+  <list class="grid no-border col-4">
     <item>
       <navigator hover-class='none' url="/pages/farm/farmArea/index">
         <image src='https://static.yeetong.cn/yeetong/function/icon/console_area.png-yeetong?v2'></image>
@@ -38,7 +38,7 @@
     <view>您可在平台网站后台中去申请开通</view>
   </view>
   -->
-  <list class="grid no-border col-3">
+  <list class="grid no-border col-4">
     <item wx:for="{{ funcs }}" wx:key="resId">
       <navigator hover-class='none' url="{{item.inletUrl}}">
         <image src='{{item.funcIcon}}'></image>
