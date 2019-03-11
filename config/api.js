@@ -8,8 +8,10 @@ module.exports = {
   AuthResetPwd: ApiUrl + '/zhyz/miniapp/api/auth/resetpwd',
   AuthBind: ApiUrl + '/zhyz/miniapp/api/auth/bind',
   AuthBindWx: ApiUrl + '/zhyz/miniapp/api/auth/bindwx',
-  UpdateUserAvator: ApiUrl + '/zhyz/miniapp/api/updateUserAvator',
-  UserInfo: ApiUrl + '/zhyz/miniapp/api/userinfo',
+  UpdateUserOrganize: ApiUrl + '/zhyz/miniapp/api/user/updateOrganize',
+  UpdateUserEmail: ApiUrl + '/zhyz/miniapp/api/user/updateEmail',
+  UpdateUserAvator: ApiUrl + '/zhyz/miniapp/api/user/updateAvator',
+  UserInfo: ApiUrl + '/zhyz/miniapp/api/user/info',
 
   Cities: ApiUrl + '/zhyz/miniapp/api/cities',
   WeatherCities: ApiUrl + '/zhyz/miniapp/api/weatherCities',
