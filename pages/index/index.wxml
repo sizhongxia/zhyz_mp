@@ -11,7 +11,7 @@
         <text bindtap='toSelectWeatherCity' wx:if="{{ weather != '' }}" style='float:right;font-weight: 300;font-size:28rpx;'>{{weather}}</text>
       </view>
       <view class="content">
-        <image bindtap='previewImage' data-src="{{farm.qrCodeUrl}}" style='width: 190rpx;height:190rpx;' src="{{farm.qrCodeUrl}}" mode="aspectFit"></image>
+        <image bindtap='previewImage' data-src="{{farm.qrCodeUrl}}" style='width: 190rpx;height:190rpx;margin-left:15rpx;' src="{{farm.qrCodeUrl}}" mode="aspectFit"></image>
         <view class="desc" style='margin-top:30rpx;height:144rpx;'>
           <view wx:if="{{ farm.address != '' }}" class='m-farm-baseinfo-item' bindtap='toMapPage'>农场位置：{{farm.address}}</view>
           <view wx:if="{{ farm.acreage != '' }}" class='m-farm-baseinfo-item'>占地面积：{{farm.acreage}}</view>
@@ -79,40 +79,54 @@
     </item>
   </card>
   -->
+
+  <card class="article margin-top no-card width-full" wx:if="{{news.uniqueId}}">
+    <item class="shadow" style="padding: 30rpx">
+      <navigator hover-class='none' url="/pages/webview/index?path=https://www.yeetong.cn/mp/news/{{news.uniqueId}}">
+        <view class="title">【新闻】{{news.newsTitle}}</view>
+        <view class="content" style="padding: 0">
+          <image src="{{news.coverPic}}" mode="aspectFill"></image>
+          <view class="desc">
+            <view class='text-content'>{{news.abstract}}</view>
+            <view>
+              <tag class='bg-grey light sm'>{{news.releaseTime}}</tag>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </item>
+  </card>
+
   <bar class="solid-bottom margin-top width-full" wx:if="{{feed.had}}">
     <view class='action'>
-      <icon class='icon-titles text-orange ' /> 最近一次投食
+      <icon class='icon-titles text-orange ' /> 投食日志
     </view>
   </bar>
   <card class="article no-card width-full" wx:if="{{feed.had}}">
-    <item class="shadow" data-feed-id="{{feed.feedId}}" bindtap="toFeedDetail">
-      <view class="title">地点：{{feed.feedPosition}}</view>
+    <item class="shadow" style="padding: 30rpx" data-feed-id="{{feed.feedId}}" bindtap="toFeedDetail">
+      <view>{{feed.feedAt}}</view>
+      <view class="title">饲养人：{{feed.feedRaiser}} | 投食地点：{{feed.feedPosition}}</view>
       <view class="content">
         <image src="{{feed.coverPicUrl}}" mode="aspectFill"></image>
         <view class="desc">
           <view class='text-content'>{{feed.feedRemark}}</view>
-          <view style='color:#aaa;'>
-            {{feed.feedRaiser}}, {{feed.feedAt}}
-          </view>
         </view>
       </view>
     </item>
   </card>
   <bar class="solid-bottom margin-top width-full" wx:if="{{inspection.had}}">
     <view class='action'>
-      <icon class='icon-titles text-orange ' /> 最近一次巡检
+      <icon class='icon-titles text-orange ' /> 巡检日志
     </view>
   </bar>
   <card class="article no-card width-full" wx:if="{{inspection.had}}">
-    <item class="shadow" data-inspection-id="{{inspection.inspectionId}}" bindtap="toInspectionDetail">
-      <view class="title">地点：{{inspection.inspectionPosition}}</view>
+    <item class="shadow" style="padding: 30rpx" data-inspection-id="{{inspection.inspectionId}}" bindtap="toInspectionDetail">
+      <view>{{inspection.inspectionAt}}</view>
+      <view class="title">巡检人：{{inspection.operator}} | 巡检地点：{{inspection.inspectionPosition}}</view>
       <view class="content">
         <image src="{{inspection.pic}}" mode="aspectFill"></image>
         <view class="desc">
           <view class='text-content'>{{inspection.inspectionRemark}}</view>
-          <view style='color:#aaa;'>
-            {{inspection.operator}}, {{inspection.inspectionAt}}
-          </view>
         </view>
       </view>
     </item>

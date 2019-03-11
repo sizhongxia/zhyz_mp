@@ -15,6 +15,8 @@
     "pages/console/index",
     "pages/mine/index",
     "pages/mine/userinfo",
+    "pages/mine/update/email",
+    "pages/mine/update/organize",
     "pages/farm/feed/add",
     "pages/farm/feed/index",
     "pages/farm/feed/detail",
@@ -75,16 +77,16 @@
         "selectedIconPath": "/static/images/menus/home-s.png"
       },
       {
-        "pagePath": "pages/news/index",
-        "text": "资讯",
-        "iconPath": "/static/images/menus/news.png",
-        "selectedIconPath": "/static/images/menus/news-s.png"
-      },
-      {
         "pagePath": "pages/console/index",
         "text": "应用",
         "iconPath": "/static/images/menus/console.png",
         "selectedIconPath": "/static/images/menus/console-s.png"
+      },
+      {
+        "pagePath": "pages/news/index",
+        "text": "资讯",
+        "iconPath": "/static/images/menus/news.png",
+        "selectedIconPath": "/static/images/menus/news-s.png"
       },
       {
         "pagePath": "pages/mine/index",

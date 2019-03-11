@@ -5,13 +5,10 @@ list.grid {
   text-align: center;
   background: none;
 }
-list.grid>item {
-  margin-bottom: 10rpx;
-}
 
 list.grid>item>navigator {
   width: 142rpx;
-  height: 180rpx;
+  height: 164rpx;
 }
 list.grid>item>navigator>image {
   width: 90rpx;

@@ -36,10 +36,8 @@
   <form-group class='margin-top'>
     <view class='title'>农场LOGO</view>
     <view class='grid col-3 grid-square flex-sub'>
-      <view class='padding-xs bg-img' bindtap='previewFarmLogoImage' style='background-image:url({{farm.farmLogo}});width: 168rpx'></view>
-      <view class='padding-xs solids' bindtap='selectFarmLogo'>
-        <icon class='icon-cameraadd'></icon>
-      </view>
+      <view class='padding-xs bg-img' bindtap='previewFarmLogoImage' style='background-image:url({{farm.farmLogo}});width: 173rpx'></view>
+      <view class='padding-xs solids' bindtap='selectFarmLogo' style='text-align:center;line-height:173rpx;'>选择图片</view>
     </view>
   </form-group>
 
@@ -47,8 +45,3 @@
     <button class='block bg-blue margin-tb-sm lg' form-type="submit" loading='{{updating}}'>修改</button>
   </view>
 </form>
-<!--
-<view class='padding-xl' style='text-align:center'>
-  <image bindtap='previewQrCodeImage' style='width: 320rpx;height:320rpx;margin:auto;' src='{{farm.qrCodeUrl}}'></image>
-</view>
--->

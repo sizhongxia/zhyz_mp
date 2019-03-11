@@ -1,6 +1,7 @@
 var farmService = require('../../service/farm.js');
 var equipmentService = require('../../service/equipment.js');
 var inspectionService = require('../../service/inspection.js');
+var newsService = require('../../service/news.js');
 var feedService = require('../../service/feed.js');
 
 var util = require('../../utils/util.js');
@@ -17,7 +18,8 @@ Page({
     weather: '',
     monitorInfo: [],
     inspection: {},
-    feed: {}
+    feed: {},
+    news: {}
   },
   onLoad: function() {
     this.setData({
@@ -107,25 +109,22 @@ Page({
       _this.setData({
         inspection: res
       });
-    }).catch(err => {
-      if (err) {
-        if (err.message) {
-          util.showErrorToast(err.message);
-        }
-      }
     });
 
     feedService.getLastFeedDetail(farmId).then(res => {
       _this.setData({
         feed: res
       });
-    }).catch(err => {
-      if (err) {
-        if (err.message) {
-          util.showErrorToast(err.message);
-        }
+    });
+
+    newsService.getNewsByPage(1, 1).then(res => {
+      if (res.list) {
+        _this.setData({
+          news: res.list[0]
+        });
       }
     });
+
   },
   toEditFarmInfo: function () {
     if (this.data.farmIdentity != 'admin') {

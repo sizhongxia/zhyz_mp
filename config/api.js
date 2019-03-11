@@ -100,7 +100,7 @@ module.exports = {
   GetFuncs: ApiUrl + '/zhyz/miniapp/api/getFuncs',
   GetFuncDetail: ApiUrl + '/zhyz/miniapp/api/getFuncDetail',
 
-  NewsData: ApiUrl + '/basic/api/yt/news/list',
+  NewsData: ApiUrl + '/zhyz/miniapp/api/news/list',
 
   UploadApi: ApiUrl + '/basic/api/upload'
 }

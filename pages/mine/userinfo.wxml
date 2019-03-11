@@ -1,22 +1,26 @@
 <view>
   <form>
     <form-group class="margin-top">
-      <view class='title'>平台账号：</view>
+      <view class='title'>登陆账号：</view>
       <input class='radius' disabled="{{true}}" value='{{user.userName}}'></input>
     </form-group>
     <form-group>
       <view class='title'>手机号：</view>
       <input class='radius' disabled="{{true}}" value='{{user.phoneNo}}'></input>
-      <button class='bg-gray shadow' wx:if="{{false}}">修改</button>
     </form-group>
-    <form-group>
+    <form-group class="arrow">
       <view class='title'>电子邮箱：</view>
       <input class='radius' disabled="{{true}}" value='{{user.email}}'></input>
-      <button class='bg-gray shadow' wx:if="{{false}}">修改</button>
+      <view class='action' bindtap='toChangeEmail'>
+        <tag class='round'>修改</tag>
+      </view>
     </form-group>
     <form-group>
       <view class='title'>所属公司：</view>
-      <input class='radius' disabled="{{true}}" value='-'></input>
+      <input class='radius' disabled="{{true}}" value='{{user.organizeName}}'></input>
+      <view class='action' bindtap='toChangeOrganize'>
+        <tag class='round'>修改</tag>
+      </view>
     </form-group>
     <form-group>
       <view class='title'>可创建农场数：</view>

@@ -1,0 +1,11 @@
+<view>
+  <form report-submit="{{true}}" bindsubmit="toAction">
+    <form-group class="margin-top">
+      <view class='title'>公司名称</view>
+      <input placeholder="请输入公司名称" class='radius' name='organizeName' value="{{organizeName}}"></input>
+    </form-group>
+    <view class="padding-xl">
+      <button class='block bg-blue margin-tb-sm lg' form-type="submit">修改</button>
+    </view>
+  </form>
+</view>
