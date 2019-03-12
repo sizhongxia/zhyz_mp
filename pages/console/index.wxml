@@ -15,15 +15,46 @@
       </navigator>
     </item>
     <item>
-      <navigator hover-class='none' url="/pages/equipment/index">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/console_equipment.png-yeetong?v2'></image>
-        <text>设备管理</text>
-      </navigator>
-    </item>
-    <item>
       <navigator hover-class='none' url="/pages/farm/farmPic/index">
         <image src='https://static.yeetong.cn/yeetong/function/icon/console_image.png-yeetong?v2'></image>
         <text>图片管理</text>
+      </navigator>
+    </item>
+  </list>
+  <bar class="solid-bottom width-full" style="background: none;">
+    <view class='action'>
+      <icon class='icon-titles text-orange ' /> 采集监控
+    </view>
+  </bar>
+  <list class="grid no-border col-4">
+    <item>
+      <navigator hover-class='none' url="/pages/equipment/type/index?typeId=5c2085cb7e29123757fd3fe9">
+        <image src='https://static.yeetong.cn/yeetong/function/icon/app_xhl_collect.png-yeetong?v3'></image>
+        <text>黄犁眼</text>
+      </navigator>
+    </item>
+    <item>
+      <navigator hover-class='none' url="/pages/equipment/type/index?typeId=5c2085cb7e29123757fd3fea">
+        <image src='https://static.yeetong.cn/yeetong/function/icon/app_xhl_control.png-yeetong?v3'></image>
+        <text>黄犁手</text>
+      </navigator>
+    </item>
+    <item>
+      <navigator hover-class='none' url="/pages/equipment/type/index?typeId=5c2085cb7e29123757fd3feb">
+        <image src='https://static.yeetong.cn/yeetong/function/icon/app_xhl_hezi.png-yeetong?v3'></image>
+        <text>智能盒子</text>
+      </navigator>
+    </item>
+    <item>
+      <navigator hover-class='none' url="/pages/equipment/type/index?typeId=5c2085cb7e29123757fd3fec">
+        <image src='https://static.yeetong.cn/yeetong/function/icon/app_xhl_video.png-yeetong?v3'></image>
+        <text>视频监控</text>
+      </navigator>
+    </item>
+    <item>
+      <navigator hover-class='none' url="/pages/equipment/type/index?typeId=other">
+        <image src='https://static.yeetong.cn/yeetong/function/icon/app_collect_other.png-yeetong?v3'></image>
+        <text>其他</text>
       </navigator>
     </item>
   </list>

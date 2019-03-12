@@ -4,7 +4,6 @@ const app = getApp();
 Page({
   data: {
     equipments: [],
-    typeName: 'Loading...',
     farmId: '',
     typeId: ''
   },
@@ -22,41 +21,26 @@ Page({
       title: '请稍后...',
       mask: true
     });
-    if (_this.data.typeId == 'SP') {
-      equipmentService.getEquipmentVideoData(_this.data.farmId).then(res => {
-        _this.setData({
-          equipments: res.equipments,
-          typeName: res.equipmentTypeName
-        });
-        wx.hideLoading();
-        callback && callback();
-      }).catch(err => {
-        wx.hideLoading();
-        if (err) {
-          if (err.message) {
-            util.showErrorToast(err.message);
-          }
-        }
-        callback && callback();
+    equipmentService.getEquipmentTypeData(_this.data.farmId, _this.data.typeId).then(res => {
+      _this.setData({
+        equipments: res.equipments
       });
-    } else {
-      equipmentService.getEquipmentTypeData(_this.data.farmId, _this.data.typeId).then(res => {
-        _this.setData({
-          equipments: res.equipments,
-          typeName: res.equipmentTypeName
-        });
-        wx.hideLoading();
-        callback && callback();
-      }).catch(err => {
-        wx.hideLoading();
-        if (err) {
-          if (err.message) {
-            util.showErrorToast(err.message);
-          }
+      if (res.equipmentTypeName) {
+        wx.setNavigationBarTitle({
+          title: res.equipmentTypeName + '设备列表'
+        })
+      }
+      wx.hideLoading();
+      callback && callback();
+    }).catch(err => {
+      wx.hideLoading();
+      callback && callback();
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
         }
-        callback && callback();
-      });
-    }
+      }
+    });
   },
   toStatistic: function(e) {
     wx.navigateTo({

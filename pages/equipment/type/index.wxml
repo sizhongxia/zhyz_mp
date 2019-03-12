@@ -1,3 +1,6 @@
+<list class="menu menu-avatar no-padding" wx:if="{{equipments.length === 0}}">
+  <view class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无设备</view>
+</list>
 <list class="menu menu-avatar" wx:if="{{typeId!='SP'}}">
   <item wx:for="{{equipments}}" wx:key="equipmentId" data-equipment-id="{{item.equipmentId}}" bindtap='toStatistic'>
     <avatar class="radius lg {{item.online ? 'bg-green' : 'bg-red'}}">
