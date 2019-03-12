@@ -1,5 +1,5 @@
 var farmService = require('../../service/farm.js');
-var equipmentService = require('../../service/equipment.js');
+// var equipmentService = require('../../service/equipment.js');
 var inspectionService = require('../../service/inspection.js');
 var newsService = require('../../service/news.js');
 var feedService = require('../../service/feed.js');
@@ -93,17 +93,17 @@ Page({
         }
       }
     });
-    equipmentService.getEquipmentCollectionHomeTj(farmId).then(res => {
-      _this.setData({
-        monitorInfo: res
-      });
-    }).catch(err => {
-      if (err) {
-        if (err.message) {
-          util.showErrorToast(err.message);
-        }
-      }
-    });
+    // equipmentService.getEquipmentCollectionHomeTj(farmId).then(res => {
+    //   _this.setData({
+    //     monitorInfo: res
+    //   });
+    // }).catch(err => {
+    //   if (err) {
+    //     if (err.message) {
+    //       util.showErrorToast(err.message);
+    //     }
+    //   }
+    // });
 
     inspectionService.getLastInspectionDetail(farmId).then(res => {
       _this.setData({

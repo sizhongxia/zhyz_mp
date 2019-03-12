@@ -46,7 +46,7 @@
       </navigator>
     </item>
     <item>
-      <navigator hover-class='none' url="/pages/equipment/type/index?typeId=5c2085cb7e29123757fd3fec">
+      <navigator hover-class='none' url="/pages/equipment/type/video?typeId=5c2085cb7e29123757fd3fec">
         <image src='https://static.yeetong.cn/yeetong/function/icon/app_xhl_video.png-yeetong?v3'></image>
         <text>视频监控</text>
       </navigator>

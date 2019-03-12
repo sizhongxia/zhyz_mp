@@ -64,18 +64,20 @@ module.exports = {
   DeleteFarmArea: ApiUrl + '/zhyz/miniapp/api/farmArea/delete',
   FarmAreaDetail: ApiUrl + '/zhyz/miniapp/api/farmArea/detail',
 
-  EquipmentData: ApiUrl + '/zhyz/miniapp/api/equipment/list',
-  FarmAllEquipmentsData: ApiUrl + '/zhyz/miniapp/api/equipment/allFarmEquipments',
   EquipmentTypeData: ApiUrl + '/zhyz/miniapp/api/equipment/typeList',
-  EquipmentVideoData: ApiUrl + '/zhyz/miniapp/api/equipment/videoList',
-  EquipmentCollectionHisData: ApiUrl + '/zhyz/miniapp/api/equipment/collectionHisData',
-  EquipmentCollectionAlarmData: ApiUrl + '/zhyz/miniapp/api/equipment/collectionAlarmData',
-  EquipmentCollectionHomeTj: ApiUrl + '/zhyz/miniapp/api/equipment/homeTj',
+  // EquipmentData: ApiUrl + '/zhyz/miniapp/api/equipment/list',
+  // FarmAllEquipmentsData: ApiUrl + '/zhyz/miniapp/api/equipment/allFarmEquipments',
+  // EquipmentVideoData: ApiUrl + '/zhyz/miniapp/api/equipment/videoList',
+  // EquipmentCollectionHisData: ApiUrl + '/zhyz/miniapp/api/equipment/collectionHisData',
+  // EquipmentCollectionAlarmData: ApiUrl + '/zhyz/miniapp/api/equipment/collectionAlarmData',
+  // EquipmentCollectionHomeTj: ApiUrl + '/zhyz/miniapp/api/equipment/homeTj',
+
   EquipmentAlarmConfData: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/data',
   SaveEquipmentAlarmConf: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/save',
   EquipmentAlarmConfDetail: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/detail',
   ChangeEquipmentAlarmConfUseState: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/changeUseState',
   DeleteEquipmentAlarmConf: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/delete',
+
   CheckAlarmPhone: ApiUrl + '/zhyz/miniapp/api/check/alarmPhone',
 
   PoultryVarietyData: ApiUrl + '/zhyz/miniapp/api/poultry/variety/data',

@@ -7,7 +7,7 @@ Page({
     farmId: '',
     typeId: ''
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     const _this = this;
     _this.setData({
       farmId: wx.getStorageSync('curr-farm-id'),
@@ -15,7 +15,7 @@ Page({
     });
     _this.load();
   },
-  load: function(callback) {
+  load: function (callback) {
     const _this = this;
     wx.showLoading({
       title: '请稍后...',
@@ -42,14 +42,14 @@ Page({
       }
     });
   },
-  toStatistic: function(e) {
+  toVideoLive: function (e) {
     wx.navigateTo({
-      url: '/pages/webview/index?path=https://www.yeetong.cn/mp/equipment/statistics/' + e.currentTarget.dataset.equipmentId
+      url: '/pages/webview/index?path=https://www.yeetong.cn/mp/equipment/livevideo/' + e.currentTarget.dataset.equipmentId
     });
   },
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     const _this = this;
-    _this.load(function() {
+    _this.load(function () {
       wx.stopPullDownRefresh();
     });
   }
