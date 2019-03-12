@@ -1,0 +1,4 @@
+form-group .title {
+	width: 256rpx;
+	text-align: right;
+}

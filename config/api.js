@@ -64,7 +64,9 @@ module.exports = {
   DeleteFarmArea: ApiUrl + '/zhyz/miniapp/api/farmArea/delete',
   FarmAreaDetail: ApiUrl + '/zhyz/miniapp/api/farmArea/detail',
 
+  EquipmentDetail: ApiUrl + '/zhyz/miniapp/api/equipment/detail',
   EquipmentTypeData: ApiUrl + '/zhyz/miniapp/api/equipment/typeList',
+  EquipmentMonitorItems: ApiUrl + '/zhyz/miniapp/api/equipment/monitorItems',
   // EquipmentData: ApiUrl + '/zhyz/miniapp/api/equipment/list',
   // FarmAllEquipmentsData: ApiUrl + '/zhyz/miniapp/api/equipment/allFarmEquipments',
   // EquipmentVideoData: ApiUrl + '/zhyz/miniapp/api/equipment/videoList',

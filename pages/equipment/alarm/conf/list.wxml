@@ -2,7 +2,7 @@
   <item class="arrow" wx:for="{{confs}}" wx:key="confId" data-conf-id="{{item.confId}}" bindtap="toDetail">
     <view class='content'>
       <view style='font-size:26rpx'>
-        <text style='color:#444'>当设备采集到</text>{{item.typeNmae}}<text style='color:#444'>值</text>
+        <text style='color:#444'>当{{item.typeName}}采集值</text>
         <text style='color:#f37b1d;font-weight:600'>{{item.operationalCharacter}}{{item.monitorAlarmValue}}</text>
         <text style='color:#444'>时发送告警通知。</text>
       </view>
@@ -15,8 +15,6 @@
   </item>
   <view wx:if="{{confs.length === 0}}" class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无数据</view>
 </list>
-
-<view class='h120 width-full'>Yeetong.cn</view>
 
 <bar class="btn-group options width-full">
   <button class='bg-green round lg' bindtap='toAdd'>

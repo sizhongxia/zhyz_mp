@@ -4,7 +4,7 @@
       <text class='text-grey'>告警规则</text>
     </view>
     <view class='action'>
-      <text class='text-grey text-sm'>采集值{{conf.operationalCharacter}}{{conf.monitorAlarmValue}}时发送告警通知。</text>
+      <text class='text-grey text-sm'>当{{conf.monitorTermName}}采集值{{conf.operationalCharacter}}{{conf.monitorAlarmValue}}{{conf.monitorTermUnit}}时发送告警通知。</text>
     </view>
   </item>
   <item>
@@ -54,8 +54,6 @@
     </view>
   </item>
 </list>
-
-<view class='h120 width-full'>Yeetong.cn</view>
 
 <bar class="btn-group options width-full">
   <button loading='{{submiting}}' class='bg-red round lg' bindtap='toDelete'>

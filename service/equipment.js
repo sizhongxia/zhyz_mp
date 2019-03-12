@@ -13,10 +13,21 @@ var util = require('../utils/util.js')
 //   });
 // }
 
+const getEquipmentDetail = (equipmentId) => {
+  return util.post(api.EquipmentDetail, {
+    equipmentId: equipmentId
+  });
+}
 const getEquipmentTypeData = (farmId, typeId) => {
   return util.post(api.EquipmentTypeData, {
     farmId: farmId,
     typeId: typeId
+  });
+}
+
+const getEquipmentMonitorItems = (equipmentId) => {
+  return util.post(api.EquipmentMonitorItems, {
+    equipmentId: equipmentId
   });
 }
 
@@ -49,9 +60,11 @@ const getEquipmentTypeData = (farmId, typeId) => {
 module.exports = {
   // getEquipmentData: getEquipmentData,
   // getFarmBaseEquipmentData: getFarmBaseEquipmentData,
-  getEquipmentTypeData: getEquipmentTypeData,
   // getEquipmentVideoData: getEquipmentVideoData,
   // getEquipmentCollectionHisData: getEquipmentCollectionHisData,
   // getEquipmentCollectionAlarmData: getEquipmentCollectionAlarmData,
   // getEquipmentCollectionHomeTj: getEquipmentCollectionHomeTj
+  getEquipmentDetail: getEquipmentDetail,
+  getEquipmentTypeData: getEquipmentTypeData,
+  getEquipmentMonitorItems: getEquipmentMonitorItems
 }

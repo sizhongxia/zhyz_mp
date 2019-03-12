@@ -1,10 +1,12 @@
 var equipmentAlarmConfService = require('../../../../service/equipmentAlarmConf.js');
+var equipmentService = require('../../../../service/equipment.js');
 var util = require('../../../../utils/util.js');
 const app = getApp()
 
 Page({
   data: {
     equipmentId: '',
+    monitorItems: [],
     operationalCharacters: [{
       ocName: '大于',
       ocValue: 'Gt'
@@ -37,6 +39,9 @@ Page({
       monitorAlarmValue: 0,
       operationalCharacter: 'Gt',
       operationalCharacterName: '大于',
+      monitorItemCode: '',
+      monitorItemName: '请选择',
+      monitorItemUnit: '',
       pushInterval: 10,
       pushTypes: [],
       pushPerson1: '',
@@ -55,10 +60,41 @@ Page({
       form: form
     });
   },
+  onShow: function() {
+    const _this = this;
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    equipmentService.getEquipmentMonitorItems(_this.data.form.equipmentId).then(res => {
+      _this.setData({
+        monitorItems: res
+      });
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        }
+      }
+    });
+  },
   inputMonitorAlarmValue: function(e) {
     const _this = this;
     var form = _this.data.form;
     form.monitorAlarmValue = e.detail.value;
+    _this.setData({
+      form: form
+    });
+  },
+  monitorItemsChange: function(e) {
+    const _this = this;
+    var form = _this.data.form;
+    var oc = _this.data.monitorItems[e.detail.value];
+    form.monitorItemCode = oc.code;
+    form.monitorItemName = oc.name;
+    form.monitorItemUnit = oc.unit;
     _this.setData({
       form: form
     });
@@ -180,24 +216,7 @@ Page({
       submiting: true
     });
     equipmentAlarmConfService.saveEquipmentAlarmConf(this.data.form).then(res => {
-      wx.showToast({
-        title: '保存成功'
-      });
-      var form = _this.data.form;
-      form.monitorAlarmValue = 0;
-      form.operationalCharacter = "Gt";
-      form.operationalCharacterName = "大于";
-      form.pushInterval = 10;
-      form.pushTypes = [];
-      form.pushPerson1 = "";
-      form.pushPerson2 = "";
-      form.pushPerson3 = "";
-      form.pushPerson4 = "";
-      form.pushPerson5 = "";
-      _this.setData({
-        submiting: false,
-        form: form
-      });
+      wx.navigateBack();
     }).catch(err => {
       _this.setData({
         submiting: false

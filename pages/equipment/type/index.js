@@ -43,8 +43,11 @@ Page({
     });
   },
   toStatistic: function(e) {
+    // wx.navigateTo({
+    //   url: '/pages/webview/index?path=https://www.yeetong.cn/mp/equipment/statistics/' + e.currentTarget.dataset.equipmentId
+    // });
     wx.navigateTo({
-      url: '/pages/webview/index?path=https://www.yeetong.cn/mp/equipment/statistics/' + e.currentTarget.dataset.equipmentId
+      url: '/pages/equipment/type/detail?equipmentId=' + e.currentTarget.dataset.equipmentId
     });
   },
   onPullDownRefresh: function() {
