@@ -21,6 +21,7 @@ module.exports = {
   AuthFarms: ApiUrl + '/zhyz/miniapp/api/farm/auths',
   FarmUserVisitApply: ApiUrl + '/zhyz/miniapp/api/farm/userApplys',
   FarmUserVisitApplyHandle: ApiUrl + '/zhyz/miniapp/api/farm/userApplyHandle',
+  FarmHomeData: ApiUrl + '/zhyz/miniapp/api/farm/homeData',
   FarmDetail: ApiUrl + '/zhyz/miniapp/api/farm/detail',
   FarmFuncs: ApiUrl + '/zhyz/miniapp/api/farm/funcs',
   FarmSaveFunc: ApiUrl + '/zhyz/miniapp/api/farm/addFunc',
@@ -71,7 +72,9 @@ module.exports = {
   // FarmAllEquipmentsData: ApiUrl + '/zhyz/miniapp/api/equipment/allFarmEquipments',
   // EquipmentVideoData: ApiUrl + '/zhyz/miniapp/api/equipment/videoList',
   // EquipmentCollectionHisData: ApiUrl + '/zhyz/miniapp/api/equipment/collectionHisData',
-  // EquipmentCollectionAlarmData: ApiUrl + '/zhyz/miniapp/api/equipment/collectionAlarmData',
+  EquipmentCollectionAlarmData: ApiUrl + '/zhyz/miniapp/api/equipment/collectionAlarmData',
+  EquipmentCollectionAlarmDetail: ApiUrl + '/zhyz/miniapp/api/equipment/collectionAlarmDetail',
+  
   // EquipmentCollectionHomeTj: ApiUrl + '/zhyz/miniapp/api/equipment/homeTj',
 
   EquipmentAlarmConfData: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/data',

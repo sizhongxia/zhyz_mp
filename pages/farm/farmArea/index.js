@@ -7,7 +7,7 @@ Page({
   data: {
     areas: []
   },
-  onLoad: function (options) {
+  onShow: function () {
     this.load();
   },
   load: function (callback) {
@@ -72,10 +72,10 @@ Page({
         }
       }
     });
-  },
-  onPullDownRefresh: function () {
-    this.load(function () {
-      wx.stopPullDownRefresh();
-    });
   }
+  // onPullDownRefresh: function () {
+  //   this.load(function () {
+  //     wx.stopPullDownRefresh();
+  //   });
+  // }
 })

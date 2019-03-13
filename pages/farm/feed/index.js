@@ -14,13 +14,12 @@ Page({
     isOver: false
   },
   onLoad: function (options) {
-    const _this = this;
-    _this.setData({
+    this.setData({
       farmId: wx.getStorageSync('curr-farm-id')
     });
-    _this.load();
   },
   onShow: function () {
+    this.load();
   },
   load: function (callback) {
     const _this = this;
@@ -83,15 +82,15 @@ Page({
     wx.navigateTo({
       url: '/pages/farm/feed/detail?feedId=' + e.currentTarget.dataset.feedId,
     });
-  },
-  onPullDownRefresh: function () {
-    const _this = this;
-    _this.setData({
-      isOver: false,
-      page: 1
-    });
-    _this.load(function() {
-      wx.stopPullDownRefresh();
-    });
   }
+  // onPullDownRefresh: function () {
+  //   const _this = this;
+  //   _this.setData({
+  //     isOver: false,
+  //     page: 1
+  //   });
+  //   _this.load(function() {
+  //     wx.stopPullDownRefresh();
+  //   });
+  // }
 })

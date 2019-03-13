@@ -2,3 +2,9 @@ form-group .title {
 	width: 256rpx;
 	text-align: right;
 }
+
+.modelItem {
+  line-height:64rpx;
+  font-size:32rpx;
+  font-weight:300;
+}

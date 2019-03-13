@@ -44,12 +44,19 @@ const getEquipmentMonitorItems = (equipmentId) => {
 //   });
 // }
 
-// const getEquipmentCollectionAlarmData = (equipmentId, date) => {
-//   return util.post(api.EquipmentCollectionAlarmData, {
-//     equipmentId: equipmentId,
-//     date: date
-//   });
-// }
+const getEquipmentCollectionAlarmData = (equipmentId, page) => {
+  return util.post(api.EquipmentCollectionAlarmData, {
+    equipmentId: equipmentId,
+    page: page
+  });
+}
+const getEquipmentCollectionAlarmDetail = (resId) => {
+  return util.post(api.EquipmentCollectionAlarmDetail, {
+    resId: resId
+  });
+}
+
+
 
 // const getEquipmentCollectionHomeTj = (farmId) => {
 //   return util.post(api.EquipmentCollectionHomeTj, {
@@ -61,8 +68,8 @@ module.exports = {
   // getEquipmentData: getEquipmentData,
   // getFarmBaseEquipmentData: getFarmBaseEquipmentData,
   // getEquipmentVideoData: getEquipmentVideoData,
-  // getEquipmentCollectionHisData: getEquipmentCollectionHisData,
-  // getEquipmentCollectionAlarmData: getEquipmentCollectionAlarmData,
+  getEquipmentCollectionAlarmDetail: getEquipmentCollectionAlarmDetail,
+  getEquipmentCollectionAlarmData: getEquipmentCollectionAlarmData,
   // getEquipmentCollectionHomeTj: getEquipmentCollectionHomeTj
   getEquipmentDetail: getEquipmentDetail,
   getEquipmentTypeData: getEquipmentTypeData,

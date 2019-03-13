@@ -40,15 +40,15 @@ Page({
       }
     });
   },
-  onReady: function () {
+  onLoad: function () {
     this.loadNews(1);
   },
   loadMore: function () {
     this.loadNews(this.data.page + 1);
-  },
-  onPullDownRefresh: function () {
-    this.loadNews(1, function () {
-      wx.stopPullDownRefresh();
-    });
   }
+  // onPullDownRefresh: function () {
+  //   this.loadNews(1, function () {
+  //     wx.stopPullDownRefresh();
+  //   });
+  // }
 })

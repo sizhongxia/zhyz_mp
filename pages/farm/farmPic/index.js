@@ -9,12 +9,13 @@ Page({
     pics: []
   },
   onLoad: function (options) {
-    const _this = this;
     var farmId = wx.getStorageSync('curr-farm-id');
-    _this.setData({
+    this.setData({
       farmId: farmId
     });
-    _this.load();
+  },
+  onShow: function () {
+    this.load();
   },
   load: function (callback) {
     wx.showLoading({
@@ -43,12 +44,12 @@ Page({
       url: '/pages/farm/farmPic/upload',
     });
   },
-  onPullDownRefresh: function () {
-    const _this = this;
-    _this.load(function () {
-      wx.stopPullDownRefresh();
-    });
-  },
+  // onPullDownRefresh: function () {
+  //   const _this = this;
+  //   _this.load(function () {
+  //     wx.stopPullDownRefresh();
+  //   });
+  // },
   toEdit: function (e) {
     wx.navigateTo({
       url: '/pages/farm/farmPic/edit?picId=' + e.currentTarget.dataset.id

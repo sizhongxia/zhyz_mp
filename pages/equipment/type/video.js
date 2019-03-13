@@ -8,12 +8,13 @@ Page({
     typeId: ''
   },
   onLoad: function (options) {
-    const _this = this;
-    _this.setData({
+    this.setData({
       farmId: wx.getStorageSync('curr-farm-id'),
       typeId: options.typeId
     });
-    _this.load();
+  },
+  onShow: function () {
+    this.load();
   },
   load: function (callback) {
     const _this = this;
@@ -46,11 +47,11 @@ Page({
     wx.navigateTo({
       url: '/pages/webview/index?path=https://www.yeetong.cn/mp/equipment/livevideo/' + e.currentTarget.dataset.equipmentId
     });
-  },
-  onPullDownRefresh: function () {
-    const _this = this;
-    _this.load(function () {
-      wx.stopPullDownRefresh();
-    });
   }
+  // onPullDownRefresh: function () {
+  //   const _this = this;
+  //   _this.load(function () {
+  //     wx.stopPullDownRefresh();
+  //   });
+  // }
 })

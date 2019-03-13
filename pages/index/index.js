@@ -6,7 +6,7 @@ var feedService = require('../../service/feed.js');
 
 var util = require('../../utils/util.js');
 const app = getApp();
-
+var refreshing = false;
 Page({
   data: {
     userInfo: {},
@@ -26,16 +26,22 @@ Page({
       userInfo: app.globalData.userInfo,
       farmIdentity: wx.getStorageSync('curr-farm-identity')
     });
+  },
+  onShow: function() {
     this.loadData();
   },
-  onShow: function () {
-    this.loadData();
-  },
-  onPullDownRefresh: function() {
-    this.loadData(function() {
-      wx.stopPullDownRefresh();
-    });
-  },
+  // onPullDownRefresh: function() {
+  //   if (refreshing) {
+  //     return;
+  //   }
+  //   refreshing = true;
+  //   this.loadData(function() {
+  //     setTimeout(()=>{
+  //       wx.stopPullDownRefresh();
+  //       refreshing = false;
+  //     }, 1000)
+  //   });
+  // },
   showMore: function(e) {
     var content = e.currentTarget.dataset.content;
     wx.showModal({
@@ -63,30 +69,18 @@ Page({
       mask: true
     });
     var farmId = wx.getStorageSync('curr-farm-id');
-    farmService.selectFarmBanners(farmId).then(res => {
+    farmService.getFarmHomeData(farmId).then(res => {
       _this.setData({
-        banners: res
+        banners: res.banners,
+        farm: res.farm,
+        weather: res.weather,
+        news: res.news
       });
-      return farmService.farmDetail(farmId);
-    }).then(res => {
-      _this.setData({
-        farm: res
-      });
-      let weatherCityCode = res.weatherCityCode;
-      if (!weatherCityCode) {
-        weatherCityCode = 'CN101010100';
-      }
-      return farmService.selectFarmWeather(weatherCityCode)
-    }).then(res => {
-      if (res) {
-        _this.setData({
-          weather: res
-        });
-      }
       wx.hideLoading();
       callback && callback();
     }).catch(err => {
       wx.hideLoading();
+      callback && callback();
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
@@ -104,26 +98,31 @@ Page({
     //     }
     //   }
     // });
+    // setTimeout(() => {
+    //   newsService.getNewsByPage(1, 1).then(res => {
+    //     if (res.list) {
+    //       _this.setData({
+    //         news: res.list[0]
+    //       });
+    //     }
+    //   });
+    // }, 800)
 
-    inspectionService.getLastInspectionDetail(farmId).then(res => {
-      _this.setData({
-        inspection: res
-      });
-    });
-
-    feedService.getLastFeedDetail(farmId).then(res => {
-      _this.setData({
-        feed: res
-      });
-    });
-
-    newsService.getNewsByPage(1, 1).then(res => {
-      if (res.list) {
+    // setTimeout(() => {
+      inspectionService.getLastInspectionDetail(farmId).then(res => {
         _this.setData({
-          news: res.list[0]
+          inspection: res
         });
-      }
-    });
+      });
+    // }, 1600)
+
+    // setTimeout(() => {
+      feedService.getLastFeedDetail(farmId).then(res => {
+        _this.setData({
+          feed: res
+        });
+      });
+    // }, 2400)
 
   },
   toEditFarmInfo: function () {
