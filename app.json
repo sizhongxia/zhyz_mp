@@ -64,7 +64,8 @@
     "navigationBarBackgroundColor": "#000000",
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "智慧农场",
-    "backgroundTextStyle": "light"
+    "enablePullDownRefresh": false,
+    "backgroundTextStyle": "dark"
   },
   "tabBar": {
     "color": "#515151",
@@ -100,5 +101,5 @@
     "request": 10000,
     "downloadFile": 10000
   },
-  "debug": false
+  "debug": true
 }

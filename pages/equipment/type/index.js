@@ -1,4 +1,5 @@
 var equipmentService = require('../../../service/equipment.js');
+var util = require('../../../utils/util.js');
 const app = getApp();
 
 Page({

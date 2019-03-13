@@ -6,7 +6,6 @@ var feedService = require('../../service/feed.js');
 
 var util = require('../../utils/util.js');
 const app = getApp();
-var refreshing = false;
 Page({
   data: {
     userInfo: {},
@@ -42,6 +41,9 @@ Page({
   //     }, 1000)
   //   });
   // },
+  onPullDownRefresh() {
+    wx.stopPullDownRefresh()
+  },
   showMore: function(e) {
     var content = e.currentTarget.dataset.content;
     wx.showModal({
@@ -62,7 +64,7 @@ Page({
       }
     });
   },
-  loadData: function(callback) {
+  loadData: function() {
     const _this = this;
     wx.showLoading({
       title: '请稍后...',
@@ -77,36 +79,14 @@ Page({
         news: res.news
       });
       wx.hideLoading();
-      callback && callback();
     }).catch(err => {
       wx.hideLoading();
-      callback && callback();
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
         }
       }
     });
-    // equipmentService.getEquipmentCollectionHomeTj(farmId).then(res => {
-    //   _this.setData({
-    //     monitorInfo: res
-    //   });
-    // }).catch(err => {
-    //   if (err) {
-    //     if (err.message) {
-    //       util.showErrorToast(err.message);
-    //     }
-    //   }
-    // });
-    // setTimeout(() => {
-    //   newsService.getNewsByPage(1, 1).then(res => {
-    //     if (res.list) {
-    //       _this.setData({
-    //         news: res.list[0]
-    //       });
-    //     }
-    //   });
-    // }, 800)
 
     // setTimeout(() => {
       inspectionService.getLastInspectionDetail(farmId).then(res => {
