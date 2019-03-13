@@ -8,6 +8,9 @@ Page({
     page: 1,
     totalPage: 1
   },
+  onShow: function () {
+    this.loadNews(1);
+  },
   loadNews: function (page, ck) {
     const _this = this;
     wx.showLoading({
@@ -39,9 +42,6 @@ Page({
         }
       }
     });
-  },
-  onLoad: function () {
-    this.loadNews(1);
   },
   loadMore: function () {
     this.loadNews(this.data.page + 1);

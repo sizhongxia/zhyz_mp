@@ -1,6 +1,4 @@
 {
   "usingComponents": {},
-  "enablePullDownRefresh": true,
-  "backgroundTextStyle": "dark",
   "navigationBarTitleText": "投食记录"
 }

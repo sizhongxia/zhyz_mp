@@ -1,6 +1,4 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "设备列表",
-  "backgroundTextStyle": "dark",
-  "enablePullDownRefresh": true
+  "navigationBarTitleText": "设备列表"
 }

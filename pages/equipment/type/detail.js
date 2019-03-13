@@ -135,8 +135,6 @@ Page({
     })
   }
   // ,
-  // "backgroundTextStyle": "dark",
-  // "enablePullDownRefresh": true
   // onPullDownRefresh: function () {
   //   const _this = this;
   //   if (_this.data.refreshing) {
