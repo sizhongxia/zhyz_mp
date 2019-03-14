@@ -3,6 +3,7 @@ var util = require('../utils/util.js')
 
 const getNewsByPage = (page, size) => {
   return util.post(api.NewsData, {
+    source: 'mp',
     page: page,
     size: size || 10
   });

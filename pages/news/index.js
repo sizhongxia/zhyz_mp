@@ -45,10 +45,14 @@ Page({
   },
   loadMore: function () {
     this.loadNews(this.data.page + 1);
+  },
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading();
+    console.info(new Date())
+    // this.loadNews(1, function () {
+    //   
+    // });
+    wx.stopPullDownRefresh();
   }
-  // onPullDownRefresh: function () {
-  //   this.loadNews(1, function () {
-  //     wx.stopPullDownRefresh();
-  //   });
-  // }
+  
 })

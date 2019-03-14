@@ -4,7 +4,7 @@
     <navigator hover-class='none' url="/pages/webview/index?path=https://www.yeetong.cn/mp/news/{{item.uniqueId}}">
       <view class="title"><text wx:if="{{item.isNew}}">[新]</text>{{item.newsTitle}}</view>
       <view class="content" style="padding: 0">
-        <image src="{{item.coverPic}}" mode="aspectFill"></image>
+        <image lazy-load="{{true}}" src="{{item.coverPic}}" mode="aspectFill"></image>
         <view class="desc">
           <view class='text-content'>{{item.abstract}}</view>
           <view>
