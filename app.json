@@ -13,6 +13,7 @@
     "pages/equipment/type/index",
     "pages/equipment/type/detail",
     "pages/equipment/type/video",
+    "pages/message/index",
     "pages/console/index",
     "pages/mine/index",
     "pages/mine/userinfo",
@@ -76,6 +77,12 @@
         "text": "首页",
         "iconPath": "/static/images/menus/home.png",
         "selectedIconPath": "/static/images/menus/home-s.png"
+      },
+      {
+        "pagePath": "pages/message/index",
+        "text": "消息",
+        "iconPath": "/static/images/menus/message.png",
+        "selectedIconPath": "/static/images/menus/message-s.png"
       },
       {
         "pagePath": "pages/console/index",

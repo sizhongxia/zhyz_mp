@@ -1,0 +1,18 @@
+<list class="menu menu-avatar no-padding" wx:if="{{list.length === 0}}">
+  <view class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无消息</view>
+</list>
+<view class="cu-list menu menu-avatar">
+  <view class="cu-item" wx:for="{{list}}" wx:key="id" data-type="{{item.type}}" data-id="{{item.id}}">
+    <view class="cu-avatar round lg">
+      <image mode='aspectFit' style='width: 100rpx;height:100rpx;' src='{{item.icon}}'></image>
+    </view>
+    <view class='content'>
+      <view class='text-grey'>{{item.name}}</view>
+      <view class='text-gray text-sm'>
+        <text class='icon-infofill text-red'>{{item.content}}</text></view>
+    </view>
+    <view class='action'>
+      <view class='text-grey text-xs'>{{item.time}}</view>
+    </view>
+  </view>
+</view>

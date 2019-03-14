@@ -553,13 +553,13 @@ item, chat, image {
 /* ==================
           图片
  ==================== */
-
+/* 
 image {
   max-width: 100%;
   display: inline-block;
   position: relative;
   z-index: 0;
-}
+} */
 
 image.loading::before {
   content: "";

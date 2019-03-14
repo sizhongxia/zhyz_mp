@@ -20,6 +20,7 @@ Page({
       name: '猪'
     }],
     areas: [],
+    farmId: '',
     form: {
       farmId: '',
       farmAreaId: '',
@@ -90,8 +91,11 @@ Page({
   },
   onLoad: function(options) {
     const _this = this;
-    _this.loadPoultryVarietyData();
     var farmId = wx.getStorageSync('curr-farm-id');
+    _this.setData({
+      farmId: farmId
+    });
+    _this.loadPoultryVarietyData();
     farmService.selectFarmAreas(farmId).then(res => {
       var form = _this.data.form;
       form.farmId = farmId;
@@ -112,13 +116,13 @@ Page({
       }
     });
   },
-  loadPoultryVarietyData: function() {
+  loadPoultryVarietyData: function () {
     const _this = this;
     wx.showLoading({
       title: '请稍后...',
       mask: true
     });
-    poultryVarietyService.getPoultryVarietyData(_this.data.form.kindId).then(res => {
+    poultryVarietyService.getPoultryVarietyData(_this.data.farmId, _this.data.form.kindId).then(res => {
       _this.setData({
         varieties: res
       });

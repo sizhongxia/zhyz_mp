@@ -33,30 +33,6 @@
       <tag class='bg-red round'>{{ auditsNum }}</tag>
     </view>
   </item>
-</list>
-<!--
-  <item class="arrow" bindtap='toEquipmentConfs'>
-    <view class='content'>
-      <icon class='icon-settings text-green' />
-      <text class='text-grey'>设备告警推送设置</text>
-    </view>
-  </item>
-<list class="menu">
-  <item class="arrow" bindtap='toFeedTags'>
-    <view class='content'>
-      <icon class='icon-tag text-green' />
-      <text class='text-grey'>投食标签管理</text>
-    </view>
-  </item>
-</list>
--->
-<list class="menu margin-top">
-  <item class="arrow" bindtap='toAuthFarms'>
-    <view class='content'>
-      <icon class='icon-emoji text-green' />
-      <text class='text-grey'>切换农场</text>
-    </view>
-  </item>
   <item class="arrow" bindtap='toApplyFarm'>
     <view class='content'>
       <icon class='icon-qr_code text-green' />
@@ -64,6 +40,12 @@
     </view>
     <view class='action'>
       <tag class='round'>扫描申请</tag>
+    </view>
+  </item>
+  <item class="arrow" bindtap='toAuthFarms'>
+    <view class='content'>
+      <icon class='icon-emoji text-green' />
+      <text class='text-grey'>切换农场</text>
     </view>
   </item>
   <!-- 
