@@ -47,7 +47,7 @@
 }
 
 .tower-swiper .tower-item {
-  height: 720rpx;
+  height: 820rpx;
   width: 520rpx;
   left: 35%;
 }

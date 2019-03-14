@@ -1,5 +1,5 @@
 <view style='width: 750rpx;height: 280rpx;'>
-  <image src='https://static.yeetong.cn/yeetong/function/icon/console_head.png-yeetong?v3' style='width: 100%;height:100%;'></image>
+  <image lazy-load="{{true}}" src='https://static.yeetong.cn/yeetong/function/icon/console_head.png-yeetong?v3' style='width: 100%;height:100%;'></image>
 </view>
 <view wx:if='{{currentFarmIdentity === "admin" || currentFarmIdentity === "manager"}}'>
   <bar class="solid-bottom width-full" style="background: none;">
@@ -10,13 +10,13 @@
   <list class="grid no-border col-4">
     <item>
       <navigator hover-class='none' url="/pages/farm/farmArea/index">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/console_area.png-yeetong?v2'></image>
+        <image lazy-load="{{true}}" src='https://static.yeetong.cn/yeetong/function/icon/console_area.png-yeetong?v2'></image>
         <text>厂区管理</text>
       </navigator>
     </item>
     <item>
       <navigator hover-class='none' url="/pages/farm/farmPic/index">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/console_image.png-yeetong?v2'></image>
+        <image lazy-load="{{true}}" src='https://static.yeetong.cn/yeetong/function/icon/console_image.png-yeetong?v2'></image>
         <text>图片管理</text>
       </navigator>
     </item>
@@ -29,31 +29,31 @@
   <list class="grid no-border col-4">
     <item>
       <navigator hover-class='none' url="/pages/equipment/type/index?typeId=5c2085cb7e29123757fd3fe9">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/app_xhl_collect.png-yeetong?v3'></image>
+        <image lazy-load="{{true}}" src='https://static.yeetong.cn/yeetong/function/icon/app_xhl_collect.png-yeetong?v3'></image>
         <text>黄犁眼</text>
       </navigator>
     </item>
     <item>
       <navigator hover-class='none' url="/pages/equipment/type/index?typeId=5c2085cb7e29123757fd3fea">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/app_xhl_control.png-yeetong?v3'></image>
+        <image lazy-load="{{true}}" src='https://static.yeetong.cn/yeetong/function/icon/app_xhl_control.png-yeetong?v3'></image>
         <text>黄犁手</text>
       </navigator>
     </item>
     <item>
       <navigator hover-class='none' url="/pages/equipment/type/index?typeId=5c2085cb7e29123757fd3feb">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/app_xhl_hezi.png-yeetong?v3'></image>
+        <image lazy-load="{{true}}" src='https://static.yeetong.cn/yeetong/function/icon/app_xhl_hezi.png-yeetong?v3'></image>
         <text>智能盒子</text>
       </navigator>
     </item>
     <item>
       <navigator hover-class='none' url="/pages/equipment/type/video?typeId=5c2085cb7e29123757fd3fec">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/app_xhl_video.png-yeetong?v3'></image>
+        <image lazy-load="{{true}}" src='https://static.yeetong.cn/yeetong/function/icon/app_xhl_video.png-yeetong?v3'></image>
         <text>视频监控</text>
       </navigator>
     </item>
     <item>
       <navigator hover-class='none' url="/pages/equipment/type/index?typeId=other">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/app_collect_other.png-yeetong?v3'></image>
+        <image lazy-load="{{true}}" src='https://static.yeetong.cn/yeetong/function/icon/app_collect_other.png-yeetong?v3'></image>
         <text>其他</text>
       </navigator>
     </item>
@@ -66,13 +66,13 @@
   <list class="grid no-border col-4">
     <item wx:for="{{ funcs }}" wx:key="resId">
       <navigator hover-class='none' url="{{item.inletUrl}}">
-        <image src='{{item.funcIcon}}'></image>
+        <image lazy-load="{{true}}" src='{{item.funcIcon}}'></image>
         <text>{{item.funcName}}</text>
       </navigator>
     </item>
     <item wx:if='{{ currentFarmIdentity === "admin" }}'>
       <navigator hover-class='none' url="/pages/func/index">
-        <image src='https://static.yeetong.cn/yeetong/function/icon/app_library.png-yeetong'></image>
+        <image lazy-load="{{true}}" src='https://static.yeetong.cn/yeetong/function/icon/app_library.png-yeetong'></image>
         <text>应用库</text>
       </navigator>
     </item>
