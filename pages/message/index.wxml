@@ -9,7 +9,7 @@
     <view class='content'>
       <view class='text-grey'>{{item.name}}</view>
       <view class='text-gray text-sm'>
-        <text class='icon-infofill text-red'>{{item.content}}</text></view>
+        <text>{{item.content}}</text></view>
     </view>
     <view class='action'>
       <view class='text-grey text-xs'>{{item.time}}</view>
