@@ -37,13 +37,23 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
 					"name": "更新",
 					"pathName": "pages/auth/login/login",
 					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "启动参数",
+					"pathName": "pages/auth/login/login",
+					"query": "type=alarm&resId=5c7e2505e4b0c8738f21b8dd",
+					"scene": 1043,
+					"referrerInfo": {
+						"appId": "wxb4bab327bf7710a4"
+					}
 				}
 			]
 		}

@@ -1,5 +1,4 @@
 var farmService = require('../../service/farm.js');
-// var equipmentService = require('../../service/equipment.js');
 var inspectionService = require('../../service/inspection.js');
 var newsService = require('../../service/news.js');
 var feedService = require('../../service/feed.js');
@@ -25,6 +24,24 @@ Page({
       userInfo: app.globalData.userInfo,
       farmIdentity: wx.getStorageSync('curr-farm-identity')
     });
+    var sptype = wx.getStorageSync('startup-parameter-type');
+    wx.removeStorageSync('startup-parameter-type');
+    if (sptype === 'alarm') {
+      var resId = wx.getStorageSync('startup-parameter-resid');
+      wx.removeStorageSync('startup-parameter-resid');
+      if (resId) {
+        wx.showLoading({
+          title: '请稍后...',
+          mask: true
+        })
+        wx.navigateTo({
+          url: '/pages/startup/alarm/index?resId=' + resId,
+          complete: function () {
+            wx.hideLoading();
+          }
+        })
+      }
+    }
   },
   onShow: function() {
     this.loadData();
@@ -41,9 +58,9 @@ Page({
   //     }, 1000)
   //   });
   // },
-  onPullDownRefresh() {
-    wx.stopPullDownRefresh()
-  },
+  // onPullDownRefresh() {
+  //   wx.stopPullDownRefresh()
+  // },
   showMore: function(e) {
     var content = e.currentTarget.dataset.content;
     wx.showModal({

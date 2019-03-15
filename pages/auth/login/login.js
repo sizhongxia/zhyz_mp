@@ -8,6 +8,16 @@ Page({
     password: '',
     logining: false
   },
+  onLoad: function (query) {
+    if (query) {
+      if (query.type) {
+        wx.setStorageSync('startup-parameter-type', query.type)
+      }
+      if (query.resId) {
+        wx.setStorageSync('startup-parameter-resid', query.resId)
+      }
+    }
+  },
   onShow: function () {
     this.toLogin();
     const updateManager = wx.getUpdateManager()

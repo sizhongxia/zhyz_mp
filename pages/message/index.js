@@ -26,5 +26,21 @@ Page({
         }
       }
     });
+  },
+  toclick: function (e) {
+    var type = e.currentTarget.dataset.type
+    var id = e.currentTarget.dataset.id
+    if ("EQUIPMENT_WARNING" === type && !!id) {
+      wx.showLoading({
+        title: '请稍后...',
+        mask: true
+      })
+      wx.navigateTo({
+        url: '/pages/startup/alarm/index?resId=' + id,
+        complete: function () {
+          wx.hideLoading();
+        }
+      })
+    }
   }
 })

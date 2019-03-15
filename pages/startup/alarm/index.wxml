@@ -1,0 +1,32 @@
+<view>
+  <form>
+    <form-group>
+      <view class='title'>设备名称：</view>
+      <input class='radius' disabled="{{true}}" value='{{alarm.equipmentName}}'></input>
+    </form-group>
+    <form-group>
+      <view class='title'>设备序列号：</view>
+      <input class='radius' disabled="{{true}}" value='{{alarm.equipmentSn}}'></input>
+    </form-group>
+    <form-group>
+      <view class='title'>告警项：</view>
+      <input class='radius' disabled="{{true}}" value='{{alarm.termName}}'></input>
+    </form-group>
+    <form-group>
+      <view class='title'>告警值：</view>
+      <input class='radius' disabled="{{true}}" value='{{alarm.currentValue}}'></input>
+    </form-group>
+    <form-group>
+      <view class='title'>监控阈值：</view>
+      <input class='radius' disabled="{{true}}" value='{{alarm.monitorAlarmValue}}'></input>
+    </form-group>
+    <form-group>
+      <view class='title'>告警时间：</view>
+      <input class='radius' disabled="{{true}}" value='{{alarm.alarmAt}}'></input>
+    </form-group>
+    <form-group>
+      <view class='title'>告警说明：</view>
+      <input class='radius' disabled="{{true}}" value='{{alarm.alarmContent}}'></input>
+    </form-group>
+  </form>
+</view>
