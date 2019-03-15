@@ -48,11 +48,14 @@ Page({
   },
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading();
-    console.info(new Date())
+    // console.info(new Date())
     // this.loadNews(1, function () {
     //   
     // });
-    wx.stopPullDownRefresh();
+    setTimeout(() => {
+      wx.hideNavigationBarLoading();
+      wx.stopPullDownRefresh();
+    }, 1000)
   }
   
 })
