@@ -17,7 +17,7 @@ Page({
       title: '请稍后...',
       mask: true
     });
-    newsService.getNewsByPage(page, 10).then(res => {
+    newsService.getNewsByPage(page, 8).then(res => {
       let news = _this.data.news;
       if (page > 1) {
         var len = res.list.length;
