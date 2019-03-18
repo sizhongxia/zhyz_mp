@@ -20,8 +20,14 @@
     <view class='title'>当前状态：</view>
     <input value="{{equipment.online ? '在线' : '离线'}}" disabled="{{true}}" class='radius'></input>
   </form-group>
+  <block wx:if="{{ !!equipment.monitorTermInfo }}">
+  <form-group wx:for="{{equipment.monitorTermInfo}}" wx:for-index="index" wx:for-item="item">
+    <view class='title'>{{item.name}}采集值：</view>
+    <input value="{{item.value}}" disabled="{{true}}" class='radius'></input>
+  </form-group>
+  </block>
   <form-group>
-    <view class='title'>最<text wx:if="{{equipment.online}}">近</text><text wx:else>后</text>连接时间：</view>
+    <view class='title'>数据采集时间：</view>
     <input value='{{equipment.lastConnectionTime}}' disabled="{{true}}" class='radius'></input>
   </form-group>
   <form-group class="margin-top">
