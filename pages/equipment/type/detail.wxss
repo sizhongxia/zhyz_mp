@@ -1,6 +1,6 @@
 form-group .title {
-	width: 256rpx;
-	text-align: right;
+	width: 240rpx;
+	text-align: left;
 }
 
 .modelItem {

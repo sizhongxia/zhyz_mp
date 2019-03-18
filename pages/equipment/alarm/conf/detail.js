@@ -3,26 +3,29 @@ const app = getApp()
 
 Page({
   data: {
+    confId: '',
     conf: {}
   },
   onLoad: function(options) {
+    const _this = this;
+    _this.setData({
+      confId: options.confId
+    });
+  },
+  onShow: function () {
     const _this = this;
     wx.showLoading({
       title: '请稍后...',
       mask: true
     });
-    equipmentAlarmConfService.getEquipmentAlarmConfDetail(options.confId).then(res => {
+    equipmentAlarmConfService.getEquipmentAlarmConfDetail(_this.data.confId).then(res => {
       _this.setData({
         conf: res
       });
       wx.hideLoading();
     }).catch(err => {
       wx.hideLoading();
-      if (err) {
-        if (err.message) {
-          util.showErrorToast(err.message);
-        }
-      }
+      wx.navigateBack();
     });
   },
   switchUseState: function(e) {
@@ -81,5 +84,24 @@ Page({
         }
       }
     });
+  },
+  updateRule: function () {
+    const _this = this;
+    wx.navigateTo({
+      url: '/pages/equipment/alarm/conf/update/rule?confId=' + _this.data.conf.confId,
+    });
+  },
+  updatePushInterval: function () {
+    const _this = this;
+    wx.navigateTo({
+      url: '/pages/equipment/alarm/conf/update/pushInterval?confId=' + _this.data.conf.confId,
+    });
+  },
+  updatePushType: function () {
+    const _this = this;
+    wx.navigateTo({
+      url: '/pages/equipment/alarm/conf/update/pushType?confId=' + _this.data.conf.confId,
+    });
   }
+  
 })

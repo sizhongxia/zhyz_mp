@@ -1,5 +1,5 @@
 <list class="menu">
-  <item>
+  <item class="arrow" bindtap="updateRule">
     <view class='content'>
       <text class='text-grey'>告警规则</text>
     </view>
@@ -7,7 +7,7 @@
       <text class='text-grey text-sm'>当{{conf.monitorTermName}}采集值{{conf.operationalCharacter}}{{conf.monitorAlarmValue}}{{conf.monitorTermUnit}}时发送告警通知。</text>
     </view>
   </item>
-  <item>
+  <item class="arrow" bindtap="updatePushInterval">
     <view class='content'>
       <text class='text-grey'>通知间隔</text>
     </view>
@@ -15,7 +15,7 @@
       <text class='text-grey text-sm'>{{conf.pushInterval}}</text>
     </view>
   </item>
-  <item>
+  <item class="arrow" bindtap="updatePushType">
     <view class='content'>
       <text class='text-grey'>通知方式</text>
     </view>

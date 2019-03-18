@@ -1,10 +1,13 @@
-<scroll-view scroll-x class="nav">
-  <view class='flex text-center bg-white'>
+<scroll-view scroll-x="{{true}}" scroll-with-animation="{{true}}" class="nav">
+  <view class='flex text-center'>
     <item class="flex-sub {{tabIndex=='1' ? 'text-blue cur' : ''}}" bindtap='tabSelect' data-index="1">
       基本信息
     </item>
+    <item class="flex-sub {{tabIndex=='5' ? 'text-blue cur' : ''}}" bindtap='tabSelect' data-index="5">
+      实时数据
+    </item>
     <item class="flex-sub {{tabIndex=='2' ? 'text-blue cur' : ''}}" bindtap='tabSelect' data-index="2">
-      实时监控
+      历史监控
     </item>
     <item class="flex-sub {{tabIndex=='3' ? 'text-blue cur' : ''}}" bindtap='tabSelect' data-index="3">
       告警记录
@@ -15,56 +18,59 @@
   </view>
 </scroll-view>
 
-<view style='width: 750rpx;margin-top: 40rpx;' hidden="{{tabIndex!='1'}}">
+<view style='width: 750rpx;' hidden="{{tabIndex!='1'}}">
   <form-group>
-    <view class='title'>当前状态：</view>
-    <input value="{{equipment.online ? '在线' : '离线'}}" disabled="{{true}}" class='radius'></input>
+    <view class='title'>设备名称</view>
+    <text>{{equipment.equipmentName}}</text>
+  </form-group>
+  <form-group>
+    <view class='title'>设备编码</view>
+    <text>{{equipment.equipmentCode}}</text>
+  </form-group>
+  <form-group>
+    <view class='title'>设备序列号</view>
+    <text>{{equipment.equipmentSn}}</text>
+  </form-group>
+  <form-group>
+    <view class='title'>设备类型</view>
+    <text>{{equipment.equipmentTypeName}}</text>
+  </form-group>
+  <form-group>
+    <view class='title'>设备型号</view>
+    <text>{{equipment.equipmentModelName}}</text>
+  </form-group>
+  <form-group>
+    <view class='title'>设备DTUID</view>
+    <text>{{equipment.equipmentDtuId}}</text>
+  </form-group>
+  <form-group>
+    <view class='title'>设备通讯地址</view>
+    <text>{{equipment.equipment485Addr}}</text>
+  </form-group>
+  <form-group>
+    <view class='title'>设备安装时间</view>
+    <text>{{equipment.createAt}}</text>
+  </form-group>
+  <form-group>
+    <view class='title'>设备备注</view>
+    <text>{{equipment.remark}}</text>
+  </form-group>
+</view>
+
+<view style='width: 750rpx;' hidden="{{tabIndex!='5'}}">
+  <form-group>
+    <view class='title'>在线状态</view>
+    <text style="color:{{equipment.online ? 'green' : 'red'}}">{{equipment.online ? '在线' : '离线'}}</text>
   </form-group>
   <block wx:if="{{ !!equipment.monitorTermInfo }}">
-  <form-group wx:for="{{equipment.monitorTermInfo}}" wx:for-index="index" wx:for-item="item">
-    <view class='title'>{{item.name}}采集值：</view>
-    <input value="{{item.value}}" disabled="{{true}}" class='radius'></input>
+  <form-group wx:for="{{equipment.monitorTermInfo}}" wx:key="code" wx:for-index="index" wx:for-item="item">
+    <view class='title'>{{item.name}}采集值</view>
+    <text>{{item.value}}</text>
   </form-group>
   </block>
   <form-group>
-    <view class='title'>数据采集时间：</view>
-    <input value='{{equipment.lastConnectionTime}}' disabled="{{true}}" class='radius'></input>
-  </form-group>
-  <form-group class="margin-top">
-    <view class='title'>设备名称：</view>
-    <input value='{{equipment.equipmentName}}' disabled="{{true}}" class='radius'></input>
-  </form-group>
-  <form-group>
-    <view class='title'>设备编码：</view>
-    <input value='{{equipment.equipmentCode}}' disabled="{{true}}" class='radius'></input>
-  </form-group>
-  <form-group>
-    <view class='title'>设备序列号：</view>
-    <input value='{{equipment.equipmentSn}}' disabled="{{true}}" class='radius'></input>
-  </form-group>
-  <form-group>
-    <view class='title'>设备类型：</view>
-    <input value='{{equipment.equipmentTypeName}}' disabled="{{true}}" class='radius'></input>
-  </form-group>
-  <form-group>
-    <view class='title'>设备型号：</view>
-    <input value='{{equipment.equipmentModelName}}' disabled="{{true}}" class='radius'></input>
-  </form-group>
-  <form-group>
-    <view class='title'>设备DTUID：</view>
-    <input value='{{equipment.equipmentDtuId}}' disabled="{{true}}" class='radius'></input>
-  </form-group>
-  <form-group>
-    <view class='title'>设备通讯地址：</view>
-    <input value='{{equipment.equipment485Addr}}' disabled="{{true}}" class='radius'></input>
-  </form-group>
-  <form-group>
-    <view class='title'>设备安装时间：</view>
-    <input value='{{equipment.createAt}}' disabled="{{true}}" class='radius'></input>
-  </form-group>
-  <form-group class='top'>
-    <view class='title'>设备备注：</view>
-    <textarea value='{{equipment.remark}}' disabled="{{true}}" placeholder-class='placeholder'></textarea>
+    <view class='title'>数据采集时间</view>
+    <text>{{equipment.lastConnectionTime}}</text>
   </form-group>
 </view>
 
