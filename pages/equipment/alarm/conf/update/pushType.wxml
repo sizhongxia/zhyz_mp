@@ -1,2 +1,16 @@
-<!--pages/equipment/alarm/conf/update/pushType.wxml-->
-<text>pages/equipment/alarm/conf/update/pushType.wxml</text>
+<form>
+  <form-group>
+    <view class='title'>推送方式</view>
+    <checkbox-group bindchange="selectPushType">
+      <label class="checkbox" wx:for="{{pushTypes}}" wx:key="ptValue">
+        <checkbox value="{{item.ptValue}}" checked="{{item.checked}}" class='sm'></checkbox>{{item.ptName}}
+      </label>
+    </checkbox-group>
+  </form-group>
+</form>
+
+<bar class="btn-group options width-full">
+  <button loading="{{submiting}}" class='bg-green round lg' bindtap='toUpdate'>
+    <icon class='icon-check'></icon> 修改
+  </button>
+</bar>

@@ -2,7 +2,7 @@
   <view class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无设备</view>
 </list>
 <list class="menu menu-avatar" wx:if="{{typeId!='SP'}}">
-  <item wx:for="{{equipments}}" wx:key="equipmentId" data-equipment-id="{{item.equipmentId}}" bindtap='toStatistic'>
+  <item class="arrow" wx:for="{{equipments}}" wx:key="equipmentId" data-equipment-id="{{item.equipmentId}}" bindtap='toStatistic'>
     <avatar class="radius lg {{item.online ? 'bg-green' : 'bg-red'}}">
       <text>{{item.online ? '在线' : '离线'}}</text>
     </avatar>
@@ -18,7 +18,7 @@
   </item>
 </list>
 <list class="menu menu-avatar" wx:else>
-  <item wx:for="{{equipments}}" wx:key="cameraId" data-equipment-id="{{item.cameraId}}" bindtap='toVideoLive'>
+  <item class="arrow" wx:for="{{equipments}}" wx:key="cameraId" data-equipment-id="{{item.cameraId}}" bindtap='toVideoLive'>
     <avatar class="radius lg {{item.online ? 'bg-green' : 'bg-red'}}">
       <text>{{item.online ? '在线' : '离线'}}</text>
     </avatar>

@@ -1,13 +1,13 @@
 <scroll-view scroll-x="{{true}}" scroll-with-animation="{{true}}" class="nav">
   <view class='flex text-center'>
-    <item class="flex-sub {{tabIndex=='1' ? 'text-blue cur' : ''}}" bindtap='tabSelect' data-index="1">
-      基本信息
-    </item>
     <item class="flex-sub {{tabIndex=='5' ? 'text-blue cur' : ''}}" bindtap='tabSelect' data-index="5">
-      实时数据
+      实时监控
+    </item>
+    <item class="flex-sub {{tabIndex=='1' ? 'text-blue cur' : ''}}" bindtap='tabSelect' data-index="1">
+      设备信息
     </item>
     <item class="flex-sub {{tabIndex=='2' ? 'text-blue cur' : ''}}" bindtap='tabSelect' data-index="2">
-      历史监控
+      历史数据
     </item>
     <item class="flex-sub {{tabIndex=='3' ? 'text-blue cur' : ''}}" bindtap='tabSelect' data-index="3">
       告警记录

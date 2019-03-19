@@ -104,11 +104,32 @@ Page({
       form: form
     });
   },
-  updateRule: function (e) {
+  toUpdate: function (e) {
     const _this = this;
+    if (_this.data.submiting) {
+      return false;
+    }
+    _this.setData({
+      submiting: true
+    });
     wx.showLoading({
       title: '请稍后...',
       mask: true
+    });
+    var reqObj = this.data.form;
+    equipmentAlarmConfService.updateAlarmConfRule(reqObj.confId, reqObj.monitorItemCode, reqObj.monitorAlarmValue, reqObj.operationalCharacter).then(res => {
+      wx.hideLoading();
+      wx.navigateBack();
+    }).catch(err => {
+      wx.hideLoading();
+      _this.setData({
+        submiting: false
+      });
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        }
+      }
     });
   }
 

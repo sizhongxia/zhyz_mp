@@ -13,6 +13,9 @@ Page({
     });
   },
   onShow: function () {
+    this.loadDetail();
+  },
+  loadDetail: function() {
     const _this = this;
     wx.showLoading({
       title: '请稍后...',
@@ -61,7 +64,7 @@ Page({
     const _this = this;
     wx.showModal({
       title: '提示',
-      content: '删除后将无法恢复！是否要删除？',
+      content: '是否要移除当前告警提醒？',
       success(res) {
         if (res.confirm) {
           wx.showLoading({
@@ -102,6 +105,37 @@ Page({
     wx.navigateTo({
       url: '/pages/equipment/alarm/conf/update/pushType?confId=' + _this.data.conf.confId,
     });
+  },
+  addPushPerson: function () {
+    const _this = this;
+    wx.navigateTo({
+      url: '/pages/equipment/alarm/conf/update/addPushPerson?confId=' + _this.data.conf.confId,
+    });
+  },
+  rmPushPerson: function (e) {
+    const _this = this;
+    wx.showModal({
+      title: '提示',
+      content: '是否要移除当前推送人？',
+      success(res) {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '请稍后...',
+            mask: true
+          });
+          equipmentAlarmConfService.delAlarmConfPushPerson(_this.data.conf.confId, e.currentTarget.dataset.userId).then(res => {
+            wx.hideLoading();
+            _this.loadDetail();
+          }).catch(err => {
+            wx.hideLoading();
+            if (err) {
+              if (err.message) {
+                util.showErrorToast(err.message);
+              }
+            }
+          });
+        }
+      }
+    });
   }
-  
 })

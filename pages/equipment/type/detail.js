@@ -5,7 +5,7 @@ const app = getApp()
 
 Page({
   data: {
-    tabIndex: 1,
+    tabIndex: 5,
     equipmentId: '',
     equipment: {},
     alarms: [],

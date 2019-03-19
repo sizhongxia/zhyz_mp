@@ -1,1 +1,21 @@
-/* pages/equipment/alarm/conf/update/pushType.wxss */
+.container {
+  width: 750rpx;
+}
+
+.h120 {
+  height: 120rpx;
+  color: white;
+  text-align: center;
+  line-height: 120rpx;
+}
+
+.options {
+  position: fixed;
+  bottom: 0;
+  height: 120rpx;
+  line-height: 120rpx;
+}
+
+.width-full {
+  width: 750rpx;
+}

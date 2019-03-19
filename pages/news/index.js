@@ -49,13 +49,14 @@ Page({
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading();
     // console.info(new Date())
-    // this.loadNews(1, function () {
-    //   
-    // });
-    setTimeout(() => {
+    this.loadNews(1, function () {
       wx.hideNavigationBarLoading();
       wx.stopPullDownRefresh();
-    }, 1000)
+    });
+    // setTimeout(() => {
+    //   wx.hideNavigationBarLoading();
+    //   wx.stopPullDownRefresh();
+    // }, 1000)
   }
   
 })

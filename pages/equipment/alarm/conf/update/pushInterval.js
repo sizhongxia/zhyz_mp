@@ -1,66 +1,69 @@
-// pages/equipment/alarm/conf/update/pushInterval.js
+var equipmentAlarmConfService = require('../../../../../service/equipmentAlarmConf.js');
+var util = require('../../../../../utils/util.js');
+const app = getApp()
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    conf: {},
+    form: {
+      confId: '',
+      pushInterval: 0
+    },
+    submiting: false
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    const _this = this;
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    equipmentAlarmConfService.getEquipmentAlarmConfDetail(options.confId).then(res => {
+      var form = _this.data.form;
+      form.confId = options.confId;
+      form.pushInterval = res.pushIntervalNumber;
+      _this.setData({
+        form: form
+      });
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
+      wx.navigateBack();
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  inputPushInterval: function (e) {
+    const _this = this;
+    var form = _this.data.form;
+    form.pushInterval = e.detail.value;
+    _this.setData({
+      form: form
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  toUpdate: function (e) {
+    const _this = this;
+    if (_this.data.submiting) {
+      return false;
+    }
+    _this.setData({
+      submiting: true
+    });
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    var reqObj = this.data.form;
+    equipmentAlarmConfService.updateAlarmConfPushInterval(reqObj.confId, reqObj.pushInterval).then(res => {
+      wx.hideLoading();
+      wx.navigateBack();
+    }).catch(err => {
+      wx.hideLoading();
+      _this.setData({
+        submiting: false
+      });
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        }
+      }
+    });
   }
 })

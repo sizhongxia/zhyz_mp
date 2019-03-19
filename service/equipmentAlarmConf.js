@@ -30,6 +30,39 @@ const changeEquipmentAlarmConfUseState = (confId, monitorState) => {
   });
 }
 
+const updateAlarmConfRule = (confId, monitorItemCode, monitorAlarmValue, operationalCharacter) => {
+  return util.post(api.UpdateAlarmConfRule, {
+    confId: confId,
+    monitorItemCode: monitorItemCode,
+    monitorAlarmValue: monitorAlarmValue,
+    operationalCharacter: operationalCharacter
+  });
+}
+const updateAlarmConfPushInterval = (confId, pushInterval) => {
+  return util.post(api.UpdateAlarmConfPushInterval, {
+    confId: confId,
+    pushInterval: pushInterval
+  });
+}
+const updateAlarmConfPushType = (confId, pushTypes) => {
+  return util.post(api.UpdateAlarmConfPushType, {
+    confId: confId,
+    pushTypes: pushTypes
+  });
+}
+const saveAlarmConfPushPerson = (confId, pushPerson) => {
+  return util.post(api.SaveAlarmConfPushPerson, {
+    confId: confId,
+    pushPerson: pushPerson
+  });
+}
+const delAlarmConfPushPerson = (confId, userId) => {
+  return util.post(api.DelAlarmConfPushPerson, {
+    confId: confId,
+    userId: userId
+  });
+}
+
 const deleteEquipmentAlarmConf = (confId) => {
   return util.post(api.DeleteEquipmentAlarmConf, {
     confId: confId
@@ -39,6 +72,11 @@ const deleteEquipmentAlarmConf = (confId) => {
 module.exports = {
   getEquipmentAlarmConfData: getEquipmentAlarmConfData,
   checkAlarmPhone: checkAlarmPhone,
+  updateAlarmConfRule: updateAlarmConfRule,
+  updateAlarmConfPushInterval: updateAlarmConfPushInterval,
+  updateAlarmConfPushType: updateAlarmConfPushType,
+  saveAlarmConfPushPerson: saveAlarmConfPushPerson,
+  delAlarmConfPushPerson: delAlarmConfPushPerson,
   saveEquipmentAlarmConf: saveEquipmentAlarmConf,
   getEquipmentAlarmConfDetail: getEquipmentAlarmConfDetail,
   changeEquipmentAlarmConfUseState: changeEquipmentAlarmConfUseState,

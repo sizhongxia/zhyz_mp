@@ -22,7 +22,7 @@
 </form>
 
 <bar class="btn-group options width-full">
-  <button loading="{{submiting}}" disabled="{{form.monitorItemCode==''}}" class='bg-green round lg' bindtap='toAdd'>
+  <button loading="{{submiting}}" disabled="{{form.monitorItemCode==''}}" class='bg-green round lg' bindtap='toUpdate'>
     <icon class='icon-check'></icon> 修改
   </button>
 </bar>

@@ -82,6 +82,12 @@ module.exports = {
   EquipmentAlarmConfDetail: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/detail',
   ChangeEquipmentAlarmConfUseState: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/changeUseState',
   DeleteEquipmentAlarmConf: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/delete',
+  UpdateAlarmConfRule: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/updateRule',
+  UpdateAlarmConfPushInterval: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/updatePushInterval',
+  UpdateAlarmConfPushType: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/updatePushType',
+  SaveAlarmConfPushPerson: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/addPushPerson',
+  DelAlarmConfPushPerson: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/rmPushPerson',
+  
 
   CheckAlarmPhone: ApiUrl + '/zhyz/miniapp/api/check/alarmPhone',
 

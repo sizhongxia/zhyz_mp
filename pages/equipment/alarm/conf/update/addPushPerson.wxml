@@ -1,2 +1,13 @@
-<!--pages/equipment/alarm/conf/update/addPushPerson.wxml-->
-<text>pages/equipment/alarm/conf/update/addPushPerson.wxml</text>
+<form>
+  <form-group>
+    <view class='title'>接收人</view>
+    <input placeholder="输入接收人的手机号" class='radius' name='pushPerson' bindinput="inputPushPerson" value="{{form.pushPerson}}" style='text-align:right;'></input>
+    <button class='shadow' bindtap='checkPushPerson'>检查</button>
+  </form-group>
+</form>
+
+<bar class="btn-group options width-full">
+  <button loading="{{submiting}}" class='bg-green round lg' bindtap='toSave'>
+    <icon class='icon-check'></icon> 修改
+  </button>
+</bar>
