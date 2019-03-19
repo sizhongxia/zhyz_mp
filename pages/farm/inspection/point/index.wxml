@@ -1,2 +1,9 @@
-<!--pages/farm/inspection/point/index.wxml-->
-<text>pages/farm/inspection/point/index.wxml</text>
+<bar class="search fixed">
+  <view class='serach-form round'>
+    <icon class="icon-search" />
+    <input type="text" placeholder="输入省份\城市名称或拼音检索" bindinput="bindKeyWordInput" value="{{kw}}" confirm-type="search" />
+  </view>
+  <view class='action'>
+    <button class='gradual-green shadow-blur round' bindtap='toSearch'>搜索</button>
+  </view>
+</bar>

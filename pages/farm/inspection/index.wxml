@@ -30,7 +30,10 @@
   <view class='h120 width-full' style='color: #aaa'>Copyright © 2018-2019 一通无限</view>
 </view>
 <bar class="btn-group options width-full">
-  <button class='bg-green round lg' bindtap='toAdd'>
-    <icon class='icon-add'></icon> 新增记录
+  <button class='round' bindtap='toInspectionPoint'>
+    <icon class='icon-fork'></icon> 巡检点维护
+  </button>
+  <button class='bg-green round' style='flex:2;' bindtap='toAdd'>
+    <icon class='icon-scan'></icon> 巡检(扫描)
   </button>
 </bar>

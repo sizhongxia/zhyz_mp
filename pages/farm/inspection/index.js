@@ -73,6 +73,11 @@ Page({
       callback && callback();
     });
   },
+  toInspectionPoint: function () {
+    wx.navigateTo({
+      url: '/pages/farm/inspection/point/index',
+    });
+  },
   toAdd: function () {
     wx.navigateTo({
       url: '/pages/farm/inspection/add',
