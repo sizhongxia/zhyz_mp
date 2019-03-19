@@ -37,13 +37,14 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "更新",
 					"pathName": "pages/auth/login/login",
-					"query": ""
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": 1,

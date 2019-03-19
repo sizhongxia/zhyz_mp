@@ -53,6 +53,16 @@ module.exports = {
   InspectionDetail: ApiUrl + '/zhyz/miniapp/api/inspection/detail',
   LastInspectionDetail: ApiUrl + '/zhyz/miniapp/api/inspection/getLastInspection',
   DeleteInspection: ApiUrl + '/zhyz/miniapp/api/inspection/delete',
+  
+  InspectionPointData: ApiUrl + '/zhyz/miniapp/api/inspection/point/data',
+  SaveInspectionPoint: ApiUrl + '/zhyz/miniapp/api/inspection/point/save',
+  UpdateInspectionPoint: ApiUrl + '/zhyz/miniapp/api/inspection/point/update',
+  DeleteInspectionPoint: ApiUrl + '/zhyz/miniapp/api/inspection/point/delete',
+  InspectionPointDetail: ApiUrl + '/zhyz/miniapp/api/inspection/point/detail',
+  SaveInspectionPointCheckItem: ApiUrl + '/zhyz/miniapp/api/inspection/point/saveCheckItem',
+  UpdateInspectionPointCheckItem: ApiUrl + '/zhyz/miniapp/api/inspection/point/updateCheckItem',
+  DeleteInspectionPointCheckItem: ApiUrl + '/zhyz/miniapp/api/inspection/point/deleteCheckItem',
+  InspectionPointCheckItemDetail: ApiUrl + '/zhyz/miniapp/api/inspection/point/checkItemDetail',
 
   FarmPicData: ApiUrl + '/zhyz/miniapp/api/farmPic/data',
   SaveFarmPic: ApiUrl + '/zhyz/miniapp/api/farmPic/save',
@@ -111,9 +121,7 @@ module.exports = {
 
   GetFuncs: ApiUrl + '/zhyz/miniapp/api/getFuncs',
   GetFuncDetail: ApiUrl + '/zhyz/miniapp/api/getFuncDetail',
-
   MsgData: ApiUrl + '/zhyz/miniapp/api/msg/list',
-
   NewsData: ApiUrl + '/zhyz/miniapp/api/news/list',
 
   UploadApi: ApiUrl + '/basic/api/upload'

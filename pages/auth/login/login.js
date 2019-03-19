@@ -20,19 +20,27 @@ Page({
   },
   onShow: function () {
     this.toLogin();
-    const updateManager = wx.getUpdateManager()
-    updateManager.onCheckForUpdate(function (res) {
+    const updateManager = wx.getUpdateManager();
+    wx.showLoading({
+      title: '正在检查更新...',
+      mask: true
     });
-    updateManager.onUpdateReady(function () {
-      wx.showModal({
-        title: '更新提示',
-        content: '新版本已经准备好，是否重启应用？',
-        success(res) {
-          if (res.confirm) {
-            updateManager.applyUpdate()
-          }
-        }
-      })
+    updateManager.onCheckForUpdate(function (res) {
+      wx.hideLoading();
+      if(res.hasUpdate) {
+        updateManager.onUpdateReady(function () {
+          wx.showModal({
+            title: '更新提示',
+            content: '新版本已经准备好，请重启应用',
+            showCancel: false,
+            success(res) {
+              if (res.confirm) {
+                updateManager.applyUpdate()
+              }
+            }
+          })
+        });
+      }
     });
   },
   toLogin: function () {
@@ -44,12 +52,14 @@ Page({
     util.login().then(code => {
       return loginService.loginRequest(code);
     }).then(res => {
-      wx.hideLoading();
       app.globalData.userInfo = res;
       wx.setStorageSync('token', res.token);
-      wx.redirectTo({
-        url: '/pages/farm/select/index'
-      });
+      setTimeout(() => {
+        wx.hideLoading();
+        wx.redirectTo({
+          url: '/pages/farm/select/index'
+        });
+      }, 1000);
     }).catch(err => {
       wx.hideLoading();
       if (err) {
