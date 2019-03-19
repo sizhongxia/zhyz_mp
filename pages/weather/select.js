@@ -18,10 +18,12 @@ Page({
     })
     const _this = this;
     cityService.weatherCities(_this.data.kw).then(res => {
-      wx.hideLoading();
       _this.setData({
         datas: res
-      })
+      });
+      setTimeout(() => {
+        wx.hideLoading();
+      }, 500);
     }).catch(err => {
       wx.hideLoading();
       if (err) {
