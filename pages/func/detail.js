@@ -120,7 +120,7 @@ Page({
           var farmId = wx.getStorageSync('curr-farm-id');
           farmService.saveFarmFunc(farmId, _this.data.resId).then(res => {
             wx.hideLoading();
-            _this.load();
+            wx.navigateBack();
           }).catch(err => {
             wx.hideLoading();
             if (err) {

@@ -79,19 +79,19 @@ Page({
   },
   toScan: function () {
     const _this = this;
-    // wx.scanCode({
-    //   onlyFromCamera: true,
-    //   scanType: ['qrCode'],
-    //   success(res) {
-    //     var qrVal = res.result.replace(new RegExp('"', "g"), "");
-    //     if (qrVal.indexOf('https://www.yeetong.cn/inspectionpoint/') === 0) {
-    //       wx.showLoading({
-    //         title: '请稍后...',
-    //         mask: true
-    //       });
+    wx.scanCode({
+      onlyFromCamera: true,
+      scanType: ['qrCode'],
+      success(res) {
+        var qrVal = res.result.replace(new RegExp('"', "g"), "");
+        if (qrVal.indexOf('https://www.yeetong.cn/inspectionpoint/') === 0) {
+          wx.showLoading({
+            title: '请稍后...',
+            mask: true
+          });
           // ?pointId=
-          //var pointId = qrVal.substr(39);
-          var pointId = '5c9209cde4b0a700435601ae';
+          var pointId = qrVal.substr(39);
+          // var pointId = '5c9209cde4b0a700435601ae';
           inspectionPointService.getInspectionPointDetail(pointId).then(res => {
             wx.hideLoading();
             if (res.farmId === _this.data.farmId && res.pointId) {
@@ -109,14 +109,14 @@ Page({
               }
             }
           });
-    //     } else {
-    //       util.showErrorToast('无效的巡检点');
-    //     }
-    //   },
-    //   fail(err) {
-    //     util.showErrorToast('无效的巡检点');
-    //   }
-    // });
+        } else {
+          util.showErrorToast('无效的巡检点');
+        }
+      },
+      fail(err) {
+        util.showErrorToast('无效的巡检点');
+      }
+    });
   },
   loadMore: function () {
     this.load();
