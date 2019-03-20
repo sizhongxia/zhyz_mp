@@ -5,6 +5,7 @@ const app = getApp()
 Page({
   data: {
     authInfo: {},
+    index: 0,
     identities: [{
       name: '管理员',
       value: 'admin'
@@ -32,7 +33,14 @@ Page({
       form.resId = res.resId;
       form.identity = res.identity;
       form.identityName = res.identityName;
+      var index = 0;
+      for (var indx in _this.data.identities) {
+        if (_this.data.identities[indx].value === form.identity) {
+          index = indx;
+        }
+      }
       _this.setData({
+        index: index,
         authInfo: res,
         form: form
       });

@@ -6,6 +6,8 @@ const app = getApp()
 Page({
   data: {
     monitorItems: [],
+    icindex: 0,
+    ccindex: 0,
     operationalCharacters: [{
       ocName: '大于',
       ocValue: 'Gt'
@@ -18,20 +20,6 @@ Page({
     }, {
       ocName: '小于等于',
       ocValue: 'Lte'
-    }],
-    monitorStates: [{
-      msName: '生效',
-      msValue: '1'
-    }, {
-      msName: '未启用',
-      msValue: '0'
-    }],
-    pushTypes: [{
-      ptName: '公众号',
-      ptValue: '0'
-    }, {
-      ptName: '短信',
-      ptValue: '1'
     }],
     conf: {},
     form: {
@@ -60,14 +48,28 @@ Page({
       form.monitorItemName = res.monitorTermName;
       form.monitorItemUnit = res.monitorTermUnit;
       form.monitorAlarmValue = res.monitorAlarmValue;
+      var index = 0;
+      for (var indx in _this.data.operationalCharacters) {
+        if (_this.data.operationalCharacters[indx].ocValue === form.operationalCharacter) {
+          index = indx;
+        }
+      }
       _this.setData({
         conf: res,
+        ccindex: index,
         form: form
       });
       return equipmentService.getEquipmentMonitorItems(res.equipmentId)
     }).then(res => {
+      var index = 0;
+      for (var indx in res) {
+        if (res[indx].code === _this.data.form.monitorItemCode) {
+          index = indx;
+        }
+      }
       _this.setData({
-        monitorItems: res
+        monitorItems: res,
+        icindex: index
       });
       wx.hideLoading();
     }).catch(err => {

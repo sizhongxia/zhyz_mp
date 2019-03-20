@@ -1,66 +1,42 @@
-// pages/farm/inspection/point/index.js
+var inspectionPointService = require('../../../../service/inspectionPoint.js');
+var util = require('../../../../utils/util.js');
+const app = getApp()
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    points: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-
+    this.load();
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  load: function () {
+    const _this = this;
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    inspectionPointService.getInspectionPointData(wx.getStorageSync('curr-farm-id')).then(res => {
+      _this.setData({
+        points: res
+      });
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        }
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  toAdd: function () {
+    wx.navigateTo({
+      url: '/pages/farm/inspection/point/add',
+    });
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  toDetail: function (e) {
+    wx.navigateTo({
+      url: '/pages/farm/inspection/point/detail?pointId=' + e.currentTarget.dataset.pointId
+    });
   }
 })

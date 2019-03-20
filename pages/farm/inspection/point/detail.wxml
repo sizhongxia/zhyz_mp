@@ -1,0 +1,78 @@
+<view style='text-align:center;padding: 60rpx'>
+  <image bindtap='previewImage' data-src='{{point.qrcodeUrl}}' style='width: 260rpx;height: 260rpx;' src='{{point.qrcodeUrl}}'></image>
+  <view class='text-grey text-sm margin-top'>巡检点二维码标识</view>
+</view>
+<list class="menu">
+  <item class="arrow" bindtap='updatePointName'>
+    <view class='content'>
+      <text class='text-grey'>巡检点名称</text>
+    </view>
+    <view class='action'>
+      <text class='text-grey text-sm'>{{point.pointName}}</text>
+    </view>
+  </item>
+  <item class="arrow" bindtap='updatePointFarmArea'>
+    <view class='content'>
+      <text class='text-grey'>所在厂区</text>
+    </view>
+    <view class='action'>
+      <text class='text-grey text-sm'>{{point.farmAreaName || '农场'}}</text>
+    </view>
+  </item>
+  <item class="arrow" bindtap='updatePointFarmLocation'>
+    <view class='content'>
+      <text class='text-grey'>详情位置</text>
+    </view>
+    <view class='action'>
+      <text class='text-grey text-sm'>{{point.farmLocation}}</text>
+    </view>
+  </item>
+  <item class="arrow" bindtap='updatePointObjectId'>
+    <view class='content'>
+      <text class='text-grey'>物体标识</text>
+    </view>
+    <view class='action'>
+      <text class='text-grey text-sm'>{{point.objectId || ''}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey'>创建时间</text>
+    </view>
+    <view class='action'>
+      <text class='text-grey text-sm'>{{point.createAt}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey'>修改时间</text>
+    </view>
+    <view class='action'>
+      <text class='text-grey text-sm'>{{point.updateAt}}</text>
+    </view>
+  </item>
+</list>
+<bar class="solid-bottom margin-top">
+  <view class='action'>
+    <icon class='icon-titles text-orange ' /> 检查项
+  </view>
+  <button class="bg-grey" style='margin-right: 30rpx;' bindtap='addCheckItem'>新增</button>
+</bar>
+<list class="menu menu-avatar no-padding" wx:if="{{point.checkItems.length === 0}}">
+  <view class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>请新增检查项</view>
+</list>
+<list class="menu no-padding">
+  <item wx:for="{{point.checkItems}}" wx:key="itemId" wx:for-item="item">
+    <view class='content'>
+      <view class='text-grey'>{{item.itemTitle}}</view>
+      <view class='text-gray text-sm'>{{item.itemContent}}</view>
+    </view>
+    <button class="bg-red" data-item-id="{{item.itemId}}" bindtap='rmCheckItem'>移除</button>
+  </item>
+</list>
+<view class='h120 width-full' style='color: #aaa;margin-bottom:120rpx;'>Copyright © 2018-2019 一通无限</view>
+<bar class="btn-group options width-full">
+  <button class='bg-red round lg' bindtap='toDelete'>
+    <icon class='icon-delete'></icon> 删除巡检点
+  </button>
+</bar>

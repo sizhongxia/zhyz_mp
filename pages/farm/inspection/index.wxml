@@ -31,9 +31,9 @@
 </view>
 <bar class="btn-group options width-full">
   <button class='round' bindtap='toInspectionPoint'>
-    <icon class='icon-fork'></icon> 巡检点维护
+    <icon class='icon-fork'></icon> 巡检点管理
   </button>
-  <button class='bg-green round' style='flex:2;' bindtap='toAdd'>
-    <icon class='icon-scan'></icon> 巡检(扫描)
+  <button class='bg-green round' style='flex:2;' bindtap='toScan'>
+    <icon class='icon-scan'></icon> 巡检(扫描二维码)
   </button>
 </bar>

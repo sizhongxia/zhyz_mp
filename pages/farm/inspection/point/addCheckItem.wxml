@@ -1,0 +1,15 @@
+<form>
+  <form-group>
+    <view class='title'>检查项名称</view>
+    <input placeholder="请输入检查项名称" class='radius' name='itemTitle' bindinput="inputItemTitle" value="{{form.itemTitle}}"></input>
+  </form-group>
+  <form-group class="top">
+    <view class='title'>检查项描述</view>
+    <textarea placeholder="请输入检查项描述" maxlength="200" placeholder-class='placeholder' bindinput="inputItemContent" value='{{form.itemContent}}'></textarea>
+  </form-group>
+</form>
+<bar class="btn-group options width-full">
+  <button class='bg-green round lg' bindtap='toSave'>
+    <icon class='icon-check'></icon> 修改
+  </button>
+</bar>

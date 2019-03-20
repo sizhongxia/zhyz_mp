@@ -11,8 +11,20 @@ const saveInspectionPoint = (form) => {
   return util.post(api.SaveInspectionPoint, form);
 }
 
-const updateInspectionPoint = (form) => {
-  return util.post(api.UpdateInspectionPoint, form);
+const updateInspectionPointName = (form) => {
+  return util.post(api.UpdateInspectionPointName, form);
+}
+
+const updateInspectionPointFarmLocation = (form) => {
+  return util.post(api.UpdateInspectionPointFarmLocation, form);
+}
+
+const updateInspectionPointFarmArea = (form) => {
+  return util.post(api.UpdateInspectionPointFarmArea, form);
+}
+
+const updateInspectionPointObjectId = (form) => {
+  return util.post(api.UpdateInspectionPointObjectId, form);
 }
 
 const deleteInspectionPoint = (pointId) => {
@@ -50,7 +62,10 @@ const getInspectionPointCheckItemDetail = (itemId) => {
 module.exports = {
   getInspectionPointData: getInspectionPointData,
   saveInspectionPoint: saveInspectionPoint,
-  updateInspectionPoint: updateInspectionPoint,
+  updateInspectionPointName: updateInspectionPointName,
+  updateInspectionPointFarmLocation: updateInspectionPointFarmLocation,
+  updateInspectionPointFarmArea: updateInspectionPointFarmArea,
+  updateInspectionPointObjectId: updateInspectionPointObjectId,
   deleteInspectionPoint: deleteInspectionPoint,
   getInspectionPointDetail: getInspectionPointDetail,
   saveInspectionPointCheckItem: saveInspectionPointCheckItem,

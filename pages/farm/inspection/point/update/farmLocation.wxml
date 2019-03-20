@@ -1,0 +1,12 @@
+<form>
+  <form-group>
+    <view class='title'>详细地址</view>
+    <input placeholder="请输入详细地址" class='radius' name='farmLocation' bindinput="inputPointFarmLocation" value="{{form.farmLocation}}" style='text-align:right;'></input>
+  </form-group>
+</form>
+
+<bar class="btn-group options width-full">
+  <button class='bg-green round lg' bindtap='toUpdate'>
+    <icon class='icon-check'></icon> 修改
+  </button>
+</bar>

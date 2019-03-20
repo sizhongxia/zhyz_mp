@@ -1,0 +1,12 @@
+<form>
+  <form-group>
+    <view class='title'>物体标识</view>
+    <input placeholder="请输入物体标识" class='radius' name='objectId' bindinput="inputObjectId" value="{{form.objectId}}" style='text-align:right;'></input>
+  </form-group>
+</form>
+
+<bar class="btn-group options width-full">
+  <button class='bg-green round lg' bindtap='toUpdate'>
+    <icon class='icon-check'></icon> 修改
+  </button>
+</bar>

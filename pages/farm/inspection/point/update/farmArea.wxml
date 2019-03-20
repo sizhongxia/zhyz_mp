@@ -1,0 +1,16 @@
+<form>
+  <form-group>
+    <view class='title'>选择厂区</view>
+    <picker bindchange="areaPickerChange" value="{{index}}" range="{{areas}}" range-key="areaName">
+      <view class="picker">
+        {{ form.farmAreaName == '' ? '农场' : form.farmAreaName }}
+      </view>
+    </picker>
+  </form-group>
+</form>
+
+<bar class="btn-group options width-full">
+  <button class='bg-green round lg' bindtap='toUpdate'>
+    <icon class='icon-check'></icon> 修改
+  </button>
+</bar>

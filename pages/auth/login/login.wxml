@@ -13,7 +13,7 @@
     </form-group>
   </form>
   <view class="padding-xl">
-    <button class='block bg-blue margin-tb-sm lg' open-type='getUserInfo' bindgetuserinfo='getUserInfo' loading='{{logining}}'>账号登录</button>
+    <button id='loginBtn' class='block bg-blue margin-tb-sm lg' open-type='getUserInfo' bindgetuserinfo='getUserInfo' loading='{{logining}}'>账号登录</button>
     <view style="text-align:center">
       <button class='bg-gray margin-tb-sm' open-type='getUserInfo' bindgetuserinfo='getUserInfoForWx'>微信登录</button>|<button class='bg-gray margin-tb-sm' open-type='getUserInfo' bindgetuserinfo='getUserInfoToReg'>新用户注册</button>|<button class='bg-gray margin-tb-sm' bindtap='toResetpwd'>忘记密码？</button>
     </view>

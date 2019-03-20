@@ -1,0 +1,27 @@
+<form>
+  <form-group>
+    <view class='title'>选择厂区</view>
+    <picker bindchange="areaPickerChange" value="{{index}}" range="{{areas}}" range-key="areaName">
+      <view class="picker">
+        {{ form.farmAreaName == '' ? '农场' : form.farmAreaName }}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>巡检点名称</view>
+    <input placeholder="请输入巡检点名称" class='radius' name='input' bindinput="inputPointName" value="{{form.pointName}}"></input>
+  </form-group>
+  <form-group>
+    <view class='title'>物体标识</view>
+    <input placeholder="请输入巡检点物体标识(可不填)" class='radius' name='input' bindinput="inputObjectId" value="{{form.objectId}}"></input>
+  </form-group>
+  <form-group class="top">
+    <view class='title'>具体位置</view>
+    <textarea placeholder="请输入巡检点具体位置" maxlength="200" placeholder-class='placeholder' bindinput="inputFarmLocation" value='{{form.farmLocation}}'></textarea>
+  </form-group>
+</form>
+<bar class="btn-group options width-full">
+  <button loading='{{submiting}}' class='bg-green round lg' bindtap='toAdd'>
+    <icon class='icon-check'></icon> 保存
+  </button>
+</bar>

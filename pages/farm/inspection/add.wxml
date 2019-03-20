@@ -1,11 +1,12 @@
 <form>
-  <form-group class="margin-top">
-    <view class='title'>选择厂区</view>
-    <picker bindchange="areaPickerChange" value="{{index}}" range="{{areas}}" range-key="areaName">
+  <form-group>
+    <view class='title'>农场厂区</view>
+    <input disabled="{{true}}" class='radius' value="{{form.farmAreaName}}" style='text-align:right;'></input>
+    <!-- <picker bindchange="areaPickerChange" value="{{index}}" range="{{areas}}" range-key="areaName">
       <view class="picker">
         {{ form.farmAreaName == '' ? '无厂区' : form.farmAreaName }}
       </view>
-    </picker>
+    </picker> -->
   </form-group>
   <form-group>
     <view class='title'>具体位置</view>
@@ -27,17 +28,34 @@
       </view>
     </picker>
   </form-group>
-  <form-group>
-    <view class='title'>巡检人</view>
-    <input placeholder="请输入巡检人" class='radius' name='operator' bindinput="inputOperator" value="{{form.operator}}" style='text-align:right;'></input>
-  </form-group>
-  <form-group>
+  
+  <bar class="solid-bottom margin-top">
+    <view class='action'>检查提示项</view>
+  </bar>
+  <list class="menu menu-avatar no-padding" wx:if="{{form.checkItems.length === 0}}">
+    <view class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>无检查项提示</view>
+  </list>
+  <list class="menu no-padding">
+    <item wx:for="{{form.checkItems}}" wx:key="itemId" wx:for-item="item">
+      <view class='content'>
+        <view>{{index+1}}. {{item.itemTitle}}</view>
+        <view style='color: grey'>{{item.itemContent}}</view>
+      </view>
+    </item>
+  </list>
+
+  <form-group class="margin-top">
     <view class='title'>巡检正常</view>
     <switch class='green sm' bindchange="switchNormalState" checked="{{form.isNormal == 1}}"/>
   </form-group>
   <form-group>
     <textarea placeholder="请输入巡检描述" maxlength="200" placeholder-class='placeholder' bindinput="inputInspectionRemark" value='{{form.inspectionRemark}}'></textarea>
   </form-group>
+  <form-group>
+    <view class='title'>巡检人</view>
+    <input placeholder="请输入巡检人" class='radius' name='operator' bindinput="inputOperator" value="{{form.operator}}" style='text-align:right;'></input>
+  </form-group>
+
   <bar class="margin-top">
     <view class='action'>
       <icon class='icon-titles text-blue' /> 上传图片 (最多可上传8张)
@@ -56,6 +74,8 @@
     </view>
   </form-group>
 </form>
+
+
 <bar class="btn-group options width-full">
   <button loading='{{submiting}}' class='bg-green round lg' bindtap='toAdd'>
     <icon class='icon-check'></icon> 保存

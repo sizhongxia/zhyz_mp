@@ -1,8 +1,19 @@
 @import "icon.wxss";
 @import "colorui-rpx.wxss";
 
+.options {
+  position: fixed;
+  bottom: 0;
+  height: 120rpx;
+  line-height: 120rpx;
+}
+
+.width-full {
+  width: 750rpx;
+}
+
 .container {
-  height: 100%;
+  width: 750rpx;
   display: flex;
   flex-direction: column;
   align-items: center;

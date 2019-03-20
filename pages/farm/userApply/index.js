@@ -9,8 +9,8 @@ Page({
     applyHandleModal: false,
     selectResId: ''
   },
-  onLoad: function(options) {
-    this.loadData('D');
+  onShow: function (options) {
+    this.loadData(this.data.selectState);
   },
   tabSelect: function(e) {
     this.loadData(e.currentTarget.dataset.id);

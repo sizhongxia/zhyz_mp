@@ -56,8 +56,12 @@ module.exports = {
   
   InspectionPointData: ApiUrl + '/zhyz/miniapp/api/inspection/point/data',
   SaveInspectionPoint: ApiUrl + '/zhyz/miniapp/api/inspection/point/save',
-  UpdateInspectionPoint: ApiUrl + '/zhyz/miniapp/api/inspection/point/update',
+  UpdateInspectionPointName: ApiUrl + '/zhyz/miniapp/api/inspection/point/updateName',
+  UpdateInspectionPointFarmLocation: ApiUrl + '/zhyz/miniapp/api/inspection/point//updateFarmLocation',
+  UpdateInspectionPointFarmArea: ApiUrl + '/zhyz/miniapp/api/inspection/point/updateFarmArea',
+  UpdateInspectionPointObjectId: ApiUrl + '/zhyz/miniapp/api/inspection/point/updateObjectId',
   DeleteInspectionPoint: ApiUrl + '/zhyz/miniapp/api/inspection/point/delete',
+
   InspectionPointDetail: ApiUrl + '/zhyz/miniapp/api/inspection/point/detail',
   SaveInspectionPointCheckItem: ApiUrl + '/zhyz/miniapp/api/inspection/point/saveCheckItem',
   UpdateInspectionPointCheckItem: ApiUrl + '/zhyz/miniapp/api/inspection/point/updateCheckItem',

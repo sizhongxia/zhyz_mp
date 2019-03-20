@@ -1,44 +1,49 @@
 var farmService = require('../../../service/farm.js');
 var inspectionService = require('../../../service/inspection.js');
+var inspectionPointService = require('../../../service/inspectionPoint.js');
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 const app = getApp()
 
 Page({
   data: {
-    areas: [],
+    pointId: '',
     form: {
       farmId: '',
-      farmAreaId: '',
-      farmAreaName: '',
-      inspectionPoint: '',
+      pointId: '',
+      areaName: '',
       inspectionPosition: '',
       isNormal: '1',
       inspectionDate: '2019-01-01',
       inspectionTime: '08:00',
       operator: '',
-      inspectionRemark: '未发现异常',
-      inspectionPics: []
+      inspectionRemark: '',
+      inspectionPics: [],
+      checkItems: []
     },
     submiting: false
   },
   onLoad: function (options) {
     const _this = this;
-    var farmId = wx.getStorageSync('curr-farm-id');
+    var pointId = options.pointId;
+    if(!pointId) {
+      wx.navigateBack();
+      return;
+    }
     wx.showLoading({
       title: '请稍后...',
       mask: true
     });
-    farmService.selectFarmAreas(farmId).then(res => {
+    var farmId = wx.getStorageSync('curr-farm-id');
+    inspectionPointService.getInspectionPointDetail(pointId).then(res => {
       var form = _this.data.form;
       form.farmId = farmId;
-      if (res.length > 0) {
-        var area = res[0];
-        form.farmAreaId = area.areaId;
-        form.farmAreaName = area.areaName;
-      }
+      form.pointId = pointId;
+      form.farmAreaId = res.farmAreaId;
+      form.farmAreaName = res.farmAreaName || '农场';
+      form.inspectionPosition = res.farmLocation;
+      form.checkItems = res.checkItems;
       _this.setData({
-        areas: res,
         form: form
       });
       wx.hideLoading();
@@ -80,18 +85,18 @@ Page({
       form: form
     });
   },
-  areaPickerChange: function (e) {
-    const _this = this;
-    if (e.detail.value > -1) {
-      var form = _this.data.form;
-      var area = _this.data.areas[e.detail.value];
-      form.farmAreaId = area.areaId;
-      form.farmAreaName = area.areaName;
-      _this.setData({
-        form: form
-      });
-    }
-  },
+  // areaPickerChange: function (e) {
+  //   const _this = this;
+  //   if (e.detail.value > -1) {
+  //     var form = _this.data.form;
+  //     var area = _this.data.areas[e.detail.value];
+  //     form.farmAreaId = area.areaId;
+  //     form.farmAreaName = area.areaName;
+  //     _this.setData({
+  //       form: form
+  //     });
+  //   }
+  // },
   inspectionDateChange: function (e) {
     const _this = this;
     var form = _this.data.form;
@@ -128,12 +133,12 @@ Page({
     const _this = this;
     var form = _this.data.form;
     form.isNormal = e.detail.value ? 1 : 2;
-    if (!e.detail.value && form.inspectionRemark == '未发现异常') {
-      form.inspectionRemark = '异常：';
-    }
-    if (e.detail.value && form.inspectionRemark == '异常：') {
-      form.inspectionRemark = '未发现异常';
-    }
+    // if (!e.detail.value && form.inspectionRemark == '未发现异常') {
+    //   form.inspectionRemark = '异常：';
+    // }
+    // if (e.detail.value && form.inspectionRemark == '异常：') {
+    //   form.inspectionRemark = '未发现异常';
+    // }
     _this.setData({
       form: form
     });
@@ -224,20 +229,21 @@ Page({
     });
     inspectionService.saveInspection(_this.data.form).then(res => {
       wx.hideLoading();
-      wx.showToast({
-        title: '保存成功'
-      });
-      var form = _this.data.form;
-      form.inspectionPoint = "";
-      form.inspectionPosition = "";
-      form.inspectionPics = [];
-      form.inspectionRemark = "";
-      form.operator = "";
-      form.isNormal = "1";
-      _this.setData({
-        submiting: false,
-        form: form
-      });
+      // wx.showToast({
+      //   title: '保存成功'
+      // });
+      // var form = _this.data.form;
+      // form.inspectionPoint = "";
+      // form.inspectionPosition = "";
+      // form.inspectionPics = [];
+      // form.inspectionRemark = "";
+      // form.operator = "";
+      // form.isNormal = "1";
+      // _this.setData({
+      //   submiting: false,
+      //   form: form
+      // });
+      wx.navigateBack();
     }).catch(err => {
       wx.hideLoading();
       _this.setData({

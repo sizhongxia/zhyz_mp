@@ -1,7 +1,7 @@
 <form>
   <form-group>
     <view class='title'>采集值</view>
-    <picker bindchange="monitorItemsChange" value="{{index}}" range="{{monitorItems}}" range-key="name">
+    <picker bindchange="monitorItemsChange" value="{{icindex}}" range="{{monitorItems}}" range-key="name">
       <view class="picker">
         {{ form.monitorItemName }}
       </view>
@@ -9,7 +9,7 @@
   </form-group>
   <form-group>
     <view class='title'>比较符</view>
-    <picker bindchange="operationalCharacterChange" value="{{index}}" range="{{operationalCharacters}}" range-key="ocName">
+    <picker bindchange="operationalCharacterChange" value="{{ccindex}}" range="{{operationalCharacters}}" range-key="ocName">
       <view class="picker">
         {{ form.operationalCharacterName }}
       </view>

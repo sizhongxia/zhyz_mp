@@ -1832,7 +1832,7 @@ load.over::before {
 }
 
 load.over::after {
-  content: "没有更多了";
+  content: "无更多数据";
 }
 
 load.erro::before {

@@ -1,5 +1,5 @@
 <form report-submit='{{true}}' bindsubmit='toUpdate'>
-  <form-group class='margin-top'>
+  <form-group>
     <view class='title'>农场名称</view>
     <input value='{{farm.farmName}}' placeholder='请输入农场名称' class='radius' name='farmName'></input>
   </form-group>

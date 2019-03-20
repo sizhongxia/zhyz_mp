@@ -1,0 +1,12 @@
+<form>
+  <form-group>
+    <view class='title'>巡检点名称</view>
+    <input placeholder="请输入巡检点名称" class='radius' name='pointName' bindinput="inputPointName" value="{{form.pointName}}" style='text-align:right;'></input>
+  </form-group>
+</form>
+
+<bar class="btn-group options width-full">
+  <button class='bg-green round lg' bindtap='toUpdate'>
+    <icon class='icon-check'></icon> 修改
+  </button>
+</bar>

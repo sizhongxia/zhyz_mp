@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    token: '',
     username: '',
     password: '',
     logining: false
@@ -42,6 +43,9 @@ Page({
       return loginService.loginRequest(code);
     }).then(res => {
       app.globalData.userInfo = res;
+      _this.setData({
+        token: res.token
+      });
       wx.setStorageSync('token', res.token);
       setTimeout(() => {
         wx.hideLoading();

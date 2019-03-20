@@ -1,5 +1,6 @@
 var farmService = require('../../../service/farm.js');
 var inspectionService = require('../../../service/inspection.js');
+var inspectionPointService = require('../../../service/inspectionPoint.js');
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 const app = getApp()
@@ -16,8 +17,6 @@ Page({
     this.setData({
       farmId: wx.getStorageSync('curr-farm-id')
     });
-  },
-  onShow: function () {
     this.load();
   },
   load: function (callback) {
@@ -78,10 +77,46 @@ Page({
       url: '/pages/farm/inspection/point/index',
     });
   },
-  toAdd: function () {
-    wx.navigateTo({
-      url: '/pages/farm/inspection/add',
-    });
+  toScan: function () {
+    const _this = this;
+    // wx.scanCode({
+    //   onlyFromCamera: true,
+    //   scanType: ['qrCode'],
+    //   success(res) {
+    //     var qrVal = res.result.replace(new RegExp('"', "g"), "");
+    //     if (qrVal.indexOf('https://www.yeetong.cn/inspectionpoint/') === 0) {
+    //       wx.showLoading({
+    //         title: '请稍后...',
+    //         mask: true
+    //       });
+          // ?pointId=
+          //var pointId = qrVal.substr(39);
+          var pointId = '5c9209cde4b0a700435601ae';
+          inspectionPointService.getInspectionPointDetail(pointId).then(res => {
+            wx.hideLoading();
+            if (res.farmId === _this.data.farmId && res.pointId) {
+              wx.navigateTo({
+                url: '/pages/farm/inspection/add?pointId=' + res.pointId,
+              });
+            } else {
+              util.showErrorToast('请扫描当前农场的巡检点二维码');
+            }
+          }).catch(err => {
+            wx.hideLoading();
+            if (err) {
+              if (err.message) {
+                util.showErrorToast(err.message);
+              }
+            }
+          });
+    //     } else {
+    //       util.showErrorToast('无效的巡检点');
+    //     }
+    //   },
+    //   fail(err) {
+    //     util.showErrorToast('无效的巡检点');
+    //   }
+    // });
   },
   loadMore: function () {
     this.load();
@@ -91,16 +126,6 @@ Page({
       url: '/pages/farm/inspection/detail?inspectionId=' + e.currentTarget.dataset.inspectionId,
     });
   },
-  // onPullDownRefresh: function () {
-  //   const _this = this;
-  //   _this.setData({
-  //     isOver: false,
-  //     page: 1
-  //   });
-  //   _this.load(function () {
-  //     wx.stopPullDownRefresh();
-  //   });
-  // },
   previewImage: function (e) {
     util.previewImage(e.currentTarget.dataset.picUrl);
   },
@@ -132,6 +157,17 @@ Page({
           });
         }
       }
+    });
+  },
+  onPullDownRefresh: function () {
+    this.setData({
+      page: 1,
+      isOver: false
+    });
+    wx.showNavigationBarLoading();
+    this.load(function () {
+      wx.hideNavigationBarLoading();
+      wx.stopPullDownRefresh();
     });
   }
 })
