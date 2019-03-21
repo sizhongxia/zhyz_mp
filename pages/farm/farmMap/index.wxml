@@ -1,1 +1,1 @@
-<map id="myMap" style="width: 100%; height: {{height}}px;" longitude="{{longitude}}" latitude="{{latitude}}" scale='16' show-compass='{{true}}' subkey="JRVBZ-XPSW5-STRIM-QGWQC-6D3T6-5ABT3" markers="{{markers}}"></map>
+<map id="farmMap" style="width: 100%; height: {{height}}px;" longitude="{{longitude}}" latitude="{{latitude}}" scale='16' show-compass='{{true}}' subkey="JRVBZ-XPSW5-STRIM-QGWQC-6D3T6-5ABT3" markers="{{markers}}" bindmarkertap="bindmarkertap"></map>

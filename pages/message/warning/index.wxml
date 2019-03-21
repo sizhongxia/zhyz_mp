@@ -1,0 +1,23 @@
+<chat>
+  <item wx:for="{{warnings}}" wx:key="id">
+    <avatar class="radius" style="background-image:url(https://static.yeetong.cn/5c934d967ba9f94be323a801.png-yeetong?v3);"></avatar>
+    <view class="main">
+      <view class='content shadow'>
+        <text>{{item.content}}</text>
+      </view>
+    </view>
+    <view class='date'>{{item.time}}</view>
+  </item>
+  <view wx:if="{{!over}}" bindtap="loadMore" style="line-height: 52rpx;font-size: 26rpx;text-align: center;margin: 32rpx;">加载更多</view>
+</chat>
+<!-- 
+<bar class="foot input">
+  <view class='action'>
+    <icon class='icon-sound text-grey'/>
+  </view>
+  <input class='solid-bottom' focus="{{false}}" maxlength="300" cursor-spacing="10"></input>
+  <view class='action'>
+    <icon class='icon-emojifill text-grey'/>
+  </view>
+  <button class='bg-green shadow-blur'>发送</button>
+</bar> -->

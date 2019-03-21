@@ -2,6 +2,7 @@ var farmService = require('../../service/farm.js');
 var inspectionService = require('../../service/inspection.js');
 var newsService = require('../../service/news.js');
 var feedService = require('../../service/feed.js');
+var msgService = require('../../service/msg.js');
 
 var util = require('../../utils/util.js');
 const app = getApp();
@@ -88,6 +89,13 @@ Page({
       mask: true
     });
     var farmId = wx.getStorageSync('curr-farm-id');
+
+    msgService.checkMsgDot(farmId).then(res => {
+      console.info(res)
+    }).catch(err => {
+      console.info(err);
+    });
+
     farmService.getFarmHomeData(farmId).then(res => {
       _this.setData({
         banners: res.banners,

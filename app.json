@@ -15,6 +15,7 @@
     "pages/equipment/type/detail",
     "pages/equipment/type/video",
     "pages/message/index",
+    "pages/message/warning/index",
     "pages/console/index",
     "pages/mine/index",
     "pages/mine/userinfo",

@@ -30,7 +30,7 @@ module.exports = {
   UpdateFarmWeatherInfo: ApiUrl + '/zhyz/miniapp/api/farm/updateWeatherInfo',
   ToApplyFarmVisit: ApiUrl + '/zhyz/miniapp/api/farm/toApply',
   FarmBanners: ApiUrl + '/zhyz/miniapp/api/farm/banners',
-  FarmWeather: ApiUrl + '/zhyz/miniapp/api/farm/weather/baseTxt',
+  FarmWeather: ApiUrl + '/zhyz/miniapp/api/farm/weather',
   UpdateFarm: ApiUrl + '/zhyz/miniapp/api/farm/update',
   FarmUserAuthInfo: ApiUrl + '/zhyz/miniapp/api/farm/userAuthInfo',
   UpdateFarmUserAuthInfo: ApiUrl + '/zhyz/miniapp/api/farm/updateUserAuthInfo',
@@ -126,6 +126,10 @@ module.exports = {
   GetFuncs: ApiUrl + '/zhyz/miniapp/api/getFuncs',
   GetFuncDetail: ApiUrl + '/zhyz/miniapp/api/getFuncDetail',
   MsgData: ApiUrl + '/zhyz/miniapp/api/msg/list',
+  WarningMsgData: ApiUrl + '/zhyz/miniapp/api/msg/warnings',
+  CheckMsgDot: ApiUrl + '/zhyz/miniapp/api/checkMsgDot',
+  CleanWarningMsgDot: ApiUrl + '/zhyz/miniapp/api/cleanWarningMsgDot',
+
   NewsData: ApiUrl + '/zhyz/miniapp/api/news/list',
 
   UploadApi: ApiUrl + '/basic/api/upload'

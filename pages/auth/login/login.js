@@ -22,12 +22,7 @@ Page({
   onShow: function () {
     this.toLogin();
     const updateManager = wx.getUpdateManager();
-    wx.showLoading({
-      title: '请稍后...',
-      mask: true
-    });
     updateManager.onCheckForUpdate(function (res) {
-      wx.hideLoading();
     });
     updateManager.onUpdateReady(function () {
       updateManager.applyUpdate()
@@ -36,21 +31,23 @@ Page({
   toLogin: function () {
     const _this = this;
     wx.showLoading({
-      title: '请稍后...',
+      title: '正在验证登录...',
       mask: true
     });
     util.login().then(code => {
       return loginService.loginRequest(code);
     }).then(res => {
       app.globalData.userInfo = res;
+      wx.setStorageSync('token', res.token);
       _this.setData({
         token: res.token
       });
-      wx.setStorageSync('token', res.token);
       setTimeout(() => {
-        wx.hideLoading();
         wx.redirectTo({
-          url: '/pages/farm/select/index'
+          url: '/pages/farm/select/index',
+          complete: function () {
+            wx.hideLoading();
+          }
         });
       }, 1000);
     }).catch(err => {

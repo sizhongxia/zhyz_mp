@@ -79,7 +79,7 @@
     <item wx:for="{{alarms}}" wx:key="time" data-res-id="{{item.resId}}" bindtap="showAlarmModel">
       <view class='content'>
         <icon class='icon-warn text-orange'>
-          <tag wx:if="{{item.readState!='1'}}" class="badge" style="background:#fcc;"></tag>
+          <!-- <tag wx:if="{{item.readState!='1'}}" class="badge" style="background:#fcc;"></tag> -->
         </icon>
         <text style='font-size:24rpx;font-weight:300;color:#484848'>{{item.termName}}：{{item.currentValue}}{{item.unit}}</text>
       </view>

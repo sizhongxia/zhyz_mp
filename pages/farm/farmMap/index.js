@@ -2,8 +2,8 @@ const app = getApp()
 Page({
   data: {
     markers: [],
-    longitude: '',
-    latitude: '',
+    longitude: 0,
+    latitude: 0,
     height: 0
   },
   onLoad: function (options) {
@@ -12,10 +12,12 @@ Page({
       wx.getSystemInfo({
         success(res) {
           var markers = [{
+            id: 0,
             latitude: options.latitude,
             longitude: options.longitude,
-            title: options.farmName,
-            iconPath: '/static/images/marker.png'
+            label: options.farmName,
+            iconPath: '/static/images/marker.png',
+            zIndex: 9999
           }];
           _this.setData({
             latitude: options.latitude,
@@ -34,5 +36,14 @@ Page({
         delta: 1
       });
     }
+  },
+  bindmarkertap: function(e) {
+    var marker = this.data.markers[e.markerId];
+    wx.openLocation({
+      latitude: Number(marker.latitude),
+      longitude: Number(marker.longitude),
+      scale: 18,
+      name: marker.label
+    })
   }
 })

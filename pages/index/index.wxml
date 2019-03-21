@@ -8,12 +8,12 @@
     <item style='margin:0;border-radius:0;'>
       <view class="title" style='line-height:60rpx; padding:15rpx 30rpx 0;'>
         <text bindtap='toEditFarmInfo'>{{farm.farmName}}</text> <icon wx:if="{{ farmIdentity==='admin' }}" bindtap='toEditFarmInfo' class='icon-edit lg text-black' style='vertical-align:text-top;font-size:32rpx;'></icon>
-        <text bindtap='toSelectWeatherCity' wx:if="{{ weather != '' }}" style='float:right;font-weight: 300;font-size:28rpx;'>{{weather}}</text>
+        <view wx:if="{{weather!=''}}" style='float:right;font-weight: 300;font-size:28rpx;'> {{weather}} <text bindtap='toSelectWeatherCity' style='float:right'>[更改]</text></view>
       </view>
       <view class="content">
         <image bindtap='previewImage' data-src="{{farm.qrCodeUrl}}" style='width: 190rpx;height:190rpx;margin-left:15rpx;' src="{{farm.qrCodeUrl}}" mode="aspectFit"></image>
         <view class="desc" style='margin-top:30rpx;height:144rpx;'>
-          <view wx:if="{{ farm.address != '' }}" class='m-farm-baseinfo-item' bindtap='toMapPage'>农场位置：{{farm.address}}</view>
+          <view wx:if="{{ farm.address != '' }}" class='m-farm-baseinfo-item' bindtap='toMapPage'>农场位置：<span wx:if="{{farm.latitude && farm.longitude}}">【地图】</span>{{farm.address}}</view>
           <view wx:if="{{ farm.acreage != '' }}" class='m-farm-baseinfo-item'>占地面积：{{farm.acreage}}</view>
           <view wx:if="{{ farm.website != '' }}" class='m-farm-baseinfo-item' bindtap='showMore' data-content='{{farm.website}}'>宣传网址：{{farm.website}}</view>
           <view wx:else class='m-farm-baseinfo-item'><text space="emsp"> \t </text></view>
