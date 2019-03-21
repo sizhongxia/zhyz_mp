@@ -91,9 +91,11 @@ Page({
     var farmId = wx.getStorageSync('curr-farm-id');
 
     msgService.checkMsgDot(farmId).then(res => {
-      console.info(res)
-    }).catch(err => {
-      console.info(err);
+      if (res) {
+        wx.showTabBarRedDot({
+          index: 1
+        })
+      }
     });
 
     farmService.getFarmHomeData(farmId).then(res => {

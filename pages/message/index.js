@@ -35,12 +35,22 @@ Page({
         title: '请稍后...',
         mask: true
       })
-      wx.navigateTo({
-        url: '/pages/message/warning/index',
-        complete: function () {
-          wx.hideLoading();
+      var farmId = wx.getStorageSync('curr-farm-id');
+      msgService.cleanWarningMsgDot(farmId).then(res => {
+        if (res) {
+          wx.hideTabBarRedDot({
+            index: 1,
+            complete: function(e) {
+              wx.navigateTo({
+                url: '/pages/message/warning/index',
+                complete: function () {
+                  wx.hideLoading();
+                }
+              })
+            }
+          });
         }
-      })
+      });
     }
   }
 })
