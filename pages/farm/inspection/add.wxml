@@ -45,8 +45,10 @@
   </list>
 
   <form-group class="margin-top">
-    <view class='title'>巡检正常</view>
-    <switch class='green sm' bindchange="switchNormalState" checked="{{form.isNormal == 1}}"/>
+    <view class='title'>巡检是否正常</view>
+    <view>
+      <switch class='green sm' bindchange="switchNormalState" checked="{{form.isNormal == 1}}"/> {{form.isNormal == 1 ? '':'不' }}正常
+    </view>
   </form-group>
   <form-group>
     <textarea placeholder="请输入巡检描述" maxlength="200" placeholder-class='placeholder' bindinput="inputInspectionRemark" value='{{form.inspectionRemark}}'></textarea>

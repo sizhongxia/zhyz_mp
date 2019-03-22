@@ -30,9 +30,9 @@
   <view class='h120 width-full' style='color: #aaa'>Copyright © 2018-2019 一通无限</view>
 </view>
 <bar class="btn-group options width-full">
-  <button class='round' bindtap='toInspectionPoint'>
+  <!-- <button class='round' bindtap='toInspectionPoint'>
     <icon class='icon-fork'></icon> 巡检点管理
-  </button>
+  </button> -->
   <button class='bg-green round' style='flex:2;' bindtap='toScan'>
     <icon class='icon-scan'></icon> 巡检(扫描二维码)
   </button>
