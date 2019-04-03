@@ -163,10 +163,8 @@ Page({
   },
   toMapPage: function () {
     const _this = this;
-    if (_this.data.farm.latitude && _this.data.farm.longitude) {
-      wx.navigateTo({
-        url: '/pages/farm/farmMap/index?longitude=' + _this.data.farm.longitude + '&latitude=' + _this.data.farm.latitude + '&farmName=' + _this.data.farm.farmName
-      });
-    }
+    wx.navigateTo({
+      url: '/pages/webview/index?path=https://www.yeetong.cn/mp/farm/map/' + _this.data.farm.farmId
+    });
   }
 })

@@ -72,6 +72,12 @@
       <text class='text-grey'>推荐有礼</text>
     </view>
   </item>
+  <item class="arrow" bindtap='toAboutUs'>
+    <view class='content'>
+      <icon class='icon-like text-green' />
+      <text class='text-grey'>关于我们</text>
+    </view>
+  </item>
 </list>
 <view style="width: 750rpx;text-align:center;">
   <button class='lg bg-gray' style='width:520rpx;margin: 50rpx 0 20rpx;' open-type='feedback'>意见反馈</button>

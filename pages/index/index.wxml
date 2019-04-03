@@ -13,7 +13,7 @@
       <view class="content">
         <image bindtap='previewImage' data-src="{{farm.qrCodeUrl}}" style='width: 190rpx;height:190rpx;margin-left:15rpx;' src="{{farm.qrCodeUrl}}" mode="aspectFit"></image>
         <view class="desc" style='margin-top:30rpx;height:144rpx;'>
-          <view wx:if="{{ farm.address != '' }}" class='m-farm-baseinfo-item' bindtap='toMapPage'>农场位置：<span wx:if="{{farm.latitude && farm.longitude}}">【地图】</span>{{farm.address}}</view>
+          <view wx:if="{{ farm.address != '' }}" class='m-farm-baseinfo-item' bindtap='toMapPage'>农场位置：【地图】{{farm.address}}</view>
           <view wx:if="{{ farm.acreage != '' }}" class='m-farm-baseinfo-item'>占地面积：{{farm.acreage}}</view>
           <view wx:if="{{ farm.website != '' }}" class='m-farm-baseinfo-item' bindtap='showMore' data-content='{{farm.website}}'>宣传网址：{{farm.website}}</view>
           <view wx:else class='m-farm-baseinfo-item'><text space="emsp"> \t </text></view>

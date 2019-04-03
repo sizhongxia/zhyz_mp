@@ -156,5 +156,10 @@ Page({
     this.setData({
       recommendModel: false
     })
+  },
+  toAboutUs: function () {
+    wx.navigateTo({
+      url: '/pages/webview/index?path=https://www.yeetong.cn/mp/base/aboutus'
+    });
   }
 })
