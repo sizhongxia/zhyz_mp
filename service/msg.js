@@ -14,6 +14,12 @@ const getWarningMsgData = (farmId, page) => {
   });
 }
 
+const getSystemMsgData = (page) => {
+  return util.post(api.SystemMsgData, {
+    page: page
+  });
+}
+
 const checkMsgDot = (farmId) => {
   return util.post(api.CheckMsgDot, {
     farmId: farmId
@@ -26,9 +32,15 @@ const cleanWarningMsgDot = (farmId) => {
   });
 }
 
+const cleanSystemMsgDot = () => {
+  return util.post(api.CleanSystemMsgDot);
+}
+
 module.exports = {
   getMsgData: getMsgData,
   getWarningMsgData: getWarningMsgData,
+  getSystemMsgData: getSystemMsgData,
   checkMsgDot: checkMsgDot,
-  cleanWarningMsgDot: cleanWarningMsgDot
+  cleanWarningMsgDot: cleanWarningMsgDot,
+  cleanSystemMsgDot: cleanSystemMsgDot
 }

@@ -1,0 +1,14 @@
+<chat>
+  <item wx:for="{{messages}}" wx:key="id">
+    <avatar class="radius" style="background-image:url(https://static.yeetong.cn/5c934d967ba9f94be323a802.png-yeetong?v3);"></avatar>
+    <view class="main">
+      <view class='content shadow'>
+        <navigator hover-class='none' url="/pages/webview/index?path=https://www.yeetong.cn/mp/msg/systemMessage/{{item.resId}}">
+          <text>{{item.msgTitle}} (点击查看详情)</text>
+        </navigator>
+      </view>
+    </view>
+    <view class='date'>{{item.time}}</view>
+  </item>
+  <view wx:if="{{!over}}" bindtap="loadMore" style="line-height: 52rpx;font-size: 26rpx;text-align: center;margin: 32rpx;">加载更多</view>
+</chat>

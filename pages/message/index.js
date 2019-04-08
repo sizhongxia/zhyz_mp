@@ -51,6 +51,26 @@ Page({
           });
         }
       });
+    } else if ("SYSTEM_MESSAGE" === type) {
+      wx.showLoading({
+        title: '请稍后...',
+        mask: true
+      })
+      msgService.cleanSystemMsgDot().then(res => {
+        if (res) {
+          wx.hideTabBarRedDot({
+            index: 1,
+            complete: function (e) {
+              wx.navigateTo({
+                url: '/pages/message/system/index',
+                complete: function () {
+                  wx.hideLoading();
+                }
+              })
+            }
+          });
+        }
+      });
     }
   }
 })

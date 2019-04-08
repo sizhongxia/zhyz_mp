@@ -127,7 +127,9 @@ module.exports = {
   GetFuncDetail: ApiUrl + '/zhyz/miniapp/api/getFuncDetail',
   MsgData: ApiUrl + '/zhyz/miniapp/api/msg/list',
   WarningMsgData: ApiUrl + '/zhyz/miniapp/api/msg/warnings',
+  SystemMsgData: ApiUrl + '/zhyz/miniapp/api/msg/system/messages',
   CheckMsgDot: ApiUrl + '/zhyz/miniapp/api/msg/checkMsgDot',
+  CleanSystemMsgDot: ApiUrl + '/zhyz/miniapp/api/msg/cleanSystemMsgDot',
   CleanWarningMsgDot: ApiUrl + '/zhyz/miniapp/api/msg/cleanWarningMsgDot',
 
   NewsData: ApiUrl + '/zhyz/miniapp/api/news/list',
