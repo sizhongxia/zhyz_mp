@@ -8,8 +8,9 @@
     </view>
     <view class='content'>
       <view class='text-grey'>{{item.name}}</view>
-      <view class='text-gray text-sm'>
-        <text>{{item.content}}</text></view>
+      <view class='text-gray text-sm' style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:320rpx'>
+        <text>{{item.content}}</text>
+      </view>
     </view>
     <view class='action'>
       <view class='text-grey text-xs'>{{item.time}}</view>
