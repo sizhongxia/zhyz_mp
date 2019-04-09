@@ -101,7 +101,7 @@
       },
       {
         "pagePath": "pages/console/index",
-        "text": "应用",
+        "text": "管理",
         "iconPath": "/static/images/menus/console.png",
         "selectedIconPath": "/static/images/menus/console-s.png"
       },

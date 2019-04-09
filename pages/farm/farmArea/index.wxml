@@ -1,8 +1,6 @@
 <list class="menu menu-avatar">
   <item class="arrow" wx:for="{{areas}}" wx:key="areaId" data-area-id="{{item.areaId}}" bindtap="toEdit" bindlongpress="removeItem">
-    <avatar class="radius lg">
-      <text>厂区</text>
-    </avatar>
+    <avatar class="radius lg" style="background-image:url(https://static.yeetong.cn/farm-area-icon.png-yeetong?v2);"></avatar>
     <view class='content'>
       <view>{{item.areaName}}</view>
       <view class='text-gray text-sm'>{{item.acreage}} {{item.areaPosition}}</view>
