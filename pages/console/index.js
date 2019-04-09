@@ -5,7 +5,15 @@ Page({
   data: {
     currentFarmId: '',
     currentFarmIdentity: '',
+    farmId: '',
+    farmLogo: '',
     funcs: []
+  },
+  onLoad: function (query) {
+    const _this = this;
+    _this.setData({
+      farmId: wx.getStorageSync('curr-farm-id')
+    });
   },
   onShow: function () {
     const _this = this;
@@ -13,7 +21,12 @@ Page({
       title: '请稍后...',
       mask: true
     });
-    var currentFarmId = wx.getStorageSync('curr-farm-id');
+    var currentFarmId = _this.data.farmId;
+    farmService.farmDetail(currentFarmId).then(res => {
+      _this.setData({
+        farmLogo: res.farmLogo
+      });
+    })
     farmService.getFarmFuncs(currentFarmId).then(res => {
       wx.hideLoading();
       _this.setData({

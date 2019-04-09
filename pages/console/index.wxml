@@ -9,6 +9,12 @@
   </bar>
   <list class="grid no-border col-4">
     <item>
+      <navigator hover-class='none' url="/pages/webview/index?path=https://www.yeetong.cn/mp/farm/console/{{farmId}}">
+        <image lazy-load="{{true}}" src='{{farmLogo}}'></image>
+        <text>我的农场</text>
+      </navigator>
+    </item>
+    <item>
       <navigator hover-class='none' url="/pages/farm/farmArea/index">
         <image lazy-load="{{true}}" src='https://static.yeetong.cn/yeetong/function/icon/console_area.png-yeetong?v2'></image>
         <text>厂区管理</text>
