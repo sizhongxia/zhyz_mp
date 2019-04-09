@@ -11,11 +11,12 @@
       </view>
     </picker>
   </form-group>
+    <!-- 
   <form-group>
     <view class='title'>地图位置</view>
     <input placeholder="请输入地图经纬度" class='radius' name='latlng' disabled="{{true}}" value="{{farm.latlng}}"></input>
     <button class='bg-gray shadow' bindtap='chooseFarmLocation'>获取</button>
-  </form-group>
+  </form-group> -->
   <form-group>
     <view class='title'>详细地址</view>
     <input value='{{farm.address}}' placeholder='请输入农场详细地址' class='radius' name='address'></input>
