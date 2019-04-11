@@ -91,9 +91,10 @@ Page({
       scanType: ['qrCode'],
       success(res) {
         var qrVal = res.result.replace(new RegExp('"', "g"), "");
-        if (qrVal.indexOf('https://farm.yeetong.cn/poultry/') === 0) {
+        var poultryQrPrefix = 'https://www.yeetong.cn/Qr/poultry/';
+        if (qrVal.indexOf(poultryQrPrefix) === 0) {
           _this.setData({
-            searchPoultryCode: qrVal.substr(32)
+            searchPoultryCode: qrVal.substr(poultryQrPrefix.length)
           });
           _this.loadPoultries();
         } else {

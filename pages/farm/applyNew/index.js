@@ -14,12 +14,13 @@ Page({
       scanType: ['qrCode'],
       success(res) {
         var qrVal = res.result.replace(new RegExp('"', "g"), "");
-        if (qrVal.indexOf('https://farm.yeetong.cn/') === 0) {
+        var farmQrPrefix = 'https://www.yeetong.cn/Qr/farm/';
+        if (qrVal.indexOf(farmQrPrefix) === 0) {
           wx.showLoading({
             title: '请稍后...',
             mask: true
           });
-          farmService.farmDetail(qrVal.substr(24)).then(res => {
+          farmService.farmDetail(qrVal.substr(farmQrPrefix.length)).then(res => {
             wx.hideLoading();
             _this.setData({
               farm: res,
@@ -55,16 +56,16 @@ Page({
     });
     farmService.applyFarmVisit(_this.data.farm.farmId).then(res => {
       wx.hideLoading();
-      if (res === 'SUC') {
+      if (res.status === 'SUC') {
         wx.showModal({
           title: '申请成功',
           content: '请耐心等待农场管理员审核',
         });
-      } else if (res === 'D') {
+      } else if (res.status === 'D') {
         util.showErrorToast('请耐心等待农场管理员审核')
-      } else if (res === 'Y') {
+      } else if (res.status === 'Y') {
         wx.setStorageSync('curr-farm-id', _this.data.farm.farmId);
-        wx.setStorageSync('curr-farm-identity', 'visitor');
+        wx.setStorageSync('curr-farm-identity', res.identity);
         wx.switchTab({
           url: '/pages/index/index'
         });

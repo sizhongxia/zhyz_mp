@@ -84,15 +84,13 @@ Page({
       scanType: ['qrCode'],
       success(res) {
         var qrVal = res.result.replace(new RegExp('"', "g"), "");
-        if (qrVal.indexOf('https://www.yeetong.cn/inspectionpoint/') === 0) {
+        var inspectionpointQrPrefix = 'https://www.yeetong.cn/Qr/inspectionpoint/';
+        if (qrVal.indexOf(inspectionpointQrPrefix) === 0) {
           wx.showLoading({
             title: '请稍后...',
             mask: true
           });
-          // ?pointId=
-          var pointId = qrVal.substr(39);
-          // var pointId = '5c9209cde4b0a700435601ae';
-          inspectionPointService.getInspectionPointDetail(pointId).then(res => {
+          inspectionPointService.getInspectionPointDetail(qrVal.substr(inspectionpointQrPrefix.length)).then(res => {
             wx.hideLoading();
             if (res.farmId === _this.data.farmId && res.pointId) {
               wx.navigateTo({
