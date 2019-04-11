@@ -8,8 +8,8 @@
   <item wx:for="{{farms}}" wx:key="{{item.resId}}" data-id="{{item.resId}}" bindtap='itemSelect'>
     <avatar class="radius lg" style="background-image:url({{item.farmLogo}});"></avatar>
     <view class='content'>
-      <view style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width:395rpx">{{item.farmName}} ({{item.farmIdentityTxt}})</view>
-      <view class='text-gray text-sm'>{{item.address}}</view>
+      <view class="nobreak">{{item.farmName}} ({{item.farmIdentityTxt}})</view>
+      <view class='text-gray text-sm nobreak'>{{item.address}}</view>
     </view>
     <view class='action'>
       <view class='text-grey text-xs'>{{item.applyAt}}</view>

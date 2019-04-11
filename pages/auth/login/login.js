@@ -20,9 +20,18 @@ Page({
     }
   },
   onShow: function () {
-    this.toLogin();
+    const _this = this;
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
     const updateManager = wx.getUpdateManager();
     updateManager.onCheckForUpdate(function (res) {
+      if (!res.hasUpdate) {
+        _this.toLogin();
+      } else {
+        wx.hideLoading();
+      }
     });
     updateManager.onUpdateReady(function () {
       updateManager.applyUpdate()
@@ -30,10 +39,6 @@ Page({
   },
   toLogin: function () {
     const _this = this;
-    wx.showLoading({
-      title: '正在验证登录...',
-      mask: true
-    });
     util.login().then(code => {
       return loginService.loginRequest(code);
     }).then(res => {
@@ -53,7 +58,7 @@ Page({
     }).catch(err => {
       wx.hideLoading();
       if (err) {
-        if (err.message) {
+        if (!!err.message) {
           util.showErrorToast(err.message);
         }
       }
