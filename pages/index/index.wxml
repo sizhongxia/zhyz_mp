@@ -20,11 +20,11 @@
       <image bindtap='previewImage' data-src="{{item.picUrl}}" src="{{item.picUrl}}" mode='aspectFill' style='width:750rpx;'></image>
     </swiper-item>
   </swiper>
-  <card class="article width-full">
+  <card class="article width-full" style="border-radius:0 0 20rpx 20rpx;">
     <item style='margin:0;border-radius:0;'>
-      <view class="title" style='line-height:60rpx; padding:15rpx 30rpx 0;'>
+      <view class="title" style='font-size:32rpx;line-height:80rpx; padding:15rpx 30rpx 0;height: 100rpx'>
         <text bindtap='toEditFarmInfo'>{{farm.farmName}}</text> <icon wx:if="{{ farmIdentity==='admin' }}" bindtap='toEditFarmInfo' class='icon-edit lg text-black' style='vertical-align:text-top;font-size:32rpx;'></icon>
-        <view wx:if="{{weather!=''}}" style='float:right;font-weight: 300;font-size:28rpx;'> {{weather}}<text wx:if="{{ farmIdentity==='admin' }}" bindtap='toSelectWeatherCity' style='float:right'> [更改]</text></view>
+        <view wx:if="{{weather!=''}}" style='float:right;font-weight: 300;font-size:32rpx;'> {{weather}}<text wx:if="{{ farmIdentity==='admin' }}" bindtap='toSelectWeatherCity' style='float:right'> [更改]</text></view>
       </view>
       <view class="content">
         <image bindtap='previewImage' data-src="{{farm.qrCodeUrl}}" style='width: 190rpx;height:190rpx;margin-left:15rpx;' src="{{farm.qrCodeUrl}}" mode="aspectFit"></image>
@@ -37,63 +37,6 @@
       </view>
     </item>
   </card>
-
-  <!--
-  <list class="grid no-border col-4 width-full margin-top">
-    <item wx:for="{{monitorInfo}}" wx:key="typeId" style="{{ index < 3 ? 'border-right:1px solid #eee !important;' : '' }}">
-      <text class='typeName'>{{item.typeName}}</text>
-      <view class='typeInfo'>{{item.online}}</view>
-      <view class='typeInfo'>{{item.other}}</view>
-    </item>
-  </list>
-  <bar class="solid-bottom margin-top width-full">
-    <view class='action'>
-      <icon class='icon-titles text-orange ' /> 禽畜种类概况
-    </view>
-  </bar>
-  <card class="article no-card width-full">
-    <item class="shadow">
-      <view class="title">鸡</view>
-      <view class="content">
-        <image src="https://image.weilanwl.com/img/4x3-3.jpg" mode="aspectFill"></image>
-        <view class="desc">
-          <view class='text-content'>
-            <view>总数：800</view>
-            <view>总数：800</view>
-            <view>总数：800</view>
-          </view>
-        </view>
-      </view>
-    </item>
-    <item class="shadow">
-      <view class="title">鸭</view>
-      <view class="content">
-        <image src="https://image.weilanwl.com/img/4x3-3.jpg" mode="aspectFill"></image>
-        <view class="desc">
-          <view class='text-content'></view>
-        </view>
-      </view>
-    </item>
-    <item class="shadow">
-      <view class="title">鹅</view>
-      <view class="content">
-        <image src="https://image.weilanwl.com/img/4x3-3.jpg" mode="aspectFill"></image>
-        <view class="desc">
-          <view class='text-content'></view>
-        </view>
-      </view>
-    </item>
-    <item class="shadow">
-      <view class="title">猪</view>
-      <view class="content">
-        <image src="https://image.weilanwl.com/img/4x3-3.jpg" mode="aspectFill"></image>
-        <view class="desc">
-          <view class='text-content'></view>
-        </view>
-      </view>
-    </item>
-  </card>
-  -->
 
   <card class="article margin-top no-card width-full" wx:if="{{news.uniqueId}}">
     <item class="shadow" style="padding: 30rpx">

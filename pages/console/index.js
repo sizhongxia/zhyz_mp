@@ -1,9 +1,7 @@
 var farmService = require('../../service/farm.js');
 const app = getApp();
-
 Page({
   data: {
-    currentFarmId: '',
     currentFarmIdentity: '',
     farmId: '',
     farmLogo: '',
@@ -21,17 +19,15 @@ Page({
       title: '请稍后...',
       mask: true
     });
-    var currentFarmId = _this.data.farmId;
-    farmService.farmDetail(currentFarmId).then(res => {
+    farmService.farmDetail(_this.data.farmId).then(res => {
       _this.setData({
         farmLogo: res.farmLogo
       });
     })
-    farmService.getFarmFuncs(currentFarmId).then(res => {
+    farmService.getFarmFuncs(_this.data.farmId).then(res => {
       wx.hideLoading();
       _this.setData({
         funcs: res,
-        currentFarmId: currentFarmId,
         currentFarmIdentity: wx.getStorageSync('curr-farm-identity')
       });
     }).catch(err => {

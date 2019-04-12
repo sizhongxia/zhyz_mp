@@ -120,7 +120,7 @@
     ]
   },
   "networkTimeout": {
-    "request": 10000,
+    "request": 6000,
     "downloadFile": 10000
   },
   "debug": false

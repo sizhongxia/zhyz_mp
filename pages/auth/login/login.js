@@ -1,10 +1,9 @@
 var util = require('../../../utils/util.js');
 var loginService = require('../../../service/login.js');
 const app = getApp()
-
+// var token = ''
 Page({
   data: {
-    token: '',
     username: '',
     password: '',
     logining: false
@@ -22,12 +21,16 @@ Page({
   onShow: function () {
     const _this = this;
     wx.showLoading({
-      title: '请稍后...',
+      title: '正在检查更新',
       mask: true
     });
     const updateManager = wx.getUpdateManager();
     updateManager.onCheckForUpdate(function (res) {
       if (!res.hasUpdate) {
+        wx.showLoading({
+          title: '正在自动登录',
+          mask: true
+        });
         _this.toLogin();
       } else {
         wx.hideLoading();
@@ -44,9 +47,7 @@ Page({
     }).then(res => {
       app.globalData.userInfo = res;
       wx.setStorageSync('token', res.token);
-      _this.setData({
-        token: res.token
-      });
+      // token = res.token;
       setTimeout(() => {
         wx.redirectTo({
           url: '/pages/farm/select/index',
