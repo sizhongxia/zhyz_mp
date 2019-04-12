@@ -23,13 +23,13 @@
   <card class="article width-full" style="border-radius:0 0 20rpx 20rpx;">
     <item style='margin:0;border-radius:0;'>
       <view class="title" style='font-size:32rpx;line-height:80rpx; padding:15rpx 30rpx 0;height: 100rpx'>
-        <text bindtap='toEditFarmInfo'>{{farm.farmName}}</text> <icon wx:if="{{ farmIdentity==='admin' }}" bindtap='toEditFarmInfo' class='icon-edit lg text-black' style='vertical-align:text-top;font-size:32rpx;'></icon>
-        <view wx:if="{{weather!=''}}" style='float:right;font-weight: 300;font-size:32rpx;'> {{weather}}<text wx:if="{{ farmIdentity==='admin' }}" bindtap='toSelectWeatherCity' style='float:right'> [更改]</text></view>
+        <text bindtap='toFarmConsole'>{{farm.farmName}}</text>
+        <view bindtap='toSelectWeatherCity' wx:if="{{weather!=''}}" style='float:right;font-weight: 300;font-size:28rpx;'>{{weather}}</view>
       </view>
       <view class="content">
         <image bindtap='previewImage' data-src="{{farm.qrCodeUrl}}" style='width: 190rpx;height:190rpx;margin-left:15rpx;' src="{{farm.qrCodeUrl}}" mode="aspectFit"></image>
         <view class="desc" style='margin-top:30rpx;height:144rpx;'>
-          <view wx:if="{{ farm.address != '' }}" class='m-farm-baseinfo-item' bindtap='toMapPage'>农场位置：【地图】{{farm.address}}</view>
+          <view wx:if="{{ farm.address != '' }}" class='m-farm-baseinfo-item' bindtap='toMapPage'>农场位置：{{farm.address}}</view>
           <view wx:if="{{ farm.acreage != '' }}" class='m-farm-baseinfo-item'>占地面积：{{farm.acreage}}</view>
           <view wx:if="{{ farm.website != '' }}" class='m-farm-baseinfo-item' bindtap='showMore' data-content='{{farm.website}}'>宣传网址：{{farm.website}}</view>
           <view wx:else class='m-farm-baseinfo-item'><text space="emsp"> \t </text></view>
