@@ -8,7 +8,7 @@ Page({
     page: 1,
     totalPage: 1
   },
-  onShow: function () {
+  onLoad: function () {
     this.loadNews(1);
   },
   loadNews: function (page, ck) {
