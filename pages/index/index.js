@@ -47,6 +47,7 @@ Page({
         })
       }
     }
+    _this.loadData();
   },
   onShow: function () {
     const _this = this;
@@ -57,7 +58,6 @@ Page({
           today: res.today
         });
       }
-      _this.loadData();
     })
   },
   toSignin: function (e) {
@@ -84,18 +84,13 @@ Page({
       });
     }
   },
-  // onPullDownRefresh: function() {
-  //   if (refreshing) {
-  //     return;
-  //   }
-  //   refreshing = true;
-  //   this.loadData(function() {
-  //     setTimeout(()=>{
-  //       wx.stopPullDownRefresh();
-  //       refreshing = false;
-  //     }, 1000)
-  //   });
-  // },
+  onPullDownRefresh: function() {
+    wx.showNavigationBarLoading();
+    this.loadData(function () {
+      wx.hideNavigationBarLoading();
+      wx.stopPullDownRefresh();
+    });
+  },
   // onPullDownRefresh() {
   //   wx.stopPullDownRefresh()
   // },
@@ -119,7 +114,7 @@ Page({
       }
     });
   },
-  loadData: function() {
+  loadData: function(callback) {
     const _this = this;
     wx.showLoading({
       title: '请稍后...',
@@ -141,8 +136,10 @@ Page({
         news: res.news
       });
       wx.hideLoading();
+      callback && callback();
     }).catch(err => {
       wx.hideLoading();
+      callback && callback();
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);

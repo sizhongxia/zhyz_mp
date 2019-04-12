@@ -2,61 +2,42 @@ var farmService = require('../../../service/farm.js');
 var feedService = require('../../../service/feed.js');
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
-const app = getApp()
+const app = getApp();
+
+var farmId = '';
+var currentPage = 1;
 
 Page({
   data: {
-    page: 1,
-    farmId: '',
-    farmAreaId: '',
     feeds: [],
     loading: false,
     isOver: false
   },
   onLoad: function (options) {
+    farmId = wx.getStorageSync('curr-farm-id')
     this.setData({
-      farmId: wx.getStorageSync('curr-farm-id')
+      feeds: []
     });
+    this.load(1);
   },
-  onShow: function () {
-    this.load();
-  },
-  load: function (callback) {
+  load: function (page, callback) {
     const _this = this;
-    if (_this.data.isOver) {
-      callback && callback();
-      return false;
-    }
     _this.setData({
       loading: true
     });
-    feedService.selectFeedData(_this.data.farmId, _this.data.farmAreaId, _this.data.page).then(res => {
+    feedService.selectFeedData(farmId, '', page).then(res => {
       if (res && res.length > 0) {
-        var size = res.length;
-        var feeds = [];
-        if (_this.data.page > 1 ) {
-          feeds = _this.data.feeds;
-        }
-        for (var i = 0; i < size; i++) {
-          feeds.push(res[i]);
-        }
+        currentPage = currentPage + 1;
         _this.setData({
-          page: _this.data.page + 1,
-          feeds: feeds
+          ["feeds[" + (page - 1) + "]"]: res,
+          loading: false
         });
       } else {
-        if (_this.data.page > 1) {
-          wx.showToast({
-            title: '无更多数据'
-          });
-        }
         _this.setData({
-          isOver: true
+          isOver: true,
+          loading: false
         });
       }
-      _this.setData({
-        loading: false
-      });
       callback && callback();
     }).catch(err => {
       _this.setData({
@@ -70,27 +51,28 @@ Page({
       callback && callback();
     });
   },
+  loadMore: function () {
+    this.load(currentPage);
+  },
   toAdd: function () {
     wx.navigateTo({
       url: '/pages/farm/feed/add',
     });
   },
-  loadMore: function () {
-    this.load();
-  },
   toDetail: function (e) {
     wx.navigateTo({
       url: '/pages/farm/feed/detail?feedId=' + e.currentTarget.dataset.feedId,
     });
+  },
+  onPullDownRefresh: function () {
+    const _this = this;
+    _this.setData({
+      feeds: [],
+      isOver: false
+    });
+    currentPage = 1;
+    _this.load(currentPage, function() {
+      wx.stopPullDownRefresh();
+    });
   }
-  // onPullDownRefresh: function () {
-  //   const _this = this;
-  //   _this.setData({
-  //     isOver: false,
-  //     page: 1
-  //   });
-  //   _this.load(function() {
-  //     wx.stopPullDownRefresh();
-  //   });
-  // }
 })

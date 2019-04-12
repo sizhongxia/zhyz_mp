@@ -1,21 +1,23 @@
 <view class="container">
   <card class="article width-full">
-    <item wx:for="{{feeds}}" wx:key="feedId" class="shadow" data-feed-id="{{item.feedId}}" bindtap="toDetail">
-      <view class="title"><icon class='icon-time' /> {{item.feedAt}}</view>
-      <view class="content">
-        <image src="{{item.coverPicUrl}}" mode="aspectFill"></image>
-        <view class="desc">
-          <view class='text-content'>{{item.feedRemark}}</view>
-          <view>
-            <tag class='bg-grey light sm'>{{item.feedRaiser}}</tag>
-            <tag class='bg-grey light sm'>位置:{{item.feedPosition}}</tag>
+    <block wx:for="{{feeds}}" wx:for-item="_feeds" wx:for-index="dataArrayIndex">
+      <item wx:for="{{_feeds}}" wx:key="feedId" class="shadow" data-feed-id="{{item.feedId}}" bindtap="toDetail">
+        <view class="title"><icon class='icon-time' /> {{item.feedAt}}</view>
+        <view class="content">
+          <image src="{{item.coverPicUrl}}" mode="aspectFill"></image>
+          <view class="desc">
+            <view class='text-content'>{{item.feedRemark}}</view>
+            <view>
+              <tag class='bg-grey light sm'>{{item.feedRaiser}}</tag>
+              <tag class='bg-grey light sm'>位置:{{item.feedPosition}}</tag>
+            </view>
           </view>
         </view>
-      </view>
-    </item>
+      </item>
+    </block>
   </card>
   <load class="bg-gray {{loading?'loading':''}} {{isOver?'over':''}} width-full" style="line-height: 100rpx" bindtap="loadMore">
-    {{loading?'':isOver?'':'加载更多'}}
+    {{loading?'正在加载...':isOver?'':'加载更多'}}
   </load>
   <view class='h120 width-full' style='color: #aaa'>Copyright © 2018-2019 一通无限</view>
 </view>
