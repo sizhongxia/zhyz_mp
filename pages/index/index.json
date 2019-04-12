@@ -1,6 +1,4 @@
 {
-  "usingComponents": {
-    "vpush-checkin": "../../vpush/components/checkin"
-  },
+  "usingComponents": {},
   "navigationBarTitleText": "智慧农场"
 }

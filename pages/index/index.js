@@ -3,6 +3,7 @@ var inspectionService = require('../../service/inspection.js');
 var newsService = require('../../service/news.js');
 var feedService = require('../../service/feed.js');
 var msgService = require('../../service/msg.js');
+var userSigninService = require('../../service/userSignin.js');
 
 var util = require('../../utils/util.js');
 const app = getApp();
@@ -18,10 +19,13 @@ Page({
     monitorInfo: [],
     inspection: {},
     feed: {},
-    news: {}
+    news: {},
+    signin: true,
+    today: ''
   },
-  onLoad: function() {
-    this.setData({
+  onLoad: function () {
+    const _this = this;
+    _this.setData({
       userInfo: app.globalData.userInfo,
       farmIdentity: wx.getStorageSync('curr-farm-identity')
     });
@@ -44,8 +48,41 @@ Page({
       }
     }
   },
-  onShow: function() {
-    this.loadData();
+  onShow: function () {
+    const _this = this;
+    userSigninService.checkSignin().then(res => {
+      if (!res.signin) {
+        _this.setData({
+          signin: false,
+          today: res.today
+        });
+      }
+      _this.loadData();
+    })
+  },
+  toSignin: function (e) {
+    const _this = this;
+    if (e.detail.formId) {
+      wx.showLoading({
+        title: '请稍后...',
+        mask: true
+      })
+      userSigninService.saveSignin(e.detail.formId).then(res => {
+        _this.setData({
+          signin: true
+        });
+        wx.hideLoading();
+      }).catch(err => {
+        _this.setData({
+          signin: true
+        });
+        wx.hideLoading();
+      })
+    } else {
+      _this.setData({
+        signin: true
+      });
+    }
   },
   // onPullDownRefresh: function() {
   //   if (refreshing) {
@@ -89,7 +126,6 @@ Page({
       mask: true
     });
     var farmId = wx.getStorageSync('curr-farm-id');
-
     msgService.checkMsgDot(farmId).then(res => {
       if (res) {
         wx.showTabBarRedDot({
@@ -97,7 +133,6 @@ Page({
         })
       }
     });
-
     farmService.getFarmHomeData(farmId).then(res => {
       _this.setData({
         banners: res.banners,

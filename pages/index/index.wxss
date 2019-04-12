@@ -1,4 +1,5 @@
 /* pages/index/index.wxss */
+
 .m-farm-baseinfo-item {
   width: 470rpx;
   line-height: 47.5rpx;
@@ -7,12 +8,14 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
 .h120 {
   height: 120rpx;
   color: white;
   text-align: center;
   line-height: 120rpx;
 }
+
 .typeName {
   margin: 30rpx auto 2rpx;
   font-weight: 900;
@@ -47,11 +50,38 @@ card.article>item .title {
   line-height: 68rpx;
   padding: 0;
   overflow: hidden;
-  height:2rem;
+  height: 2rem;
 }
+
 card.article>item .content {
-  padding:0 0rpx;
+  padding: 0 0rpx;
 }
-card.article>item .content > image{
-  height:180rpx;
+
+card.article>item .content > image {
+  height: 180rpx;
+}
+
+.animation-show {
+  animation: show 1s ease;
+  animation-fill-mode: forwards;
+}
+
+.checkin-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.45);
+  opacity: 1;
+  z-index: 99999999;
+}
+
+.gradient-text {
+  background-image: linear-gradient(-110deg, #0081ff 0%, #6681ff 53%, #bb81ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
