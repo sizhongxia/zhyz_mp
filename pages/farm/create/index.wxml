@@ -1,17 +1,19 @@
 <view>
+  <view style="line-height:72rpx;height:60rpx;padding:10rpx 32rpx;">注：<span style="color:red">*</span> 为必填项</view>
   <form report-submit="{{true}}" bindsubmit="toCreateFarm">
     <form-group class="margin-top">
-      <view class='title'>农场名称</view>
-      <input placeholder="请输入农场名称" class='radius' name='farmName'></input>
+      <view class='title'><span style="color:red">*</span> 农场名称</view>
+      <input placeholder="请输入您的农场名称" class='radius' name='farmName'></input>
     </form-group>
     <form-group>
-      <view class='title'>所在城市</view>
+      <view class='title'><span style="color:red">*</span> 所在城市</view>
       <picker mode="multiSelector" bindchange="bindCityPickerChange" bindcolumnchange="bindCityPickerColumnChange" value="{{citiesIndex}}" range="{{cities}}" range-key="name">
         <view class="picker" style='text-align:left'>
           {{cities[0][citiesIndex[0]].name}}，{{cities[1][citiesIndex[1]].name}}，{{cities[2][citiesIndex[2]].name}}
         </view>
       </picker>
     </form-group>
+    <!-- 
     <form-group>
       <view class='title'>地图位置</view>
       <input placeholder="请输入地图经纬度" class='radius' disabled="{{true}}" name='latlng' value="{{formData.latlng}}"></input>
@@ -22,15 +24,16 @@
       <input placeholder="请输入农场详细地址" class='radius' value="{{formData.address}}" name='address'></input>
     </form-group>
     <form-group>
-      <view class='title'>占地面积</view>
-      <input placeholder="请输入农场占地面积" class='radius' name='acreage'></input>
-    </form-group>
-    <form-group>
       <view class='title'>宣传链接</view>
       <input placeholder="请输入农场宣传链接地址" class='radius' name='website'></input>
     </form-group>
+    -->
     <form-group>
-      <view class='title' style='margin-top:-100rpx;'>备注信息</view>
+      <view class='title'>占地面积</view>
+      <input placeholder="请输入农场规模（占地面积）" class='radius' name='acreage'></input>
+    </form-group>
+    <form-group>
+      <view class='title' style='margin-top:-100rpx;'>农场备注</view>
       <textarea placeholder="请输入农场备注信息" maxlength="180" name="remark" placeholder-class='placeholder'></textarea>
     </form-group>
     <view class="padding-xl">
