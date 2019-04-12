@@ -1,3 +1,6 @@
+
+<vpush-checkin bind:onCheckIn="checkInHandler" />
+
 <view class="container">
   <swiper class="screen-swiper square-dot width-full" indicator-dots="true" autoplay="true" interval="6000" duration="600">
     <swiper-item wx:for="{{banners}}" wx:key="{{item.id}}">
@@ -21,7 +24,6 @@
       </view>
     </item>
   </card>
-
 
   <!--
   <list class="grid no-border col-4 width-full margin-top">
