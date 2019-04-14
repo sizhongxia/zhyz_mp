@@ -15,6 +15,7 @@ module.exports = {
 
   CheckUserSignin: ApiUrl + '/zhyz/miniapp/api/user/signin/check',
   SaveUserSignin: ApiUrl + '/zhyz/miniapp/api/user/signin/save',
+  GainFormId: ApiUrl + '/zhyz/miniapp/api/user/signin/gainFormId',
 
   Cities: ApiUrl + '/zhyz/miniapp/api/cities',
   WeatherCities: ApiUrl + '/zhyz/miniapp/api/weatherCities',

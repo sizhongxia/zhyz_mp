@@ -23,6 +23,7 @@ Page({
     feed: {},
     news: {},
     signin: true,
+    signinsuc: false,
     today: ''
   },
   onLoad: function () {
@@ -74,7 +75,8 @@ Page({
       })
       userSigninService.saveSignin(e.detail.formId).then(res => {
         _this.setData({
-          signin: true
+          signin: true,
+          signinsuc: true
         });
         wx.hideLoading();
       }).catch(err => {
@@ -87,6 +89,15 @@ Page({
       _this.setData({
         signin: true
       });
+    }
+  },
+  toGainFormId: function (e) {
+    const _this = this;
+    _this.setData({
+      signinsuc: false
+    });
+    if (e.detail.formId) {
+      userSigninService.gainFormId(e.detail.formId);
     }
   },
   onPullDownRefresh: function() {

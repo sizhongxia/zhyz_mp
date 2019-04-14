@@ -9,8 +9,14 @@ const saveSignin = (formId) => {
     formId: formId
   });
 }
+const gainFormId = (formId) => {
+  return util.post(api.GainFormId, {
+    formId: formId
+  });
+}
 
 module.exports = {
   checkSignin: checkSignin,
-  saveSignin: saveSignin
+  saveSignin: saveSignin,
+  gainFormId: gainFormId
 }
