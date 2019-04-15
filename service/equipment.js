@@ -18,6 +18,11 @@ const getEquipmentDetail = (equipmentId) => {
     equipmentId: equipmentId
   });
 }
+const toggleOutlineReceiveStatus = (equipmentId) => {
+  return util.post(api.ChangeOutlineReceiveStatus, {
+    equipmentId: equipmentId
+  });
+}
 const getEquipmentTypeData = (farmId, typeId) => {
   return util.post(api.EquipmentTypeData, {
     farmId: farmId,
@@ -73,5 +78,6 @@ module.exports = {
   // getEquipmentCollectionHomeTj: getEquipmentCollectionHomeTj
   getEquipmentDetail: getEquipmentDetail,
   getEquipmentTypeData: getEquipmentTypeData,
-  getEquipmentMonitorItems: getEquipmentMonitorItems
+  getEquipmentMonitorItems: getEquipmentMonitorItems,
+  toggleOutlineReceiveStatus: toggleOutlineReceiveStatus
 }

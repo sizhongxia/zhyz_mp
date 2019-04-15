@@ -75,6 +75,22 @@ Page({
       tabIndex: e.currentTarget.dataset.index
     })
   },
+  toggleOutlineReceiveStatus: function(e) {
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    equipmentService.toggleOutlineReceiveStatus(this.data.equipmentId).then(res => {
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        }
+      }
+    })
+  },
   loadMore: function() {
     this.loadAlarm();
   },

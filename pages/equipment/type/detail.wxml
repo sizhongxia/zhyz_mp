@@ -59,6 +59,10 @@
 
 <view style='width: 750rpx;' hidden="{{tabIndex!='5'}}">
   <form-group>
+    <view class='title' style='width:420rpx'>是否接收设备离线通知</view>
+    <switch style='margin-right:-16rpx;' class='orange radius sm' bindchange='toggleOutlineReceiveStatus' checked="{{equipment.outlineReceive}}"/>
+  </form-group>
+  <form-group>
     <view class='title'>在线状态</view>
     <text style="color:{{equipment.online ? 'green' : 'red'}}">{{equipment.online ? '在线' : '离线'}}</text>
   </form-group>
