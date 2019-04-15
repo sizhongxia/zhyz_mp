@@ -7,6 +7,8 @@ var userSigninService = require('../../service/userSignin.js');
 
 var util = require('../../utils/util.js');
 const app = getApp();
+
+var farmId = '';
 Page({
   data: {
     userInfo: {},
@@ -21,6 +23,7 @@ Page({
     feed: {},
     news: {},
     signin: true,
+    signinsuc: false,
     today: ''
   },
   onLoad: function () {
@@ -29,6 +32,9 @@ Page({
       userInfo: app.globalData.userInfo,
       farmIdentity: wx.getStorageSync('curr-farm-identity')
     });
+    
+    farmId = wx.getStorageSync('curr-farm-id');
+
     var sptype = wx.getStorageSync('startup-parameter-type');
     wx.removeStorageSync('startup-parameter-type');
     if (sptype === 'alarm') {
@@ -69,7 +75,8 @@ Page({
       })
       userSigninService.saveSignin(e.detail.formId).then(res => {
         _this.setData({
-          signin: true
+          signin: true,
+          signinsuc: true
         });
         wx.hideLoading();
       }).catch(err => {
@@ -82,6 +89,15 @@ Page({
       _this.setData({
         signin: true
       });
+    }
+  },
+  toGainFormId: function (e) {
+    const _this = this;
+    _this.setData({
+      signinsuc: false
+    });
+    if (e.detail.formId) {
+      userSigninService.gainFormId(e.detail.formId);
     }
   },
   onPullDownRefresh: function() {
@@ -120,7 +136,6 @@ Page({
       title: '请稍后...',
       mask: true
     });
-    var farmId = wx.getStorageSync('curr-farm-id');
     msgService.checkMsgDot(farmId).then(res => {
       if (res) {
         wx.showTabBarRedDot({
@@ -164,12 +179,9 @@ Page({
     // }, 2400)
 
   },
-  toEditFarmInfo: function () {
-    if (this.data.farmIdentity != 'admin') {
-      return;
-    }
+  toFarmConsole: function () {
     wx.navigateTo({
-      url: "/pages/farm/editInfo/index"
+      url: "/pages/webview/index?path=https://www.yeetong.cn/mp/farm/console/" + farmId
     });
   },
   toSelectWeatherCity: function () {
