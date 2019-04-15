@@ -18,7 +18,13 @@
   </view>
 </scroll-view>
 
-<view style='width: 750rpx;' hidden="{{tabIndex!='1'}}">
+<view style='width: 750rpx;padding:30rpx;' hidden="{{tabIndex!='1'}}">
+  <form-group>
+      <view class='title ovtxt' style='width:480rpx'>{{equipment.farmAreaName}}</view>
+      <navigator url="/pages/equipment/migrate?equipmentId={{equipment.equipmentId}}&farmId={{equipment.farmId}}&areaId={{equipment.farmAreaId}}" hover-class="navigator-hover">
+        <text>设备迁移</text>
+      </navigator>
+  </form-group>
   <form-group>
     <view class='title'>设备名称</view>
     <text>{{equipment.equipmentName}}</text>
@@ -57,7 +63,7 @@
   </form-group>
 </view>
 
-<view style='width: 750rpx;' hidden="{{tabIndex!='5'}}">
+<view style='width: 750rpx;padding:30rpx;' hidden="{{tabIndex!='5'}}">
   <form-group>
     <view class='title' style='width:420rpx'>是否接收设备离线通知</view>
     <switch style='margin-right:-16rpx;' class='orange radius sm' bindchange='toggleOutlineReceiveStatus' checked="{{equipment.outlineReceive}}"/>
@@ -78,7 +84,7 @@
   </form-group>
 </view>
 
-<view style='width: 750rpx;border:1px solid #f2f2f2' hidden="{{tabIndex!='3'}}">
+<view style='width: 750rpx;padding:30rpx;' hidden="{{tabIndex!='3'}}">
   <list class="menu">
     <item wx:for="{{alarms}}" wx:key="time" data-res-id="{{item.resId}}" bindtap="showAlarmModel">
       <view class='content'>

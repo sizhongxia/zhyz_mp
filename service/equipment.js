@@ -60,9 +60,9 @@ const getEquipmentCollectionAlarmDetail = (resId) => {
     resId: resId
   });
 }
-
-
-
+const toMigrate = (form) => {
+  return util.post(api.EquipmentToMigrate, form);
+}
 // const getEquipmentCollectionHomeTj = (farmId) => {
 //   return util.post(api.EquipmentCollectionHomeTj, {
 //     farmId: farmId
@@ -79,5 +79,6 @@ module.exports = {
   getEquipmentDetail: getEquipmentDetail,
   getEquipmentTypeData: getEquipmentTypeData,
   getEquipmentMonitorItems: getEquipmentMonitorItems,
-  toggleOutlineReceiveStatus: toggleOutlineReceiveStatus
+  toggleOutlineReceiveStatus: toggleOutlineReceiveStatus,
+  toMigrate: toMigrate
 }

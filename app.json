@@ -14,6 +14,7 @@
     "pages/equipment/type/index",
     "pages/equipment/type/detail",
     "pages/equipment/type/video",
+    "pages/equipment/migrate",
     "pages/message/index",
     "pages/message/warning/index",
     "pages/message/system/index",

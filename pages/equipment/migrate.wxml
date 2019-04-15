@@ -1,0 +1,23 @@
+<form report-submit='{{true}}' bindsubmit='toMigrate'>
+
+  <form-group>
+    <view class='title'>农场</view>
+    <picker bindchange="farmPickerChange" value="{{farmIndex}}" range="{{farms}}" range-key="farmName">
+      <view class="picker">
+        {{form.farmName=='' ? '请选择' : form.farmName}}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <view class='title'>厂区</view>
+    <picker bindchange="areaPickerChange" value="{{areaIndex}}" range="{{areas}}" range-key="areaName">
+      <view class="picker">
+        {{form.areaName=='' ? '请选择' : form.areaName}}
+      </view>
+    </picker>
+  </form-group>
+  <form-group>
+    <button class='block bg-blue margin-tb-sm lg button-hover' form-type='submit'>提交</button>
+  </form-group>
+
+</form>
