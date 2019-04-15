@@ -16,8 +16,9 @@
       </view>
     </picker>
   </form-group>
-  <form-group>
+
+  <view style='padding: 0rpx 30rpx'>
     <button class='block bg-blue margin-tb-sm lg button-hover' form-type='submit'>提交</button>
-  </form-group>
+  </view>
 
 </form>

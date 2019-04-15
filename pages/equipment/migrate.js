@@ -136,6 +136,9 @@ Page({
       form.formId = e.detail.formId;
       equipmentService.toMigrate(form).then(res => {
         wx.hideLoading();
+        wx.navigateBack({
+          delta: 2
+        });
       }).catch(err => {
         wx.hideLoading();
         if (err) {
