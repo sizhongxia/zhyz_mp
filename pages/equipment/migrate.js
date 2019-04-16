@@ -125,7 +125,7 @@ Page({
       });
     }
   },
-  toMigrate: function(e) {
+  toMigrate: function (e) {
     const _this = this;
     if (e.detail.formId) {
       wx.showLoading({

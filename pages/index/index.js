@@ -18,7 +18,8 @@ Page({
     // 农场详情
     farm: {},
     weather: '',
-    monitorInfo: [],
+    weatherNow: {},
+    hlys: [],
     inspection: {},
     feed: {},
     news: {},
@@ -36,9 +37,11 @@ Page({
     farmId = wx.getStorageSync('curr-farm-id');
 
     var sptype = wx.getStorageSync('startup-parameter-type');
+      // 清除
     wx.removeStorageSync('startup-parameter-type');
     if (sptype === 'alarm') {
       var resId = wx.getStorageSync('startup-parameter-resid');
+      // 清除
       wx.removeStorageSync('startup-parameter-resid');
       if (resId) {
         wx.showLoading({
@@ -53,6 +56,7 @@ Page({
         })
       }
     }
+    // 获取首页数据
     _this.loadData();
   },
   onShow: function () {
@@ -107,10 +111,79 @@ Page({
       wx.stopPullDownRefresh();
     });
   },
-  // onPullDownRefresh() {
-  //   wx.stopPullDownRefresh()
-  // },
-  showMore: function(e) {
+  loadData: function(callback) {
+    const _this = this;
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    msgService.checkMsgDot(farmId).then(res => {
+      if (res) {
+        wx.showTabBarRedDot({
+          index: 1
+        })
+      }
+    });
+    // 获取农场数据
+    farmService.getFarmHomeData(farmId).then(res => {
+      _this.setData({
+        banners: res.banners,
+        farm: res.farm,
+        weather: res.weather,
+        weatherNow: res.weatherNow,
+        hlys: res.hlys,
+        news: res.news
+      });
+      // 加载巡检记录
+      return inspectionService.getLastInspectionDetail(farmId);
+    }).then(res => {
+      _this.setData({
+        inspection: res
+      });
+      // 加载投食记录
+      return feedService.getLastFeedDetail(farmId);
+    }).then(res => {
+      _this.setData({
+        feed: res
+      });
+      wx.hideLoading();
+      callback && callback();
+    }).catch(err => {
+      wx.hideLoading();
+      callback && callback();
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        }
+      }
+    });
+  },
+  // 更改天气
+  toSelectWeatherCity: function () {
+    if (this.data.farmIdentity != 'admin') {
+      return;
+    }
+    wx.navigateTo({
+      url: "/pages/weather/select"
+    });
+  },
+  // 投食详情
+  toFeedDetail: function (e) {
+    wx.navigateTo({
+      url: '/pages/farm/feed/detail?feedId=' + e.currentTarget.dataset.feedId,
+    });
+  },
+  // 巡检详情
+  toInspectionDetail: function (e) {
+    wx.navigateTo({
+      url: '/pages/farm/inspection/detail?inspectionId=' + e.currentTarget.dataset.inspectionId,
+    });
+  },
+  // 预览图片
+  previewImage: function (e) {
+    util.previewImage(e.currentTarget.dataset.src.replace('-200x200', '-yeetong'));
+  },
+  toCopy: function (e) {
     var content = e.currentTarget.dataset.content;
     wx.showModal({
       content: content,
@@ -128,87 +201,6 @@ Page({
           })
         }
       }
-    });
-  },
-  loadData: function(callback) {
-    const _this = this;
-    wx.showLoading({
-      title: '请稍后...',
-      mask: true
-    });
-    msgService.checkMsgDot(farmId).then(res => {
-      if (res) {
-        wx.showTabBarRedDot({
-          index: 1
-        })
-      }
-    });
-    farmService.getFarmHomeData(farmId).then(res => {
-      _this.setData({
-        banners: res.banners,
-        farm: res.farm,
-        weather: res.weather,
-        news: res.news
-      });
-      wx.hideLoading();
-      callback && callback();
-    }).catch(err => {
-      wx.hideLoading();
-      callback && callback();
-      if (err) {
-        if (err.message) {
-          util.showErrorToast(err.message);
-        }
-      }
-    });
-
-    // setTimeout(() => {
-      inspectionService.getLastInspectionDetail(farmId).then(res => {
-        _this.setData({
-          inspection: res
-        });
-      });
-    // }, 1600)
-
-    // setTimeout(() => {
-      feedService.getLastFeedDetail(farmId).then(res => {
-        _this.setData({
-          feed: res
-        });
-      });
-    // }, 2400)
-
-  },
-  toFarmConsole: function () {
-    wx.navigateTo({
-      url: "/pages/webview/index?path=https://www.yeetong.cn/mp/farm/console/" + farmId
-    });
-  },
-  toSelectWeatherCity: function () {
-    if (this.data.farmIdentity != 'admin') {
-      return;
-    }
-    wx.navigateTo({
-      url: "/pages/weather/select"
-    });
-  },
-  toFeedDetail: function (e) {
-    wx.navigateTo({
-      url: '/pages/farm/feed/detail?feedId=' + e.currentTarget.dataset.feedId,
-    });
-  },
-  toInspectionDetail: function (e) {
-    wx.navigateTo({
-      url: '/pages/farm/inspection/detail?inspectionId=' + e.currentTarget.dataset.inspectionId,
-    });
-  },
-  previewImage: function (e) {
-    util.previewImage(e.currentTarget.dataset.src.replace('-200x200', '-yeetong'));
-  },
-  toMapPage: function () {
-    const _this = this;
-    wx.navigateTo({
-      url: '/pages/webview/index?path=https://www.yeetong.cn/mp/farm/map/' + _this.data.farm.farmId
     });
   }
 })

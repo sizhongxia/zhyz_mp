@@ -110,7 +110,6 @@ Page({
     this.loadWeatherCity()
   },
   updateFarmWeatherInfo(e) {
-
     wx.showModal({
       title: '提示',
       content: '是否要更改农场天气城市信息。',
@@ -123,7 +122,11 @@ Page({
           var farmId = wx.getStorageSync('curr-farm-id');
           farmService.updateFarmWeatherInfo(farmId, e.currentTarget.dataset.code).then(res => {
             wx.hideLoading();
-            wx.navigateBack();
+            wx.showToast({
+              title: '更改成功',
+              icon: 'success',
+              duration: 1500
+            })
           }).catch(err => {
             wx.hideLoading();
             if (err) {

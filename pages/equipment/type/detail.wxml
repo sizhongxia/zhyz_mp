@@ -21,7 +21,7 @@
 <view style='width: 750rpx;padding:30rpx;' hidden="{{tabIndex!='1'}}">
   <form-group>
       <view class='title ovtxt' style='width:480rpx'>{{equipment.farmAreaName}}</view>
-      <navigator url="/pages/equipment/migrate?equipmentId={{equipment.equipmentId}}&farmId={{equipment.farmId}}&areaId={{equipment.farmAreaId}}" hover-class="navigator-hover">
+      <navigator wx:if='{{ currentFarmIdentity === "admin" }}' url="/pages/equipment/migrate?equipmentId={{equipment.equipmentId}}&farmId={{equipment.farmId}}&areaId={{equipment.farmAreaId}}" hover-class="navigator-hover">
         <text>设备迁移</text>
       </navigator>
   </form-group>

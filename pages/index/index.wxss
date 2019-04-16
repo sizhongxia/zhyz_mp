@@ -85,3 +85,25 @@ card.article>item .content > image {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.w400 {
+  width: 474rpx;
+}
+
+.weather-item image {
+  width: 68rpx;
+  height: 68rpx;
+  display: block;
+  position: relative;
+  margin: auto;
+}
+
+.weather-item text {
+  display: block;
+  color: #444;
+  margin-top: 20rpx;
+  line-height: 28rpx;
+  font-size: 24rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

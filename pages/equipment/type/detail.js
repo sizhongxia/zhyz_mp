@@ -5,6 +5,7 @@ const app = getApp()
 
 Page({
   data: {
+    currentFarmIdentity: '',
     tabIndex: 5,
     equipmentId: '',
     equipment: {},
@@ -16,9 +17,10 @@ Page({
     refreshing: false
   },
   onLoad: function (options) {
-    const _this = this;  
+    const _this = this;
     _this.setData({
-      equipmentId: options.equipmentId
+      equipmentId: options.equipmentId,
+      currentFarmIdentity: wx.getStorageSync('curr-farm-identity')
     })
     _this.getDetail(function() {
       wx.hideLoading();
