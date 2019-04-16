@@ -44,6 +44,11 @@
           <text>{{weatherNow.nowHum}}</text>
           <text>空气湿度</text>
         </view>
+        <view wx:if="{{weatherNow.nowPcpn != '0.0mm'}}" class='flex-sub text-center weather-item'>
+          <image mode="aspectFit" src='https://static.yeetong.cn/weather/icon/jianyiyuliang.png-yeetong?v=3'></image>
+          <text>{{weatherNow.nowPcpn}}</text>
+          <text>降水量</text>
+        </view>
         <view class='flex-sub text-center weather-item'>
           <image mode="aspectFit" src='https://static.yeetong.cn/weather/icon/feng.png-yeetong'></image>
           <text>{{weatherNow.nowWindSc}}级</text>
@@ -53,11 +58,6 @@
           <image mode="aspectFit" src='https://static.yeetong.cn/weather/icon/qiya.png-yeetong'></image>
           <text>{{weatherNow.nowPres}}</text>
           <text>气体压强</text>
-        </view>
-        <view class='flex-sub text-center weather-item'>
-          <image mode="aspectFit" src='https://static.yeetong.cn/weather/icon/jianyiyuliang.png-yeetong'></image>
-          <text>{{weatherNow.nowPcpn}}</text>
-          <text>降水量</text>
         </view>
       </view>
     </item>
