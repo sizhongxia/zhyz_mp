@@ -3,14 +3,20 @@ var util = require('../../../utils/util.js');
 const app = getApp()
 Page({
   data: {
-    messages: [],
+    type: '',
+    list: [],
     page: 1,
     over: false
   },
-  onShow: function () {
-    this.loadMessages(1);
+  onLoad: function (options) {
+    this.setData({
+      type: options.type
+    })
   },
-  loadMessages: function (page) {
+  onShow: function () {
+    this.loadData(1, false);
+  },
+  loadData: function (page, ck) {
     const _this = this;
     wx.showLoading({
       title: '请稍后...',
@@ -19,30 +25,33 @@ Page({
     _this.setData({
       over: false
     });
-    msgService.getSystemMsgData(page).then(res => {
+    msgService.getMsgTypeItemsData(_this.data.type, page).then(res => {
       if (res.length === 0) {
         _this.setData({
           over: true
         });
         wx.hideLoading();
+        ck && ck();
         return;
       }
-      let messages = _this.data.messages;
+      let list = _this.data.list;
       if (page > 1) {
         var len = res.length;
         for (var i = 0; i < len; ++i) {
-          messages.push(res[i]);
+          list.push(res[i]);
         }
       } else {
-        messages = res;
+        list = res;
       }
       _this.setData({
-        messages: messages,
+        list: list,
         page: page
       });
       wx.hideLoading();
+      ck && ck();
     }).catch(err => {
       wx.hideLoading();
+      ck && ck();
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
@@ -51,10 +60,9 @@ Page({
     });
   },
   loadMore: function () {
-    this.loadMessages(this.data.page + 1);
+    this.loadData(this.data.page + 1, false);
   },
   onPullDownRefresh: function () {
-    wx.stopPullDownRefresh();
-    this.loadMessages(1);
+    this.loadData(1, wx.stopPullDownRefresh);
   }
 })

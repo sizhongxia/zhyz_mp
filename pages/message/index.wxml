@@ -2,8 +2,9 @@
   <view class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无消息</view>
 </list>
 <view class="cu-list menu menu-avatar">
-  <view class="cu-item arrow" wx:for="{{list}}" wx:key="id" data-type="{{item.type}}" data-id="{{item.id}}" bindtap='toclick'>
+  <view class="cu-item arrow" wx:for="{{list}}" wx:key="id" data-type="{{item.type}}" data-ref-id="{{item.refId}}" bindtap='toclick'>
     <view class="cu-avatar round lg">
+      <tag wx:if="{{item.nums > 0}}" class="badge bg-red" style='font-size:24rpx;'>{{item.nums}}</tag>
       <image mode='aspectFit' style='width: 100rpx;height:100rpx;' src='{{item.icon}}'></image>
     </view>
     <view class='content'>

@@ -131,12 +131,16 @@ module.exports = {
 
   GetFuncs: ApiUrl + '/zhyz/miniapp/api/getFuncs',
   GetFuncDetail: ApiUrl + '/zhyz/miniapp/api/getFuncDetail',
+
   MsgData: ApiUrl + '/zhyz/miniapp/api/msg/list',
-  WarningMsgData: ApiUrl + '/zhyz/miniapp/api/msg/warnings',
-  SystemMsgData: ApiUrl + '/zhyz/miniapp/api/msg/system/messages',
   CheckMsgDot: ApiUrl + '/zhyz/miniapp/api/msg/checkMsgDot',
-  CleanSystemMsgDot: ApiUrl + '/zhyz/miniapp/api/msg/cleanSystemMsgDot',
-  CleanWarningMsgDot: ApiUrl + '/zhyz/miniapp/api/msg/cleanWarningMsgDot',
+  CleanMsgDot: ApiUrl + '/zhyz/miniapp/api/msg/cleanMsgDot',
+  MsgTypeItemsData: ApiUrl + '/zhyz/miniapp/api/msg/items',
+
+  // WarningMsgData: ApiUrl + '/zhyz/miniapp/api/msg/warnings',
+  // SystemMsgData: ApiUrl + '/zhyz/miniapp/api/msg/system/messages',
+  // CleanSystemMsgDot: ApiUrl + '/zhyz/miniapp/api/msg/cleanSystemMsgDot',
+  // CleanWarningMsgDot: ApiUrl + '/zhyz/miniapp/api/msg/cleanWarningMsgDot',
 
   NewsData: ApiUrl + '/zhyz/miniapp/api/news/list',
 

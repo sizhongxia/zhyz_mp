@@ -7,19 +7,35 @@ Page({
     list: []
   },
   onShow: function () {
+    this.loadData(false);
+  },
+  loadData: function (ck) {
     const _this = this;
     wx.showLoading({
       title: '请稍后...',
       mask: true
     });
-    var farmId = wx.getStorageSync('curr-farm-id');
-    msgService.getMsgData(farmId).then(res => {
+    msgService.checkMsgDot().then(res => {
+      if (res > 0) {
+        wx.setTabBarBadge({
+          index: 1,
+          text: res + ''
+        })
+      } else {
+        wx.removeTabBarBadge({
+          index: 1
+        })
+      }
+      return msgService.getMsgData();
+    }).then(res => {
       _this.setData({
         list: res
       })
       wx.hideLoading();
+      ck && ck();
     }).catch(err => {
       wx.hideLoading();
+      ck && ck();
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
@@ -28,49 +44,31 @@ Page({
     });
   },
   toclick: function (e) {
-    var type = e.currentTarget.dataset.type
-    // var id = e.currentTarget.dataset.id
-    if ("EQUIPMENT_WARNING" === type) {
-      wx.showLoading({
-        title: '请稍后...',
-        mask: true
-      })
-      var farmId = wx.getStorageSync('curr-farm-id');
-      msgService.cleanWarningMsgDot(farmId).then(res => {
-        if (res) {
-          wx.hideTabBarRedDot({
-            index: 1,
-            complete: function(e) {
-              wx.navigateTo({
-                url: '/pages/message/warning/index',
-                complete: function () {
-                  wx.hideLoading();
-                }
-              })
-            }
-          });
-        }
-      });
-    } else if ("SYSTEM_MESSAGE" === type) {
-      wx.showLoading({
-        title: '请稍后...',
-        mask: true
-      })
-      msgService.cleanSystemMsgDot().then(res => {
-        if (res) {
-          wx.hideTabBarRedDot({
-            index: 1,
-            complete: function (e) {
-              wx.navigateTo({
-                url: '/pages/message/system/index',
-                complete: function () {
-                  wx.hideLoading();
-                }
-              })
-            }
-          });
-        }
-      });
+    var type = e.currentTarget.dataset.type;
+    if (!type) {
+      return;
     }
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    msgService.cleanMsgDot(type).then(res => {
+      wx.navigateTo({
+        url: '/pages/message/basetpl/index?type=' + type,
+        complete: function () {
+          wx.hideLoading();
+        }
+      })
+    }).catch(err => {
+      wx.hideLoading();
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        }
+      }
+    })
+  },
+  onPullDownRefresh: function () {
+    this.loadData(wx.stopPullDownRefresh);
   }
 })

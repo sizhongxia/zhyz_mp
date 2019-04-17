@@ -151,6 +151,28 @@ Page({
     this.setData({
       alarmModel: false
     })
+  },
+  onPullDownRefresh: function () {
+    const _this = this;
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    equipmentService.getEquipmentDetail(_this.data.equipmentId).then(res => {
+      _this.setData({
+        equipment: res
+      });
+      wx.hideLoading();
+      wx.stopPullDownRefresh();
+    }).catch(err => {
+      wx.hideLoading();
+      wx.stopPullDownRefresh();
+      if (err) {
+        if (err.message) {
+          util.showErrorToast(err.message);
+        }
+      }
+    });
   }
   // ,
   // onPullDownRefresh: function () {

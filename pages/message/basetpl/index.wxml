@@ -1,0 +1,14 @@
+<chat>
+  <item wx:for="{{list}}" wx:key="id" data-ref-id="{{item.refId}}">
+    <view class="round lg">
+      <image mode='aspectFit' style='width: 100rpx;height:100rpx;' src='https://static.yeetong.cn/yeetong/msg-type/icon/{{type}}.png-yeetong?v=2'></image>
+    </view>
+    <view class="main">
+      <view class='content shadow-blur'>
+        <text>{{item.content}}</text>
+      </view>
+    </view>
+    <view class='date'>{{item.time}}</view>
+  </item>
+  <view wx:if="{{!over}}" bindtap="loadMore" style="line-height: 52rpx;font-size: 26rpx;text-align: center;margin: 32rpx;">加载更多</view>
+</chat>

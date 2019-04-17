@@ -15,7 +15,7 @@ Page({
     });
   },
   onShow: function (options) {
-    this.load();
+    this.load(false);
   },
   load: function(callback) {
     const _this = this;
@@ -51,11 +51,8 @@ Page({
     wx.navigateTo({
       url: '/pages/equipment/type/detail?equipmentId=' + e.currentTarget.dataset.equipmentId
     });
+  },
+  onPullDownRefresh: function () {
+    this.load(wx.stopPullDownRefresh);
   }
-  // onPullDownRefresh: function() {
-  //   const _this = this;
-  //   _this.load(function() {
-  //     wx.stopPullDownRefresh();
-  //   });
-  // }
 })

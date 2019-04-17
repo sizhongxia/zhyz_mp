@@ -117,13 +117,6 @@ Page({
       title: '请稍后...',
       mask: true
     });
-    msgService.checkMsgDot(farmId).then(res => {
-      if (res) {
-        wx.showTabBarRedDot({
-          index: 1
-        })
-      }
-    });
     // 获取农场数据
     farmService.getFarmHomeData(farmId).then(res => {
       _this.setData({
@@ -146,6 +139,14 @@ Page({
       _this.setData({
         feed: res
       });
+      return msgService.checkMsgDot();
+    }).then(res => {
+      if (res > 0) {
+        wx.setTabBarBadge({
+          index: 1,
+          text: res + ''
+        })
+      }
       wx.hideLoading();
       callback && callback();
     }).catch(err => {
