@@ -62,6 +62,18 @@ Page({
   loadMore: function () {
     this.loadData(this.data.page + 1, false);
   },
+  toDetail: function (e) {
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    wx.navigateTo({
+      url: '/pages/webview/index?path=https://www.yeetong.cn/mp/msg/detail/' + e.currentTarget.dataset.id,
+      complete: function () {
+        wx.hideLoading();
+      }
+    });
+  },
   onPullDownRefresh: function () {
     this.loadData(1, wx.stopPullDownRefresh);
   }

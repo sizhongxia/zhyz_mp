@@ -87,11 +87,9 @@
 <view style='width: 750rpx;padding:30rpx;' hidden="{{tabIndex!='3'}}">
   <list class="menu">
     <item wx:for="{{alarms}}" wx:key="time" data-res-id="{{item.resId}}" bindtap="showAlarmModel">
-      <view class='content'>
-        <icon class='icon-warn text-orange'>
-          <!-- <tag wx:if="{{item.readState!='1'}}" class="badge" style="background:#fcc;"></tag> -->
-        </icon>
-        <text style='font-size:24rpx;font-weight:300;color:#484848'>{{item.termName}}：{{item.currentValue}}{{item.unit}}</text>
+      <view class='content ovtxt'>
+        <icon class='icon-warn text-orange'></icon>
+        <text style='font-size:24rpx'>{{item.termName}}异常，告警值为{{item.currentValue}}{{item.unit}}</text>
       </view>
       <view class='action'>
         <text class='text-grey text-sm'>{{item.alarmAt}}</text>

@@ -1,5 +1,5 @@
 <chat>
-  <item wx:for="{{list}}" wx:key="id" data-ref-id="{{item.refId}}">
+  <item wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="toDetail">
     <view class="round lg">
       <image mode='aspectFit' style='width: 100rpx;height:100rpx;' src='https://static.yeetong.cn/yeetong/msg-type/icon/{{type}}.png-yeetong?v=2'></image>
     </view>
