@@ -66,6 +66,6 @@
 </list>
 <bar class="btn-group options width-full">
   <button loading='{{submiting}}' class='bg-red round lg' bindtap='toDelete'>
-    <icon class='icon-delete'></icon> 删除
+    <icon class='icon-delete'></icon> 删除此配置
   </button>
 </bar>

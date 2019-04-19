@@ -33,8 +33,9 @@ Page({
       userInfo: app.globalData.userInfo,
       farmIdentity: wx.getStorageSync('curr-farm-identity')
     });
-    
     farmId = wx.getStorageSync('curr-farm-id');
+    // 获取首页数据
+    _this.loadData();
 
     var sptype = wx.getStorageSync('startup-parameter-type');
       // 清除
@@ -56,11 +57,10 @@ Page({
         })
       }
     }
-    // 获取首页数据
-    _this.loadData();
   },
   onShow: function () {
     const _this = this;
+    // 
     userSigninService.checkSignin().then(res => {
       if (!res.signin) {
         _this.setData({

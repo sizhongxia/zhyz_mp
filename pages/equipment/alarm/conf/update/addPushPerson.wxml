@@ -8,6 +8,6 @@
 
 <bar class="btn-group options width-full">
   <button loading="{{submiting}}" class='bg-green round lg' bindtap='toSave'>
-    <icon class='icon-check'></icon> 修改
+    <icon class='icon-check'></icon> 新增
   </button>
 </bar>
