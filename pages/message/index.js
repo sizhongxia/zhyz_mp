@@ -19,7 +19,7 @@ Page({
       if (res > 0) {
         wx.setTabBarBadge({
           index: 1,
-          text: res + ''
+          text: res > 99 ? '99+' : (res + '')
         })
       } else {
         wx.removeTabBarBadge({

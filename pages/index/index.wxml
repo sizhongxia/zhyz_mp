@@ -4,6 +4,7 @@
       <image bindtap='previewImage' data-src="{{item.picUrl}}" src="{{item.picUrl}}" mode='aspectFill' style='width:750rpx;'></image>
     </swiper-item>
   </swiper>
+  <!-- 
   <card class="article width-full">
     <item style='margin:0;padding: 10rpx;border-radius:0;'>
       <view class="title" style='font-size:34rpx;line-height:80rpx;padding:0 18rpx;font-weight: 300;'>
@@ -21,8 +22,9 @@
       </view>
     </item>
   </card>
+  --->
   <!-- 天气卡片 -->
-  <card class="article margin-top no-card width-full">
+  <card class="article no-card width-full">
     <item class="shadow" style="padding: 30rpx;border-radius:0">
       <view style='line-height:48rpx;'>
         <text style='float:right;color:#888;font-size:24rpx'>{{weatherNow.lastUpdateLoc}}</text>
@@ -83,7 +85,7 @@
               <text wx:if="{{cidx < (item.value.length-1)}}" style='margin-right: 20rpx;'>|</text>
             </block>
           </view>
-          <view style='line-height:52rpx;color: #888;font-size: 24rpx;'>最新数据采集时间：{{item.collectTime}}</view>
+          <view style='line-height:52rpx;color: #888;font-size: 28rpx;'>最新数据采集时间：<span style="font-weight: 600">{{item.collectTime}}</span></view>
         </view>
         </navigator>
       </view>

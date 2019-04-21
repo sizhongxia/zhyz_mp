@@ -37,26 +37,26 @@ Page({
     // 获取首页数据
     _this.loadData();
 
-    var sptype = wx.getStorageSync('startup-parameter-type');
-      // 清除
-    wx.removeStorageSync('startup-parameter-type');
-    if (sptype === 'alarm') {
-      var resId = wx.getStorageSync('startup-parameter-resid');
-      // 清除
-      wx.removeStorageSync('startup-parameter-resid');
-      if (resId) {
-        wx.showLoading({
-          title: '请稍后...',
-          mask: true
-        })
-        wx.navigateTo({
-          url: '/pages/startup/alarm/index?resId=' + resId,
-          complete: function () {
-            wx.hideLoading();
-          }
-        })
-      }
-    }
+    // var sptype = wx.getStorageSync('startup-parameter-type');
+    //   // 清除
+    // wx.removeStorageSync('startup-parameter-type');
+    // if (sptype === 'alarm') {
+    //   var resId = wx.getStorageSync('startup-parameter-resid');
+    //   // 清除
+    //   wx.removeStorageSync('startup-parameter-resid');
+    //   if (resId) {
+    //     wx.showLoading({
+    //       title: '请稍后...',
+    //       mask: true
+    //     })
+    //     wx.navigateTo({
+    //       url: '/pages/startup/alarm/index?resId=' + resId,
+    //       complete: function () {
+    //         wx.hideLoading();
+    //       }
+    //     })
+    //   }
+    // }
   },
   onShow: function () {
     const _this = this;
@@ -144,7 +144,7 @@ Page({
       if (res > 0) {
         wx.setTabBarBadge({
           index: 1,
-          text: res + ''
+          text: res > 99 ? '99+' : (res + '')
         })
       }
       wx.hideLoading();
