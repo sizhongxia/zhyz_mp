@@ -1,7 +1,8 @@
 <view>
-  <view class='align-center'>
+  <view class='align-center' style='margin-top: 40rpx;'>
     <image class='login-logo' mode='aspectFill' src='https://static.yeetong.cn/yeetong/public/logo.png-yeetong'></image>
   </view>
+  <!-- 
   <form>
     <form-group class="margin-top">
       <view class='title'>账号</view>
@@ -12,10 +13,13 @@
       <input placeholder="请输入账号密码" bindinput='setPassword' type='password' class='radius' name='password'></input>
     </form-group>
   </form>
-  <view class="padding-xl">
-    <button id='loginBtn' class='block bg-blue margin-tb-sm lg' open-type='getUserInfo' bindgetuserinfo='getUserInfo' loading='{{logining}}'>账号登录</button>
+  -->
+  <view class="padding-xl" style='position:fixed;bottom:40rpx;width:750rpx;padding:100rpx;'>
+    <button id='loginBtn' class='block bg-blue margin-tb-sm lg' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>进入农场</button>
+    <!--
     <view style="text-align:center">
       <button class='bg-gray margin-tb-sm' open-type='getUserInfo' bindgetuserinfo='getUserInfoForWx'>微信登录</button>|<button class='bg-gray margin-tb-sm' open-type='getUserInfo' bindgetuserinfo='getUserInfoToReg'>新用户注册</button>|<button class='bg-gray margin-tb-sm' bindtap='toResetpwd'>忘记密码？</button>
     </view>
+     -->
   </view>
 </view>

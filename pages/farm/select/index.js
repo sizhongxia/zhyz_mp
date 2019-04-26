@@ -9,7 +9,7 @@ Page({
     loading: false,
     applyModalVisible: false
   },
-  onLoad: function (options) {
+  onShow: function () {
     const _this = this;
     _this.getAuths();
   },

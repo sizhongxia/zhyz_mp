@@ -1,10 +1,14 @@
 var api = require('../config/api.js')
 var util = require('../utils/util.js')
 
-const loginRequest = code => {
-  return util.post(api.AuthLogin, {
+const loginCheckAuth = (code) => {
+  return util.post(api.CheckAuth, {
     code: code
   })
+}
+
+const loginRequest = data => {
+  return util.post(api.AuthLogin, data)
 }
 
 const regRequest = data => {
@@ -42,6 +46,7 @@ const bindRequest = data => {
 }
 
 module.exports = {
+  loginCheckAuth: loginCheckAuth,
   bindRequestByWx: bindRequestByWx,
   resetPwdRequest: resetPwdRequest,
   regRequest: regRequest,
