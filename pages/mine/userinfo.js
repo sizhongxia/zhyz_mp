@@ -8,9 +8,6 @@ Page({
     user: {}
   },
   onLoad: function (options) {
-    this.setData({
-      user: app.globalData.userInfo
-    });
   },
   onShow: function () {
     wx.showLoading({
@@ -40,6 +37,16 @@ Page({
   toChangeOrganize: function () {
     wx.navigateTo({
       url: '/pages/mine/update/organize?organizeName=' + this.data.user.organizeName
+    })
+  },
+  toChangeUserName: function () {
+    wx.navigateTo({
+      url: '/pages/mine/update/userName?userName=' + this.data.user.userName
+    })
+  },
+  toChangePhoneNo: function () {
+    wx.navigateTo({
+      url: '/pages/mine/update/phoneNo?phoneNo=' + this.data.user.phoneNo
     })
   }
 })

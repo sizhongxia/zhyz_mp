@@ -20,6 +20,8 @@
     "pages/console/index",
     "pages/mine/index",
     "pages/mine/userinfo",
+    "pages/mine/update/userName",
+    "pages/mine/update/phoneNo",
     "pages/mine/update/email",
     "pages/mine/update/organize",
     "pages/farm/feed/add",

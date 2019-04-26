@@ -1,5 +1,5 @@
 // const ApiUrl = 'http://192.168.31.144:9091';
-// const ApiUrl = 'http://192.168.1.104:9091';
+//const ApiUrl = 'http://192.168.43.20:9091';
 const ApiUrl = 'https://wxapi.yeetong.cn';
 module.exports = {
   // 微信登陆
@@ -9,6 +9,8 @@ module.exports = {
   AuthResetPwd: ApiUrl + '/zhyz/miniapp/api/auth/resetpwd',
   AuthBind: ApiUrl + '/zhyz/miniapp/api/auth/bind',
   AuthBindWx: ApiUrl + '/zhyz/miniapp/api/auth/bindwx',
+  UpdateUserName: ApiUrl + '/zhyz/miniapp/api/user/updateUserName',
+  UpdateUserPhoneNo: ApiUrl + '/zhyz/miniapp/api/user/updatePhoneNo',
   UpdateUserOrganize: ApiUrl + '/zhyz/miniapp/api/user/updateOrganize',
   UpdateUserEmail: ApiUrl + '/zhyz/miniapp/api/user/updateEmail',
   UpdateUserAvator: ApiUrl + '/zhyz/miniapp/api/user/updateAvator',

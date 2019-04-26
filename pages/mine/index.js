@@ -13,12 +13,6 @@ Page({
     userInfo: {},
     recommendModel: false
   },
-  onLoad: function(options) {
-    const _this = this;
-    _this.setData({
-      userInfo: app.globalData.userInfo
-    });
-  },
   onShow: function () {
     const _this = this;
     wx.showLoading({
@@ -30,7 +24,12 @@ Page({
       currentFarmId: farmId,
       currentFarmIdentity: wx.getStorageSync('curr-farm-identity')
     });
-    mineService.getMineBaseInfo(farmId).then(res => {
+    mineService.userInfo().then(res => {
+      _this.setData({
+        userInfo: res
+      });
+      return mineService.getMineBaseInfo(farmId)
+    }).then(res => {
       _this.setData({
         farmName: res.farmName,
         auditsNum: res.auditsNum,

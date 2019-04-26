@@ -19,6 +19,18 @@ const updateUserOrganize = (organizeName) => {
   });
 }
 
+const updateUserPhoneNo = (phoneNo) => {
+  return util.post(api.UpdateUserPhoneNo, {
+    phoneNo: phoneNo
+  });
+}
+
+const updateUserName = (userName) => {
+  return util.post(api.UpdateUserName, {
+    userName: userName
+  });
+}
+
 const updateUserEmail = (email) => {
   return util.post(api.UpdateUserEmail, {
     email: email
@@ -33,6 +45,8 @@ const userInfo = () => {
 module.exports = {
   getMineBaseInfo: getMineBaseInfo,
   updateUserAvator: updateUserAvator,
+  updateUserName: updateUserName,
+  updateUserPhoneNo: updateUserPhoneNo,
   updateUserOrganize: updateUserOrganize,
   updateUserEmail: updateUserEmail,
   userInfo: userInfo

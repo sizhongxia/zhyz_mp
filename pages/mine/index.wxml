@@ -1,7 +1,7 @@
 <card class="DhCard">
   <item class="gradual-blue padding-xl">
     <view style='margin-top: 60rpx;'>
-      <avatar bindtap='selectUserHeadPic' class="xxl round" style="background-image:url({{userInfo.avator}});"></avatar>
+      <avatar bindtap='selectUserHeadPic' class="xxl round" style="background-image:url({{userInfo.userAvator}});"></avatar>
     </view>
     <view style='margin-top: 42rpx;'>
       <view style='font-size: 36rpx;font-weight: 300' bindtap='toUserInfo'>

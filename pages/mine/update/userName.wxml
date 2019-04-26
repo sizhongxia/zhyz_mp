@@ -1,0 +1,11 @@
+<view>
+  <form report-submit="{{true}}" bindsubmit="toAction">
+    <form-group class="margin-top">
+      <view class='title'>用户名</view>
+      <input placeholder="请输入用户名" class='radius' name='userName' value="{{userName}}"></input>
+    </form-group>
+    <view class="padding-xl">
+      <button class='block bg-blue margin-tb-sm lg' form-type="submit">修改</button>
+    </view>
+  </form>
+</view>
