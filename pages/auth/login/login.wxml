@@ -14,12 +14,16 @@
     </form-group>
   </form>
   -->
-  <view class="padding-xl" style='position:fixed;bottom:40rpx;width:750rpx;padding:100rpx;'>
-    <button id='loginBtn' class='block bg-blue margin-tb-sm lg' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>进入农场</button>
+  <view style='text-align:center;font-size: 28rpx;margin-top: 84rpx'>{{wtxt}}</view>
+  <view class="padding-xl" style='position:fixed;bottom:120rpx;width:750rpx;padding:100rpx;'>
+    <button wx:if="{{showGoinBtn}}" id='loginBtn' class='block bg-blue margin-tb-sm lg' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>进入农场</button>
     <!--
     <view style="text-align:center">
       <button class='bg-gray margin-tb-sm' open-type='getUserInfo' bindgetuserinfo='getUserInfoForWx'>微信登录</button>|<button class='bg-gray margin-tb-sm' open-type='getUserInfo' bindgetuserinfo='getUserInfoToReg'>新用户注册</button>|<button class='bg-gray margin-tb-sm' bindtap='toResetpwd'>忘记密码？</button>
     </view>
      -->
+    <view wx:else style='text-align:center;font-size: 28rpx;'>
+      <text>欢迎使用智慧农场小程序客户端v2.7.3</text>
+    </view>
   </view>
 </view>

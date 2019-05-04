@@ -7,6 +7,8 @@ Page({
     // username: '',
     // password: '',
     // logining: false
+    wtxt: '请稍后...',
+    showGoinBtn: false
   },
   onLoad: function (query) {
     if (query) {
@@ -23,30 +25,31 @@ Page({
   },
   onShow: function () {
     const _this = this;
-    wx.showLoading({
-      title: '正在检查更新',
-      mask: true
-    });
+    _this.setData({
+      wtxt: '正在检查版本信息...'
+    })
     const updateManager = wx.getUpdateManager();
     updateManager.onCheckForUpdate(function (res) {
       if (!res.hasUpdate) {
+        _this.setData({
+          wtxt: '正在登陆...'
+        })
         util.login().then(code => {
           return loginService.loginCheckAuth(code)
         }).then(res => {
           if (res) {
-            wx.showLoading({
-              title: '欢迎使用',
-              mask: true
-            });
+            _this.setData({
+              wtxt: '欢迎使用'
+            })
             _this.toLogin();
           } else {
-            wx.hideLoading();
+            // wx.hideLoading();
+            _this.setData({
+              wtxt: '请点击按钮进行注册登陆',
+              showGoinBtn: true
+            })
           }
-        }).catch(err => {
-          wx.hideLoading();
         });
-      } else {
-        wx.hideLoading();
       }
     });
     updateManager.onUpdateReady(function () {
@@ -64,13 +67,9 @@ Page({
       app.globalData.userInfo = res;
       wx.setStorageSync('token', res.token);
       wx.redirectTo({
-        url: '/pages/farm/select/index',
-        complete: function () {
-          wx.hideLoading();
-        }
+        url: '/pages/farm/select/index'
       });
     }).catch(err => {
-      wx.hideLoading();
       if (err) {
         if (!!err.message) {
           util.showErrorToast(err.message);
