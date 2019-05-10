@@ -45,7 +45,7 @@ Page({
           } else {
             // wx.hideLoading();
             _this.setData({
-              wtxt: '请点击按钮进行注册登陆',
+              wtxt: '首次使用小程序请先授权登录',
               showGoinBtn: true
             })
           }
@@ -56,6 +56,7 @@ Page({
       updateManager.applyUpdate()
     });
   },
+  
   toLogin: function () {
     const _this = this;
     util.login().then(code => {
@@ -77,109 +78,56 @@ Page({
       }
     });
   },
-  // setUsername: function(e) {
-  //   this.setData({
-  //     username: e.detail.value
-  //   });
-  // },
-  // setPassword: function(e) {
-  //   this.setData({
-  //     password: e.detail.value
-  //   });
-  // },
-  // getUserInfoForWx: function (res) {
-  //   const _this = this;
-  //   if (res.detail.userInfo) {
-  //     wx.showLoading({
-  //       title: '请稍后...',
-  //       mask: true
-  //     });
-  //     util.login().then(code => {
-  //       return loginService.bindRequestByWx({
-  //         code: code,
-  //         nickName: res.detail.userInfo.nickName,
-  //         avatarUrl: res.detail.userInfo.avatarUrl,
-  //         gender: res.detail.userInfo.gender,
-  //         country: res.detail.userInfo.country,
-  //         province: res.detail.userInfo.province,
-  //         city: res.detail.userInfo.city
-  //       });
-  //     }).then(res => {
-  //       wx.hideLoading();
-  //       _this.toLogin();
-  //     }).catch(err => {
-  //       wx.hideLoading();
-  //       if (err) {
-  //         if (err.message) {
-  //           util.showErrorToast(err.message);
-  //           return false;
-  //         }
-  //       }
-  //     });
-  //   } else {
-  //     util.showErrorToast('请允许授权访问您的基本信息');
-  //   }
-  // },
+  
   getUserInfo: function(res) {
     const _this = this;
     if (res.detail.userInfo) {
-      // if (_this.data.logining) {
-      //   return false;
-      // }
-      // if (!_this.data.username) {
-      //   util.showErrorToast('请输入平台账号');
-      //   return false;
-      // }
-      // if (!_this.data.password) {
-      //   util.showErrorToast('请输入账号密码');
-      //   return false;
-      // }
-      // _this.setData({
-      //   logining: true
-      // });
       wx.showLoading({
-        title: '欢迎使用',
+        title: '正在登录',
         mask: true
       });
       util.login().then(code => {
-        return loginService.loginRequest({
-          code: code,
-          scene: scene,
-          userName: res.detail.userInfo.nickName,
-          userAvatar: res.detail.userInfo.avatarUrl,
-          gender: res.detail.userInfo.gender,
-          country: res.detail.userInfo.country,
-          province: res.detail.userInfo.province,
-          city: res.detail.userInfo.city
-        });
-        // return loginService.bindRequest({
-        //   code: code,
-        //   username: _this.data.username,
-        //   password: _this.data.password,
-        //   nickName: res.detail.userInfo.nickName,
-        //   avatarUrl: res.detail.userInfo.avatarUrl,
-        //   gender: res.detail.userInfo.gender,
-        //   country: res.detail.userInfo.country,
-        //   province: res.detail.userInfo.province,
-        //   city: res.detail.userInfo.city
-        // });
-      }).then(res => {
-        // _this.setData({
-        //   logining: false
-        // });
-        // _this.toLogin();
-        app.globalData.userInfo = res;
-        wx.setStorageSync('token', res.token);
-        wx.redirectTo({
-          url: '/pages/farm/select/index',
-          complete: function () {
-            wx.hideLoading();
-          }
-        });
+		  wx.getUserInfo({
+			  withCredentials: true,
+			  lang: 'zh_CN',
+			  success: function(res) {
+				const userInfo = res.userInfo;
+				const nickName = userInfo.nickName;
+				const avatarUrl = userInfo.avatarUrl;
+				const gender = userInfo.gender; // 性别 0：未知、1：男、2：女
+				const province = userInfo.province;
+				const city = userInfo.city;
+				const country = userInfo.country;
+				const rawData = res.rawData;
+				const encryptedData = res.encryptedData;
+				const iv = res.iv;
+				const signature = res.signature;
+				loginService.loginRequest({
+				  code: code,
+				  scene: scene,
+				  userName: nickName,
+				  userAvatar: avatarUrl,
+				  gender: gender,
+				  country: country,
+				  province: province,
+				  city: city,
+				  rawData: rawData,
+				  encryptedData: encryptedData,
+				  iv: iv,
+				  signature: signature
+				}).then(res => {
+					app.globalData.userInfo = res;
+					wx.setStorageSync('token', res.token);
+					wx.redirectTo({
+					  url: '/pages/farm/select/index',
+					  complete: function () {
+						wx.hideLoading();
+					  }
+					});
+				})
+			}
+		});
       }).catch(err => {
-        // _this.setData({
-        //   logining: false
-        // });
         if (err) {
           if (err.message) {
             util.showErrorToast(err.message);
@@ -188,24 +136,6 @@ Page({
         }
         util.showErrorToast('请求失败');
       });
-      // this.setData({
-      //   userInfo: res.detail.userInfo,
-      //   hasUserInfo: true
-      // });
     }
-  },
-  // getUserInfoToReg: function (res) {
-  //   const _this = this;
-  //   if (res.detail.userInfo) {
-  //     wx.setStorageSync('wx-user-info', res.detail.userInfo)
-  //     wx.navigateTo({
-  //       url: '/pages/auth/regist/index'
-  //     })
-  //   }
-  // },
-  // toResetpwd: function () {
-  //   wx.navigateTo({
-  //     url: '/pages/auth/resetpwd/index'
-  //   })
-  // }
+  }
 })
