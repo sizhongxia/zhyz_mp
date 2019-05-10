@@ -9,7 +9,11 @@ Page({
     // password: '',
     // logining: false
     wtxt: '请稍后...',
-    showGoinBtn: false
+    showGoinBtn: false,
+    wxVersion: {
+      SDKVersion: '',
+      version: ''
+    }
   },
   onLoad: function (query) {
     if (query) {
@@ -29,69 +33,74 @@ Page({
     if (isAuthentication) {
       return;
     }
+    // _this.setData({
+    //   wtxt: '正在检查版本信息'
+    // })
+    // const updateManager = wx.getUpdateManager();
+    // updateManager.onCheckForUpdate(function (res) {
+    //   if (!res.hasUpdate) {
+    var systemInfo = wx.getSystemInfoSync();
     _this.setData({
-      wtxt: '正在检查版本信息'
+      wtxt: '请稍后...',
+      wxVersion: {
+        SDKVersion: systemInfo.SDKVersion,
+        version: systemInfo.version
+      }
     })
-    const updateManager = wx.getUpdateManager();
-    updateManager.onCheckForUpdate(function (res) {
-      if (!res.hasUpdate) {
+    util.login().then(code => {
+      return loginService.loginCheckAuth(code)
+    }).then(res => {
+      if (res) {
         _this.setData({
-          wtxt: '请稍后'
+          wtxt: '欢迎使用'
         })
-        util.login().then(code => {
-          return loginService.loginCheckAuth(code)
-        }).then(res => {
-          if (res) {
-            _this.setData({
-              wtxt: '欢迎使用'
-            })
-            wx.checkIsSupportSoterAuthentication({
-              success(res) {
-                if (res.supportMode.indexOf('fingerPrint') > -1) {
-                  wx.checkIsSoterEnrolledInDevice({
-                    checkAuthMode: 'fingerPrint',
-                    success(res) {
-                      if (res.isEnrolled) {
-                        _this.setData({
-                          wtxt: '请使用指纹进行安全认证'
-                        });
-                        wx.startSoterAuthentication({
-                          requestAuthModes: ['fingerPrint'],
-                          challenge: 'login_yeetong_cn',
-                          authContent: '指纹安全认证',
-                          success(res) {
-                            isAuthentication = true;
-                            _this.toLogin();
-                          }
-                        })
-                      } else {
+        wx.checkIsSupportSoterAuthentication({
+          success(res) {
+            if (res.supportMode.indexOf('fingerPrint') > -1) {
+              wx.checkIsSoterEnrolledInDevice({
+                checkAuthMode: 'fingerPrint',
+                success(res) {
+                  if (res.isEnrolled) {
+                    _this.setData({
+                      wtxt: '请使用指纹进行安全认证'
+                    });
+                    wx.startSoterAuthentication({
+                      requestAuthModes: ['fingerPrint'],
+                      challenge: 'login_yeetong_cn',
+                      authContent: '指纹安全认证',
+                      success(res) {
+                        isAuthentication = true;
                         _this.toLogin();
                       }
-                    },
-                    fail() {
-                      _this.toLogin();
-                    }
-                  })
-                } else {
+                    })
+                  } else {
+                    _this.toLogin();
+                  }
+                },
+                fail() {
                   _this.toLogin();
                 }
-              },
-              fail() {
-                _this.toLogin();
-              }
-            })
-          } else {
-            _this.setData({
-              wtxt: '首次使用小程序请先授权登录',
-              showGoinBtn: true
-            })
+              })
+            } else {
+              _this.toLogin();
+            }
+          },
+          fail() {
+            _this.toLogin();
           }
-        });
+        })
+      } else {
+        _this.setData({
+          wtxt: '首次使用小程序请先授权登录',
+          showGoinBtn: true
+        })
       }
     });
-    updateManager.onUpdateReady(function () {
-      updateManager.applyUpdate()
-    });
+    //   }
+    // });
+    // updateManager.onUpdateReady(function () {
+    //   updateManager.applyUpdate()
+    // });
   },
   
   toLogin: function () {

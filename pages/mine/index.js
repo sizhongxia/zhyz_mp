@@ -11,7 +11,11 @@ Page({
     invitationCode: '',
     auditsNum: 0,
     userInfo: {},
-    recommendModel: false
+    recommendModel: false,
+    wxVersion: {
+      SDKVersion: '',
+      version: ''
+    }
   },
   onShow: function () {
     const _this = this;
@@ -19,10 +23,15 @@ Page({
       title: '请稍后...',
       mask: true
     });
+    var systemInfo = wx.getSystemInfoSync();
     var farmId = wx.getStorageSync('curr-farm-id');
     _this.setData({
       currentFarmId: farmId,
-      currentFarmIdentity: wx.getStorageSync('curr-farm-identity')
+      currentFarmIdentity: wx.getStorageSync('curr-farm-identity'),
+      wxVersion: {
+        SDKVersion: systemInfo.SDKVersion,
+        version: systemInfo.version
+      }
     });
     mineService.userInfo().then(res => {
       _this.setData({
