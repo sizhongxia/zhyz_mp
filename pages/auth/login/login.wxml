@@ -23,7 +23,7 @@
     </view>
      -->
     <view wx:else style='text-align:center;font-size: 28rpx;'>
-      <text>欢迎使用智慧农场小程序客户端v2.7.3</text>
+      <text>欢迎使用智慧农场小程序客户端v2.7.7</text>
     </view>
   </view>
 </view>

@@ -1,7 +1,8 @@
 var util = require('../../../utils/util.js');
 var loginService = require('../../../service/login.js');
-const app = getApp()
-var scene = ''
+const app = getApp();
+var scene = '';
+var isAuthentication = false;
 Page({
   data: {
     // username: '',
@@ -25,14 +26,17 @@ Page({
   },
   onShow: function () {
     const _this = this;
+    if (isAuthentication) {
+      return;
+    }
     _this.setData({
-      wtxt: '正在检查版本信息...'
+      wtxt: '正在检查版本信息'
     })
     const updateManager = wx.getUpdateManager();
     updateManager.onCheckForUpdate(function (res) {
       if (!res.hasUpdate) {
         _this.setData({
-          wtxt: '正在登陆...'
+          wtxt: '请稍后'
         })
         util.login().then(code => {
           return loginService.loginCheckAuth(code)
@@ -41,9 +45,42 @@ Page({
             _this.setData({
               wtxt: '欢迎使用'
             })
-            _this.toLogin();
+            wx.checkIsSupportSoterAuthentication({
+              success(res) {
+                if (res.supportMode.indexOf('fingerPrint') > -1) {
+                  wx.checkIsSoterEnrolledInDevice({
+                    checkAuthMode: 'fingerPrint',
+                    success(res) {
+                      if (res.isEnrolled) {
+                        _this.setData({
+                          wtxt: '请使用指纹进行安全认证'
+                        });
+                        wx.startSoterAuthentication({
+                          requestAuthModes: ['fingerPrint'],
+                          challenge: 'login_yeetong_cn',
+                          authContent: '指纹安全认证',
+                          success(res) {
+                            isAuthentication = true;
+                            _this.toLogin();
+                          }
+                        })
+                      } else {
+                        _this.toLogin();
+                      }
+                    },
+                    fail() {
+                      _this.toLogin();
+                    }
+                  })
+                } else {
+                  _this.toLogin();
+                }
+              },
+              fail() {
+                _this.toLogin();
+              }
+            })
           } else {
-            // wx.hideLoading();
             _this.setData({
               wtxt: '首次使用小程序请先授权登录',
               showGoinBtn: true
