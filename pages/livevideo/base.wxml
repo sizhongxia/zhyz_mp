@@ -1,0 +1,1 @@
+<live-player id="rtmpPlayId" src="{{liveUrl}}" mode="live" autoplay="{{true}}" bindstatechange="rtmpPlayStateChange" binderror="rtmpPlayError" style="width: 750rpx; height: 480rpx;" />

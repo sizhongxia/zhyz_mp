@@ -53,42 +53,47 @@ Page({
       if (res) {
         _this.setData({
           wtxt: '欢迎使用'
-        })
-        wx.checkIsSupportSoterAuthentication({
-          success(res) {
-            if (res.supportMode.indexOf('fingerPrint') > -1) {
-              wx.checkIsSoterEnrolledInDevice({
-                checkAuthMode: 'fingerPrint',
-                success(res) {
-                  if (res.isEnrolled) {
-                    _this.setData({
-                      wtxt: '请使用指纹进行安全认证'
-                    });
-                    wx.startSoterAuthentication({
-                      requestAuthModes: ['fingerPrint'],
-                      challenge: 'login_yeetong_cn',
-                      authContent: '指纹安全认证',
-                      success(res) {
-                        isAuthentication = true;
-                        _this.toLogin();
-                      }
-                    })
-                  } else {
-                    _this.toLogin();
-                  }
-                },
-                fail() {
-                  _this.toLogin();
-                }
-              })
-            } else {
-              _this.toLogin();
-            }
-          },
-          fail() {
-            _this.toLogin();
-          }
-        })
+        });
+        // if (wx.checkIsSupportSoterAuthentication) {
+        //   wx.checkIsSupportSoterAuthentication({
+        //     success(res) {
+        //       if (res.supportMode.indexOf('fingerPrint') > -1) {
+        //         wx.checkIsSoterEnrolledInDevice({
+        //           checkAuthMode: 'fingerPrint',
+        //           success(res) {
+        //             if (res.isEnrolled) {
+        //               _this.setData({
+        //                 wtxt: '请使用指纹进行安全认证'
+        //               });
+        //               wx.startSoterAuthentication({
+        //                 requestAuthModes: ['fingerPrint'],
+        //                 challenge: 'login_yeetong_cn',
+        //                 authContent: '指纹安全认证',
+        //                 success(res) {
+        //                   isAuthentication = true;
+        //                   _this.toLogin();
+        //                 }
+        //               })
+        //             } else {
+        //               _this.toLogin();
+        //             }
+        //           },
+        //           fail() {
+        //             _this.toLogin();
+        //           }
+        //         })
+        //       } else {
+        //         _this.toLogin();
+        //       }
+        //     },
+        //     fail() {
+        //       _this.toLogin();
+        //     }
+        //   })
+        // } else {
+        //   _this.toLogin();
+        // }
+        _this.toLogin();
       } else {
         _this.setData({
           wtxt: '首次使用小程序请先授权登录',

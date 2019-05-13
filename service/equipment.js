@@ -69,6 +69,12 @@ const toMigrate = (form) => {
 //   });
 // }
 
+const getCameraDetail = (equipmentId) => {
+  return util.post(api.EquipmentCameraDetail, {
+    equipmentId: equipmentId
+  });
+}
+
 module.exports = {
   // getEquipmentData: getEquipmentData,
   // getFarmBaseEquipmentData: getFarmBaseEquipmentData,
@@ -80,5 +86,6 @@ module.exports = {
   getEquipmentTypeData: getEquipmentTypeData,
   getEquipmentMonitorItems: getEquipmentMonitorItems,
   toggleOutlineReceiveStatus: toggleOutlineReceiveStatus,
-  toMigrate: toMigrate
+  toMigrate: toMigrate,
+  getCameraDetail: getCameraDetail
 }

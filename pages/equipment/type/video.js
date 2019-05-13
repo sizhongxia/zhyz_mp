@@ -45,7 +45,7 @@ Page({
   },
   toVideoLive: function (e) {
     wx.navigateTo({
-      url: '/pages/webview/index?path=https://www.yeetong.cn/mp/equipment/livevideo/' + e.currentTarget.dataset.equipmentId
+      url: '/pages/livevideo/base?equipmentId=' + e.currentTarget.dataset.equipmentId
     });
   }
   // onPullDownRefresh: function () {

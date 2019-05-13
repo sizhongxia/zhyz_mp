@@ -24,7 +24,7 @@
      -->
     <view wx:else style='text-align:center;font-size: 30rpx;'>
       <text>欢迎使用智慧农场小程序客户端</text>
-      <view style='line-height:80rpx;font-size: 24rpx;'>版本信息 SDK-{{wxVersion.SDKVersion}}, WX-{{wxVersion.version}}</view>
+      <view style='line-height:80rpx;font-size: 24rpx;'>版本信息　SDK-{{wxVersion.SDKVersion}}　WeiXin-{{wxVersion.version}}</view>
     </view>
   </view>
 </view>

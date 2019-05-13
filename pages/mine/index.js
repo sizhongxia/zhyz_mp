@@ -8,6 +8,8 @@ Page({
     currentFarmId: '',
     currentFarmIdentity: '',
     farmName: '',
+    farmCode: '',
+    farmQrCodeUrl: '',
     invitationCode: '',
     auditsNum: 0,
     userInfo: {},
@@ -41,6 +43,8 @@ Page({
     }).then(res => {
       _this.setData({
         farmName: res.farmName,
+        farmCode: res.farmCode,
+        farmQrCodeUrl: res.farmQrCodeUrl,
         auditsNum: res.auditsNum,
         invitationCode: res.invitationCode
       });
@@ -56,6 +60,12 @@ Page({
         }
       }
     });
+  },
+  showFarmQrImg: function () {
+    const _this = this;
+    if (!!_this.data.farmQrCodeUrl) {
+      util.previewImage(_this.data.farmQrCodeUrl);
+    }
   },
   logout: function() {
     wx.showModal({

@@ -4,8 +4,6 @@
     "pages/auth/regist/index",
     "pages/auth/resetpwd/index",
     "pages/auth/protocol/index",
-    "pages/webview/index",
-    "pages/livevideo/index",
     "pages/index/index",
     "pages/startup/alarm/index",
     "pages/weather/select",
@@ -71,7 +69,10 @@
     "pages/farm/layeggs/add",
     "pages/func/index",
     "pages/func/detail",
-    "pages/news/index"
+    "pages/news/index",
+    "pages/webview/index",
+    "pages/livevideo/index",
+    "pages/livevideo/base"
   ],
   "permission": {
     "scope.userLocation": {

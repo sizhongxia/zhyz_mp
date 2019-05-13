@@ -97,6 +97,7 @@ module.exports = {
   EquipmentCollectionAlarmDetail: ApiUrl + '/zhyz/miniapp/api/equipment/collectionAlarmDetail',
   ChangeOutlineReceiveStatus: ApiUrl + '/zhyz/miniapp/api/equipment/changeOutlineReceiveStatus',
   EquipmentToMigrate: ApiUrl + '/zhyz/miniapp/api/equipment/toMigrate',
+  EquipmentCameraDetail: ApiUrl + '/zhyz/miniapp/api/equipment/cameraDetail',
   
   // EquipmentCollectionHomeTj: ApiUrl + '/zhyz/miniapp/api/equipment/homeTj',
 

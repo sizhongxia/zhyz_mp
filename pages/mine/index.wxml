@@ -12,7 +12,7 @@
 </card>
 <view class="shadow-warp bg-white" style='margin-top:-1px;padding:20rpx;font-size:28rpx;line-height:36rpx;text-align:center;'>
   <view class="flex">
-    <view class='flex-sub padding-sm margin-xs radius ovtxt'>{{farmName}}</view>
+    <view class='flex-sub padding-sm margin-xs radius ovtxt' bindtap='showFarmQrImg'>{{farmName}} <image wx:if="{{farmQrCodeUrl}}" src='/static/images/icon-ewm.png' style='width: 32rpx;height:32rpx;vertical-align:text-bottom;'></image></view>
     <view class='flex-sub padding-sm margin-xs radius'>{{currentFarmIdentity == "admin" ? "管理员" : currentFarmIdentity == "manager" ? "运维人员" : "访客"}}</view>
   </view>
 </view>
@@ -27,10 +27,16 @@
   <item class="arrow" bindtap='toAuthUserApply' wx:if='{{ currentFarmIdentity === "admin" }}'>
     <view class='content'>
       <icon class='icon-group text-green' />
-      <text class='text-grey'>处理农场访问申请</text>
+      <text class='text-grey'>访问申请管理</text>
     </view>
     <view class='action' wx:if="{{ auditsNum > 0 }}">
       <tag class='bg-red round'>{{ auditsNum }}</tag>
+    </view>
+  </item>
+  <item class="arrow" bindtap='toAuthFarms'>
+    <view class='content'>
+      <icon class='icon-emoji text-green' />
+      <text class='text-grey'>切换农场</text>
     </view>
   </item>
   <item class="arrow" bindtap='toApplyFarm'>
@@ -40,12 +46,6 @@
     </view>
     <view class='action'>
       <tag class='round'>扫描申请</tag>
-    </view>
-  </item>
-  <item class="arrow" bindtap='toAuthFarms'>
-    <view class='content'>
-      <icon class='icon-emoji text-green' />
-      <text class='text-grey'>切换农场</text>
     </view>
   </item>
   <!-- 
@@ -84,8 +84,8 @@
 </view>
 <view style='width: 750rpx;height:200rpx;text-align:center;padding-top: 20rpx;'>
   <view style='line-height:50rpx;'>北京一通无限科技有限公司</view>
-  <view style='line-height:50rpx;'>Copyright © 2018-2019 一通无限</view>
-  <view style='line-height:80rpx;font-size: 24rpx;'>版本信息 SDK-{{wxVersion.SDKVersion}}, WX-{{wxVersion.version}}</view>
+  <view style='line-height:50rpx;'>Copyright © 2018-2019 一通无限<text style='vertical-align:text-bottom;font-size: 20rpx;'>TM</text></view>
+  <view style='line-height:70rpx;font-size: 24rpx;'>版本信息　SDK-{{wxVersion.SDKVersion}}　WeiXin-{{wxVersion.version}}</view>
 </view>
 
 <modal-box class="{{recommendModel?'show':''}}">
