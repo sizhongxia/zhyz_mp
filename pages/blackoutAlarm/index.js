@@ -10,7 +10,12 @@ Page({
     equipmentId: '',
     equipment: {
       status: '00'
-    }
+    },
+    list: [{
+      status: 'zx',
+      createAt: '2019-11-11 22:11:11'
+    }],
+    hadMore: false
   },
   onLoad: function(options) {
     this.setData({

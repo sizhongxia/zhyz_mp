@@ -11,14 +11,35 @@
 
 <view style='width: 750rpx;padding:30rpx;' hidden="{{tabIndex!='5'}}">
 
-<view style="width: 100%;text-align:center;">
-  <view style="text-align:left;color:#888;">
+<view style="width: 100%;text-align:center;margin-bottom: 60rpx;">
+  <view style="text-align:left;color:#888;line-height: 44rpx;">
+    <text>当前设备：{{equipment.equipmentName}}</text>
+  </view>
+  <view style="text-align:left;color:#888;line-height: 44rpx;">
     <text>最后采集时间：{{equipment.lastConnectionTime}}</text>
   </view>
   <image style="width: 148rpx;height: 148rpx;margin:36rpx auto;" src="https://static.yeetong.cn/material/blackout/icon/{{equipment.status}}.png"></image>
   <view>
     <text style="font-size: 32rpx;font-weight:100">当前状态：{{equipment.status == '00' ? '离线' : equipment.status == '01' ? '正常' : '断电'}}</text>
   </view>
+</view>
+
+<view>
+<list class="menu">
+    <item wx:for="{{list}}" wx:key="time">
+      <view class='content ovtxt'>
+        <icon class='icon-warn text-orange'></icon>
+        <text style='font-size:24rpx'>{{item.status}}</text>
+      </view>
+      <view class='action'>
+        <text class='text-grey text-sm'>{{item.createAt}}</text>
+      </view>
+    </item>
+    <view wx:if="{{list.length == 0}}" class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>无数据</view>
+  </list>
+  <load wx:if="{{list.length > 0 && hadMore}}" class="bg-gray width-full" style="line-height: 100rpx" bindtap="loadBgMore">
+    加载更多
+  </load>
 </view>
 
   <!-- <form-group>
