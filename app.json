@@ -13,6 +13,7 @@
     "pages/equipment/type/detail",
     "pages/equipment/type/video",
     "pages/equipment/migrate",
+    "pages/blackoutAlarm/index",
     "pages/message/index",
     "pages/message/basetpl/index",
     "pages/console/index",

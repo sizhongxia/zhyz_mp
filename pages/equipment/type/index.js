@@ -48,6 +48,12 @@ Page({
     // wx.navigateTo({
     //   url: '/pages/webview/index?path=https://www.yeetong.cn/mp/equipment/statistics/' + e.currentTarget.dataset.equipmentId
     // });
+    if (this.data.typeId === '5c2085cb7e29123757fd3fed') {
+      wx.navigateTo({
+        url: '/pages/blackoutAlarm/index?equipmentId=' + e.currentTarget.dataset.equipmentId
+      });
+      return;
+    }
     wx.navigateTo({
       url: '/pages/equipment/type/detail?equipmentId=' + e.currentTarget.dataset.equipmentId
     });

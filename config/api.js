@@ -1,5 +1,5 @@
 // const ApiUrl = 'http://192.168.31.144:9091';
-//const ApiUrl = 'http://192.168.43.20:9091';
+// const ApiUrl = 'http://10.0.0.108:9091';
 const ApiUrl = 'https://wxapi.yeetong.cn';
 module.exports = {
   // 微信登陆

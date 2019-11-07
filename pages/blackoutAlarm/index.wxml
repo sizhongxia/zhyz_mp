@@ -1,0 +1,72 @@
+<scroll-view scroll-x="{{true}}" scroll-with-animation="{{true}}" class="nav">
+  <view class='flex text-center'>
+    <item class="flex-sub {{tabIndex=='5' ? 'text-blue cur' : ''}}" bindtap='tabSelect' data-index="5">
+      实时数据
+    </item>
+    <item class="flex-sub {{tabIndex=='1' ? 'text-blue cur' : ''}}" bindtap='tabSelect' data-index="1">
+      设备信息
+    </item>
+  </view>
+</scroll-view>
+
+<view style='width: 750rpx;padding:30rpx;' hidden="{{tabIndex!='1'}}">
+  <form-group>
+      <view class='title ovtxt' style='width:480rpx'>{{equipment.farmAreaName}}</view>
+      <navigator wx:if='{{ currentFarmIdentity === "admin" }}' url="/pages/equipment/migrate?equipmentId={{equipment.equipmentId}}&farmId={{equipment.farmId}}&areaId={{equipment.farmAreaId}}" hover-class="navigator-hover">
+        <text>设备迁移</text>
+      </navigator>
+  </form-group>
+  <form-group>
+    <view class='title'>设备名称</view>
+    <text>{{equipment.equipmentName}}</text>
+  </form-group>
+  <form-group>
+    <view class='title'>设备编码</view>
+    <text>{{equipment.equipmentCode}}</text>
+  </form-group>
+  <form-group>
+    <view class='title'>设备序列号</view>
+    <text>{{equipment.equipmentSn}}</text>
+  </form-group>
+  <form-group>
+    <view class='title'>设备类型</view>
+    <text>{{equipment.equipmentTypeName}}</text>
+  </form-group>
+  <form-group>
+    <view class='title'>设备型号</view>
+    <text>{{equipment.equipmentModelName}}</text>
+  </form-group>
+  <form-group>
+    <view class='title'>设备DTUID</view>
+    <text>{{equipment.equipmentDtuId}}</text>
+  </form-group>
+  <form-group>
+    <view class='title'>设备通讯地址</view>
+    <text>{{equipment.equipment485Addr}}</text>
+  </form-group>
+  <form-group>
+    <view class='title'>设备安装时间</view>
+    <text>{{equipment.createAt}}</text>
+  </form-group>
+  <form-group wx:if="{{equipment.remark}}">
+    <view class='title'>设备备注</view>
+    <text>{{equipment.remark}}</text>
+  </form-group>
+</view>
+
+<view style='width: 750rpx;padding:30rpx;' hidden="{{tabIndex!='5'}}">
+  <form-group>
+    <view class='title'>在线状态</view>
+    <text style="color:{{equipment.online ? 'green' : 'red'}}">{{equipment.online ? '在线' : '离线'}}</text>
+  </form-group>
+  <block wx:if="{{ !!equipment.monitorTermInfo }}">
+  <form-group wx:for="{{equipment.monitorTermInfo}}" wx:key="code" wx:for-index="index" wx:for-item="item">
+    <view class='title'>{{item.name}}</view>
+    <text>{{item.value == '01' ? '断电' : '有电'}}</text>
+  </form-group>
+  </block>
+  <form-group>
+    <view class='title'>数据采集时间</view>
+    <text>{{equipment.lastConnectionTime}}</text>
+  </form-group>
+</view>

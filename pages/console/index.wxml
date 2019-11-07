@@ -52,6 +52,12 @@
       </navigator>
     </item>
     <item>
+      <navigator hover-class='none' url="/pages/equipment/type/index?typeId=5c2085cb7e29123757fd3fed">
+        <image lazy-load="{{true}}" src='https://static.yeetong.cn/material/imgs/5dc3f00cffa21a66298e923b03da2e.png-yeetong'></image>
+        <text>断电报警器</text>
+      </navigator>
+    </item>
+    <item>
       <navigator hover-class='none' url="/pages/equipment/type/video?typeId=5c2085cb7e29123757fd3fec">
         <image lazy-load="{{true}}" src='https://static.yeetong.cn/yeetong/function/icon/app_xhl_video.png-yeetong?v3'></image>
         <text>视频监控</text>
