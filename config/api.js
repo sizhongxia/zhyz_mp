@@ -1,6 +1,6 @@
-const ApiUrl = 'http://127.0.0.1:9091';
+// const ApiUrl = 'http://127.0.0.1:9091';
 // const ApiUrl = 'http://10.0.0.108:9091';
-// const ApiUrl = 'https://wxapi.yeetong.cn';
+const ApiUrl = 'https://wxapi.yeetong.cn';
 module.exports = {
   // 微信登陆
   CheckAuth: ApiUrl + '/zhyz/miniapp/api/checkAuth',
