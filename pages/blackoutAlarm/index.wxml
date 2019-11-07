@@ -1,13 +1,41 @@
 <scroll-view scroll-x="{{true}}" scroll-with-animation="{{true}}" class="nav">
   <view class='flex text-center'>
     <item class="flex-sub {{tabIndex=='5' ? 'text-blue cur' : ''}}" bindtap='tabSelect' data-index="5">
-      实时数据
+      实时状态
     </item>
     <item class="flex-sub {{tabIndex=='1' ? 'text-blue cur' : ''}}" bindtap='tabSelect' data-index="1">
       设备信息
     </item>
   </view>
 </scroll-view>
+
+<view style='width: 750rpx;padding:30rpx;' hidden="{{tabIndex!='5'}}">
+
+<view style="width: 100%;text-align:center;">
+  <view style="text-align:left;color:#888;">
+    <text>最后采集时间：{{equipment.lastConnectionTime}}</text>
+  </view>
+  <image style="width: 148rpx;height: 148rpx;margin:36rpx auto;" src="https://static.yeetong.cn/material/blackout/icon/{{equipment.status}}.png"></image>
+  <view>
+    <text style="font-size: 32rpx;font-weight:100">当前状态：{{equipment.status == '00' ? '离线' : equipment.status == '01' ? '正常' : '断电'}}</text>
+  </view>
+</view>
+
+  <!-- <form-group>
+    <view class='title'>在线状态</view>
+    <text style="color:{{equipment.online ? 'green' : 'red'}}">{{equipment.online ? '在线' : '离线'}}</text>
+  </form-group>
+  <block wx:if="{{ !!equipment.monitorTermInfo }}">
+  <form-group wx:for="{{equipment.monitorTermInfo}}" wx:key="code" wx:for-index="index" wx:for-item="item">
+    <view class='title'>{{item.name}}</view>
+    <text>{{item.value == '01' ? '断电' : '有电'}}</text>
+  </form-group>
+  </block>
+  <form-group>
+    <view class='title'>数据采集时间</view>
+    <text>{{equipment.lastConnectionTime}}</text>
+  </form-group> -->
+</view>
 
 <view style='width: 750rpx;padding:30rpx;' hidden="{{tabIndex!='1'}}">
   <form-group>
@@ -51,22 +79,5 @@
   <form-group wx:if="{{equipment.remark}}">
     <view class='title'>设备备注</view>
     <text>{{equipment.remark}}</text>
-  </form-group>
-</view>
-
-<view style='width: 750rpx;padding:30rpx;' hidden="{{tabIndex!='5'}}">
-  <form-group>
-    <view class='title'>在线状态</view>
-    <text style="color:{{equipment.online ? 'green' : 'red'}}">{{equipment.online ? '在线' : '离线'}}</text>
-  </form-group>
-  <block wx:if="{{ !!equipment.monitorTermInfo }}">
-  <form-group wx:for="{{equipment.monitorTermInfo}}" wx:key="code" wx:for-index="index" wx:for-item="item">
-    <view class='title'>{{item.name}}</view>
-    <text>{{item.value == '01' ? '断电' : '有电'}}</text>
-  </form-group>
-  </block>
-  <form-group>
-    <view class='title'>数据采集时间</view>
-    <text>{{equipment.lastConnectionTime}}</text>
   </form-group>
 </view>

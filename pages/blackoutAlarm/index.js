@@ -5,19 +5,23 @@ const app = getApp()
 
 Page({
   data: {
+    currentFarmIdentity: '',
     tabIndex: 5,
     equipmentId: '',
-    equipment: {}
+    equipment: {
+      status: '00'
+    }
   },
   onLoad: function(options) {
     this.setData({
-      equipmentId: options.equipmentId
+      equipmentId: options.equipmentId,
+      currentFarmIdentity: wx.getStorageSync('curr-farm-identity')
     });
   },
   onShow: function (options) {
     this.getDetail()
   },
-  getDetail: function () {
+  getDetail: function (callback) {
     const _this = this;
     wx.showLoading({
       title: '请稍后...',
@@ -28,8 +32,10 @@ Page({
         equipment: res
       });
       wx.hideLoading();
+      callback && callback()
     }).catch(err => {
       wx.hideLoading();
+      callback && callback()
       if (err) {
         if (err.message) {
           util.showErrorToast(err.message);
@@ -44,6 +50,6 @@ Page({
     })
   },
   onPullDownRefresh: function () {
-    this.load(wx.stopPullDownRefresh);
+    this.getDetail(wx.stopPullDownRefresh);
   }
 })
