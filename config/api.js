@@ -106,6 +106,10 @@ module.exports = {
   EquipmentAlarmConfDetail: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/detail',
   ChangeEquipmentAlarmConfUseState: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/changeUseState',
   DeleteEquipmentAlarmConf: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/delete',
+
+  BlackoutAlarmList: ApiUrl + '/zhyz/miniapp/api/blackout/alarm/list',
+  SaveBlackoutAlarmConf: ApiUrl + '/zhyz/miniapp/api/blackout/alarm/conf/save',
+
   UpdateAlarmConfRule: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/updateRule',
   UpdateAlarmConfPushInterval: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/updatePushInterval',
   UpdateAlarmConfPushType: ApiUrl + '/zhyz/miniapp/api/equipment/alarm/conf/updatePushType',

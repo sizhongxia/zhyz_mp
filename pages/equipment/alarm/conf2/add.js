@@ -6,29 +6,12 @@ const app = getApp()
 Page({
   data: {
     equipmentId: '',
-    monitorItems: [],
-    operationalCharacters: [{
-      ocName: '大于',
-      ocValue: 'Gt'
+    notifyTypes: [{
+      ptName: '断电时',
+      ptValue: '1'
     }, {
-      ocName: '小于',
-      ocValue: 'Lt'
-    }, {
-      ocName: '等于',
-      ocValue: 'Eq'
-    }, {
-      ocName: '大于等于',
-      ocValue: 'Gte'
-    }, {
-      ocName: '小于等于',
-      ocValue: 'Lte'
-    }],
-    monitorStates: [{
-      msName: '生效',
-      msValue: '1'
-    }, {
-      msName: '未启用',
-      msValue: '0'
+      ptName: '通电时',
+      ptValue: '2'
     }],
     pushTypes: [{
       ptName: '公众号',
@@ -39,12 +22,8 @@ Page({
     }],
     form: {
       equipmentId: '',
-      monitorAlarmValue: 0,
-      operationalCharacter: 'Gt',
-      operationalCharacterName: '大于',
-      monitorItemCode: '',
-      monitorItemName: '请选择',
-      monitorItemUnit: '',
+      notifyTypeId: '1',
+      notifyTypeName: '断电时',
       pushInterval: 10,
       pushTypes: [],
       pushPerson1: '',
@@ -64,58 +43,21 @@ Page({
     });
   },
   onShow: function() {
-    const _this = this;
-    wx.showLoading({
-      title: '请稍后...',
-      mask: true
-    });
-    equipmentService.getEquipmentMonitorItems(_this.data.form.equipmentId).then(res => {
-      _this.setData({
-        monitorItems: res
-      });
-      wx.hideLoading();
-    }).catch(err => {
-      wx.hideLoading();
-      if (err) {
-        if (err.message) {
-          util.showErrorToast(err.message);
-        }
-      }
-    });
-  },
-  inputMonitorAlarmValue: function(e) {
-    const _this = this;
-    var form = _this.data.form;
-    form.monitorAlarmValue = e.detail.value;
-    _this.setData({
-      form: form
-    });
-  },
-  monitorItemsChange: function(e) {
-    const _this = this;
-    var form = _this.data.form;
-    var oc = _this.data.monitorItems[e.detail.value];
-    form.monitorItemCode = oc.code;
-    form.monitorItemName = oc.name;
-    form.monitorItemUnit = oc.unit;
-    _this.setData({
-      form: form
-    });
-  },
-  operationalCharacterChange: function(e) {
-    const _this = this;
-    var form = _this.data.form;
-    var oc = _this.data.operationalCharacters[e.detail.value];
-    form.operationalCharacter = oc.ocValue;
-    form.operationalCharacterName = oc.ocName;
-    _this.setData({
-      form: form
-    });
   },
   selectPushType: function(e) {
     const _this = this;
     var form = _this.data.form;
     form.pushTypes = e.detail.value;
+    _this.setData({
+      form: form
+    });
+  },
+  notifyTypesChange: function (e) {
+    const _this = this;
+    var form = _this.data.form;
+    var oc = _this.data.notifyTypes[e.detail.value];
+    form.notifyTypeId = oc.ptValue;
+    form.notifyTypeName = oc.ptName;
     _this.setData({
       form: form
     });
@@ -218,7 +160,7 @@ Page({
     _this.setData({
       submiting: true
     });
-    equipmentAlarmConfService.saveEquipmentAlarmConf(this.data.form).then(res => {
+    equipmentAlarmConfService.saveBlackoutAlarmConf(this.data.form).then(res => {
       wx.navigateBack();
     }).catch(err => {
       _this.setData({

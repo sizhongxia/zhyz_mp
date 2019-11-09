@@ -75,6 +75,14 @@ const getCameraDetail = (equipmentId) => {
   });
 }
 
+const getBlackoutAlarmList = (equipmentId, page) => {
+  return util.post(api.BlackoutAlarmList, {
+    equipmentId: equipmentId,
+    page: page,
+    size: 20
+  });
+}
+
 module.exports = {
   // getEquipmentData: getEquipmentData,
   // getFarmBaseEquipmentData: getFarmBaseEquipmentData,
@@ -87,5 +95,6 @@ module.exports = {
   getEquipmentMonitorItems: getEquipmentMonitorItems,
   toggleOutlineReceiveStatus: toggleOutlineReceiveStatus,
   toMigrate: toMigrate,
-  getCameraDetail: getCameraDetail
+  getCameraDetail: getCameraDetail,
+  getBlackoutAlarmList: getBlackoutAlarmList
 }

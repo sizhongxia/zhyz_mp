@@ -1,0 +1,53 @@
+<form>
+  <form-group>
+    <view class='title'>通知类型</view>
+    <picker bindchange="notifyTypesChange" value="{{index}}" range="{{notifyTypes}}" range-key="ptName">
+      <view class="picker">
+        {{ form.notifyTypeName }}
+      </view>
+    </picker>
+  </form-group>
+  <form-group class="margin-top">
+    <view class='title'>推送方式</view>
+    <checkbox-group bindchange="selectPushType">
+      <label class="checkbox" wx:for="{{pushTypes}}" wx:key="ptValue">
+        <checkbox value="{{item.ptValue}}" class='sm'></checkbox> {{item.ptName}}
+      </label>
+    </checkbox-group>
+  </form-group>
+  <form-group>
+    <view class='title'>推送间隔（分钟）</view>
+    <input placeholder="请输入推送间隔" type='number' class='radius' name='pushInterval' bindinput="inputPushInterval" value="{{form.pushInterval}}" style='text-align:right;'></input>
+  </form-group>
+  <form-group class="margin-top">
+    <view class='title'>接收人1</view>
+    <input placeholder="输入接收人1的手机号" class='radius' name='pushPerson1' bindinput="inputPushPerson1" value="{{form.pushPerson1}}" style='text-align:right;'></input>
+    <button class='shadow' bindtap='checkPushPerson1'>检查</button>
+  </form-group>
+  <form-group>
+    <view class='title'>接收人2</view>
+    <input placeholder="输入接收人2的手机号" class='radius' name='pushPerson2' bindinput="inputPushPerson2" value="{{form.pushPerson2}}" style='text-align:right;'></input>
+    <button class='shadow' bindtap='checkPushPerson2'>检查</button>
+  </form-group>
+  <form-group>
+    <view class='title'>接收人3</view>
+    <input placeholder="输入接收人3的手机号" class='radius' name='pushPerson3' bindinput="inputPushPerson3" value="{{form.pushPerson3}}" style='text-align:right;'></input>
+    <button class='shadow' bindtap='checkPushPerson3'>检查</button>
+  </form-group>
+  <form-group>
+    <view class='title'>接收人4</view>
+    <input placeholder="输入接收人4的手机号" class='radius' name='pushPerson4' bindinput="inputPushPerson4" value="{{form.pushPerson4}}" style='text-align:right;'></input>
+    <button class='shadow' bindtap='checkPushPerson4'>检查</button>
+  </form-group>
+  <form-group>
+    <view class='title'>接收人5</view>
+    <input placeholder="输入接收人5的手机号" class='radius' name='pushPerson5' bindinput="inputPushPerson5" value="{{form.pushPerson5}}" style='text-align:right;'></input>
+    <button class='shadow' bindtap='checkPushPerson5'>检查</button>
+  </form-group>
+</form>
+
+<bar class="btn-group options width-full">
+  <button loading="{{submiting}}" disabled="{{form.monitorItemCode==''}}" class='bg-green round lg' bindtap='toAdd'>
+    <icon class='icon-check'></icon> 保存
+  </button>
+</bar>

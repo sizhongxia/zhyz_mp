@@ -66,7 +66,7 @@
   </card>
 
   <!-- 设备卡片 -->
-  <card class="article margin-top no-card width-full" wx:if="{{hlys.length>0}}">
+  <card class="article margin-top no-card width-full" wx:if="{{hlys && hlys.length>0}}">
     <item class="shadow" style="border-radius:0">
       <view wx:for="{{hlys}}" wx:key="equipmentId" wx:for-item="item" wx:for-index="idx" class='solid-bottom' style='margin-bottom: 10rpx;padding: 30rpx'>
         <navigator hover-class='none' url='/pages/equipment/type/detail?equipmentId={{item.equipmentId}}'>
@@ -84,6 +84,30 @@
               <text style='margin-right: 20rpx;'>{{citem.name}}: {{citem.value}}{{citem.unit}}</text>
               <text wx:if="{{cidx < (item.value.length-1)}}" style='margin-right: 20rpx;'>|</text>
             </block>
+          </view>
+          <view style='line-height:52rpx;color: #888;font-size: 28rpx;'>最新数据采集时间：<span style="font-weight: 600">{{item.collectTime}}</span></view>
+        </view>
+        </navigator>
+      </view>
+    </item>
+  </card>
+
+  <!-- 设备卡片 -->
+  <card class="article margin-top no-card width-full" wx:if="{{blackouts && blackouts.length>0}}">
+    <item class="shadow" style="border-radius:0">
+      <view wx:for="{{blackouts}}" wx:key="equipmentId" wx:for-item="item" wx:for-index="idx" class='solid-bottom' style='margin-bottom: 10rpx;padding: 30rpx'>
+        <navigator hover-class='none' url='/pages/blackoutAlarm/index?equipmentId={{item.equipmentId}}'>
+        <view style='line-height:62rpx;'>
+          <text style="float:right;color:{{item.online?'green':'red'}};font-weight: 500;font-size: 28rpx">{{item.online?'在线':'离线'}}</text>
+          <text style='font-size: 32rpx;'>{{item.equipmentName}}</text>
+          <text style='font-size: 26rpx;'>（{{item.equipmentCode}}）</text>
+        </view>
+        <view wx:if="{{!item.online}}" style='line-height:52rpx;font-size: 26rpx;margin-top: 12rpx;padding: 0 20rpx;'>
+          <text>1. 检查设备是否断电；2. 检查网络是否正常；3. 检查是否接入IOT平台。</text>
+        </view>
+        <view wx:else>
+          <view style='font-size: 28rpx;line-height:52rpx;'>
+            当前状态：{{equipment.status === '00' ? '离线' : equipment.status == '02' ? '通电' : '断电'}}
           </view>
           <view style='line-height:52rpx;color: #888;font-size: 28rpx;'>最新数据采集时间：<span style="font-weight: 600">{{item.collectTime}}</span></view>
         </view>

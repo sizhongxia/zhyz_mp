@@ -20,6 +20,7 @@ Page({
     weather: '',
     weatherNow: {},
     hlys: [],
+    blackouts: [],
     inspection: {},
     feed: {},
     news: {},
@@ -125,6 +126,7 @@ Page({
         weather: res.weather,
         weatherNow: res.weatherNow,
         hlys: res.hlys,
+        blackouts: res.blackouts,
         news: res.news
       });
       // 加载巡检记录

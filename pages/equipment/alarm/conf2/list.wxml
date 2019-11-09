@@ -1,0 +1,23 @@
+<list class="menu no-padding">
+  <item class="arrow" wx:for="{{confs}}" wx:key="confId" data-conf-id="{{item.confId}}" bindtap="toDetail">
+    <view class='content'>
+      <view style='font-size:26rpx'>
+        <text style='color:#444'>当设备 </text>
+        <text style='color:#f37b1d;font-weight:600'>{{item.monitorAlarmValue == 1.0 ? '断电' : '通电'}}时</text>
+        <text style='color:#444'> 发送告警通知。</text>
+      </view>
+      <view class='text-gray text-sm'>创建于：{{item.createAt}}</view>
+    </view>
+    <view class='action'>
+      <tag wx:if="{{item.useState}}" class="round bg-green"> 使用中 </tag>
+      <tag wx:else class="round bg-orange"> 未启用 </tag>
+    </view>
+  </item>
+  <view wx:if="{{confs.length === 0}}" class="padding-xl radius shadow-warp bg-white" style='box-shadow: none;text-align:center;'>暂无数据</view>
+</list>
+
+<bar class="btn-group options width-full">
+  <button class='bg-green round lg' bindtap='toAdd'>
+    <icon class='icon-add'></icon> 新增告警配置
+  </button>
+</bar>

@@ -1,0 +1,12 @@
+<form>
+  <form-group>
+    <view class='title'>推送间隔（分钟）</view>
+    <input placeholder="请输入推送间隔" type='number' class='radius' name='pushInterval' bindinput="inputPushInterval" value="{{form.pushInterval}}" style='text-align:right;'></input>
+  </form-group>
+</form>
+
+<bar class="btn-group options width-full">
+  <button loading="{{submiting}}" disabled="{{form.monitorItemCode==''}}" class='bg-green round lg' bindtap='toUpdate'>
+    <icon class='icon-check'></icon> 修改
+  </button>
+</bar>

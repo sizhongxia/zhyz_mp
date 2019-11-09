@@ -1,0 +1,71 @@
+<list class="menu">
+  <item>
+    <view class='content'>
+      <text class='text-grey'>告警规则</text>
+    </view>
+    <view class='action'>
+      <text class='text-grey text-sm'>当{{conf.monitorAlarmValue == 1.0 ? '断电' : '通电'}}时发送告警通知</text>
+    </view>
+  </item>
+  <item class="arrow" bindtap="updatePushInterval">
+    <view class='content'>
+      <text class='text-grey'>通知间隔</text>
+    </view>
+    <view class='action'>
+      <text class='text-grey text-sm'>{{conf.pushInterval}}</text>
+    </view>
+  </item>
+  <item class="arrow" bindtap="updatePushType">
+    <view class='content'>
+      <text class='text-grey'>通知方式</text>
+    </view>
+    <view class='action'>
+      <text class='text-grey text-sm'>{{conf.pushType}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <view class='text-grey'>启用状态</view>
+    </view>
+    <view class='action'>
+      <switch class='sm' checked="{{conf.useState}}" bindchange="switchUseState"/>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey'>创建时间</text>
+    </view>
+    <view class='action'>
+      <text class='text-grey text-sm'>{{conf.createAt}}</text>
+    </view>
+  </item>
+  <item>
+    <view class='content'>
+      <text class='text-grey'>更新时间</text>
+    </view>
+    <view class='action'>
+      <text class='text-grey text-sm'>{{conf.updateAt || '-'}}</text>
+    </view>
+  </item>
+</list>
+<bar class="solid-bottom margin-top">
+  <view class='action'>
+    <icon class='icon-titles text-orange ' /> 推送人
+  </view>
+  <button wx:if="{{conf.pushPersons.length < 5}}" class="bg-grey" style='margin-right: 30rpx;' bindtap='addPushPerson'>新增</button>
+</bar>
+<list class="menu menu-avatar no-padding">
+  <item wx:for="{{conf.pushPersons}}" wx:key="userId" wx:for-item="user">
+    <avatar class="round lg" style="background-image:url({{user.userAvator}});"></avatar>
+    <view class='content'>
+      <view class='text-grey'>{{user.userName}}</view>
+      <view class='text-gray text-sm'>{{user.phoneNo}}</view>
+    </view>
+    <button class="bg-red" data-user-id="{{user.userId}}" bindtap='rmPushPerson'>移除</button>
+  </item>
+</list>
+<bar class="btn-group options width-full">
+  <button loading='{{submiting}}' class='bg-red round lg' bindtap='toDelete'>
+    <icon class='icon-delete'></icon> 删除此配置
+  </button>
+</bar>
